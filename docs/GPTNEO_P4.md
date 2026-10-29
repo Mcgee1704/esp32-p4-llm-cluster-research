@@ -1,0 +1,198 @@
+# GPT-Neo / TinyTalk-2 on ESP32-P4
+
+29 October 2026. This study implements the previously screened TinyTalk-2
+checkpoint on the two revision-1.3 P4 boards. The controlled device study is
+recorded in `data/gptneo-p4-2026-10-29/completed-study/`. The earlier
+`final-study/` name denotes the frozen 0.5.3 attempt; its restart gate failed
+after its 14 complete numerical generations. It is not a completed final gate.
+
+## Implementation and host gates
+
+The portable runtime now has an explicit GPT-Neo branch alongside the retained
+Llama implementation. Both reuse the existing dual-core/four-row matrix engine.
+GPT-Neo adds learned position embeddings, LayerNorm with bias, GELU-new, biased
+MLP/output projection, unscaled attention and alternating global/local masks.
+Embedding/output weights remain tied. No vocabulary pruning, Q4 weights or KV
+quantization were added. See [the binary contract](GPTNEO_FORMAT.md).
+
+The GPT-2 byte BPE implementation uses length-delimited byte pieces, ranked
+merge records and Unicode character classes derived from the pinned tokenizer
+backend. It supports embedded zero bytes in decoded pieces, special markers,
+contractions and whitespace boundaries; input UTF-8 is validated. The HTTP
+generation service uses model-specific EOS and explicit decoded-byte lengths.
+The UI accepts `.p4gn` and explains the model-update restart.
+
+The exported artifact contains all 50,257 pieces, 50,000 merges and 831 character
+class ranges. Its size is **21,380,448 bytes**, including 20,048,464 weight-section
+bytes and 1,331,856 tokenizer bytes. This is 210,009 bytes above the earlier
+proposed layout: actual merge records contain an explicit rank, plus the
+classifier/metadata/padding. The complete artifact still fits the existing
+24-MiB model partition. Model ID:
+`8fb68b9d2c64d260277ecc4ad90a17cac6f8113db4b646a08b7c7ada295c9b60`.
+
+Host gate: **40 accumulated tests passed**, including malformed GPT-Neo data,
+all kernel modes, complete-vs-split layer results, local masking, tokenizer
+boundaries, binary NUL pieces and invalid UTF-8/capacity limits. Actual-model
+checks compared every decoded vocabulary piece and **1,102 encoding probes**
+with tokenizers 0.22.1: exact equality. These include the study prompts, all
+exported Unicode class boundaries, contractions, control whitespace, special
+markers, accented/CJK/emoji text and deterministic mixed fuzz inputs.
+
+At 18 actual prompt positions, all 50,257 C logits matched the quantized NumPy
+reference within maximum absolute error **0.0000267029** (tolerance 0.002),
+with equal argmax. All 14 complete C generations matched the earlier INT8
+simulation. This numerical gate compares our C and NumPy paths; it does not add
+an independently executed Transformers reference. The 32,000-token Llama path
+remains covered by the accumulated suite and real old-model controls.
+
+## Real failure and loading-policy correction
+
+Firmware 0.5.0 first passed a 24-token SFT control on board 2. A complete
+TinyTalk model upload then failed during the large in-place PSRAM allocation.
+Board 1 remained on 0.4.0/SFT; the master peer was disabled during investigation.
+A controlled USB hard reset recovered board 2 and loaded TinyTalk from its
+already committed flash. Its first real Q1 output matched all six C-reference
+tokens, reached observed EOS and took 4,512.361 ms including the prompt.
+
+Instrumentation in 0.5.1/0.5.2 separated total free PSRAM from the largest
+allocatable block. A repeated full upload transferred all 21,380,448 bytes in
+84.797 seconds, then returned HTTP 400 with `Insufficient PSRAM for model`.
+Immediately before that failed allocation, the heap reported:
+
+| Measurement | Bytes |
+| --- | ---: |
+| Total free PSRAM | 33,551,432 |
+| Largest allocatable block | 20,447,232 |
+| Requested contiguous model blob | 21,380,448 |
+
+The requested block exceeds the reported largest block by 933,216 bytes despite
+sufficient aggregate free memory. A different hot replacement history succeeded
+with largest block 25,690,112, demonstrating why that successful retry alone
+would not establish a reliable loading path. Cold loading succeeded and left
+about 7.6 MB free. The precise allocation/block history is not fully traced;
+the directly observed limitation is the live allocator's largest-block bound.
+
+From **0.5.3**, verified P4GN uploads commit the header last, acknowledge the
+upload and reboot automatically. Loading precedes network allocations on the
+fresh heap. Dispatcher maintenance remains active until reboot, and direct
+inference/writes are refused while restart is pending. Clients check new boot
+ID, expected model identity, readiness and OTA confirmation. Existing P4LM
+in-place loading remains available. This is a deliberate loading-contract
+change, not a claim that aggregate PSRAM or SD capacity increased.
+
+Early diagnostic OTA sometimes did not return over LAN before a USB reset;
+one subsequent boot reported 0.5.0. The 0.5.3 same-image OTA also missed its
+readiness deadline after all 14 generations. The timeout's last stored JSON
+was the status before disconnection, not proof that the restart task never
+ran. Repeated 0.5.4 OTA with UART observation showed a software reset, successful
+model loading and LAN return, including after the 116-token story. This did not
+isolate the cause of the intermittent earlier failures.
+
+Firmware **0.5.5** uses a restart worker allocated and checked at boot, signalled
+by task notification after an update. It has a 4-KiB stack and is pinned to core
+0. After the acknowledgement delay it stops Ethernet through the driver before
+calling the normal system restart. This removes unchecked per-update task
+creation and explicitly quiesces the network peripheral. These changes are a
+combined engineering measure, not a causal ablation proving which earlier
+component caused the intermittent failure. The continuation tests run solely
+over LAN without a serial connection. Normal successful OTA is not a fault-
+injection or long-term recovery guarantee.
+
+## Controlled device protocol
+
+Both the initial protocol and the amended continuation are frozen before their
+own measurements. In 0.5.3 the peer ran an SFT control then all 14 TinyTalk
+host-screen cases, comparing complete C tokens/text/EOS. Its later same-image
+restart gate failed, so the master remained untouched. The continuation checks
+that the portable core, exporter and reference source hashes are unchanged.
+It rechecks Q1/Q3/S1 on 0.5.5, tests same-image LAN OTA after long inference, and
+tests a same-model upload with automatic cold restart and a post-restart Q1.
+It does not silently relabel the older 14-case records as new firmware runs.
+Only after the amended peer gate may the master receive the matching firmware,
+run the retained SFT control, load TinyTalk and configure the peer again.
+
+The workload study uses Q1/Q2, a cap of 32 output tokens, four rotated paired
+blocks, and two modes: both independent jobs on the master versus one job on
+each board. Actual EOS output lengths must match their references in both
+modes. Package timing uses the master's monotonic acceptance/completion clock.
+Paired throughput factor is the median of within-block ratios. The model/
+prompt wrappers differ from the old TinyStories speed studies, so their
+absolute times and simulator coefficients are not interchangeable controls.
+
+## Completed 0.5.5 results
+
+The amended first-board gate passed without serial intervention: Q1/Q3/S1
+matched their full native references, same-image LAN OTA after the long story
+returned with a new boot ID and confirmed firmware, and a complete same-model
+upload automatically rebooted/loaded the model and passed post-restart Q1.
+The earlier 14-case P4 gate remains attributed to 0.5.3 with identical portable
+core/exporter/reference hashes. The master then passed its old SFT control,
+received TinyTalk through automatic cold loading, and matched Q3/C2/S1.
+
+Four paired, alternating-order blocks comprise **16 controlled jobs**:
+
+| Two-request package | Median | Range |
+| --- | ---: | ---: |
+| Master only | 10,727.5 ms | 10,721–10,743 ms |
+| Master plus peer | 5,607.0 ms | 5,471–5,736 ms |
+
+Median paired throughput factor: **1.91519485**. Each package has the same Q1/Q2
+inputs and actual outputs (6 + 8 tokens, both EOS), not just equal caps. Every
+token sequence, decoded text and EOS result matches the C references. All four
+cluster packages used both lanes. Their master-clock backend-job intervals
+overlapped by 4,577 / 4,752 / 4,752 / 4,797 ms. Those intervals include backend
+and transport time; no cross-board clock synchronization is assumed.
+
+All 16 kernel profiles report owner core mask 2, helper core mask 1 and internal
+work vectors of 12,288 bytes, supporting use of both HP cores on each active
+node. These are software execution/profile checks, not instruction counters.
+Observed free PSRAM before the final master restart was 6,284,284 bytes on the
+master with retained result slots and 7,627,804 on the peer; neither value is a
+proof of every transient memory peak.
+
+A separate sequential layer-RPC Q1 function check used both boards and matched
+all six tokens, text and EOS in 4,650.65 ms. This single extra run is not a
+controlled latency comparison. The throughput improvement above concerns
+independent requests, not speeding one autoregressive chain or increasing
+loadable model capacity. Both nodes still store the full checkpoint.
+
+After the controlled performance study, a separately declared functional probe
+updated/restarted the master over LAN, verified its new boot ID and confirmed
+that the saved peer configuration survived without reconfiguration. Two more
+jobs then used both targets and matched their token/text/EOS references. These
+two jobs are not included in the 16-job timing table. Both devices finished on
+0.5.5 with the matching model, confirmed firmware, no pending restart or worker
+lease, and no queued/running jobs. Completed results are RAM-only and a model/
+firmware restart clears that history; persistent SD storage was not added.
+
+Quality remains the earlier INT8 screen's quality: the known false bicycle
+answer also matches on real hardware. Exact token agreement proves execution
+agreement, not truthfulness. No larger-model, German-assistant, power-efficiency
+or physical-three-node conclusion follows. Existing baseline simulation fits
+need new calibration for this checkpoint and its different EOS lengths.
+
+## Scope and reproducibility
+
+Pinned model, licence and exploratory quality limits are unchanged from the
+[host screen](TINYTALK_HOST.md): CC BY-NC-SA 4.0 per the author,
+English toy dialogue, no general instruction/assistant qualification. Preserve
+the known INT8 bicycle error rather than tuning the evaluation around it.
+No model-repository Python, remote inference or source publication is involved.
+Model weights, device images with the LAN key, raw USB logs and toolchains stay
+in ignored local storage. No physical third board or model-memory sharding is
+claimed; both nodes hold the complete model.
+
+Tools: `pack_gptneo.py`, `check_gptneo_native.py`, staged
+`gptneo_p4_trial.py` and `gptneo_finish_study.py`. The latter is the explicitly
+documented continuation after the recorded first attempt, not a general fresh
+installer. Preparation freezes model/firmware/rollback hashes, references,
+cases, ordering and scripts; later stages reject changes. Hardware commands
+perform actual LAN writes and expect the documented starting state. The old
+0.4.0 firmware and SFT artifact remain retained for recovery. Initial measured
+trial-script snapshots are retained locally beside the private device artifacts.
+
+The complete original diagnostic build environments/intermediate source trees
+are not exported by this report. Private images include the installation key.
+The final implementation is versioned here; failed-run metrics and the scope of
+their retained private artifacts are documented without claiming every historic
+image is independently reproducible from the final source tree.

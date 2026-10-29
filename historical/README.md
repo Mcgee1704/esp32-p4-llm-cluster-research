@@ -4,5 +4,6 @@
 milestones. Transport files and pause/dual/tile test folders are **partial source
 snapshots/overlays**, not complete independently validated release projects.
 Exact old build environments and all old source trees are not claimed available.
-No compiled app image, private SDK configuration or key is published. English
+Original deployment images, private SDK configuration and keys are excluded.
+Separately rebuilt keyless diagnostic bundles are in firmware-versions/. English
 UI and generic setup-path translations change bytes relative to historical hashes.

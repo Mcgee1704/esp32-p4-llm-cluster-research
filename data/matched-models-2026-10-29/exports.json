@@ -1,0 +1,81 @@
+{
+  "sft": {
+    "name": "TinyStories-15M SFT",
+    "repository": "0rn0/llama2-15m-tinystories-sft",
+    "artifact_bytes": 15836365,
+    "artifact_sha256": "a1aa4c95d23be513adee776fc2bbb835fce2e5ab88ddd04461da3c69d35495cd",
+    "model_id": "5273bac5d1937595d92e1528a21ad7ac619e5fde8d2bfbb0aca04866bf10e07f",
+    "dimensions": [
+      288,
+      768,
+      6,
+      6,
+      6,
+      32000,
+      256
+    ]
+  },
+  "story8": {
+    "name": "TinyStories-Instruct-8M",
+    "repository": "roneneldan/TinyStories-Instruct-8M",
+    "revision": "18d7c83c2d7b0685b0da3c26379dd4d4d90a1ffb",
+    "hidden": 256,
+    "weights_sha256": "4d625b61fae5ca897e037b702e5774598eace89720be23a4bcce68d4cb0b665b",
+    "legacy_masks": true,
+    "artifact_bytes": 21380448,
+    "artifact_sha256": "3ffc23f7bc1b651d24d15f2c2744fef97a136883a445694a261c9cb0b948149c",
+    "model_id": "86d2651b7fc1385c68b5d97f81047678f74fec3c60b62c3a94e168ba741997ef",
+    "dimensions": [
+      256,
+      1024,
+      8,
+      16,
+      16,
+      50257,
+      256
+    ],
+    "actual_parameters": 19702528
+  },
+  "talk1": {
+    "name": "TinyTalk 1",
+    "repository": "TheREZOR/TinyTalk",
+    "revision": "61c79ad139344cdd344a687b35fa8f1c52326154",
+    "hidden": 128,
+    "weights_sha256": "d7510ceac1d4f2a7d00b6f2da92cdce38706faa60a96c60884819d00ef58af77",
+    "legacy_masks": false,
+    "artifact_bytes": 9887968,
+    "artifact_sha256": "1f258f0aabe64e6f123b9703d73d3c100a5f58661e63484ceefc6f16149f8500",
+    "model_id": "17a9c99d125ea8663185e191405f3ab7119a6fadaf78cea364779ad08971fb0e",
+    "dimensions": [
+      128,
+      512,
+      8,
+      16,
+      16,
+      50257,
+      256
+    ],
+    "actual_parameters": 8278400
+  },
+  "talk2": {
+    "name": "TinyTalk-2",
+    "repository": "TheREZOR/TinyTalk-2",
+    "revision": "2b55040281013975a4d97e3db8d634f78b31c6b1",
+    "hidden": 256,
+    "weights_sha256": "40e10ee793e157f09fb94d2926db9aa3f81d42814249f1c1db023b7027f17567",
+    "legacy_masks": false,
+    "artifact_bytes": 21380448,
+    "artifact_sha256": "15f705ffce7ec2cf378dbe78c67c7c5c18e0ca41f2a3cd4d98c68a1e97264de2",
+    "model_id": "8fb68b9d2c64d260277ecc4ad90a17cac6f8113db4b646a08b7c7ada295c9b60",
+    "dimensions": [
+      256,
+      1024,
+      8,
+      16,
+      16,
+      50257,
+      256
+    ],
+    "actual_parameters": 19702528
+  }
+}

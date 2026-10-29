@@ -1,0 +1,12 @@
+{
+  "type": "Transparent self-review before final publication, not an independent second reviewer",
+  "changes": [
+    {
+      "model": "talk1",
+      "case": "I3",
+      "initial_draft_fully_fulfilled": false,
+      "final_literal_fully_fulfilled": true,
+      "reason": "Initial draft implicitly required an informative declarative answer. Frozen instruction only requests one short sentence about rain without animals; count the interrogative generously and expose ambiguity. Strict exclusion would change TinyTalk 1 instructions from 1/3 to 0/3 without changing the conclusion of unreliable general instruction following."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "b44b38300000000f",
+    "state": "done",
+    "target": "local",
+    "error": "",
+    "created_ms": 65030,
+    "started_ms": 65251,
+    "finished_ms": 70503,
+    "output_tokens": 24,
+    "queue_ms": 221,
+    "raw_ndjson": "{\"bytes_hex\":\"20746865\",\"token\":262}\n{\"bytes_hex\":\"20636172726f74\",\"token\":40562}\n{\"bytes_hex\":\"2077697468\",\"token\":351}\n{\"bytes_hex\":\"20686973\",\"token\":465}\n{\"bytes_hex\":\"20667269656e64\",\"token\":1545}\n{\"bytes_hex\":\"2c\",\"token\":11}\n{\"bytes_hex\":\"20627574\",\"token\":475}\n{\"bytes_hex\":\"206865\",\"token\":339}\n{\"bytes_hex\":\"206469646e\",\"token\":1422}\n{\"bytes_hex\":\"2774\",\"token\":470}\n{\"bytes_hex\":\"206b6e6f77\",\"token\":760}\n{\"bytes_hex\":\"20686f77\",\"token\":703}\n{\"bytes_hex\":\"20746f\",\"token\":284}\n{\"bytes_hex\":\"20646f\",\"token\":466}\n{\"bytes_hex\":\"206974\",\"token\":340}\n{\"bytes_hex\":\"2e\",\"token\":13}\n{\"bytes_hex\":\"20\",\"token\":220}\n{\"bytes_hex\":\"0a\",\"token\":198}\n{\"bytes_hex\":\"53756464656e6c79\",\"token\":38582}\n{\"bytes_hex\":\"2c\",\"token\":11}\n{\"bytes_hex\":\"206865\",\"token\":339}\n{\"bytes_hex\":\"206865617264\",\"token\":2982}\n{\"bytes_hex\":\"2061\",\"token\":257}\n{\"bytes_hex\":\"206c6f7564\",\"token\":7812}\n{\"done\":true,\"eos\":false,\"output_tokens\":24,\"elapsed_ms\":5028.575,\"ttft_ms\":1166.735,\"boards\":1,\"profile\":{\"master_compute_ms\":4995.568,\"stream_ms\":24.72,\"rpc_total_ms\":0,\"rpc_open_ms\":0,\"rpc_write_ms\":0,\"rpc_wait_headers_ms\":0,\"rpc_read_ms\":0,\"worker_compute_ms\":0,\"rpc_calls\":0,\"connections\":0,\"worker_reports\":0},\"kernel\":{\"mode\":\"tile4\",\"work_internal\":true,\"internal_work_allocated\":6144,\"matmul_ms\":4110.186,\"finish_ms\":2695.734,\"pause_ms\":411.731,\"pause_calls\":448,\"rows\":1630104,\"owner_core_mask\":2,\"helper_core_mask\":1,\"helper_ms\":3842.661,\"helper_pause_ms\":327.011,\"helper_pause_calls\":452,\"helper_rows\":815256,\"parallel_calls\":2232,\"barrier_ms\":148.6,\"overlap_ms\":3725.898},\"prompt_tokens\":23}\n"
+  },
+  {
+    "id": "b44b383000000010",
+    "state": "done",
+    "target": "local",
+    "error": "",
+    "created_ms": 65060,
+    "started_ms": 70751,
+    "finished_ms": 75753,
+    "output_tokens": 24,
+    "queue_ms": 5691,
+    "raw_ndjson": "{\"bytes_hex\":\"2074696564\",\"token\":8165}\n{\"bytes_hex\":\"206974\",\"token\":340}\n{\"bytes_hex\":\"20746f\",\"token\":284}\n{\"bytes_hex\":\"20746865\",\"token\":262}\n{\"bytes_hex\":\"20737472696e67\",\"token\":4731}\n{\"bytes_hex\":\"2e\",\"token\":13}\n{\"bytes_hex\":\"20536865\",\"token\":1375}\n{\"bytes_hex\":\"2074696564\",\"token\":8165}\n{\"bytes_hex\":\"20746865\",\"token\":262}\n{\"bytes_hex\":\"20737472696e67\",\"token\":4731}\n{\"bytes_hex\":\"20746f\",\"token\":284}\n{\"bytes_hex\":\"20746865\",\"token\":262}\n{\"bytes_hex\":\"20737472696e67\",\"token\":4731}\n{\"bytes_hex\":\"2e\",\"token\":13}\n{\"bytes_hex\":\"20536865\",\"token\":1375}\n{\"bytes_hex\":\"20776173\",\"token\":373}\n{\"bytes_hex\":\"20736f\",\"token\":523}\n{\"bytes_hex\":\"206861707079\",\"token\":3772}\n{\"bytes_hex\":\"2e\",\"token\":13}\n{\"bytes_hex\":\"0a\",\"token\":198}\n{\"bytes_hex\":\"4d\",\"token\":44}\n{\"bytes_hex\":\"6961\",\"token\":544}\n{\"bytes_hex\":\"20616e64\",\"token\":290}\n{\"bytes_hex\":\"20686572\",\"token\":607}\n{\"done\":true,\"eos\":false,\"output_tokens\":24,\"elapsed_ms\":4811.232,\"ttft_ms\":1005.527,\"boards\":1,\"profile\":{\"master_compute_ms\":4786.313,\"stream_ms\":18.456,\"rpc_total_ms\":0,\"rpc_open_ms\":0,\"rpc_write_ms\":0,\"rpc_wait_headers_ms\":0,\"rpc_read_ms\":0,\"worker_compute_ms\":0,\"rpc_calls\":0,\"connections\":0,\"worker_reports\":0},\"kernel\":{\"mode\":\"tile4\",\"work_internal\":true,\"internal_work_allocated\":6144,\"matmul_ms\":3973.899,\"finish_ms\":2637.689,\"pause_ms\":389.09,\"pause_calls\":430,\"rows\":1602456,\"owner_core_mask\":2,\"helper_core_mask\":1,\"helper_ms\":3736.128,\"helper_pause_ms\":334.445,\"helper_pause_calls\":434,\"helper_rows\":801432,\"parallel_calls\":2088,\"barrier_ms\":165.811,\"overlap_ms\":3594.053},\"prompt_tokens\":20}\n"
+  }
+]

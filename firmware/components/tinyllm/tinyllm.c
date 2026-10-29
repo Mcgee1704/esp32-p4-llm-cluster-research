@@ -1,6 +1,7 @@
 /* Portable scalar Llama inference. Algorithm reference: karpathy/llama2.c (MIT).
  * New P4LM parser, per-row INT8 layout and layer-range API; see THIRD_PARTY.md. */
 #include "tinyllm.h"
+#include "gpt2_tokenizer.h"
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
@@ -19,7 +20,7 @@
 #define YIELD() ((void)0)
 #endif
 typedef struct { const float *scale; const int8_t *q; int rows,cols; } matrix;
-typedef struct { const float *na,*nf; matrix q,k,v,o,w1,w2,w3; } layer;
+typedef struct { const float *na,*nf,*ba,*bf,*bo,*b1,*b2; matrix q,k,v,o,w1,w2,w3; } layer;
 typedef struct { const char *text; int id; } token_index;
 typedef struct {
     float *out; const matrix *m; const float *x; int first,end,mode;
@@ -37,7 +38,8 @@ struct ts_state {
 #ifdef ESP_PLATFORM
     parallel_context *parallel;
 #endif
-    ts_config c; const uint8_t *blob; matrix emb; layer layer[32]; const float *norm;
+    ts_config c; const uint8_t *blob; matrix emb,positions; layer layer[32]; const float *norm,*norm_bias;
+    int neo; unsigned window,eos;gpt2_tokenizer *bpe;char decoded[513];
     float *x,*xb,*xb2,*hb,*hb2,*q,*att,*logits,*kc,*vc;
     float *work_psram[6],*work_internal;
     char **tokens; float *scores; token_index *sorted; char *strings;
@@ -62,9 +64,16 @@ static int read_matrix(matrix *m,const uint8_t **p,const uint8_t *end,int r,int 
 static int token_cmp(const void *a,const void *b) {
     return strcmp(((const token_index*)a)->text,((const token_index*)b)->text);
 }
+static const float *read_vector(const uint8_t **p,const uint8_t *end,unsigned count) {
+    const float *v=take(p,end,(size_t)count*4);if(!v)return NULL;
+    for(unsigned i=0;i<count;i++)if(!isfinite(v[i]))return NULL;
+    return v;
+}
 ts_state *ts_open(const void *blob,size_t bytes) {
     const uint8_t *b=blob;
-    if(!b||((uintptr_t)b&3)||bytes<128||memcmp(b,"P4LM0001",8)) return NULL;
+    if(!b||((uintptr_t)b&3)||bytes<128) return NULL;
+    int neo=!memcmp(b,"P4GN0001",8);
+    if(!neo&&memcmp(b,"P4LM0001",8))return NULL;
     ts_config c; memcpy(&c,b+8,sizeof c);
     if(!c.dim||c.dim>1024||c.dim%4||!c.hidden||c.hidden>4096||c.hidden%4||
        !c.layers||c.layers>32||!c.heads||c.heads>c.dim||!c.kv_heads||c.kv_heads>c.heads||
@@ -74,9 +83,28 @@ ts_state *ts_open(const void *blob,size_t bytes) {
     if(weights>bytes-128||toksize!=bytes-128-weights||weights%4||
        ts_crc32(b+128,bytes-128)!=u32(b+80)) return NULL;
     ts_state *s=calloc(1,sizeof *s); if(!s) return NULL;
-    s->kernel=TS_KERNEL_PACED; s->c=c; s->blob=b;
+    s->kernel=TS_KERNEL_PACED; s->c=c; s->blob=b;s->neo=neo;
     const uint8_t *p=b+128,*end=p+weights;
     int d=(int)c.dim,h=(int)c.hidden,kd=d*(int)c.kv_heads/(int)c.heads;
+    if(neo) {
+        const uint8_t *meta=take(&p,end,12);if(!meta||c.kv_heads!=c.heads||u32(b+44))goto fail;
+        unsigned positions=u32(meta);s->window=u32(meta+4);s->eos=u32(meta+8);
+        if(positions<c.context||positions>2048||!s->window||s->window>2048||s->eos>=c.vocab)goto fail;
+        if(read_matrix(&s->emb,&p,end,(int)c.vocab,d)||read_matrix(&s->positions,&p,end,(int)positions,d))goto fail;
+        for(unsigned i=0;i<c.layers;i++) {
+            layer *l=&s->layer[i];
+            l->na=read_vector(&p,end,c.dim);l->ba=read_vector(&p,end,c.dim);
+            if(!l->na||!l->ba||read_matrix(&l->q,&p,end,d,d)||read_matrix(&l->k,&p,end,d,d)||
+               read_matrix(&l->v,&p,end,d,d)||read_matrix(&l->o,&p,end,d,d))goto fail;
+            l->bo=read_vector(&p,end,c.dim);l->nf=read_vector(&p,end,c.dim);l->bf=read_vector(&p,end,c.dim);
+            if(!l->bo||!l->nf||!l->bf||read_matrix(&l->w1,&p,end,h,d))goto fail;
+            l->b1=read_vector(&p,end,c.hidden);if(!l->b1||read_matrix(&l->w2,&p,end,d,h))goto fail;
+            l->b2=read_vector(&p,end,c.dim);if(!l->b2)goto fail;
+        }
+        s->norm=read_vector(&p,end,c.dim);s->norm_bias=read_vector(&p,end,c.dim);
+        if(!s->norm||!s->norm_bias||p!=end)goto fail;
+        s->bpe=gpt2_open(end,toksize,c.vocab,s->eos);if(!s->bpe)goto fail;
+    } else {
     if(read_matrix(&s->emb,&p,end,(int)c.vocab,d)) goto fail;
     for(unsigned i=0;i<c.layers;i++) {
         layer *l=&s->layer[i]; l->na=take(&p,end,c.dim*4); l->nf=take(&p,end,c.dim*4);
@@ -106,7 +134,8 @@ ts_state *ts_open(const void *blob,size_t bytes) {
     }
     if(p!=end) goto fail;
     qsort(s->sorted,c.vocab,sizeof(token_index),token_cmp);
-    for(unsigned i=1;i<c.vocab;i++) if(!strcmp(s->sorted[i-1].text,s->sorted[i].text)) goto fail;
+    }
+    if(!neo)for(unsigned i=1;i<c.vocab;i++) if(!strcmp(s->sorted[i-1].text,s->sorted[i].text)) goto fail;
     for(int i=0;i<256;i++) s->byte_piece[i][0]=(char)i;
     s->x=ALLOC(c.dim*4); s->xb=ALLOC(c.dim*4); s->xb2=ALLOC(c.dim*4);
     s->hb=ALLOC(c.hidden*4); s->hb2=ALLOC(c.hidden*4); s->q=ALLOC(c.dim*4);
@@ -128,10 +157,12 @@ void ts_close(ts_state *s) {
     for(int i=0;i<6;i++)free(s->work_psram[i]);
     free(s->work_internal);
     free(s->att);free(s->logits);free(s->kc);free(s->vc);free(s->tokens);
-    free(s->scores);free(s->sorted);free(s->strings);free(s);
+    free(s->scores);free(s->sorted);free(s->strings);gpt2_close(s->bpe);free(s);
 }
 const ts_config *ts_config_get(const ts_state *s) { return &s->c; }
 const uint8_t *ts_model_id(const ts_state *s) { return s->blob+48; }
+const char *ts_architecture(const ts_state *s){return s->neo?"gpt_neo":"llama";}
+int ts_is_eos(const ts_state *s,int token){return s->neo?(unsigned)token==s->eos:token==1||token==2;}
 static int64_t now_us(void) {
 #ifdef ESP_PLATFORM
     return esp_timer_get_time();
@@ -191,6 +222,13 @@ static void rms(float *out,const float *x,const float *w,int n) {
     float sum=0; for(int i=0;i<n;i++) sum+=x[i]*x[i];
     float inv=1.0f/sqrtf(sum/n+1e-5f);
     for(int i=0;i<n;i++) out[i]=w[i]*(x[i]*inv);
+}
+static void norm(ts_state *s,float *out,const float *x,const float *w,const float *bias,int n) {
+    if(!s->neo){rms(out,x,w,n);return;}
+    float mean=0;for(int i=0;i<n;i++)mean+=x[i];mean/=n;
+    float variance=0;for(int i=0;i<n;i++){float z=x[i]-mean;variance+=z*z;}
+    float inv=1.0f/sqrtf(variance/n+1e-5f);
+    for(int i=0;i<n;i++)out[i]=((x[i]-mean)*inv)*w[i]+bias[i];
 }
 /* Each row keeps exactly the scalar summation order. Only complete rows move
  * to the helper; inputs are immutable until its completion semaphore arrives. */
@@ -300,42 +338,52 @@ int ts_layers(ts_state *s,int first,int end,int pos) {
     int d=s->c.dim,h=s->c.hidden,heads=s->c.heads,hs=d/heads;
     int kd=d*(int)s->c.kv_heads/heads,group=heads/(int)s->c.kv_heads;
     for(int i=0;i<d;i++) if(!isfinite(s->x[i])) return -1;
+    if(s->neo&&first==0) {
+        const int8_t *q=s->positions.q+(size_t)pos*d;float scale=s->positions.scale[pos];
+        for(int i=0;i<d;i++)s->x[i]+=(float)q[i]*scale;
+    }
     for(int n=first;n<end;n++) {
         const layer *l=&s->layer[n]; size_t off=(size_t)n*s->c.context*kd;
         float *k=s->kc+off+(size_t)pos*kd,*v=s->vc+off+(size_t)pos*kd;
-        rms(s->xb,s->x,l->na,d);
+        norm(s,s->xb,s->x,l->na,l->ba,d);
         matmul(s,s->q,&l->q,s->xb); matmul(s,k,&l->k,s->xb); matmul(s,v,&l->v,s->xb);
-        for(int i=0;i<d;i+=2) {
+        if(!s->neo)for(int i=0;i<d;i+=2) {
             float angle=pos/powf(10000.0f,(float)(i%hs)/hs),c=cosf(angle),sn=sinf(angle);
             float a=s->q[i],b=s->q[i+1]; s->q[i]=a*c-b*sn; s->q[i+1]=a*sn+b*c;
             if(i<kd) { a=k[i];b=k[i+1];k[i]=a*c-b*sn;k[i+1]=a*sn+b*c; }
         }
+        int begin=s->neo&&(n&1)&&pos>=(int)s->window?pos-(int)s->window+1:0;
         for(int head=0;head<heads;head++) {
             float *att=s->att+(size_t)head*s->c.context; float mx=-INFINITY;
-            for(int t=0;t<=pos;t++) {
+            for(int t=begin;t<=pos;t++) {
                 const float *key=s->kc+off+(size_t)t*kd+(head/group)*hs;float score=0;
                 for(int j=0;j<hs;j++) score+=s->q[head*hs+j]*key[j];
-                att[t]=score/sqrtf((float)hs); if(att[t]>mx) mx=att[t];
+                att[t]=s->neo?score:score/sqrtf((float)hs); if(att[t]>mx) mx=att[t];
             }
-            float sum=0;for(int t=0;t<=pos;t++) { att[t]=expf(att[t]-mx);sum+=att[t]; }
+            float sum=0;for(int t=begin;t<=pos;t++) { att[t]=expf(att[t]-mx);sum+=att[t]; }
             float *out=s->xb+head*hs;memset(out,0,(size_t)hs*4);
-            for(int t=0;t<=pos;t++) {
+            for(int t=begin;t<=pos;t++) {
                 const float *val=s->vc+off+(size_t)t*kd+(head/group)*hs;
                 for(int j=0;j<hs;j++) out[j]+=(att[t]/sum)*val[j];
             }
         }
-        matmul(s,s->xb2,&l->o,s->xb);for(int i=0;i<d;i++) s->x[i]+=s->xb2[i];
-        rms(s->xb,s->x,l->nf,d);
-        matmul(s,s->hb,&l->w1,s->xb);matmul(s,s->hb2,&l->w3,s->xb);
-        for(int i=0;i<h;i++) s->hb[i]=(s->hb[i]/(1+expf(-s->hb[i])))*s->hb2[i];
-        matmul(s,s->xb,&l->w2,s->hb);for(int i=0;i<d;i++) s->x[i]+=s->xb[i];
+        matmul(s,s->xb2,&l->o,s->xb);for(int i=0;i<d;i++)s->x[i]+=s->xb2[i]+(s->neo?l->bo[i]:0);
+        norm(s,s->xb,s->x,l->nf,l->bf,d);
+        matmul(s,s->hb,&l->w1,s->xb);
+        if(s->neo)for(int i=0;i<h;i++){
+            float z=s->hb[i]+l->b1[i];s->hb[i]=0.5f*z*(1.0f+tanhf(0.7978845608f*(z+0.044715f*z*z*z)));
+        } else {
+            matmul(s,s->hb2,&l->w3,s->xb);
+            for(int i=0;i<h;i++)s->hb[i]=(s->hb[i]/(1+expf(-s->hb[i])))*s->hb2[i];
+        }
+        matmul(s,s->xb,&l->w2,s->hb);for(int i=0;i<d;i++)s->x[i]+=s->xb[i]+(s->neo?l->b2[i]:0);
         YIELD();
     }
     s->next_position++;return 0;
 }
 float *ts_finish(ts_state *s) {
     int64_t started=now_us();
-    rms(s->xb,s->x,s->norm,s->c.dim);matmul(s,s->logits,&s->emb,s->xb);
+    norm(s,s->xb,s->x,s->norm,s->norm_bias,s->c.dim);matmul(s,s->logits,&s->emb,s->xb);
     s->profile.finish_us+=now_us()-started;return s->logits;
 }
 int ts_argmax(ts_state *s) {
@@ -347,6 +395,7 @@ static int lookup(ts_state *s,const char *str) {
     return r?r->id:-1;
 }
 int ts_encode(ts_state *s,const char *text,int *tokens,int cap) {
+    if(s->neo)return gpt2_encode(s->bpe,text,tokens,cap);
     if(!text||!tokens||cap<1) return -1;
     int n=0;tokens[n++]=1;
     if(*text) { int prefix=lookup(s," ");if(prefix<0||n>=cap)return -1;tokens[n++]=prefix; }
@@ -375,7 +424,12 @@ int ts_encode(ts_state *s,const char *text,int *tokens,int cap) {
 }
 const char *ts_decode(ts_state *s,int prev,int token) {
     if(token<0||(unsigned)token>=s->c.vocab)return "";
+    if(s->neo){size_t n;const uint8_t *p=gpt2_piece(s->bpe,token,&n);memcpy(s->decoded,p,n);s->decoded[n]=0;return s->decoded;}
     const char *p=s->tokens[token];if(prev==1&&*p==' ')p++;
     unsigned byte; if(strlen(p)==6&&sscanf(p,"<0x%2X>",&byte)==1&&byte<256)return s->byte_piece[byte];
     return p;
+}
+size_t ts_decode_length(ts_state *s,int prev,int token) {
+    if(s->neo){size_t n;gpt2_piece(s->bpe,token,&n);return n;}
+    return strlen(ts_decode(s,prev,token));
 }

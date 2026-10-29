@@ -1,0 +1,32 @@
+esptool.py v4.12.0
+File size: 21488 (bytes)
+
+ESP32P4 image header
+====================
+Image version: 1
+Entry point: 0x4ffac2c0
+Segments: 3
+Flash size: 32MB
+Flash freq: 80m
+Flash mode: DIO
+
+ESP32P4 extended image header
+=============================
+WP pin: 0xee (disabled)
+Flash pins drive settings: clk_drv: 0x0, q_drv: 0x0, d_drv: 0x0, cs0_drv: 0x0, hd_drv: 0x0, wp_drv: 0x0
+Chip ID: 18 (ESP32-P4)
+Minimal chip revision: v3.0, (legacy min_rev = 0)
+Maximal chip revision: v3.99
+
+Segments information
+====================
+Segment   Length   Load addr   File offs  Memory types
+-------  -------  ----------  ----------  ------------
+      0  0x011f0  0x4ffb60d0  0x00000018  
+      1  0x00d5c  0x4ffac2c0  0x00001210  
+      2  0x0344c  0x4ffaefc0  0x00001f74  
+
+ESP32P4 image footer
+====================
+Checksum: 0x6 (valid)
+Validation hash: b19a2a172927732dfb8676170c863dd79e691810a54e6293fab763f6f7743f6c (valid)

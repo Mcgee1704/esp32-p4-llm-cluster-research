@@ -30,6 +30,10 @@ static int64_t lease_until;
 static uint32_t boot_id;
 static const char *kernel_names[]={"legacy","paced","dual","sram","tile4"};
 static const char *key=CONFIG_CLUSTER_KEY;
+static int reboot_pending;
+static volatile int restart_phase,restart_create_result,restart_heap_ok;
+static TaskHandle_t restart_worker;
+extern size_t model_load_free_psram,model_load_largest_psram,model_load_requested;
 typedef struct {
     int64_t master_compute,stream,rpc_total,open,write,wait,read,worker_compute;
     unsigned calls,connections,worker_reports;
@@ -87,6 +91,7 @@ static void expire(void) {
     if(worker&&rpc_active(worker)&&esp_timer_get_time()>lease_until)rpc_expire(worker);
 }
 static int idle(httpd_req_t *r) {
+    if(reboot_pending){error(r,"503 Service Unavailable","Restart pending");return 0;}
     expire();if(rpc_active(worker)){error(r,"409 Conflict","Worker session active");return 0;}return 1;
 }
 static esp_err_t json_reply(httpd_req_t *r,cJSON *j) {
@@ -110,9 +115,18 @@ static esp_err_t status(httpd_req_t *r) {
     cJSON_AddStringToObject(j,"default_kernel",kernel_names[TS_KERNEL_DEFAULT]);
     cJSON_AddNumberToObject(j,"kernel_protocol",2);
     cJSON_AddBoolToObject(j,"model_ready",model!=NULL);
+    cJSON_AddBoolToObject(j,"restart_pending",reboot_pending);
+    cJSON_AddNumberToObject(j,"restart_phase",restart_phase);
+    cJSON_AddNumberToObject(j,"restart_create_result",restart_create_result);
+    cJSON_AddNumberToObject(j,"restart_heap_ok",restart_heap_ok);
+    if(model)cJSON_AddStringToObject(j,"architecture",ts_architecture(model));
     cJSON_AddStringToObject(j,"model_error",model_error);
     cJSON_AddBoolToObject(j,"worker_busy",rpc_active(worker));
     cJSON_AddNumberToObject(j,"free_psram",heap_caps_get_free_size(MALLOC_CAP_SPIRAM));
+    cJSON_AddNumberToObject(j,"largest_psram_block",heap_caps_get_largest_free_block(MALLOC_CAP_SPIRAM|MALLOC_CAP_8BIT));
+    cJSON_AddNumberToObject(j,"model_load_free_psram",model_load_free_psram);
+    cJSON_AddNumberToObject(j,"model_load_largest_psram",model_load_largest_psram);
+    cJSON_AddNumberToObject(j,"model_load_requested",model_load_requested);
     cJSON_AddNumberToObject(j,"free_internal",heap_caps_get_free_size(MALLOC_CAP_INTERNAL|MALLOC_CAP_8BIT));
     cJSON_AddNumberToObject(j,"min_free_internal",heap_caps_get_minimum_free_size(MALLOC_CAP_INTERNAL|MALLOC_CAP_8BIT));
     cJSON_AddNumberToObject(j,"largest_internal",heap_caps_get_largest_free_block(MALLOC_CAP_INTERNAL|MALLOC_CAP_8BIT));
@@ -233,7 +247,7 @@ static esp_err_t generate(httpd_req_t *r) {
     }
     cJSON_Delete(j);ts_reset(model);
     httpd_resp_set_type(r,"application/x-ndjson");httpd_resp_set_hdr(r,"Cache-Control","no-store");
-    int token=tokens[0],produced=0;int64_t first=0;const char *failure=NULL;
+    int token=tokens[0],produced=0,ended=0;int64_t first=0;const char *failure=NULL;
     for(int pos=0;pos<count+steps-1;pos++) {
         int64_t phase=esp_timer_get_time();
         if(ts_embed(model,token)||ts_layers(model,0,client?(int)h.split:(int)c->layers,pos)){failure="Inference failed";break;}
@@ -246,8 +260,8 @@ static esp_err_t generate(httpd_req_t *r) {
             phase=esp_timer_get_time();ts_finish(model);next=ts_argmax(model);
             profile.master_compute+=esp_timer_get_time()-phase;
             if(!first)first=esp_timer_get_time();
-            if(next==1||next==2)break;
-            const char *piece=ts_decode(model,token,next);size_t length=strlen(piece);char hex[1025];
+            if(ts_is_eos(model,next)){ended=1;break;}
+            const char *piece=ts_decode(model,token,next);size_t length=ts_decode_length(model,token,next);char hex[1025];
             for(size_t i=0;i<length;i++)sprintf(hex+i*2,"%02x",(unsigned char)piece[i]);
             hex[length*2]=0;
             cJSON *item=cJSON_CreateObject();cJSON_AddStringToObject(item,"bytes_hex",hex);
@@ -261,6 +275,7 @@ static esp_err_t generate(httpd_req_t *r) {
     if(client){h.command=3;h.bytes=0;(void)remote_step(client,&h,NULL,&profile);esp_http_client_cleanup(client);}
     free(tokens);
     cJSON *done=cJSON_CreateObject();cJSON_AddBoolToObject(done,"done",true);
+    cJSON_AddBoolToObject(done,"eos",ended);
     cJSON_AddNumberToObject(done,"output_tokens",produced);cJSON_AddNumberToObject(done,"elapsed_ms",(esp_timer_get_time()-start)/1000.0);
     cJSON_AddNumberToObject(done,"ttft_ms",first?(first-start)/1000.0:0);cJSON_AddNumberToObject(done,"boards",client?2:1);
     profile_reply(done,&profile);
@@ -287,8 +302,13 @@ static esp_err_t generate(httpd_req_t *r) {
     if(failure)cJSON_AddStringToObject(done,"error",failure);
     line(r,done);return httpd_resp_send_chunk(r,NULL,0);
 }
-static void restart_task(void *arg) {(void)arg;vTaskDelay(pdMS_TO_TICKS(2000));esp_restart();}
-static int firmware_reboot_pending;
+static void restart_task(void *arg) {
+    (void)arg;ulTaskNotifyTake(pdTRUE,portMAX_DELAY);restart_phase=2;
+    vTaskDelay(pdMS_TO_TICKS(2000));restart_phase=3;lan_stop();restart_phase=4;esp_restart();
+}
+static void schedule_restart(void) {
+    restart_phase=1;xTaskNotifyGive(restart_worker);
+}
 static esp_err_t firmware_upload_inner(httpd_req_t *r) {
     if(!allowed(r)||!idle(r))return ESP_OK;
     const esp_partition_t *target=esp_ota_get_next_update_partition(NULL);
@@ -301,8 +321,8 @@ static esp_err_t firmware_upload_inner(httpd_req_t *r) {
     if(esp_ota_end(ota)!=ESP_OK)return error(r,"400 Bad Request","Firmware validation failed; active slot unchanged");
     if(esp_ota_set_boot_partition(target)!=ESP_OK)return error(r,"500 Internal Server Error","Could not select update slot");
     httpd_resp_sendstr(r,"Firmware accepted. Rebooting; LAN boot check follows.");
-    firmware_reboot_pending=1;
-    xTaskCreate(restart_task,"reboot",2048,NULL,5,NULL);return ESP_OK;
+    reboot_pending=1;
+    schedule_restart();return ESP_OK;
 }
 static esp_err_t model_upload_inner(httpd_req_t *r) {
     if(!allowed(r)||!idle(r))return ESP_OK;
@@ -310,7 +330,7 @@ static esp_err_t model_upload_inner(httpd_req_t *r) {
     if(!p||r->content_len<128||r->content_len>p->size)return error(r,"400 Bad Request","Invalid model length");
     uint8_t header[128];if(receive(r,header,sizeof header))return ESP_FAIL;
     uint32_t w,t;memcpy(&w,header+36,4);memcpy(&t,header+40,4);
-    if(memcmp(header,"P4LM0001",8)||w>r->content_len-128||t!=r->content_len-128-w)return error(r,"400 Bad Request","Wrong model format");
+    if((memcmp(header,"P4LM0001",8)&&memcmp(header,"P4GN0001",8))||w>r->content_len-128||t!=r->content_len-128-w)return error(r,"400 Bad Request","Wrong model format");
     /* Invalidate on flash first; old in-RAM model is replaced only after upload.
      * Header is written last: power loss cannot mark a partial file as complete. */
     size_t erase=(r->content_len+4095)&~(size_t)4095;
@@ -323,6 +343,14 @@ static esp_err_t model_upload_inner(httpd_req_t *r) {
     mbedtls_sha256_finish(&hash,digest);mbedtls_sha256_free(&hash);
     if(memcmp(digest,header+48,32))return error(r,"400 Bad Request","Model hash mismatch; re-upload required");
     if(esp_partition_write(p,0,header,sizeof header)!=ESP_OK)return error(r,"500 Internal Server Error","Model commit failed");
+    if(!memcmp(header,"P4GN0001",8)) {
+        /* A large replacement can exceed the live heap's largest block despite
+         * sufficient total free PSRAM. Load the committed model before network
+         * allocations on a fresh boot; retain maintenance until that reboot. */
+        reboot_pending=1;
+        httpd_resp_sendstr(r,"GPT-Neo model verified and committed. Rebooting to load it.");
+        schedule_restart();return ESP_OK;
+    }
     model_load();if(!model)return error(r,"400 Bad Request",model_error);
     return httpd_resp_sendstr(r,"Model loaded and verified.");
 }
@@ -330,13 +358,13 @@ static esp_err_t firmware_upload(httpd_req_t *r) {
     if(!allowed(r))return ESP_OK;
     if(!dispatcher_maintenance_begin())return error(r,"409 Conflict","Dispatcher has active jobs; wait or cancel queued jobs");
     esp_err_t e=firmware_upload_inner(r);
-    if(!firmware_reboot_pending)dispatcher_maintenance_end();
+    if(!reboot_pending)dispatcher_maintenance_end();
     return e;
 }
 static esp_err_t model_upload(httpd_req_t *r) {
     if(!allowed(r))return ESP_OK;
     if(!dispatcher_maintenance_begin())return error(r,"409 Conflict","Dispatcher has active jobs; wait or cancel queued jobs");
-    esp_err_t e=model_upload_inner(r);dispatcher_maintenance_end();return e;
+    esp_err_t e=model_upload_inner(r);if(!reboot_pending)dispatcher_maintenance_end();return e;
 }
 static void boot_check(void *arg) {
     (void)arg;esp_ota_img_states_t state;
@@ -353,6 +381,9 @@ static void boot_check(void *arg) {
 }
 void service_start(void) {
     boot_id=esp_random();
+    restart_create_result=xTaskCreatePinnedToCore(restart_task,"restart-worker",4096,NULL,5,&restart_worker,0);
+    ESP_ERROR_CHECK(restart_create_result==pdPASS?ESP_OK:ESP_ERR_NO_MEM);
+    restart_heap_ok=heap_caps_check_integrity_all(true);
     httpd_config_t cfg=HTTPD_DEFAULT_CONFIG();cfg.core_id=1;cfg.stack_size=16384;cfg.recv_wait_timeout=10;cfg.send_wait_timeout=30;cfg.max_uri_handlers=8;
     httpd_handle_t server;ESP_ERROR_CHECK(httpd_start(&server,&cfg));
     const httpd_uri_t routes[]={

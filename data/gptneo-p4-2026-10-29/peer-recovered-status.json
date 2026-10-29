@@ -1,0 +1,21 @@
+{
+  "firmware": "0.5.0",
+  "dispatch_protocol": 1,
+  "boot_id": 2205760432,
+  "default_kernel": "tile4",
+  "kernel_protocol": 2,
+  "model_ready": true,
+  "architecture": "gpt_neo",
+  "model_error": "",
+  "worker_busy": false,
+  "free_psram": 7627804,
+  "free_internal": 450555,
+  "min_free_internal": 434091,
+  "largest_internal": 360448,
+  "storage": "internal flash; SD not required for inference",
+  "layers": 8,
+  "context": 256,
+  "dim": 256,
+  "model_id": "8fb68b9d2c64d260277ecc4ad90a17cac6f8113db4b646a08b7c7ada295c9b60",
+  "ota_pending": false
+}

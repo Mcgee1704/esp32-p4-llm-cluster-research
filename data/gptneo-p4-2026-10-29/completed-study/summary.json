@@ -1,0 +1,9 @@
+{
+  "blocks": 4,
+  "jobs": 16,
+  "same_tokens_and_EOS_all_jobs": true,
+  "local_pair_median_ms": 10727.5,
+  "cluster_pair_median_ms": 5607.0,
+  "paired_throughput_factor_median": 1.9151948508078063,
+  "interpretation": "Two independent requests, identical actual output lengths per mode; not acceleration of one autoregressive chain"
+}

@@ -1,0 +1,5 @@
+{
+  "stage": "peer",
+  "error": "('node-2', 'model', 400, b'Insufficient PSRAM for model')",
+  "time_utc": 1793273823.4220405
+}

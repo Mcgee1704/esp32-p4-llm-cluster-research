@@ -1,0 +1,246 @@
+# Matched English story and dialogue models on two ESP32-P4s
+
+29 October 2026. This study adds two trained checkpoints to the retained
+TinyStories-15M SFT and TinyTalk-2 controls. It answers a narrower question than
+which model is generally best: under the same small set of input texts, what
+changes in observed responses, deployed storage and independent-request throughput?
+The work is local; the exported model weights are not published.
+
+## Candidates and source admission
+
+- Story candidate: [roneneldan/TinyStories-Instruct-8M](https://huggingface.co/roneneldan/TinyStories-Instruct-8M),
+  pinned conversion PR revision `18d7c83c2d7b0685b0da3c26379dd4d4d90a1ffb`.
+  The main branch has a Pickle checkpoint; we instead obtain the data-only
+  Safetensors file from [upstream conversion discussion 1](https://huggingface.co/roneneldan/TinyStories-Instruct-8M/discussions/1).
+  Its equivalence to the Pickle file is an upstream assertion, not our independently
+  deserialized equality test. The pinned readme/config has no explicit model licence;
+  no redistribution right is inferred. The author describes a TinyStories-Instruct
+  training objective. GPT-Neo, width 256, eight layers, 16 heads; **19,702,528**
+  actual parameters including the complete vocabulary and position table.
+- Dialogue candidate: [TheREZOR/TinyTalk](https://huggingface.co/TheREZOR/TinyTalk),
+  called TinyTalk 1 here, revision `61c79ad139344cdd344a687b35fa8f1c52326154`.
+  Declared CC BY 4.0. GPT-Neo, width 128, eight layers, 16 heads;
+  **8,278,400** actual parameters, not the informal 3M family label.
+- Controls: `0rn0/llama2-15m-tinystories-sft` (retained Llama SFT) and
+  [TheREZOR/TinyTalk-2](https://huggingface.co/TheREZOR/TinyTalk-2), the latter
+  declared CC BY-NC-SA 4.0. The TinyTalk-2 author identifies TinyStories-Instruct-8M
+  as its base. TinyTalk 1 vs 2 changes both capacity and training data/objective;
+  this is not a size-only or fine-tuning-only causal ablation.
+
+Public GET downloads of the two new candidates total about 151 MB including
+their tokenizers and cards. LFS SHA-256 and ordinary Git blob IDs match the
+pinned revisions; existing assets were reused. No project data, device records,
+remote inference requests, Pickle loads or upstream model Python were sent/run.
+The admission path checks exact configurations, tensor types/shapes, finite values,
+complete non-overlapping byte ranges and the tied embedding layout. The old
+story file contains eight BOOL attention masks and eight scalar masked-bias
+buffers: each full global/local causal mask and each -1e9 sentinel is checked
+before exclusion from the deployment artifact. The runtime implements those masks.
+
+Artifacts including complete tokenizers: SFT **15,836,365 bytes**, story candidate
+**21,380,448**, TinyTalk 1 **9,887,968**, TinyTalk-2 **21,380,448**. All fit the
+existing 24-MiB partition. Each board stores a complete model. Story and TinyTalk-2
+have equal dimensions/byte budgets; adding a second board does not pool their RAM.
+GPT-Neo uploads use the existing verified cold-restart loader. No firmware/kernel
+change is part of this comparison.
+
+## Frozen protocol and correctness
+
+The protocol was hashed before candidate generations. All four models receive
+identical UTF-8 prompt bytes: four English story beginnings, six elementary
+questions, three exact/restricted instructions, one short context recall, one
+unknown-answer probe and one German boundary probe. Stories are continuations
+of the same prefix, not the earlier SFT happy/sad-ending instructions or
+TinyTalk Summary/Story wrapper. The shared chat wrapper is native to TinyTalk;
+performance of SFT on it tests transfer, not its trained native interface.
+Caps are 128 story tokens or 32 other tokens, context 256, greedy decoding.
+EOS is directly observed; hitting the cap is recorded, not relabelled as a finish.
+
+All 50,257 decoded byte pieces and all 16 prompt encodings match the pinned
+tokenizer for each GPT-Neo model. Three full 50,257-logit vectors per model
+match the row-quantized NumPy implementation: maximum absolute error
+0.000032425 (story), 0.000030279 (TinyTalk 1) and 0.000024796 (TinyTalk-2),
+below the frozen 0.002 threshold, with matching argmax. These are internal C/NumPy
+checks, not an independent Transformers execution or FP32/INT8 quality proof.
+The retained Llama path has earlier source-tensor numerical checks and is rerun
+on real hardware here. Its tokenizer has different IDs despite the same text.
+
+Two physical revision-1.3 P4s use firmware 0.5.5 and the dual-core `tile4` kernel.
+Two initial TinyTalk-2 controls pass. For each model, the peer first reproduces
+all 16 complete host outputs, then the matching master runs the paired timing
+study. **All 64 direct cases and all 64 dispatched jobs match their model-specific
+token sequences, decoded texts and EOS flags.** Kernel profiles confirm owner
+core mask 2 and helper core mask 1 for all direct cases. This is software-profile
+evidence, not independent instruction tracing. Both nodes finish on TinyTalk-2,
+with peer configuration present and no queued/running jobs.
+
+## Exploratory language findings
+
+| Model | Facts /6 | Full Q1-Q3 /3 | Instructions /3 | Story topic /4 | Coherence /4 | Resolution /4 | Story EOS /4 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| TinyStories-15M SFT | 0 | 0 | 0 | 4 | 1 | 3 | 2 |
+| TinyStories-Instruct-8M | 0 | 0 | 0 | 4 | 1 | 3 | 1 |
+| TinyTalk 1 | 0 | 0 | 1 | 1 | 0 | 1 | 1 |
+| TinyTalk-2 | 5 | 1 | 0 | 3 | 0 | 3 | 1 |
+
+
+Story topic means both predeclared topic components are continued (ordinal 2/2).
+Coherence counts stories scoring 2/2, without a material contradiction in the
+visible continuation. Resolution means a narrated positive/negative outcome,
+not merely EOS. These are separate criteria, not a validated combined score.
+A cap-truncated text can contain an earlier visible resolution.
+
+The story pair preserves the central topic in four of four continuations, with
+the same descriptive counts for coherence and resolution. This is **not evidence
+of a clear story-quality improvement** from the new checkpoint. SFT sometimes
+emits training-format/summary fragments; the new story model has repeated text,
+confused speakers and an unintroduced character. Both can narrate a reunion or
+sharing and still contradict parts of the setup. EOS differs (2/4 vs 1/4), which
+alone is not a quality ranking. Their zero factual answers under a chat wrapper
+are compatible with a story-training objective, not proof they cannot contain facts.
+
+TinyTalk-2 gives five correct first factual answers out of six, compared with zero
+for TinyTalk 1. It still says a bicycle has four wheels. Only one of the three
+one-short-sentence tasks is fully met: the banana answer is factual but has two
+sentences. Neither exact word/list task succeeds on any model. TinyTalk 1 gets
+one of three instructions under the literal rule: "What kind of rain?" is a short
+interrogative about rain without animals. Its fragment/sentence status is
+debatable and it supplies no useful information; counting only informative
+declaratives would yield zero, but that stricter rule was not frozen. The initial
+draft incorrectly imposed that extra criterion; `review-revisions.json` records
+the correction. The other three models score zero of three.
+TinyTalk 1 often asks an unrelated follow-up or says it does not know; smaller
+storage and a shorter answer should not be mistaken for a useful answer.
+
+On the common story prefixes TinyTalk-2 retains full topic continuity in 3/4,
+TinyTalk 1 in 1/4. Neither has a contradiction-free story under this rubric.
+TinyTalk 1 develops a repetition loop around a red collar; TinyTalk-2 swaps the
+hungry fox for a bird in the sharing story. Successful native-format TinyTalk
+stories from the earlier study do not contradict these failures under a different
+shared continuation format. Prompt interface is a research variable.
+
+TinyTalk-2 cleanly recalls the synthetic cat name and declines the unknown serial
+question. SFT and TinyTalk 1 mention the name but introduce speaker/role errors.
+All four fail the German colour question. One context/unknown case proves neither
+persistent memory nor calibrated uncertainty. All review judgements are by the
+same assistant, unblinded and not independent. Cases reuse familiar tasks and
+may overlap training. No held-out, significance, user-preference or general
+assistant claim follows; raw texts and case-level reasons remain available.
+
+## Controlled throughput results
+
+Two identical input prefixes (S1/S2) are submitted through the master-owned queue,
+with a 24-output-token cap. Four alternating AB/BA blocks compare both requests
+on the master against one request on each board. Package time runs from the
+first master-created timestamp to the last completion on that same monotonic
+clock, including queue, prefill and transport. Repeated fixed workloads estimate
+timing variability, not independent language-quality samples. Models run in a
+fixed sequence to limit flash switches; model order is not randomized.
+
+| Model | One-P4 package (s) | Two-P4 package (s) | Two-P4 range (s) | Paired factor | Tokens/s | Characters/s |
+|---|---:|---:|---:|---:|---:|---:|
+| TinyStories-15M SFT | 20.2345 | 10.7330 | 10.496-10.751 | 1.885 | 4.472 | 17.143 |
+| TinyStories-Instruct-8M | 22.9910 | 11.4840 | 11.478-11.501 | 2.002 | 4.180 | 16.545 |
+| TinyTalk 1 | 10.7255 | 5.2320 | 5.225-5.249 | 2.050 | 9.174 | 33.639 |
+| TinyTalk-2 | 22.9900 | 11.4790 | 11.475-11.485 | 2.003 | 4.182 | 18.033 |
+
+
+The factor is the median of within-block local/cluster ratios, not necessarily
+the ratio of the two separately reported medians. Whiskers in the figure are
+observed min/max, not confidence intervals. All cluster packages use both lanes
+with overlapping master-clock backend intervals; cross-node clocks are not compared.
+This measures independent-request throughput, not one autoregressive-chain speedup.
+
+For this workload the new story model's two-board package median is
+7.0% longer than SFT, with no clear quality advantage in the
+four-story rubric. Story and TinyTalk-2 have practically identical package times,
+consistent with their equal tensor shapes and shared tokenizer. TinyTalk 1 reaches
+2.19x TinyTalk-2's token rate and 1.87x its character
+rate here, but answers zero of the six factual questions correctly. This is a
+resource/response-quality tradeoff, not a general ranking of useful text production.
+
+An end-to-end factor slightly above two can occur in these small paired packages;
+it is an observed package-clock ratio, not evidence of more than two processors'
+worth of arithmetic scaling. Scheduling, board differences, allocation history
+and timing variation were not independently ablated. No cause is assigned to a
+small excess above the idealized factor of two.
+
+| Model | S1 / S2 input tokens | Output tokens per package | Unicode output characters per package |
+|---|---:|---:|---:|
+| TinyStories-15M SFT | 29 / 21 | 48 | 184 |
+| TinyStories-Instruct-8M | 23 / 20 | 48 | 190 |
+| TinyTalk 1 | 23 / 20 | 48 | 176 |
+| TinyTalk-2 | 23 / 20 | 48 | 207 |
+
+
+The input text is controlled; tokenizer IDs, prompt token lengths and generated
+contents are not equal across architectures/checkpoints. Tokens/s is a tokenizer-
+specific unit. Unicode characters/s counts code points including whitespace and
+exposes a second normalization but still
+does not equal useful answers/s: verbose or repetitive text can score highly.
+Quality and speed therefore remain separate. Same-shape story/TinyTalk-2 is a
+closer computational comparison than either versus width-128 TinyTalk 1 or Llama,
+but is not a general latency guarantee. No energy or power-efficiency measurement
+was made. Earlier 2.50, 4.84 or 6.41 tokens/s figures used different prompts and
+are historical workload results, not controls for this table.
+
+An analytical work count helps interpret the architecture contrast: dense matrix
+products per generated position (excluding attention score/value products, norms,
+activations and overhead) are 15,187,968 multiply-accumulates for SFT,
+19,157,248 for story/TinyTalk-2 and 8,005,760 for TinyTalk 1. The two GPT-Neo
+widths therefore differ by about 2.39x in this count. It is not a measured CPU
+instruction or memory-bandwidth ratio, nor an exact latency prediction. Prefill
+also skips most output-head calls. With the full vocabulary, the output head
+alone contributes about 80% of this matrix count for TinyTalk 1 and 67% for
+TinyTalk-2. These counts explain why family labels excluding embeddings understate
+the deployed work; they do not prove the cause of every timing difference.
+
+## Interpretation and next research step
+
+The matched experiment supports a practical distinction: a narrow dialogue/fact
+objective can change the kinds of answers produced, while a story objective
+does not automatically become an assistant. The new story checkpoint gives no
+clear quality win in this sample. TinyTalk-2 is the more promising dialogue
+research control here, with substantial remaining factual/format defects; the
+smaller TinyTalk 1 is a useful resource/negative-quality control. These observations
+do not isolate the contribution of parameter count, data mix or training procedure.
+
+Two-node parallelism has to be assessed within each model's paired workload,
+alongside identical outputs. It does not cure weak responses or increase per-node
+model capacity. A next quality study should freeze a new task set after designing
+it without inspecting candidate answers, include native and shared prompt formats,
+independent human/blinded review, more lexical variety, per-task latency and useful
+answer rate. A third physical lane, calibrated multi-node scaling and energy
+measurement remain future experiments. Scaling beyond two physical nodes remains
+unmeasured in this study.
+
+## Figures, evidence and reproduction
+
+![Matched language quality and storage](figures/matched-model-quality-2026-10-29.png)
+
+![Matched independent-request throughput](figures/matched-model-performance-2026-10-29.png)
+
+![Experimental topology](figures/matched-model-setup-2026-10-29.png)
+
+All [full outputs and manual notes](../data/matched-models-2026-10-29/comparison.html),
+[source hashes](../data/matched-models-2026-10-29/downloads.json),
+[frozen protocol](../data/matched-models-2026-10-29/protocol.json),
+[numerical checks](../data/matched-models-2026-10-29/numerical-checks.json),
+[quality counts](../data/matched-models-2026-10-29/quality-summary.json) and
+[P4 timing summary](../data/matched-models-2026-10-29/hardware/summary.json) are retained.
+Raw streams, failed build/environment checks and final device state accompany them.
+The cumulative automated suite and publication/privacy checks are reported in
+`validation.json` and the public provenance files, not inferred from this prose.
+
+`matched_models.py prepare` admits/exports and freezes a fresh protocol;
+`matched_models.py host` builds native references and numerical checks;
+`matched_models_p4.py` performs the real local-LAN experiment and restoration.
+The scripts intentionally refuse to overwrite the completed evidence directory.
+Supply the pinned assets locally and use a new output identifier for a repeat;
+never silently amend a completed protocol. `review_matched_models.py` records
+the published manual decisions, not an independent scoring engine.
+`summarize_matched_models.py` and `plot_matched_models.py` regenerate reports,
+the text viewer and SVG/PNG figures from recorded data. Model weights, local
+keys, private deployment binaries and operational history stay outside publication.
+Separately rebuilt keyless diagnostic firmware is documented in the publication's
+firmware-version archive; it is not the binary used in this experiment.

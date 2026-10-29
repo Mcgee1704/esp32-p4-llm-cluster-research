@@ -1,0 +1,13 @@
+{
+  "title": "matched-model-performance",
+  "date": "2026-10-29",
+  "width": 1600,
+  "height": 1160,
+  "source_sha256": {
+    "docs/research/data/matched-models-2026-10-29/hardware/summary.json": "e1e1c989f4864edd24ffeba96372c984c229fd4e36774d94c1e4eadfa32f05f2",
+    "docs/research/data/matched-models-2026-10-29/hardware/batches.json": "0977be6ed823f8e1e7897351cceed0f7a66465bb9949c606ba07ab5075738668",
+    "docs/research/data/matched-models-2026-10-29/hardware/final-state.json": "b643b55f74a41b350eeb7357a0451cf0d12322dc3c889393cedf52bcf62c0a54",
+    "docs/research/data/matched-models-2026-10-29/protocol.json": "962cb70f6e60233e4da991cb819ac6d84670303e6e4855488b220ab855921869"
+  },
+  "notes": "Static, English, local figure. No online resources. Descriptive medians/ranges and manual review, not confidence intervals or independent quality ratings."
+}

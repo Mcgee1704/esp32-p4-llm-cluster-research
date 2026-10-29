@@ -1,0 +1,34 @@
+{
+  "devices": {
+    "node-1": {
+      "firmware": "0.5.5",
+      "architecture": "gpt_neo",
+      "model_id": "8fb68b9d2c64d260277ecc4ad90a17cac6f8113db4b646a08b7c7ada295c9b60",
+      "model_ready": true,
+      "default_kernel": "tile4",
+      "worker_busy": false,
+      "restart_pending": false,
+      "ota_pending": false,
+      "free_heap": null,
+      "free_psram": 6284284,
+      "largest_psram_block": 6029312
+    },
+    "node-2": {
+      "firmware": "0.5.5",
+      "architecture": "gpt_neo",
+      "model_id": "8fb68b9d2c64d260277ecc4ad90a17cac6f8113db4b646a08b7c7ada295c9b60",
+      "model_ready": true,
+      "default_kernel": "tile4",
+      "worker_busy": false,
+      "restart_pending": false,
+      "ota_pending": false,
+      "free_heap": null,
+      "free_psram": 7627804,
+      "largest_psram_block": 7602176
+    }
+  },
+  "peer_configured": true,
+  "queued": 0,
+  "running": 0,
+  "study_completed": true
+}

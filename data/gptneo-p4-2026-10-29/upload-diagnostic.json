@@ -1,0 +1,31 @@
+{
+  "before": {
+    "firmware": "0.5.2",
+    "dispatch_protocol": 1,
+    "boot_id": 4278495524,
+    "default_kernel": "tile4",
+    "kernel_protocol": 2,
+    "model_ready": true,
+    "architecture": "llama",
+    "model_error": "",
+    "worker_busy": false,
+    "free_psram": 12892684,
+    "largest_psram_block": 12845056,
+    "model_load_free_psram": 33551716,
+    "model_load_largest_psram": 33030144,
+    "model_load_requested": 15836365,
+    "free_internal": 453027,
+    "min_free_internal": 436675,
+    "largest_internal": 360448,
+    "storage": "internal flash; SD not required for inference",
+    "layers": 6,
+    "context": 256,
+    "dim": 288,
+    "model_id": "5273bac5d1937595d92e1528a21ad7ac619e5fde8d2bfbb0aca04866bf10e07f",
+    "ota_pending": false
+  },
+  "http_status": 400,
+  "http_body": "Insufficient PSRAM for model",
+  "sent_bytes": 21380448,
+  "seconds": 84.79699999999139
+}

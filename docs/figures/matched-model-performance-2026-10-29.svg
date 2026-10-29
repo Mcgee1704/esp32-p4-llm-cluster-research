@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1160" viewBox="0 0 1600 1160" role="img">
+<title>One P4 or two: matched workload, measured throughput</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1160" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">One P4 or two: matched workload, measured throughput</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Firmware 0.5.5 | tile4 on both CPU cores | Four paired AB/BA blocks per model | Same two story prefixes</text>
+<rect x="48" y="130" width="1504" height="570" rx="14" fill="white"/>
+<text x="72" y="172" fill="#193347" font-size="29" font-weight="bold" text-anchor="start">Full two-request package time</text>
+<text x="72" y="206" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Median with observed min-max whiskers; queue, prompt processing and transport included</text>
+<path d="M470.0 233 L470.0 624" stroke="#d8e2e9" stroke-width="2" fill="none"/>
+<text x="470.0" y="656" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="middle">0</text>
+<path d="M633.0 233 L633.0 624" stroke="#d8e2e9" stroke-width="2" fill="none"/>
+<text x="633.0" y="656" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="middle">5</text>
+<path d="M796.0 233 L796.0 624" stroke="#d8e2e9" stroke-width="2" fill="none"/>
+<text x="796.0" y="656" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="middle">10</text>
+<path d="M959.0 233 L959.0 624" stroke="#d8e2e9" stroke-width="2" fill="none"/>
+<text x="959.0" y="656" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="middle">15</text>
+<path d="M1122.0 233 L1122.0 624" stroke="#d8e2e9" stroke-width="2" fill="none"/>
+<text x="1122.0" y="656" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="middle">20</text>
+<path d="M1285.0 233 L1285.0 624" stroke="#d8e2e9" stroke-width="2" fill="none"/>
+<text x="1285.0" y="656" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="middle">25</text>
+<text x="1285" y="685" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="end">seconds (lower is faster)</text>
+<text x="72" y="272" fill="#3378ad" font-size="22" font-weight="bold" text-anchor="start">TinyStories-15M SFT</text>
+<text x="72" y="303" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="start">1.88x paired throughput</text>
+<rect x="470" y="251" width="659.6447" height="23" rx="4" fill="#b9c8d4"/>
+<path d="M1129.4654 262 L1130.0196 262" stroke="#193347" stroke-width="2" fill="none"/>
+<path d="M1129.4654 256 L1129.4654 268" stroke="#193347" stroke-width="2" fill="none"/>
+<path d="M1130.0196 256 L1130.0196 268" stroke="#193347" stroke-width="2" fill="none"/>
+<text x="1320" y="271" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">20.23 s one P4</text>
+<rect x="470" y="285" width="349.8958" height="23" rx="4" fill="#3378ad"/>
+<path d="M812.1696 296 L820.4826 296" stroke="#193347" stroke-width="2" fill="none"/>
+<path d="M812.1696 290 L812.1696 302" stroke="#193347" stroke-width="2" fill="none"/>
+<path d="M820.4826 290 L820.4826 302" stroke="#193347" stroke-width="2" fill="none"/>
+<text x="1320" y="305" fill="#3378ad" font-size="21" font-weight="normal" text-anchor="start">10.73 s two P4s</text>
+<text x="72" y="366" fill="#7653a8" font-size="22" font-weight="bold" text-anchor="start">TinyStories-Instruct-8M</text>
+<text x="72" y="397" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="start">2.00x paired throughput</text>
+<rect x="470" y="345" width="749.5066" height="23" rx="4" fill="#b9c8d4"/>
+<path d="M1219.0502000000001 356 L1219.6696 356" stroke="#193347" stroke-width="2" fill="none"/>
+<path d="M1219.0502000000001 350 L1219.0502000000001 362" stroke="#193347" stroke-width="2" fill="none"/>
+<path d="M1219.6696 350 L1219.6696 362" stroke="#193347" stroke-width="2" fill="none"/>
+<text x="1320" y="365" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">22.99 s one P4</text>
+<rect x="470" y="379" width="374.3784" height="23" rx="4" fill="#7653a8"/>
+<path d="M844.1828 390 L844.9326 390" stroke="#193347" stroke-width="2" fill="none"/>
+<path d="M844.1828 384 L844.1828 396" stroke="#193347" stroke-width="2" fill="none"/>
+<path d="M844.9326 384 L844.9326 396" stroke="#193347" stroke-width="2" fill="none"/>
+<text x="1320" y="399" fill="#7653a8" font-size="21" font-weight="normal" text-anchor="start">11.48 s two P4s</text>
+<text x="72" y="460" fill="#168476" font-size="22" font-weight="bold" text-anchor="start">TinyTalk 1</text>
+<text x="72" y="491" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="start">2.05x paired throughput</text>
+<rect x="470" y="439" width="349.6513" height="23" rx="4" fill="#b9c8d4"/>
+<path d="M819.472 450 L820.3196 450" stroke="#193347" stroke-width="2" fill="none"/>
+<path d="M819.472 444 L819.472 456" stroke="#193347" stroke-width="2" fill="none"/>
+<path d="M820.3196 444 L820.3196 456" stroke="#193347" stroke-width="2" fill="none"/>
+<text x="1320" y="459" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">10.73 s one P4</text>
+<rect x="470" y="473" width="170.56320000000002" height="23" rx="4" fill="#168476"/>
+<path d="M640.335 484 L641.1174 484" stroke="#193347" stroke-width="2" fill="none"/>
+<path d="M640.335 478 L640.335 490" stroke="#193347" stroke-width="2" fill="none"/>
+<path d="M641.1174 478 L641.1174 490" stroke="#193347" stroke-width="2" fill="none"/>
+<text x="1320" y="493" fill="#168476" font-size="21" font-weight="normal" text-anchor="start">5.23 s two P4s</text>
+<text x="72" y="554" fill="#c06a27" font-size="22" font-weight="bold" text-anchor="start">TinyTalk-2</text>
+<text x="72" y="585" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="start">2.00x paired throughput</text>
+<rect x="470" y="533" width="749.4739999999999" height="23" rx="4" fill="#b9c8d4"/>
+<path d="M1218.9524000000001 544 L1227.135 544" stroke="#193347" stroke-width="2" fill="none"/>
+<path d="M1218.9524000000001 538 L1218.9524000000001 550" stroke="#193347" stroke-width="2" fill="none"/>
+<path d="M1227.135 538 L1227.135 550" stroke="#193347" stroke-width="2" fill="none"/>
+<text x="1320" y="553" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">22.99 s one P4</text>
+<rect x="470" y="567" width="374.2154" height="23" rx="4" fill="#c06a27"/>
+<path d="M844.085 578 L844.4110000000001 578" stroke="#193347" stroke-width="2" fill="none"/>
+<path d="M844.085 572 L844.085 584" stroke="#193347" stroke-width="2" fill="none"/>
+<path d="M844.4110000000001 572 L844.4110000000001 584" stroke="#193347" stroke-width="2" fill="none"/>
+<text x="1320" y="587" fill="#c06a27" font-size="21" font-weight="normal" text-anchor="start">11.48 s two P4s</text>
+<rect x="48" y="720" width="1504" height="285" rx="14" fill="white"/>
+<text x="72" y="761" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Two-board output rate on this workload</text>
+<text x="72" y="804" fill="#3378ad" font-size="21" font-weight="bold" text-anchor="start">TinyStories-15M SFT</text>
+<text x="72" y="850" fill="#3378ad" font-size="32" font-weight="bold" text-anchor="start">4.47 tokens/s</text>
+<text x="72" y="889" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">17.14 characters/s</text>
+<text x="72" y="929" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="start">48 tokens per package</text>
+<text x="72" y="959" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="start">184 Unicode characters</text>
+<text x="442" y="804" fill="#7653a8" font-size="21" font-weight="bold" text-anchor="start">TinyStories-Instruct-8M</text>
+<text x="442" y="850" fill="#7653a8" font-size="32" font-weight="bold" text-anchor="start">4.18 tokens/s</text>
+<text x="442" y="889" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">16.54 characters/s</text>
+<text x="442" y="929" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="start">48 tokens per package</text>
+<text x="442" y="959" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="start">190 Unicode characters</text>
+<text x="812" y="804" fill="#168476" font-size="21" font-weight="bold" text-anchor="start">TinyTalk 1</text>
+<text x="812" y="850" fill="#168476" font-size="32" font-weight="bold" text-anchor="start">9.17 tokens/s</text>
+<text x="812" y="889" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">33.64 characters/s</text>
+<text x="812" y="929" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="start">48 tokens per package</text>
+<text x="812" y="959" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="start">176 Unicode characters</text>
+<text x="1182" y="804" fill="#c06a27" font-size="21" font-weight="bold" text-anchor="start">TinyTalk-2</text>
+<text x="1182" y="850" fill="#c06a27" font-size="32" font-weight="bold" text-anchor="start">4.18 tokens/s</text>
+<text x="1182" y="889" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">18.03 characters/s</text>
+<text x="1182" y="929" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="start">48 tokens per package</text>
+<text x="1182" y="959" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="start">207 Unicode characters</text>
+<text x="48" y="1045" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Matched input text is not equal computational work: tokenizers, prompt lengths and generated contents differ.</text>
+<text x="48" y="1080" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Characters/s reduces tokenizer-unit bias, but is not a quality-adjusted speed score. Repeats measure this fixed workload.</text>
+<text x="48" y="1123" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="start">64 direct quality cases + 64 dispatched timing jobs; all model-specific token/text/EOS references match. No third-node or energy claim.</text>
+</svg>

@@ -1,10 +1,12 @@
 {
   "passed": true,
-  "files_scanned": 432,
-  "numeric_json_files_checked": 161,
+  "files_scanned": 881,
+  "numeric_json_files_checked": 297,
   "private_key_found": false,
   "private_identity_markers_found": false,
-  "binary_artifacts_included": false,
+  "private_deployment_binaries_included": false,
+  "compiled_keyless_diagnostic_files": 20,
+  "generated_png_figures": 3,
   "raw_numerical_measurements_preserved": true,
   "models_and_generated_English_texts_not_translated": true
 }

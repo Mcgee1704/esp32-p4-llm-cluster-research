@@ -1,0 +1,50 @@
+{
+  "repository": "TheREZOR/TinyTalk-2",
+  "revision": "2b55040281013975a4d97e3db8d634f78b31c6b1",
+  "files": {
+    "model.safetensors": "40e10ee793e157f09fb94d2926db9aa3f81d42814249f1c1db023b7027f17567",
+    "config.json": "40c189bc0132deade5900dbb93b404933fdbd8343ccc70e2fe6652ddd76cee6d",
+    "tokenizer.json": "1fe93b6152957cf9cfd6d89002467f789ce8b3f3e000b3a2edf27c808ddd0b9e",
+    "tokenizer_config.json": "dd2f7bd5f8078e456db8432207dba3fa99a49e1ccd51dfbc92a521c142afdfd4",
+    "README.md": "0241106109e0c12a37f4fefa1a1ead8be33f1432d90bf9fb2ae455fe37be3c91"
+  },
+  "downloads": [
+    {
+      "file": "model.safetensors",
+      "url": "https://huggingface.co/TheREZOR/TinyTalk-2/resolve/2b55040281013975a4d97e3db8d634f78b31c6b1/model.safetensors",
+      "bytes": 78821312,
+      "sha256": "40e10ee793e157f09fb94d2926db9aa3f81d42814249f1c1db023b7027f17567",
+      "lfs_verified": true
+    },
+    {
+      "file": "tokenizer.json",
+      "url": "https://huggingface.co/TheREZOR/TinyTalk-2/resolve/2b55040281013975a4d97e3db8d634f78b31c6b1/tokenizer.json",
+      "bytes": 3557680,
+      "sha256": "1fe93b6152957cf9cfd6d89002467f789ce8b3f3e000b3a2edf27c808ddd0b9e",
+      "lfs_verified": false
+    },
+    {
+      "file": "generation_config.json",
+      "url": "https://huggingface.co/TheREZOR/TinyTalk-2/resolve/2b55040281013975a4d97e3db8d634f78b31c6b1/generation_config.json",
+      "bytes": 140,
+      "sha256": "b76cbcd00dd8ff4aa105fdf77f5685c13c061af99c930b8a469f1339c40371fb",
+      "lfs_verified": false
+    }
+  ],
+  "declared_license": "CC BY-NC-SA 4.0",
+  "full_vocabulary": 50257,
+  "merge_count": 50000,
+  "dependency": {
+    "name": "tokenizers",
+    "version": "0.22.1",
+    "filename": "tokenizers-0.22.1-cp39-abi3-win_amd64.whl",
+    "url": "https://files.pythonhosted.org/packages/b3/46/e33a8c93907b631a99377ef4c5f817ab453d0b34f93529421f42ff559671/tokenizers-0.22.1-cp39-abi3-win_amd64.whl",
+    "sha256": "65fd6e3fb11ca1e78a6a93602490f134d1fdeb13bcef99389d5102ea318ed138"
+  },
+  "architecture_reference": {
+    "url": "https://raw.githubusercontent.com/huggingface/transformers/v4.57.1/src/transformers/models/gpt_neo/modeling_gpt_neo.py",
+    "sha256": "acafb3f6c83fd852fb9cf85a32ccd44abe2dcb8c9ca221d6dafe6ef23c795cd1",
+    "executed": false
+  },
+  "upstream_model_python_executed": false
+}

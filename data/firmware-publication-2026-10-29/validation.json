@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-29",
+  "passed": true,
+  "complete_source_versions": 4,
+  "built_target_configurations": 5,
+  "compiled_BIN_files": 20,
+  "app_image_checks": 5,
+  "bootloader_image_checks": 5,
+  "keyless_config_checks": 5,
+  "revision_bound_checks": 5,
+  "source_auth_minimum_length_guard_checks": 8,
+  "private_marker_scan_of_all_distributed_BINs_passed": true,
+  "source_unit_tests_after_firmware_checks": 50,
+  "public_binary_hardware_tests": 0,
+  "research_devices_flashed_in_this_package": false,
+  "models_NVS_factory_dumps_private_keys_ELF_SDK_build_logs_included": false,
+  "reproducibility_settings_enabled": true,
+  "independent_repeat_build_byte_identity_proven": false,
+  "upload_performed_during_preparation": false,
+  "package_manifest_sha256": "b88d9b3baf36e6a47e4095b117f495a0b44f7fb8eda5c353d3dd947cbf719420"
+}

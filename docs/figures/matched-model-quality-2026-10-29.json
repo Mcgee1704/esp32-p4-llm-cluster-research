@@ -1,0 +1,13 @@
+{
+  "title": "matched-model-quality",
+  "date": "2026-10-29",
+  "width": 1600,
+  "height": 1250,
+  "source_sha256": {
+    "docs/research/data/matched-models-2026-10-29/quality-summary.json": "3e84e42d10693ff0036bb6597e9ffc74badc9c0d1f3267368dc270424c1597de",
+    "docs/research/data/matched-models-2026-10-29/manual-review.json": "5ce0cb8aae02b5c5de331e9b6954c5087111aebb7cffef58cd2563edfdbd7150",
+    "docs/research/data/matched-models-2026-10-29/exports.json": "d4dc9092b96554797f5bb170c224582194bcd1f60a833918ed2b3248a504ebc1",
+    "docs/research/data/matched-models-2026-10-29/protocol.json": "962cb70f6e60233e4da991cb819ac6d84670303e6e4855488b220ab855921869"
+  },
+  "notes": "Static, English, local figure. No online resources. Descriptive medians/ranges and manual review, not confidence intervals or independent quality ratings."
+}

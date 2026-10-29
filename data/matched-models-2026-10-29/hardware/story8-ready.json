@@ -1,0 +1,28 @@
+{
+  "node-1": {
+    "firmware": "0.5.5",
+    "architecture": "gpt_neo",
+    "model_id": "86d2651b7fc1385c68b5d97f81047678f74fec3c60b62c3a94e168ba741997ef",
+    "model_ready": true,
+    "default_kernel": "tile4",
+    "worker_busy": false,
+    "restart_pending": false,
+    "ota_pending": false,
+    "free_heap": null,
+    "free_psram": 7627804,
+    "largest_psram_block": 7602176
+  },
+  "node-2": {
+    "firmware": "0.5.5",
+    "architecture": "gpt_neo",
+    "model_id": "86d2651b7fc1385c68b5d97f81047678f74fec3c60b62c3a94e168ba741997ef",
+    "model_ready": true,
+    "default_kernel": "tile4",
+    "worker_busy": false,
+    "restart_pending": false,
+    "ota_pending": false,
+    "free_heap": null,
+    "free_psram": 7627804,
+    "largest_psram_block": 7602176
+  }
+}

@@ -3,6 +3,7 @@
 #include "cluster_rpc.h"
 #include "esp_err.h"
 void lan_start(void);
+void lan_stop(void);
 void service_start(void);
 void dispatcher_start(void);
 int dispatcher_maintenance_begin(void);

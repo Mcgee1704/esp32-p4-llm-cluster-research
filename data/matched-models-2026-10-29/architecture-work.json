@@ -1,0 +1,28 @@
+{
+  "classification": "Analytical count from deployed dimensions, not measured instructions or a timing prediction",
+  "excluded": "Attention score/value products varying with position, embeddings lookup, normalization, activations, sampling, scheduler and transport; prefill does not execute the output head at every position.",
+  "formula": "layers*(4*d*d + M*d*FFN) + vocab*d, M=3 for Llama SwiGLU and 2 for GPT-Neo GELU; heads=KV heads",
+  "models": {
+    "sft": {
+      "matrix_MACs_per_generated_position": 15187968,
+      "output_head_MACs": 9216000,
+      "output_head_share_of_matrix_MACs": 0.6067961165048543
+    },
+    "story8": {
+      "matrix_MACs_per_generated_position": 19157248,
+      "output_head_MACs": 12865792,
+      "output_head_share_of_matrix_MACs": 0.6715887375890316
+    },
+    "talk1": {
+      "matrix_MACs_per_generated_position": 8005760,
+      "output_head_MACs": 6432896,
+      "output_head_share_of_matrix_MACs": 0.8035334559117435
+    },
+    "talk2": {
+      "matrix_MACs_per_generated_position": 19157248,
+      "output_head_MACs": 12865792,
+      "output_head_share_of_matrix_MACs": 0.6715887375890316
+    }
+  },
+  "source_sha256": "962cb70f6e60233e4da991cb819ac6d84670303e6e4855488b220ab855921869"
+}

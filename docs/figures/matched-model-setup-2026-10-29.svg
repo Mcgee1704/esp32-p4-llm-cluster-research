@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1110" viewBox="0 0 1600 1110" role="img">
+<title>Experimental setup: two P4 nodes, independent requests</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1110" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">Experimental setup: two P4 nodes, independent requests</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Actual software/data paths for this study | Model weights are replicated on both boards | No cloud inference</text>
+<rect x="48" y="135" width="435" height="385" rx="14" fill="white"/>
+<text x="72" y="178" fill="#193347" font-size="30" font-weight="bold" text-anchor="start">Local computer</text>
+<text x="72" y="228" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Pinned data-only model assets</text>
+<text x="72" y="279" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">C runtime + NumPy numerical checks</text>
+<text x="72" y="330" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Frozen prompts and greedy references</text>
+<text x="72" y="381" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">LAN client: submit and record only</text>
+<text x="72" y="432" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Full outputs, profiles and figures</text>
+<text x="72" y="495" fill="#193347" font-size="20" font-weight="bold" text-anchor="start">The PC does not select the worker.</text>
+<path d="M500 306 L676 306" stroke="#3378ad" stroke-width="4" fill="none"/>
+<path d="M663 298 L676 306 L663 314" stroke="#3378ad" stroke-width="4" fill="none"/>
+<text x="511" y="276" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">HTTP :8081</text>
+<text x="511" y="346" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">two jobs</text>
+<rect x="695" y="135" width="850" height="385" rx="14" fill="white"/>
+<text x="720" y="178" fill="#3378ad" font-size="30" font-weight="bold" text-anchor="start">Node 1 / master</text>
+<text x="720" y="219" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">Master-owned dispatcher / queue</text>
+<text x="720" y="258" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">Assigns independent generation jobs to free lanes</text>
+<rect x="722" y="287" width="790" height="92" rx="14" fill="#e4eef7"/>
+<text x="742" y="324" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Local inference owner  +  helper on the other HP core</text>
+<text x="742" y="360" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Full model + own FP32 KV cache for this request</text>
+<text x="720" y="424" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">32 MiB PSRAM | 24 MiB model partition in 32 MiB flash</text>
+<text x="720" y="465" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">Firmware 0.5.5 | four-row tile4 | context 256</text>
+<path d="M1115 537 L1115 650" stroke="#168476" stroke-width="4" fill="none"/>
+<path d="M1107 637 L1115 650 L1123 637" stroke="#168476" stroke-width="4" fill="none"/>
+<text x="1140" y="576" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">Ethernet network</text>
+<text x="1140" y="612" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">HTTP :80 | job 2</text>
+<rect x="695" y="668" width="850" height="263" rx="14" fill="white"/>
+<text x="720" y="711" fill="#168476" font-size="30" font-weight="bold" text-anchor="start">Node 2 / peer</text>
+<text x="720" y="752" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Own inference owner + helper; same complete checkpoint</text>
+<text x="720" y="793" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">Own FP32 KV cache | 32 MiB PSRAM | tile4</text>
+<text x="720" y="838" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">One P4 mode: master executes both requests in sequence.</text>
+<text x="720" y="880" fill="#168476" font-size="22" font-weight="bold" text-anchor="start">Two P4 mode: one independent request on each board.</text>
+<rect x="48" y="550" width="620" height="381" rx="14" fill="white"/>
+<text x="72" y="594" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Controlled study sequence</text>
+<text x="72" y="647" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">1  Freeze assets, 16 tasks and scoring rules</text>
+<text x="72" y="699" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">2  Check host logits, tokenizer and outputs</text>
+<text x="72" y="751" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">3  Run all 16 tasks on the peer for each model</text>
+<text x="72" y="803" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">4  Match master model; run four paired blocks</text>
+<text x="72" y="855" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">5  Restore TinyTalk-2 and peer configuration</text>
+<rect x="48" y="955" width="1497" height="105" rx="14" fill="#dce9f2"/>
+<text x="72" y="996" fill="#193347" font-size="26" font-weight="bold" text-anchor="start">Two full models, two output streams. This increases throughput, not pooled model capacity.</text>
+<text x="72" y="1033" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">SD persistence, a third board, PoE/backfeed behaviour and permanent board-to-board USB are not measured here.</text>
+<text x="48" y="1090" fill="#586c7d" font-size="18" font-weight="normal" text-anchor="start">Schematic, not a wiring or electrical qualification. Network-switch topology and power draw were not independently measured.</text>
+</svg>

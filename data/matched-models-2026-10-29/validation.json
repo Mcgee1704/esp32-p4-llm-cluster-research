@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "unit_tests": 47,
+  "native_build": "passed after device study released the DLL",
+  "quality_outputs_checked": 64,
+  "direct_hardware_generations_checked": 64,
+  "dispatched_hardware_jobs_checked": 64,
+  "initial_hardware_controls_checked": 2,
+  "raw_clock_package_recalculations": 32,
+  "paired_blocks_per_model": 4,
+  "model_specific_tokens_text_EOS_equal": true,
+  "dual_core_profile_checks": 64,
+  "numerical_full_logit_vectors": 9,
+  "tokenizer_prompt_checks": 48,
+  "restored_tinytalk2_both_and_peer_configured": true,
+  "no_queued_running_jobs": true,
+  "earlier_environment_failure": "Native rebuild while the long study process mapped tinyllm.dll returned permission denied; module inspection confirmed it was loaded. Original measured DLL preserved locally, hash matched frozen hardware protocol. Build deferred until process completion.",
+  "publication_checker_correction": "PNG text inspection loads Pillow pixels; CRC verification now occurs before reopening/loading metadata. Four tests cover preserved pixels/provenance, text metadata rejection, ICC rejection and binary destination restriction.",
+  "new_model_asset_download_bytes": 151179486,
+  "online_upload_performed_during_study": false,
+  "limits": [
+    "No independent quality evaluator, held-out/general-assistant test, independent Transformers execution, energy measurement or third physical node",
+    "Fixed model order; four timing repeats measure one fixed pair of prompts",
+    "TinyTalk 1 rain fragment counted generously under frozen literal rule; see review-revisions.json"
+  ],
+  "source_sha256": {
+    "protocol.json": "962cb70f6e60233e4da991cb819ac6d84670303e6e4855488b220ab855921869",
+    "host.json": "c9820a1c16da8328def1d290de72e637097b59d842906acf39c7534b6e9e1173",
+    "manual-review.json": "5ce0cb8aae02b5c5de331e9b6954c5087111aebb7cffef58cd2563edfdbd7150",
+    "quality-summary.json": "3e84e42d10693ff0036bb6597e9ffc74badc9c0d1f3267368dc270424c1597de",
+    "hardware/protocol.json": "faba645a6ebca8b3ed861f56ec752656596354f3eb73802a937a2f13992326e9",
+    "hardware/direct.json": "9baba36bdf636332425ed7430d7d761a9f6e167493524faafb98c7f42d289d60",
+    "hardware/batches.json": "0977be6ed823f8e1e7897351cceed0f7a66465bb9949c606ba07ab5075738668",
+    "hardware/summary.json": "e1e1c989f4864edd24ffeba96372c984c229fd4e36774d94c1e4eadfa32f05f2",
+    "hardware/final-state.json": "b643b55f74a41b350eeb7357a0451cf0d12322dc3c889393cedf52bcf62c0a54"
+  }
+}

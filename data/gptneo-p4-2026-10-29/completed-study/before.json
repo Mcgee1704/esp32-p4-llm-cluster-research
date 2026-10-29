@@ -1,0 +1,96 @@
+{
+  "devices": {
+    "node-1": {
+      "firmware": "0.4.0",
+      "dispatch_protocol": 1,
+      "boot_id": 1400501662,
+      "default_kernel": "tile4",
+      "kernel_protocol": 2,
+      "model_ready": true,
+      "model_error": "",
+      "worker_busy": false,
+      "free_psram": 11549164,
+      "free_internal": 453971,
+      "min_free_internal": 418951,
+      "largest_internal": 360448,
+      "storage": "internal flash; SD not required for inference",
+      "layers": 6,
+      "context": 256,
+      "dim": 288,
+      "model_id": "5273bac5d1937595d92e1528a21ad7ac619e5fde8d2bfbb0aca04866bf10e07f",
+      "ota_pending": false
+    },
+    "node-2": {
+      "firmware": "0.5.4",
+      "dispatch_protocol": 1,
+      "boot_id": 4008297707,
+      "default_kernel": "tile4",
+      "kernel_protocol": 2,
+      "model_ready": true,
+      "restart_pending": false,
+      "restart_phase": 0,
+      "restart_create_result": 0,
+      "restart_heap_ok": 0,
+      "architecture": "gpt_neo",
+      "model_error": "",
+      "worker_busy": false,
+      "free_psram": 7627804,
+      "largest_psram_block": 7602176,
+      "model_load_free_psram": 33551716,
+      "model_load_largest_psram": 33030144,
+      "model_load_requested": 21380448,
+      "free_internal": 450155,
+      "min_free_internal": 434447,
+      "largest_internal": 360448,
+      "storage": "internal flash; SD not required for inference",
+      "layers": 8,
+      "context": 256,
+      "dim": 256,
+      "model_id": "8fb68b9d2c64d260277ecc4ad90a17cac6f8113db4b646a08b7c7ada295c9b60",
+      "ota_pending": false
+    }
+  },
+  "cluster": {
+    "firmware": "0.4.0",
+    "configured": true,
+    "maintenance": false,
+    "peer": "",
+    "model_id": "5273bac5d1937595d92e1528a21ad7ac619e5fde8d2bfbb0aca04866bf10e07f",
+    "capacity": 8,
+    "waiting_limit_ms": 180000,
+    "queued": 0,
+    "running": 0,
+    "available_slots": 8,
+    "lanes": [
+      {
+        "target": "local",
+        "last_probe_ok": false,
+        "last_error": ""
+      },
+      {
+        "target": "",
+        "last_probe_ok": false,
+        "last_error": ""
+      }
+    ]
+  },
+  "unchanged_core_checks": {
+    "vocabulary_decode_tokens_checked": 50257,
+    "encoding_probes": 1102,
+    "unicode_class_ranges": 831,
+    "logit_positions": 18,
+    "logits_per_position": 50257,
+    "max_absolute_logit_error": 2.6702880859375e-05,
+    "tolerance": 0.002,
+    "all_argmax_equal": true,
+    "complete_generations_equal_to_numpy": 14,
+    "model_sha256": "15f705ffce7ec2cf378dbe78c67c7c5c18e0ca41f2a3cd4d98c68a1e97264de2",
+    "scope": "Native C, not P4 hardware; real weights and full byte BPE",
+    "source_sha256": {
+      "tools/check_gptneo_native.py": "f61a567642428a248639de4a8566a72c6218f2446235d01c0036af6c4a8a5420",
+      "tools/pack_gptneo.py": "6fb82cca421896f91362bf23505ff221ca82b08f4b6caadaf7038d99ed8c9c0c",
+      "firmware/components/tinyllm/tinyllm.c": "7c2da727732977e08be2e8e0a7d702cf04ef4ddf025a5c7845ef20ab3b5f6431",
+      "firmware/components/tinyllm/gpt2_tokenizer.c": "65b3afe3db44d3a7d2aa8078100239aacd0a327d14047ccc8ea39293981e5288"
+    }
+  }
+}

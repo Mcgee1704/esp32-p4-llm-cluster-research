@@ -1,0 +1,5 @@
+{
+  "stage": "peer",
+  "error": "('Device readiness timeout', 'node-2', {'firmware': '0.5.3', 'dispatch_protocol': 1, 'boot_id': 3020940793, 'default_kernel': 'tile4', 'kernel_protocol': 2, 'model_ready': True, 'restart_pending': True, 'architecture': 'gpt_neo', 'model_error': '', 'worker_busy': False, 'free_psram': 7627804, 'largest_psram_block': 7602176, 'model_load_free_psram': 33551716, 'model_load_largest_psram': 33030144, 'model_load_requested': 21380448, 'free_internal': 447739, 'min_free_internal': 434447, 'largest_internal': 360448, 'storage': 'internal flash; SD not required for inference', 'layers': 8, 'context': 256, 'dim': 256, 'model_id': '8fb68b9d2c64d260277ecc4ad90a17cac6f8113db4b646a08b7c7ada295c9b60', 'ota_pending': False})",
+  "time_utc": 1793275724.7628336
+}

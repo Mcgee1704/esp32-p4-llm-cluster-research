@@ -6,8 +6,10 @@ The final portable C runtime and experiment tools are published. Partial source
 snapshots preserve selected earlier firmware stages; see `historical/README.md`.
 This English/redacted source representation is not byte-identical to historical
 private builds. Their recorded binary hashes are provenance, not downloadable
-firmware promises. Compiled device images contain the deployment key and are
-excluded. Build your own images with a new local key.
+firmware promises. Original compiled deployment images contain the private key
+and are excluded. Separately rebuilt keyless diagnostics are described in
+[the firmware archive](FIRMWARE_VERSIONS.md). For an operational cluster build
+locally with a new private key; empty-key images block protected LAN APIs.
 
 ## Host setup
 
@@ -19,6 +21,15 @@ on PATH. It compiles the actual C inference/RPC and queue libraries, then runs
 the accumulated unit suite. The recorded baseline metadata is included for the
 static budget test; no model weights are needed for these unit tests.
 Dependencies and model weights are not vendored.
+
+The later GPT-Neo and matched-model studies also use tokenizers 0.22.1 for the
+host reference; the P4 executes the project's C tokenizer. See
+[the binary format](GPTNEO_FORMAT.md), [GPT-Neo device checks](GPTNEO_P4.md)
+and [the matched protocol](MATCHED_MODELS.md). The new figures are generated
+offline with `tools/plot_matched_models.py` using Node.js/Sharp; Pillow checks
+PNG metadata in the snapshot builder. No remotely hosted model is called.
+Model directories contain only checked assets from the pinned download manifests;
+upstream Python and Pickle are not needed.
 
 The baseline can be obtained with `python tools/fetch_model.py`, which uses
 pinned public assets and verifies their hashes. Export with:
@@ -98,15 +109,19 @@ they must not be sent as real network targets.
 To restore the original model, when both queues are idle, upload the retained
 baseline `.p4lm` to both nodes using `lan_client.py ... model --file ...`, then
 configure the master peer again using `dispatch_client.py ... configure --peer ...`.
-Model upload and firmware upload are different operations. Keep keys and binaries
-out of public commits. The public offline verifier does not contact devices.
+Model upload and firmware upload are different operations. Keep private keys and
+provisioned deployment images out of public commits. The public offline verifier
+does not contact devices.
 
 ## Publication validation
 
 The English snapshot's inference/RPC and dispatch queue C libraries were compiled
-on the host with warnings treated as errors, and all 29 local unit tests passed.
+on the host with warnings treated as errors. The original matched-model study
+passed 47 tests; later firmware-publication checks extend that suite. The exact
+current test count is recorded in `provenance/VALIDATION.json`.
 The offline simulator reproduced the recorded numerical validation results.
 The LAN aggregation reproduced the recorded quantitative summary. English UI
-and portable path edits have not been rebuilt with ESP-IDF or installed on the
-boards; device results describe the original measured firmware. See
+and portable path edits have now been compiled into the separately labelled
+keyless firmware builds; they have not been installed on the research boards.
+Device measurements describe the original private firmware. See
 `provenance/VALIDATION.json` for the publication checks.

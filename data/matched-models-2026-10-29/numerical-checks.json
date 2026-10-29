@@ -1,0 +1,29 @@
+[
+  {
+    "model": "story8",
+    "positions": 3,
+    "logits_per_position": 50257,
+    "maximum_absolute_error": 3.24249267578125e-05,
+    "argmax_equal": true,
+    "all_vocab_pieces_equal": true,
+    "all_16_prompt_encodings_equal": true
+  },
+  {
+    "model": "talk1",
+    "positions": 3,
+    "logits_per_position": 50257,
+    "maximum_absolute_error": 3.0279159545898438e-05,
+    "argmax_equal": true,
+    "all_vocab_pieces_equal": true,
+    "all_16_prompt_encodings_equal": true
+  },
+  {
+    "model": "talk2",
+    "positions": 3,
+    "logits_per_position": 50257,
+    "maximum_absolute_error": 2.47955322265625e-05,
+    "argmax_equal": true,
+    "all_vocab_pieces_equal": true,
+    "all_16_prompt_encodings_equal": true
+  }
+]

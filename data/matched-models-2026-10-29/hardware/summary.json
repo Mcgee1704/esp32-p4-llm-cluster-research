@@ -1,0 +1,70 @@
+{
+  "sft": {
+    "paired_blocks": 4,
+    "jobs": 16,
+    "local_package_median_ms": 20234.5,
+    "cluster_package_median_ms": 10733.0,
+    "cluster_package_range_ms": [
+      10496,
+      10751
+    ],
+    "paired_throughput_factor_median": 1.884981248644662,
+    "cluster_tokens_per_s_median": 4.4721891984370155,
+    "cluster_characters_per_s_median": 17.14339192734189,
+    "actual_output_tokens_per_package": 48,
+    "actual_unicode_characters_per_package": 184,
+    "same_tokens_text_EOS_all_jobs": true,
+    "all_cluster_intervals_overlap": true
+  },
+  "story8": {
+    "paired_blocks": 4,
+    "jobs": 16,
+    "local_package_median_ms": 22991.0,
+    "cluster_package_median_ms": 11484.0,
+    "cluster_package_range_ms": [
+      11478,
+      11501
+    ],
+    "paired_throughput_factor_median": 2.001610956217445,
+    "cluster_tokens_per_s_median": 4.179729109981466,
+    "cluster_characters_per_s_median": 16.544761060343298,
+    "actual_output_tokens_per_package": 48,
+    "actual_unicode_characters_per_package": 190,
+    "same_tokens_text_EOS_all_jobs": true,
+    "all_cluster_intervals_overlap": true
+  },
+  "talk1": {
+    "paired_blocks": 4,
+    "jobs": 16,
+    "local_package_median_ms": 10725.5,
+    "cluster_package_median_ms": 5232.0,
+    "cluster_package_range_ms": [
+      5225,
+      5249
+    ],
+    "paired_throughput_factor_median": 2.0499818348301106,
+    "cluster_tokens_per_s_median": 9.174314942948214,
+    "cluster_characters_per_s_median": 33.639154790810124,
+    "actual_output_tokens_per_package": 48,
+    "actual_unicode_characters_per_package": 176,
+    "same_tokens_text_EOS_all_jobs": true,
+    "all_cluster_intervals_overlap": true
+  },
+  "talk2": {
+    "paired_blocks": 4,
+    "jobs": 16,
+    "local_package_median_ms": 22990.0,
+    "cluster_package_median_ms": 11479.0,
+    "cluster_package_range_ms": [
+      11475,
+      11485
+    ],
+    "paired_throughput_factor_median": 2.0032240819891873,
+    "cluster_tokens_per_s_median": 4.181548947145061,
+    "cluster_characters_per_s_median": 18.032929834563078,
+    "actual_output_tokens_per_package": 48,
+    "actual_unicode_characters_per_package": 207,
+    "same_tokens_text_EOS_all_jobs": true,
+    "all_cluster_intervals_overlap": true
+  }
+}

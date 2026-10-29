@@ -1,0 +1,21 @@
+{
+  "firmware": "0.5.0",
+  "dispatch_protocol": 1,
+  "boot_id": 205140472,
+  "default_kernel": "tile4",
+  "kernel_protocol": 2,
+  "model_ready": true,
+  "architecture": "llama",
+  "model_error": "",
+  "worker_busy": false,
+  "free_psram": 12892684,
+  "free_internal": 453567,
+  "min_free_internal": 437107,
+  "largest_internal": 360448,
+  "storage": "internal flash; SD not required for inference",
+  "layers": 6,
+  "context": 256,
+  "dim": 288,
+  "model_id": "5273bac5d1937595d92e1528a21ad7ac619e5fde8d2bfbb0aca04866bf10e07f",
+  "ota_pending": false
+}

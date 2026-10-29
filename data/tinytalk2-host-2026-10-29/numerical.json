@@ -1,0 +1,18 @@
+[
+  {
+    "variant": "fp32",
+    "positions": 18,
+    "full_logits_per_position": 50257,
+    "max_absolute_error": 2.6702880859375e-05,
+    "cached_batch_argmax_all_equal": true
+  },
+  {
+    "variant": "row-int8-simulation",
+    "positions": 18,
+    "full_logits_per_position": 50257,
+    "max_absolute_error": 3.147125244140625e-05,
+    "cached_batch_argmax_all_equal": true,
+    "fp32_vs_int8_max_absolute_logit_difference": 0.33817195892333984,
+    "fp32_vs_int8_argmax_equal_positions": 16
+  }
+]

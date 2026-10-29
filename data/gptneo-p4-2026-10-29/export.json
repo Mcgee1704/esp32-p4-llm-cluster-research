@@ -1,0 +1,14 @@
+{
+  "format": "P4GN0001",
+  "bytes": 21380448,
+  "weights_bytes": 20048464,
+  "tokenizer_bytes": 1331856,
+  "model_id": "8fb68b9d2c64d260277ecc4ad90a17cac6f8113db4b646a08b7c7ada295c9b60",
+  "sha256": "15f705ffce7ec2cf378dbe78c67c7c5c18e0ca41f2a3cd4d98c68a1e97264de2",
+  "unicode_ranges": 831,
+  "unicode_backend": "tokenizers 0.22.1 ByteLevel",
+  "vocabulary": 50257,
+  "merges": 50000,
+  "context": 256,
+  "eos": 50256
+}

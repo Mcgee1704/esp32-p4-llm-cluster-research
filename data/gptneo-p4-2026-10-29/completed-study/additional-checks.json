@@ -1,0 +1,26 @@
+{
+  "layer_rpc_tokens_and_EOS_match": true,
+  "layer_rpc_elapsed_ms": 4650.65,
+  "cluster_job_interval_overlap_ms": [
+    4577,
+    4752,
+    4752,
+    4797
+  ],
+  "clock_domain": "All job intervals on master monotonic clock; intervals include backend/transport time",
+  "all_16_jobs_owner_core_mask": 2,
+  "all_16_jobs_helper_core_mask": 1,
+  "internal_work_bytes_each": 12288,
+  "new_restart_worker_confirmed_on_both": true,
+  "queues_idle_and_matching_peer": true,
+  "packet_ranges_ms": {
+    "local": [
+      10721,
+      10743
+    ],
+    "cluster": [
+      5471,
+      5736
+    ]
+  }
+}

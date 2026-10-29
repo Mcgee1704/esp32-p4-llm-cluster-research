@@ -6,6 +6,11 @@
 #include "sdkconfig.h"
 volatile int lan_ready;
 volatile uint32_t lan_ip4;
+static esp_eth_handle_t ethernet;
+void lan_stop(void) {
+    if(ethernet)(void)esp_eth_stop(ethernet);
+    lan_ready=0;lan_ip4=0;
+}
 static void link_event(void *arg,esp_event_base_t base,int32_t id,void *data) {
     (void)arg;(void)base;(void)data;
     if(id==ETHERNET_EVENT_DISCONNECTED||id==ETHERNET_EVENT_STOP){lan_ready=0;lan_ip4=0;}
@@ -30,10 +35,10 @@ void lan_start(void) {
     pc.phy_addr=CONFIG_CLUSTER_PHY_ADDR;pc.reset_gpio_num=51;
     esp_eth_mac_t *mac=esp_eth_mac_new_esp32(&emac,&mc);assert(mac);
     esp_eth_phy_t *phy=esp_eth_phy_new_ip101(&pc);assert(phy);
-    esp_eth_config_t ec=ETH_DEFAULT_CONFIG(mac,phy);esp_eth_handle_t handle;
-    ESP_ERROR_CHECK(esp_eth_driver_install(&ec,&handle));
-    ESP_ERROR_CHECK(esp_netif_attach(iface,esp_eth_new_netif_glue(handle)));
+    esp_eth_config_t ec=ETH_DEFAULT_CONFIG(mac,phy);
+    ESP_ERROR_CHECK(esp_eth_driver_install(&ec,&ethernet));
+    ESP_ERROR_CHECK(esp_netif_attach(iface,esp_eth_new_netif_glue(ethernet)));
     ESP_ERROR_CHECK(esp_event_handler_register(IP_EVENT,IP_EVENT_ETH_GOT_IP,address,NULL));
     ESP_ERROR_CHECK(esp_event_handler_register(ETH_EVENT,ESP_EVENT_ANY_ID,link_event,NULL));
-    ESP_ERROR_CHECK(esp_eth_start(handle));
+    ESP_ERROR_CHECK(esp_eth_start(ethernet));
 }

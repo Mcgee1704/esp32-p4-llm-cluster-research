@@ -23,10 +23,27 @@ Do not chain ratios across firmware versions: their baselines differ.
 The pair experiments use two independent outputs of 24 tokens each; they are
 not speedups of one autoregressive generation across boards.
 
-The final runtime is firmware 0.4.0, row-wise INT8 weights, FP32 activations/KV,
-both HP CPU cores per P4, and a four-row matrix loop. The current text checkpoint
-is `0rn0/llama2-15m-tinystories-sft`, the **same size** as the original TinyStories
-baseline. It is a different trained checkpoint, not a larger model.
+The table above records the earlier Llama research stages. The current runtime
+is firmware **0.5.5**, with Llama and GPT-Neo, a native GPT-2 byte BPE tokenizer,
+row INT8 weights, FP32 activations/KV and both HP cores per board. The retained
+SFT checkpoint is the same size as the original TinyStories baseline; the
+current restored checkpoint is TinyTalk-2.
+
+## Matched story and dialogue models
+
+The expanded study compares TinyStories-15M SFT, **TinyStories-Instruct-8M**,
+**TinyTalk 1** and **TinyTalk-2** using identical prompt bytes: four English
+story continuations, six factual questions, three instructions and three
+boundary/context probes. See the [matched report](docs/MATCHED_MODELS.md) for
+complete measured results, interpretation, limitations and full generated texts.
+The manual quality review is exploratory, unblinded and not independent; familiar
+facts may overlap training. This is not an unseen benchmark or assistant release.
+
+![Four-model quality and storage comparison](docs/figures/matched-model-quality-2026-10-29.png)
+
+![Measured matched-workload throughput](docs/figures/matched-model-performance-2026-10-29.png)
+
+![Two-node experimental setup](docs/figures/matched-model-setup-2026-10-29.png)
 
 ## Reading guide
 
@@ -34,6 +51,11 @@ baseline. It is a different trained checkpoint, not a larger model.
 - [Hardware and electrical status](docs/HARDWARE.md).
 - [Timing definitions, validation and limitations](docs/METHODS.md).
 - [Text-model selection and ten-task quality review](docs/MODELS_AND_QUALITY.md).
+- [Matched four-model study and interpretation](docs/MATCHED_MODELS.md).
+- [TinyTalk-2 host feasibility and negative quantization finding](docs/TINYTALK_HOST.md).
+- [GPT-Neo on both P4s, allocation failure and LAN-update checks](docs/GPTNEO_P4.md).
+- [P4GN/GPT-2 binary format](docs/GPTNEO_FORMAT.md).
+- [Firmware versions, keyless diagnostic binaries and build limits](docs/FIRMWARE_VERSIONS.md).
 - [Simulation and prospective real-board validation](docs/SIMULATION.md).
 - [Data, redaction and checksum provenance](docs/DATA.md).
 - [Reproduction and API guide](docs/REPRODUCIBILITY.md).
@@ -48,8 +70,11 @@ translated qualitative judgements, and partial historical source snapshots.
 `data/` contains published experiment evidence. Original numerical measurements
 and generated texts are preserved; identifiers and private paths are redacted.
 
-Model weights, LAN keys, factory flash dumps, compiled device images, SDK/tool
+Model weights, LAN keys, factory flash dumps, private deployment images, SDK/tool
 installations, personal machine paths and private Git history are excluded.
+Separately rebuilt keyless diagnostic firmware and complete versioned sources
+are included under `firmware-versions/`; they intentionally disable protected
+LAN operations and are not the original hardware-tested deployment binaries.
 Obtain the original model assets from the pinned sources documented below;
 their licences remain separate. The researcher handle is Mcgee1704.
 

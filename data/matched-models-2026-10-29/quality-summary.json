@@ -1,0 +1,60 @@
+{
+  "counts": {
+    "sft": {
+      "first_fact_correct_of_6": 0,
+      "question_and_format_of_3": 0,
+      "instructions_of_3": 0,
+      "story_full_topic_of_4": 4,
+      "story_no_material_contradiction_of_4": 1,
+      "story_visible_resolution_of_4": 3,
+      "story_eos_of_4": 2,
+      "story_cap_of_4": 2,
+      "all_cases_eos_of_16": 2
+    },
+    "story8": {
+      "first_fact_correct_of_6": 0,
+      "question_and_format_of_3": 0,
+      "instructions_of_3": 0,
+      "story_full_topic_of_4": 4,
+      "story_no_material_contradiction_of_4": 1,
+      "story_visible_resolution_of_4": 3,
+      "story_eos_of_4": 1,
+      "story_cap_of_4": 3,
+      "all_cases_eos_of_16": 1
+    },
+    "talk1": {
+      "first_fact_correct_of_6": 0,
+      "question_and_format_of_3": 0,
+      "instructions_of_3": 1,
+      "story_full_topic_of_4": 1,
+      "story_no_material_contradiction_of_4": 0,
+      "story_visible_resolution_of_4": 1,
+      "story_eos_of_4": 1,
+      "story_cap_of_4": 3,
+      "all_cases_eos_of_16": 13
+    },
+    "talk2": {
+      "first_fact_correct_of_6": 5,
+      "question_and_format_of_3": 1,
+      "instructions_of_3": 0,
+      "story_full_topic_of_4": 3,
+      "story_no_material_contradiction_of_4": 0,
+      "story_visible_resolution_of_4": 3,
+      "story_eos_of_4": 1,
+      "story_cap_of_4": 3,
+      "all_cases_eos_of_16": 13
+    }
+  },
+  "denominators": {
+    "questions": 6,
+    "formatted_questions": 3,
+    "instructions": 3,
+    "stories": 4
+  },
+  "source_sha256": {
+    "protocol.json": "962cb70f6e60233e4da991cb819ac6d84670303e6e4855488b220ab855921869",
+    "manual-review.json": "5ce0cb8aae02b5c5de331e9b6954c5087111aebb7cffef58cd2563edfdbd7150",
+    "host.json": "c9820a1c16da8328def1d290de72e637097b59d842906acf39c7534b6e9e1173"
+  },
+  "interpretation": "Exploratory unblinded descriptive counts, not a held-out benchmark. Same prompt bytes, different tokenizer IDs/training objectives. No validated total quality score."
+}

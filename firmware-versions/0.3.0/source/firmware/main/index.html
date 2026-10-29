@@ -1,0 +1,28 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>P4 · TinyStories Lab</title>
+<style>body{font:17px system-ui;max-width:850px;margin:40px auto;padding:0 20px;background:#f5f4ef;color:#162725}h1{font-size:32px}section{background:white;padding:24px;border-radius:12px;margin:20px 0}label{display:block;margin:12px 0}input,textarea,button{font:inherit;padding:10px;border:1px solid #9ba9a4;border-radius:6px}textarea{width:94%;min-height:90px}button{cursor:pointer;background:#174e44;color:white}pre{white-space:pre-wrap;overflow-wrap:anywhere}small{color:#536960}</style>
+<h1>P4 · TinyStories Lab</h1><p>Local inference on one or two boards.</p>
+<p><a id="clusterLink">Open automatic job dispatcher</a></p>
+<section><label>LAN key <input id="key" type="password" autocomplete="off"></label><button id="refresh">Load status</button><pre id="status">Enter the key from your local installation package.</pre></section>
+<section><h2>Generate text</h2><label>Prompt <textarea id="prompt">Once upon a time</textarea></label>
+<label>Worker-IP <input id="peer" placeholder="Empty = this board only"></label>
+<label>New tokens <input id="tokens" type="number" min="1" max="128" value="32"></label>
+<button id="run">Start</button><pre id="output"></pre><pre id="metrics"></pre>
+<small>With a worker IP: first model half here, second half on the worker. Both need the same model and LAN key.</small></section>
+<section><h2>LAN updates</h2><p>Firmware updates write the inactive slot and reboot. A model upload replaces the current model file.</p>
+<label>Model (.p4lm) <input id="model" type="file" accept=".p4lm"></label><button id="modelUpload">Load model</button>
+<label>Firmware (.bin, matching chip revision) <input id="firmware" type="file" accept=".bin"></label><button id="firmwareUpload">Update firmware</button><pre id="update"></pre></section>
+<script>
+const $=id=>document.getElementById(id);
+$('clusterLink').href='http://'+location.hostname+':8081/';
+function headers(){return {'X-Cluster-Key':$('key').value};}
+async function request(url,opts={}){const r=await fetch(url,{...opts,headers:{...headers(),...opts.headers}});if(!r.ok)throw Error(await r.text());return r;}
+$('refresh').onclick=async()=>{try{$('status').textContent=JSON.stringify(await(await request('/api/status')).json(),null,2);}catch(e){$('status').textContent=e.message;}};
+$('run').onclick=async()=>{const button=$('run');button.disabled=true;$('output').textContent='';$('metrics').textContent='Computing ...';try{
+ const r=await request('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:$('prompt').value,peer:$('peer').value.trim(),tokens:Number($('tokens').value)})});
+ const reader=r.body.getReader(),decoder=new TextDecoder(),textDecoder=new TextDecoder();let buffer='';
+ for(;;){const {value,done}=await reader.read();buffer+=decoder.decode(value,{stream:!done});let cut;while((cut=buffer.indexOf('\n'))>=0){const item=JSON.parse(buffer.slice(0,cut));buffer=buffer.slice(cut+1);if(item.bytes_hex)$('output').textContent+=textDecoder.decode(Uint8Array.from(item.bytes_hex.match(/../g)||[],x=>parseInt(x,16)),{stream:true});if(item.done){$('output').textContent+=textDecoder.decode();$('metrics').textContent=JSON.stringify(item,null,2);}}if(done)break;}
+ }catch(e){$('metrics').textContent=e.message;}finally{button.disabled=false;}};
+async function upload(kind){const file=$(kind).files[0];if(!file){$('update').textContent='Select a file.';return;}const b=$(kind+'Upload');b.disabled=true;$('update').textContent='Transferring ...';try{$('update').textContent=await(await request('/api/'+kind,{method:'POST',headers:{'Content-Type':'application/octet-stream'},body:file})).text();}catch(e){$('update').textContent=e.message;}finally{b.disabled=false;}}
+$('modelUpload').onclick=()=>upload('model');$('firmwareUpload').onclick=()=>upload('firmware');
+</script></html>

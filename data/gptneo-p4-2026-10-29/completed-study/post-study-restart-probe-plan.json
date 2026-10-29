@@ -1,0 +1,10 @@
+{
+  "classification": "Separate functional check after controlled performance study",
+  "target": "master LAN same-image OTA, persisted peer/model identity, two dispatched jobs",
+  "cases": [
+    "Q1",
+    "Q2"
+  ],
+  "cap": 32,
+  "not_part_of_16_performance_jobs": true
+}

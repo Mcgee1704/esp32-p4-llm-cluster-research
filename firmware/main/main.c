@@ -11,16 +11,21 @@ ts_state *model;
 rpc_state *worker;
 const char *model_error="No model uploaded";
 static void *model_blob;
+size_t model_load_free_psram,model_load_largest_psram,model_load_requested;
 void model_load(void) {
     rpc_close(worker);worker=NULL;ts_close(model);model=NULL;free(model_blob);model_blob=NULL;
     const esp_partition_t *p=esp_partition_find_first(ESP_PARTITION_TYPE_DATA,0x40,"model");
     uint8_t header[128];
-    if(!p||esp_partition_read(p,0,header,sizeof header)!=ESP_OK||memcmp(header,"P4LM0001",8)) {
-        model_error="No valid model header. Upload a .p4lm file over LAN.";return;
+    if(!p||esp_partition_read(p,0,header,sizeof header)!=ESP_OK||
+       (memcmp(header,"P4LM0001",8)&&memcmp(header,"P4GN0001",8))) {
+        model_error="No valid model header. Upload a .p4lm or .p4gn file over LAN.";return;
     }
     uint32_t w,t;memcpy(&w,header+36,4);memcpy(&t,header+40,4);
     if(w>p->size-128||t>p->size-128-w) {model_error="Model length invalid";return;}
     size_t bytes=128+(size_t)w+t;
+    model_load_requested=bytes;
+    model_load_free_psram=heap_caps_get_free_size(MALLOC_CAP_SPIRAM|MALLOC_CAP_8BIT);
+    model_load_largest_psram=heap_caps_get_largest_free_block(MALLOC_CAP_SPIRAM|MALLOC_CAP_8BIT);
     model_blob=heap_caps_malloc(bytes,MALLOC_CAP_SPIRAM|MALLOC_CAP_8BIT);
     if(!model_blob){model_error="Insufficient PSRAM for model";return;}
     if(esp_partition_read(p,0,model_blob,bytes)!=ESP_OK){model_error="Model flash read failed";goto fail;}

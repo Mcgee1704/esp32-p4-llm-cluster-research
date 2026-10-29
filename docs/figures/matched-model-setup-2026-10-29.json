@@ -1,0 +1,11 @@
+{
+  "title": "matched-model-setup",
+  "date": "2026-10-29",
+  "width": 1600,
+  "height": 1110,
+  "source_sha256": {
+    "docs/research/data/matched-models-2026-10-29/protocol.json": "962cb70f6e60233e4da991cb819ac6d84670303e6e4855488b220ab855921869",
+    "docs/research/gptneo-p4-2026-10-29.md": "992d2f7f4dd9525f5935824daecd42e9bd7d83c16d63b7cb6d4755261e3c2133"
+  },
+  "notes": "Static, English, local figure. No online resources. Descriptive medians/ranges and manual review, not confidence intervals or independent quality ratings."
+}

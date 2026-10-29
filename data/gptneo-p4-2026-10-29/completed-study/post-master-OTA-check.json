@@ -1,0 +1,7 @@
+{
+  "new_boot_id": true,
+  "persisted_peer_without_reconfigure": true,
+  "two_job_tokens_and_EOS_exact": true,
+  "both_targets_used": true,
+  "no_serial_intervention": true
+}

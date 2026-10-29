@@ -1,0 +1,166 @@
+{
+  "model": "TheREZOR/TinyTalk-2",
+  "revision": "2b55040281013975a4d97e3db8d634f78b31c6b1",
+  "source_sha256": {
+    "model.safetensors": "40e10ee793e157f09fb94d2926db9aa3f81d42814249f1c1db023b7027f17567",
+    "config.json": "40c189bc0132deade5900dbb93b404933fdbd8343ccc70e2fe6652ddd76cee6d",
+    "tokenizer.json": "1fe93b6152957cf9cfd6d89002467f789ce8b3f3e000b3a2edf27c808ddd0b9e",
+    "tokenizer_config.json": "dd2f7bd5f8078e456db8432207dba3fa99a49e1ccd51dfbc92a521c142afdfd4",
+    "README.md": "0241106109e0c12a37f4fefa1a1ead8be33f1432d90bf9fb2ae455fe37be3c91"
+  },
+  "script_sha256": {
+    "tinytalk_reference.py": "907228cc1a94dbd402cf9e76cea0edbd9fe4434de298d4928e0b7d3c96b9ae41",
+    "evaluate_tinytalk.py": "7c4c2d6019b03d14731e85f277b610c4b0d67fc0a1683656338cb85a22cc0bf1"
+  },
+  "order": [
+    "fp32",
+    "row-int8-simulation"
+  ],
+  "sampler": "greedy",
+  "context": 256,
+  "cases": [
+    {
+      "id": "Q1",
+      "category": "question",
+      "limit": 32,
+      "expected": [
+        "moo"
+      ],
+      "prompt": "What sound does a cow make? Answer in one short sentence.",
+      "source": "reused prior quality-V1 task",
+      "mode": "chat"
+    },
+    {
+      "id": "Q2",
+      "category": "question",
+      "limit": 32,
+      "expected": [
+        "yellow"
+      ],
+      "prompt": "What color is a ripe banana? Answer in one short sentence.",
+      "source": "reused prior quality-V1 task",
+      "mode": "chat"
+    },
+    {
+      "id": "Q3",
+      "category": "question",
+      "limit": 32,
+      "expected": [
+        "two",
+        "2"
+      ],
+      "prompt": "How many wheels does a bicycle usually have? Answer in one short sentence.",
+      "source": "reused prior quality-V1 task",
+      "mode": "chat"
+    },
+    {
+      "id": "I1",
+      "category": "instruction",
+      "limit": 32,
+      "exact": "blue",
+      "prompt": "Reply with exactly this word: blue",
+      "source": "reused prior quality-V1 task",
+      "mode": "chat"
+    },
+    {
+      "id": "I2",
+      "category": "instruction",
+      "limit": 32,
+      "exact": "red green blue",
+      "prompt": "Write exactly three words: red green blue",
+      "source": "reused prior quality-V1 task",
+      "mode": "chat"
+    },
+    {
+      "id": "I3",
+      "category": "instruction",
+      "limit": 32,
+      "prompt": "Write one short sentence about rain. Do not mention animals.",
+      "source": "reused prior quality-V1 task",
+      "mode": "chat"
+    },
+    {
+      "id": "Q4",
+      "category": "question",
+      "prompt": "What is a baby dog called?",
+      "expected": [
+        "puppy"
+      ],
+      "limit": 32,
+      "mode": "chat"
+    },
+    {
+      "id": "Q5",
+      "category": "question",
+      "prompt": "What is the opposite of hot?",
+      "expected": [
+        "cold"
+      ],
+      "limit": 32,
+      "mode": "chat"
+    },
+    {
+      "id": "Q6",
+      "category": "question",
+      "prompt": "How many legs does a cat have?",
+      "expected": [
+        "four",
+        "4"
+      ],
+      "limit": 32,
+      "mode": "chat"
+    },
+    {
+      "id": "C1",
+      "category": "dialogue",
+      "prompt": "Hi! How are you?",
+      "limit": 32,
+      "mode": "chat"
+    },
+    {
+      "id": "C2",
+      "category": "memory",
+      "prompt": "What is my cat's name?",
+      "history": [
+        {
+          "role": "user",
+          "content": "My cat is called Luna."
+        },
+        {
+          "role": "assistant",
+          "content": "Luna is a nice name."
+        }
+      ],
+      "limit": 32,
+      "mode": "chat"
+    },
+    {
+      "id": "U1",
+      "category": "unknown",
+      "prompt": "What is the serial number of the board on my desk?",
+      "limit": 32,
+      "mode": "chat"
+    },
+    {
+      "id": "S1",
+      "category": "story",
+      "prompt": "a little fox shares an apple with a hungry rabbit and they become friends",
+      "limit": 128,
+      "mode": "story"
+    },
+    {
+      "id": "D1",
+      "category": "language-boundary",
+      "prompt": "Welche Farbe hat eine reife Banane?",
+      "limit": 32,
+      "mode": "chat"
+    }
+  ],
+  "numerical_tolerance_absolute": 0.001,
+  "cached_batch_argmax_must_match": true,
+  "classification": "Exploratory host screen; no hardware or independent Transformers execution",
+  "score_policy": "Exact I1/I2 equality; question lexical signals plus manual first-fact/one-sentence inspection. C2/U1/S1/D1 require manual review. Same assistant, unblinded; no general benchmark ranking.",
+  "old_comparison": "Only Q1-Q3/I1-I3 reuse prior tasks; checkpoint/prompt wrapper and execution platform differ. No pooled speed or blinded paired-quality claim.",
+  "quantization": "All 2-D weights including learned positions row-wise INT8 then dequantized to FP32 for host math; vectors/biases stay FP32. No packed deployment format is emitted.",
+  "stopping": "EOS 50256 is excluded from displayed/output tokens; eos flag is directly observed. Otherwise stop at the fixed token limit."
+}

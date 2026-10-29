@@ -1,0 +1,19 @@
+{
+  "vocabulary_decode_tokens_checked": 50257,
+  "encoding_probes": 1102,
+  "unicode_class_ranges": 831,
+  "logit_positions": 18,
+  "logits_per_position": 50257,
+  "max_absolute_logit_error": 2.6702880859375e-05,
+  "tolerance": 0.002,
+  "all_argmax_equal": true,
+  "complete_generations_equal_to_numpy": 14,
+  "model_sha256": "15f705ffce7ec2cf378dbe78c67c7c5c18e0ca41f2a3cd4d98c68a1e97264de2",
+  "scope": "Native C, not P4 hardware; real weights and full byte BPE",
+  "source_sha256": {
+    "tools/check_gptneo_native.py": "f61a567642428a248639de4a8566a72c6218f2446235d01c0036af6c4a8a5420",
+    "tools/pack_gptneo.py": "6fb82cca421896f91362bf23505ff221ca82b08f4b6caadaf7038d99ed8c9c0c",
+    "firmware/components/tinyllm/tinyllm.c": "7c2da727732977e08be2e8e0a7d702cf04ef4ddf025a5c7845ef20ab3b5f6431",
+    "firmware/components/tinyllm/gpt2_tokenizer.c": "65b3afe3db44d3a7d2aa8078100239aacd0a327d14047ccc8ea39293981e5288"
+  }
+}

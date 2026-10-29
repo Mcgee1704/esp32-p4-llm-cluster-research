@@ -1,0 +1,227 @@
+{
+  "master": "node-1",
+  "peer": "node-2",
+  "firmware": "0.5.5",
+  "old_model_id": "5273bac5d1937595d92e1528a21ad7ac619e5fde8d2bfbb0aca04866bf10e07f",
+  "new_model_id": "8fb68b9d2c64d260277ecc4ad90a17cac6f8113db4b646a08b7c7ada295c9b60",
+  "artifacts_sha256": {
+    ".local/gptneo-p4-2026-10-29/p4-0.5.5.bin": "c2d3c3d6f2f038b7a34ee509a4584554f8292babebfe2b5ec0a6f5b826af4ca9",
+    ".local/models/tinytalk2.p4gn": "15f705ffce7ec2cf378dbe78c67c7c5c18e0ca41f2a3cd4d98c68a1e97264de2",
+    ".local/models/llama2-15m-sft-4d69f1c13019/stories15M-sft.p4lm": "a1aa4c95d23be513adee776fc2bbb835fce2e5ab88ddd04461da3c69d35495cd",
+    ".local/gptneo-p4-2026-10-29/rollback/p4-0.4.0.bin": "d8a80c8b53e230904b79a56d0c7618f5ffd70287e881aadf4af341bb6e8dcf5f"
+  },
+  "cases": [
+    {
+      "id": "Q1",
+      "category": "question",
+      "limit": 32,
+      "expected": [
+        "moo"
+      ],
+      "prompt": "What sound does a cow make? Answer in one short sentence.",
+      "source": "reused prior quality-V1 task",
+      "mode": "chat"
+    },
+    {
+      "id": "Q2",
+      "category": "question",
+      "limit": 32,
+      "expected": [
+        "yellow"
+      ],
+      "prompt": "What color is a ripe banana? Answer in one short sentence.",
+      "source": "reused prior quality-V1 task",
+      "mode": "chat"
+    },
+    {
+      "id": "Q3",
+      "category": "question",
+      "limit": 32,
+      "expected": [
+        "two",
+        "2"
+      ],
+      "prompt": "How many wheels does a bicycle usually have? Answer in one short sentence.",
+      "source": "reused prior quality-V1 task",
+      "mode": "chat"
+    },
+    {
+      "id": "I1",
+      "category": "instruction",
+      "limit": 32,
+      "exact": "blue",
+      "prompt": "Reply with exactly this word: blue",
+      "source": "reused prior quality-V1 task",
+      "mode": "chat"
+    },
+    {
+      "id": "I2",
+      "category": "instruction",
+      "limit": 32,
+      "exact": "red green blue",
+      "prompt": "Write exactly three words: red green blue",
+      "source": "reused prior quality-V1 task",
+      "mode": "chat"
+    },
+    {
+      "id": "I3",
+      "category": "instruction",
+      "limit": 32,
+      "prompt": "Write one short sentence about rain. Do not mention animals.",
+      "source": "reused prior quality-V1 task",
+      "mode": "chat"
+    },
+    {
+      "id": "Q4",
+      "category": "question",
+      "prompt": "What is a baby dog called?",
+      "expected": [
+        "puppy"
+      ],
+      "limit": 32,
+      "mode": "chat"
+    },
+    {
+      "id": "Q5",
+      "category": "question",
+      "prompt": "What is the opposite of hot?",
+      "expected": [
+        "cold"
+      ],
+      "limit": 32,
+      "mode": "chat"
+    },
+    {
+      "id": "Q6",
+      "category": "question",
+      "prompt": "How many legs does a cat have?",
+      "expected": [
+        "four",
+        "4"
+      ],
+      "limit": 32,
+      "mode": "chat"
+    },
+    {
+      "id": "C1",
+      "category": "dialogue",
+      "prompt": "Hi! How are you?",
+      "limit": 32,
+      "mode": "chat"
+    },
+    {
+      "id": "C2",
+      "category": "memory",
+      "prompt": "What is my cat's name?",
+      "history": [
+        {
+          "role": "user",
+          "content": "My cat is called Luna."
+        },
+        {
+          "role": "assistant",
+          "content": "Luna is a nice name."
+        }
+      ],
+      "limit": 32,
+      "mode": "chat"
+    },
+    {
+      "id": "U1",
+      "category": "unknown",
+      "prompt": "What is the serial number of the board on my desk?",
+      "limit": 32,
+      "mode": "chat"
+    },
+    {
+      "id": "S1",
+      "category": "story",
+      "prompt": "a little fox shares an apple with a hungry rabbit and they become friends",
+      "limit": 128,
+      "mode": "story"
+    },
+    {
+      "id": "D1",
+      "category": "language-boundary",
+      "prompt": "Welche Farbe hat eine reife Banane?",
+      "limit": 32,
+      "mode": "chat"
+    }
+  ],
+  "legacy_prompt": "Write a story about: a little girl and her dog\nWith: happy ending\n\n### Story:\n",
+  "legacy_reference": {
+    "tokens": [
+      6716,
+      2462,
+      29892,
+      263,
+      2217,
+      7826,
+      322,
+      902,
+      11203,
+      3512,
+      363,
+      263,
+      6686,
+      29889,
+      450,
+      7826,
+      471,
+      1407,
+      24173,
+      29889,
+      2296,
+      471,
+      3063,
+      472
+    ],
+    "text": "One day, a little girl and her dog went for a walk. The girl was very excited. She was looking at",
+    "eos": false,
+    "prompt_tokens": [
+      1,
+      14350,
+      263,
+      5828,
+      1048,
+      29901,
+      263,
+      2217,
+      7826,
+      322,
+      902,
+      11203,
+      13,
+      3047,
+      29901,
+      9796,
+      17140,
+      13,
+      13,
+      2277,
+      29937,
+      13740,
+      29901,
+      13
+    ]
+  },
+  "benchmark_cases": [
+    "Q1",
+    "Q2"
+  ],
+  "benchmark_cap": 32,
+  "benchmark_blocks": 4,
+  "order": "local then cluster on odd blocks; cluster then local on even blocks",
+  "timing": "master monotonic min acceptance to max completion; two independent requests",
+  "model_order": "peer firmware with SFT control, peer TinyTalk with automatic cold reboot, peer same-image OTA reboot, master firmware/SFT control, master TinyTalk with automatic cold reboot, two-lane study",
+  "script_sha256": "4848d919117b438064e0e828c9b264b73aa0e75cea0da75324d458548d19e5e2",
+  "continuation_script_sha256": "78fcd3815bb2bb8c2c017eb6f305f2c31ca1ffad0e38470276e61bcfcbe0a235",
+  "prior_gate": "14 complete P4 generations on 0.5.3; unchanged portable core/exporter/reference hashes verified",
+  "continuation_cases": [
+    "Q1",
+    "Q3",
+    "S1"
+  ],
+  "restart_gate": "LAN OTA after a long story, then same-model LAN upload with automatic restart; new boot IDs and Q1 token checks",
+  "amendment_reason": "Earlier same-image OTA did not regain LAN readiness; preserve failed evidence and test revised controlled restart separately"
+}

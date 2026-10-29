@@ -1,0 +1,48 @@
+{
+  "version": "0.5.5",
+  "revision_configuration": "rev3",
+  "chip": "esp32p4",
+  "idf": "5.5.4",
+  "purpose": "Keyless diagnostic/research build; authenticated inference and uploads intentionally disabled",
+  "private_key_included": false,
+  "compiled_LAN_key_length": 0,
+  "APP_REPRODUCIBLE_BUILD": true,
+  "path_and_private_marker_scan_passed": true,
+  "minimum_chip_revision_encoded": 300,
+  "maximum_chip_revision_encoded": 399,
+  "hardware_test_of_these_public_bytes": false,
+  "original_private_hardware_measurements": "See scientific data; public image bytes differ from the measured private deployment",
+  "model_included": false,
+  "flash_files": [
+    {
+      "filename": "bootloader.bin",
+      "offset": "0x2000",
+      "bytes": 21488,
+      "sha256": "a44c89c570ad31165d6ae4873553c7f476e5cfd1d25df660677cefe5d09e620e"
+    },
+    {
+      "filename": "p4_tinystories.bin",
+      "offset": "0x20000",
+      "bytes": 740320,
+      "sha256": "6c3cbb23fc8ef238c194bf38b2f889890c9609948b81baa9ca960482d63f8ec7"
+    },
+    {
+      "filename": "partition-table.bin",
+      "offset": "0x8000",
+      "bytes": 3072,
+      "sha256": "a90a58aea09558621809b0ceea69f583e8df24d5759c8f5eae4efc6253366d40"
+    },
+    {
+      "filename": "ota_data_initial.bin",
+      "offset": "0xf000",
+      "bytes": 8192,
+      "sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+    }
+  ],
+  "flash_settings": {
+    "flash_mode": "dio",
+    "flash_size": "32MB",
+    "flash_freq": "80m"
+  },
+  "image_info_sha256": "78de4db9c449067fc0235568eeb9089ba4fe5dd41f3c600a4f79cca95b09b3d1"
+}

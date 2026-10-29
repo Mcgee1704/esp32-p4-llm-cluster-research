@@ -1,0 +1,16 @@
+{
+  "unit_tests_passed": 37,
+  "new_reference_tests": 8,
+  "native_inference_rpc_and_queue_builds_passed": true,
+  "source_weights_and_tokenizer_integrity_passed": true,
+  "upstream_model_python_executed": false,
+  "cache_batch_real_check": "18 full vocabulary logits vectors per precision",
+  "independent_transformers_execution": false,
+  "p4_model_update": false,
+  "p4_firmware_update": false,
+  "online_publication": false,
+  "source_files": {
+    "tinytalk_reference.py": "907228cc1a94dbd402cf9e76cea0edbd9fe4434de298d4928e0b7d3c96b9ae41",
+    "evaluate_tinytalk.py": "7c4c2d6019b03d14731e85f277b610c4b0d67fc0a1683656338cb85a22cc0bf1"
+  }
+}

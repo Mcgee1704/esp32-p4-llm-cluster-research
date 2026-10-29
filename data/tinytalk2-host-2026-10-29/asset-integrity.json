@@ -1,0 +1,41 @@
+{
+  "revision": "2b55040281013975a4d97e3db8d634f78b31c6b1",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 4145,
+      "sha256": "0241106109e0c12a37f4fefa1a1ead8be33f1432d90bf9fb2ae455fe37be3c91",
+      "remote_integrity_check": "Git blob SHA-1"
+    },
+    {
+      "file": "config.json",
+      "bytes": 1054,
+      "sha256": "40c189bc0132deade5900dbb93b404933fdbd8343ccc70e2fe6652ddd76cee6d",
+      "remote_integrity_check": "Git blob SHA-1"
+    },
+    {
+      "file": "tokenizer_config.json",
+      "bytes": 488,
+      "sha256": "dd2f7bd5f8078e456db8432207dba3fa99a49e1ccd51dfbc92a521c142afdfd4",
+      "remote_integrity_check": "Git blob SHA-1"
+    },
+    {
+      "file": "generation_config.json",
+      "bytes": 140,
+      "sha256": "b76cbcd00dd8ff4aa105fdf77f5685c13c061af99c930b8a469f1339c40371fb",
+      "remote_integrity_check": "Git blob SHA-1"
+    },
+    {
+      "file": "tokenizer.json",
+      "bytes": 3557680,
+      "sha256": "1fe93b6152957cf9cfd6d89002467f789ce8b3f3e000b3a2edf27c808ddd0b9e",
+      "remote_integrity_check": "Git blob SHA-1"
+    },
+    {
+      "file": "model.safetensors",
+      "bytes": 78821312,
+      "sha256": "40e10ee793e157f09fb94d2926db9aa3f81d42814249f1c1db023b7027f17567",
+      "remote_integrity_check": "LFS SHA-256"
+    }
+  ]
+}

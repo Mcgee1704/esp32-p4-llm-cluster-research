@@ -1,0 +1,26 @@
+{
+  "classification": "Exploratory host feasibility only",
+  "cases_per_variant": 14,
+  "tokenizers_version": "0.22.1",
+  "p4_inference_tested": false,
+  "firmware_modified": false,
+  "same_assistant_unblinded_review": true,
+  "quantization_token_identity_not_required": true,
+  "variants": {
+    "fp32": {
+      "output_tokens": 241,
+      "eos_count": 14,
+      "exact_I1_I2": 0,
+      "question_lexical_signals": 5,
+      "question_count": 6
+    },
+    "row-int8-simulation": {
+      "output_tokens": 234,
+      "eos_count": 14,
+      "exact_I1_I2": 0,
+      "question_lexical_signals": 5,
+      "question_count": 6
+    }
+  },
+  "full_token_sequences_equal_between_variants": 12
+}

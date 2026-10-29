@@ -47,3 +47,39 @@ format. Downloaded weights, original model card and source material remain under
 research evidence. Upstream Python was read for architecture verification and
 was not imported or executed. This is a separate pretrained/SFT model, not an
 SFT-only ablation of the Karpathy baseline.
+
+TinyTalk-2 local host and ESP32-P4 research:
+https://huggingface.co/TheREZOR/TinyTalk-2 at
+`2b55040281013975a4d97e3db8d634f78b31c6b1`, declared CC BY-NC-SA 4.0.
+Its weights/tokenizer/card remain in ignored local storage and are not
+redistributed. Their terms are separate from the project's original code.
+GPT-Neo architecture was checked against Hugging Face Transformers v4.57.1
+`src/transformers/models/gpt_neo/modeling_gpt_neo.py` (Apache-2.0), read only.
+The independent NumPy and C implementations are local source; no model-repository
+Python was executed. A verified tokenizers 0.22.1 wheel is used locally for the
+GPT-2 BPE reference and deriving Unicode classes. The P4 runs the project's C
+tokenizer; dependency binaries are not committed. Source/dependency hashes are
+retained in `data/tinytalk2-host-2026-10-29/` and
+`data/gptneo-p4-2026-10-29/`.
+
+Matched-model research adds TheREZOR/TinyTalk (TinyTalk 1), revision
+`61c79ad139344cdd344a687b35fa8f1c52326154`, declared CC BY 4.0, and
+roneneldan/TinyStories-Instruct-8M, pinned Safetensors-conversion PR revision
+`18d7c83c2d7b0685b0da3c26379dd4d4d90a1ffb` from upstream discussion 1.
+https://huggingface.co/TheREZOR/TinyTalk
+https://huggingface.co/roneneldan/TinyStories-Instruct-8M/discussions/1
+The pinned TinyStories readme/config has no explicit model-licence declaration;
+no redistribution permission is inferred. Original and converted model weights,
+tokenizer assets and upstream cards remain local and are not included in Git.
+The conversion's equivalence to the Pickle checkpoint is an upstream assertion;
+we verify the pinned LFS digest and tensor/mask semantics, not a separately
+deserialized Pickle-to-Safetensors equality check. No upstream model code runs.
+
+Public keyless diagnostic firmware bundles additionally retain ESP-IDF v5.5.4
+and compiler-runtime licence/notice files under the firmware-version archive.
+The SDK source is https://github.com/espressif/esp-idf/tree/v5.5.4 . The compiler
+distribution is riscv32-esp-elf esp-14.2.0_20260121; GCC runtime exception and
+newlib/picolibc notices are preserved alongside a conservative SDK-component
+notice superset. This does not relicense SDK/runtime materials as project MIT
+code, or claim that every listed component is linked. Original private deployment
+images and model weights are not distributed.

@@ -1,0 +1,641 @@
+{
+  "date": "2026-10-29",
+  "versions": [
+    {
+      "version": "0.2.0",
+      "source_commit": "d552fec881ceb2d1221ec83e5cfe526cf464051b",
+      "source_files": {
+        "firmware/CMakeLists.txt": {
+          "original_sha256": "e25dcb774731effcc18d0115e7578b35019cd6947cfbcf0866ccdd6ef17d402f",
+          "public_source_sha256": "e25dcb774731effcc18d0115e7578b35019cd6947cfbcf0866ccdd6ef17d402f"
+        },
+        "firmware/components/dispatch_queue/CMakeLists.txt": {
+          "original_sha256": "6364e4b37f32f4a99c17ddecc9139689bf6a60c7404d803ca363983758d949d1",
+          "public_source_sha256": "6364e4b37f32f4a99c17ddecc9139689bf6a60c7404d803ca363983758d949d1"
+        },
+        "firmware/components/dispatch_queue/dispatch_queue.c": {
+          "original_sha256": "714b31d331aa9cb2ae11a7e8b839a15ec3b43fa74fa2919345347e8963c57c0a",
+          "public_source_sha256": "714b31d331aa9cb2ae11a7e8b839a15ec3b43fa74fa2919345347e8963c57c0a"
+        },
+        "firmware/components/dispatch_queue/include/dispatch_queue.h": {
+          "original_sha256": "9f4c61ce0e64b55421ca647785d265f6aa2da3e3c32dc0004f5b0ba3e46de828",
+          "public_source_sha256": "9f4c61ce0e64b55421ca647785d265f6aa2da3e3c32dc0004f5b0ba3e46de828"
+        },
+        "firmware/components/tinyllm/CMakeLists.txt": {
+          "original_sha256": "61cd4ccfff31cba38442f656a911c655958a448d03109b223aed32f7fdb2ad82",
+          "public_source_sha256": "61cd4ccfff31cba38442f656a911c655958a448d03109b223aed32f7fdb2ad82"
+        },
+        "firmware/components/tinyllm/cluster_rpc.c": {
+          "original_sha256": "2c83d52a54711b32b3aac04a5df8026f75ad053364b1bd2874b64bad8afdddf3",
+          "public_source_sha256": "2c83d52a54711b32b3aac04a5df8026f75ad053364b1bd2874b64bad8afdddf3"
+        },
+        "firmware/components/tinyllm/include/cluster_rpc.h": {
+          "original_sha256": "b539358f106d39dc3c54b40c4caa4ae7e9d9cec40c3e266f98b5143d96160668",
+          "public_source_sha256": "b539358f106d39dc3c54b40c4caa4ae7e9d9cec40c3e266f98b5143d96160668"
+        },
+        "firmware/components/tinyllm/include/tinyllm.h": {
+          "original_sha256": "a6ff9da0e73a4af41e2811dd89561b75a1796bf87afcf8ab0c3e3436eab03685",
+          "public_source_sha256": "a6ff9da0e73a4af41e2811dd89561b75a1796bf87afcf8ab0c3e3436eab03685"
+        },
+        "firmware/components/tinyllm/tinyllm.c": {
+          "original_sha256": "20040f2c7a1bae7bb15ddf47532e05f2a2df296b367aec65133fc3b7f5ad7ce0",
+          "public_source_sha256": "20040f2c7a1bae7bb15ddf47532e05f2a2df296b367aec65133fc3b7f5ad7ce0"
+        },
+        "firmware/main/CMakeLists.txt": {
+          "original_sha256": "7596b30ebb06e21537a09ebb648998a9b10a3b7f29102b46d14926ccc1e56085",
+          "public_source_sha256": "7596b30ebb06e21537a09ebb648998a9b10a3b7f29102b46d14926ccc1e56085"
+        },
+        "firmware/main/Kconfig.projbuild": {
+          "original_sha256": "7bad2d9dff75bce313cd68874db6de9540451e34d0af9043e42bed2e34e77ea5",
+          "public_source_sha256": "7bad2d9dff75bce313cd68874db6de9540451e34d0af9043e42bed2e34e77ea5"
+        },
+        "firmware/main/app.h": {
+          "original_sha256": "61fdecf2fabb92ff68374ea69645308119091eb33c57a3442bb697b55bf3d9b4",
+          "public_source_sha256": "61fdecf2fabb92ff68374ea69645308119091eb33c57a3442bb697b55bf3d9b4"
+        },
+        "firmware/main/cluster.html": {
+          "original_sha256": "92ce5fa86b023a0732acce154e07c4358b05c9fb14723bdff5ecec40b8f1052b",
+          "public_source_sha256": "d47c5c65c681f13a4016fe5589d6a9c6171d71a52acc7c8bf4e8ad83659643d4"
+        },
+        "firmware/main/dispatcher.c": {
+          "original_sha256": "1cc7d79e9f66a9b9875bf5906d40cc24699a357d272eecbf414fa9b3fac19184",
+          "public_source_sha256": "1cc7d79e9f66a9b9875bf5906d40cc24699a357d272eecbf414fa9b3fac19184"
+        },
+        "firmware/main/index.html": {
+          "original_sha256": "815adb8c564b897933d2f2fdaf61a7bc42f2e1dc69fcf29410df5a186152fc38",
+          "public_source_sha256": "115039b8c2619a86bea194690bee473f6e0caf9e9465654ecc963d4bc4dc311c"
+        },
+        "firmware/main/lan.c": {
+          "original_sha256": "b3f059ee10ab68bf569d37b28d84f770f9b9b350ccbd82a2b183ae8982adbdd8",
+          "public_source_sha256": "b3f059ee10ab68bf569d37b28d84f770f9b9b350ccbd82a2b183ae8982adbdd8"
+        },
+        "firmware/main/main.c": {
+          "original_sha256": "676f61ab601ad4d13514ae6dda9537a7bb0735b5c2f4eacc62cd27cd196e9fff",
+          "public_source_sha256": "676f61ab601ad4d13514ae6dda9537a7bb0735b5c2f4eacc62cd27cd196e9fff"
+        },
+        "firmware/main/service.c": {
+          "original_sha256": "a64b6f7cbed6b888b258561dcb629cc6f7f009acc0c471f47080013c20f0ad76",
+          "public_source_sha256": "a64b6f7cbed6b888b258561dcb629cc6f7f009acc0c471f47080013c20f0ad76"
+        },
+        "firmware/partitions.csv": {
+          "original_sha256": "f5ade5c6866297d6fa8a3d154da076fdfbd210e0fd34f4fc88b33bcb14483976",
+          "public_source_sha256": "f5ade5c6866297d6fa8a3d154da076fdfbd210e0fd34f4fc88b33bcb14483976"
+        },
+        "firmware/sdkconfig.defaults": {
+          "original_sha256": "9f4a2dd120407716bd184f5d8bb11bfe0bbd3937d49e67cc77b5f471626737fe",
+          "public_source_sha256": "9f4a2dd120407716bd184f5d8bb11bfe0bbd3937d49e67cc77b5f471626737fe"
+        },
+        "firmware/sdkconfig.rev1.defaults": {
+          "original_sha256": "0f80ab54f4ddb9e8cff8d7f9096b646b7dd3fce605d318877f5113b55794e80b",
+          "public_source_sha256": "0f80ab54f4ddb9e8cff8d7f9096b646b7dd3fce605d318877f5113b55794e80b"
+        },
+        "firmware/sdkconfig.rev3.defaults": {
+          "original_sha256": "7b40ef4c6cee9e809263ec079db688040e595a087796b1a1d1262ceb92036ad1",
+          "public_source_sha256": "7b40ef4c6cee9e809263ec079db688040e595a087796b1a1d1262ceb92036ad1"
+        }
+      },
+      "representation": "English/redacted source reconstruction; no private Git history"
+    },
+    {
+      "version": "0.3.0",
+      "source_commit": "5783bb15d51fc9808dfdac8b5234271f0b1715b9",
+      "source_files": {
+        "firmware/CMakeLists.txt": {
+          "original_sha256": "e2d3092b82d48ef7800639ba57a9b9e90c97dbe6017888fc994a635993f1ceab",
+          "public_source_sha256": "e2d3092b82d48ef7800639ba57a9b9e90c97dbe6017888fc994a635993f1ceab"
+        },
+        "firmware/components/dispatch_queue/CMakeLists.txt": {
+          "original_sha256": "6364e4b37f32f4a99c17ddecc9139689bf6a60c7404d803ca363983758d949d1",
+          "public_source_sha256": "6364e4b37f32f4a99c17ddecc9139689bf6a60c7404d803ca363983758d949d1"
+        },
+        "firmware/components/dispatch_queue/dispatch_queue.c": {
+          "original_sha256": "714b31d331aa9cb2ae11a7e8b839a15ec3b43fa74fa2919345347e8963c57c0a",
+          "public_source_sha256": "714b31d331aa9cb2ae11a7e8b839a15ec3b43fa74fa2919345347e8963c57c0a"
+        },
+        "firmware/components/dispatch_queue/include/dispatch_queue.h": {
+          "original_sha256": "9f4c61ce0e64b55421ca647785d265f6aa2da3e3c32dc0004f5b0ba3e46de828",
+          "public_source_sha256": "9f4c61ce0e64b55421ca647785d265f6aa2da3e3c32dc0004f5b0ba3e46de828"
+        },
+        "firmware/components/tinyllm/CMakeLists.txt": {
+          "original_sha256": "ed3adec2a5fed5ff267fcc0c6b0e90ecc40c2fce1611d6b1ac5c90477c10a320",
+          "public_source_sha256": "ed3adec2a5fed5ff267fcc0c6b0e90ecc40c2fce1611d6b1ac5c90477c10a320"
+        },
+        "firmware/components/tinyllm/cluster_rpc.c": {
+          "original_sha256": "23eb3dbfcb8fcaecce688fe4bbc1051e9910c39bbad7e74cff4e54aec61f33d4",
+          "public_source_sha256": "23eb3dbfcb8fcaecce688fe4bbc1051e9910c39bbad7e74cff4e54aec61f33d4"
+        },
+        "firmware/components/tinyllm/include/cluster_rpc.h": {
+          "original_sha256": "b539358f106d39dc3c54b40c4caa4ae7e9d9cec40c3e266f98b5143d96160668",
+          "public_source_sha256": "b539358f106d39dc3c54b40c4caa4ae7e9d9cec40c3e266f98b5143d96160668"
+        },
+        "firmware/components/tinyllm/include/tinyllm.h": {
+          "original_sha256": "2e88f54ec94263bca28119caa38d89f6b989f6a6d2c9a2a357dab8fd8a6afa9d",
+          "public_source_sha256": "2e88f54ec94263bca28119caa38d89f6b989f6a6d2c9a2a357dab8fd8a6afa9d"
+        },
+        "firmware/components/tinyllm/tinyllm.c": {
+          "original_sha256": "cbac8b115f01cb01ac1b284ce91c1d6174abed9eeb5e3e159e51759a2abeca0b",
+          "public_source_sha256": "cbac8b115f01cb01ac1b284ce91c1d6174abed9eeb5e3e159e51759a2abeca0b"
+        },
+        "firmware/main/CMakeLists.txt": {
+          "original_sha256": "7596b30ebb06e21537a09ebb648998a9b10a3b7f29102b46d14926ccc1e56085",
+          "public_source_sha256": "7596b30ebb06e21537a09ebb648998a9b10a3b7f29102b46d14926ccc1e56085"
+        },
+        "firmware/main/Kconfig.projbuild": {
+          "original_sha256": "7bad2d9dff75bce313cd68874db6de9540451e34d0af9043e42bed2e34e77ea5",
+          "public_source_sha256": "7bad2d9dff75bce313cd68874db6de9540451e34d0af9043e42bed2e34e77ea5"
+        },
+        "firmware/main/app.h": {
+          "original_sha256": "61fdecf2fabb92ff68374ea69645308119091eb33c57a3442bb697b55bf3d9b4",
+          "public_source_sha256": "61fdecf2fabb92ff68374ea69645308119091eb33c57a3442bb697b55bf3d9b4"
+        },
+        "firmware/main/cluster.html": {
+          "original_sha256": "92ce5fa86b023a0732acce154e07c4358b05c9fb14723bdff5ecec40b8f1052b",
+          "public_source_sha256": "d47c5c65c681f13a4016fe5589d6a9c6171d71a52acc7c8bf4e8ad83659643d4"
+        },
+        "firmware/main/dispatcher.c": {
+          "original_sha256": "006dc4e99ff2d2770cc8d78da50e8416428c079ef249c91d8ae9eb1b3fd09f53",
+          "public_source_sha256": "006dc4e99ff2d2770cc8d78da50e8416428c079ef249c91d8ae9eb1b3fd09f53"
+        },
+        "firmware/main/index.html": {
+          "original_sha256": "815adb8c564b897933d2f2fdaf61a7bc42f2e1dc69fcf29410df5a186152fc38",
+          "public_source_sha256": "115039b8c2619a86bea194690bee473f6e0caf9e9465654ecc963d4bc4dc311c"
+        },
+        "firmware/main/lan.c": {
+          "original_sha256": "b3f059ee10ab68bf569d37b28d84f770f9b9b350ccbd82a2b183ae8982adbdd8",
+          "public_source_sha256": "b3f059ee10ab68bf569d37b28d84f770f9b9b350ccbd82a2b183ae8982adbdd8"
+        },
+        "firmware/main/main.c": {
+          "original_sha256": "676f61ab601ad4d13514ae6dda9537a7bb0735b5c2f4eacc62cd27cd196e9fff",
+          "public_source_sha256": "676f61ab601ad4d13514ae6dda9537a7bb0735b5c2f4eacc62cd27cd196e9fff"
+        },
+        "firmware/main/service.c": {
+          "original_sha256": "747cf513c67542fcd709edb360173d876ee1faed60055ead4a2d086650cbac35",
+          "public_source_sha256": "747cf513c67542fcd709edb360173d876ee1faed60055ead4a2d086650cbac35"
+        },
+        "firmware/partitions.csv": {
+          "original_sha256": "f5ade5c6866297d6fa8a3d154da076fdfbd210e0fd34f4fc88b33bcb14483976",
+          "public_source_sha256": "f5ade5c6866297d6fa8a3d154da076fdfbd210e0fd34f4fc88b33bcb14483976"
+        },
+        "firmware/sdkconfig.defaults": {
+          "original_sha256": "9f4a2dd120407716bd184f5d8bb11bfe0bbd3937d49e67cc77b5f471626737fe",
+          "public_source_sha256": "9f4a2dd120407716bd184f5d8bb11bfe0bbd3937d49e67cc77b5f471626737fe"
+        },
+        "firmware/sdkconfig.rev1.defaults": {
+          "original_sha256": "0f80ab54f4ddb9e8cff8d7f9096b646b7dd3fce605d318877f5113b55794e80b",
+          "public_source_sha256": "0f80ab54f4ddb9e8cff8d7f9096b646b7dd3fce605d318877f5113b55794e80b"
+        },
+        "firmware/sdkconfig.rev3.defaults": {
+          "original_sha256": "7b40ef4c6cee9e809263ec079db688040e595a087796b1a1d1262ceb92036ad1",
+          "public_source_sha256": "7b40ef4c6cee9e809263ec079db688040e595a087796b1a1d1262ceb92036ad1"
+        }
+      },
+      "representation": "English/redacted source reconstruction; no private Git history"
+    },
+    {
+      "version": "0.4.0",
+      "source_commit": "2789505faeef417e368af3397d1c5d5e6f3c05fc",
+      "source_files": {
+        "firmware/CMakeLists.txt": {
+          "original_sha256": "e45b6e7ee970c81af7dd1751771094260c3b80b65bdb305ba307e43666fd33a9",
+          "public_source_sha256": "e45b6e7ee970c81af7dd1751771094260c3b80b65bdb305ba307e43666fd33a9"
+        },
+        "firmware/components/dispatch_queue/CMakeLists.txt": {
+          "original_sha256": "6364e4b37f32f4a99c17ddecc9139689bf6a60c7404d803ca363983758d949d1",
+          "public_source_sha256": "6364e4b37f32f4a99c17ddecc9139689bf6a60c7404d803ca363983758d949d1"
+        },
+        "firmware/components/dispatch_queue/dispatch_queue.c": {
+          "original_sha256": "714b31d331aa9cb2ae11a7e8b839a15ec3b43fa74fa2919345347e8963c57c0a",
+          "public_source_sha256": "714b31d331aa9cb2ae11a7e8b839a15ec3b43fa74fa2919345347e8963c57c0a"
+        },
+        "firmware/components/dispatch_queue/include/dispatch_queue.h": {
+          "original_sha256": "9f4c61ce0e64b55421ca647785d265f6aa2da3e3c32dc0004f5b0ba3e46de828",
+          "public_source_sha256": "9f4c61ce0e64b55421ca647785d265f6aa2da3e3c32dc0004f5b0ba3e46de828"
+        },
+        "firmware/components/tinyllm/CMakeLists.txt": {
+          "original_sha256": "2d23aad89ea7aa533e4ae963fbf6da3f813348b824a3af2e6c0ddf370aa3c588",
+          "public_source_sha256": "2d23aad89ea7aa533e4ae963fbf6da3f813348b824a3af2e6c0ddf370aa3c588"
+        },
+        "firmware/components/tinyllm/cluster_rpc.c": {
+          "original_sha256": "23eb3dbfcb8fcaecce688fe4bbc1051e9910c39bbad7e74cff4e54aec61f33d4",
+          "public_source_sha256": "23eb3dbfcb8fcaecce688fe4bbc1051e9910c39bbad7e74cff4e54aec61f33d4"
+        },
+        "firmware/components/tinyllm/include/cluster_rpc.h": {
+          "original_sha256": "b539358f106d39dc3c54b40c4caa4ae7e9d9cec40c3e266f98b5143d96160668",
+          "public_source_sha256": "b539358f106d39dc3c54b40c4caa4ae7e9d9cec40c3e266f98b5143d96160668"
+        },
+        "firmware/components/tinyllm/include/tinyllm.h": {
+          "original_sha256": "9990340c797343cb5f02617d935b667780e2cba58b86df6ada7b48ef75f94eab",
+          "public_source_sha256": "9990340c797343cb5f02617d935b667780e2cba58b86df6ada7b48ef75f94eab"
+        },
+        "firmware/components/tinyllm/tinyllm.c": {
+          "original_sha256": "3525f8d4b5870d291c0ad3d92ae661757dd9fb02a27d12a726a6c9951fe81f1f",
+          "public_source_sha256": "3525f8d4b5870d291c0ad3d92ae661757dd9fb02a27d12a726a6c9951fe81f1f"
+        },
+        "firmware/main/CMakeLists.txt": {
+          "original_sha256": "7596b30ebb06e21537a09ebb648998a9b10a3b7f29102b46d14926ccc1e56085",
+          "public_source_sha256": "7596b30ebb06e21537a09ebb648998a9b10a3b7f29102b46d14926ccc1e56085"
+        },
+        "firmware/main/Kconfig.projbuild": {
+          "original_sha256": "7bad2d9dff75bce313cd68874db6de9540451e34d0af9043e42bed2e34e77ea5",
+          "public_source_sha256": "7bad2d9dff75bce313cd68874db6de9540451e34d0af9043e42bed2e34e77ea5"
+        },
+        "firmware/main/app.h": {
+          "original_sha256": "61fdecf2fabb92ff68374ea69645308119091eb33c57a3442bb697b55bf3d9b4",
+          "public_source_sha256": "61fdecf2fabb92ff68374ea69645308119091eb33c57a3442bb697b55bf3d9b4"
+        },
+        "firmware/main/cluster.html": {
+          "original_sha256": "92ce5fa86b023a0732acce154e07c4358b05c9fb14723bdff5ecec40b8f1052b",
+          "public_source_sha256": "d47c5c65c681f13a4016fe5589d6a9c6171d71a52acc7c8bf4e8ad83659643d4"
+        },
+        "firmware/main/dispatcher.c": {
+          "original_sha256": "0515dc9842dde0be71bb21e9f08ffd507e5685781a7a868c5d31600e65526583",
+          "public_source_sha256": "0515dc9842dde0be71bb21e9f08ffd507e5685781a7a868c5d31600e65526583"
+        },
+        "firmware/main/index.html": {
+          "original_sha256": "815adb8c564b897933d2f2fdaf61a7bc42f2e1dc69fcf29410df5a186152fc38",
+          "public_source_sha256": "115039b8c2619a86bea194690bee473f6e0caf9e9465654ecc963d4bc4dc311c"
+        },
+        "firmware/main/lan.c": {
+          "original_sha256": "b3f059ee10ab68bf569d37b28d84f770f9b9b350ccbd82a2b183ae8982adbdd8",
+          "public_source_sha256": "b3f059ee10ab68bf569d37b28d84f770f9b9b350ccbd82a2b183ae8982adbdd8"
+        },
+        "firmware/main/main.c": {
+          "original_sha256": "676f61ab601ad4d13514ae6dda9537a7bb0735b5c2f4eacc62cd27cd196e9fff",
+          "public_source_sha256": "676f61ab601ad4d13514ae6dda9537a7bb0735b5c2f4eacc62cd27cd196e9fff"
+        },
+        "firmware/main/service.c": {
+          "original_sha256": "479e6baca3419bf52ce4b049d888c4803ef6c3867969044841b14a946ce5edce",
+          "public_source_sha256": "479e6baca3419bf52ce4b049d888c4803ef6c3867969044841b14a946ce5edce"
+        },
+        "firmware/partitions.csv": {
+          "original_sha256": "f5ade5c6866297d6fa8a3d154da076fdfbd210e0fd34f4fc88b33bcb14483976",
+          "public_source_sha256": "f5ade5c6866297d6fa8a3d154da076fdfbd210e0fd34f4fc88b33bcb14483976"
+        },
+        "firmware/sdkconfig.defaults": {
+          "original_sha256": "9f4a2dd120407716bd184f5d8bb11bfe0bbd3937d49e67cc77b5f471626737fe",
+          "public_source_sha256": "9f4a2dd120407716bd184f5d8bb11bfe0bbd3937d49e67cc77b5f471626737fe"
+        },
+        "firmware/sdkconfig.rev1.defaults": {
+          "original_sha256": "0f80ab54f4ddb9e8cff8d7f9096b646b7dd3fce605d318877f5113b55794e80b",
+          "public_source_sha256": "0f80ab54f4ddb9e8cff8d7f9096b646b7dd3fce605d318877f5113b55794e80b"
+        },
+        "firmware/sdkconfig.rev3.defaults": {
+          "original_sha256": "7b40ef4c6cee9e809263ec079db688040e595a087796b1a1d1262ceb92036ad1",
+          "public_source_sha256": "7b40ef4c6cee9e809263ec079db688040e595a087796b1a1d1262ceb92036ad1"
+        }
+      },
+      "representation": "English/redacted source reconstruction; no private Git history"
+    },
+    {
+      "version": "0.5.5",
+      "source_commit": "0e88249b40c2be912bc8295c63baf7caf5ce8e42",
+      "source_files": {
+        "firmware/CMakeLists.txt": {
+          "original_sha256": "69cd999d32face35d368fb289ebc83981fc340eef158e0bad07861719fe1ebeb",
+          "public_source_sha256": "69cd999d32face35d368fb289ebc83981fc340eef158e0bad07861719fe1ebeb"
+        },
+        "firmware/components/dispatch_queue/CMakeLists.txt": {
+          "original_sha256": "6364e4b37f32f4a99c17ddecc9139689bf6a60c7404d803ca363983758d949d1",
+          "public_source_sha256": "6364e4b37f32f4a99c17ddecc9139689bf6a60c7404d803ca363983758d949d1"
+        },
+        "firmware/components/dispatch_queue/dispatch_queue.c": {
+          "original_sha256": "714b31d331aa9cb2ae11a7e8b839a15ec3b43fa74fa2919345347e8963c57c0a",
+          "public_source_sha256": "714b31d331aa9cb2ae11a7e8b839a15ec3b43fa74fa2919345347e8963c57c0a"
+        },
+        "firmware/components/dispatch_queue/include/dispatch_queue.h": {
+          "original_sha256": "9f4c61ce0e64b55421ca647785d265f6aa2da3e3c32dc0004f5b0ba3e46de828",
+          "public_source_sha256": "9f4c61ce0e64b55421ca647785d265f6aa2da3e3c32dc0004f5b0ba3e46de828"
+        },
+        "firmware/components/tinyllm/CMakeLists.txt": {
+          "original_sha256": "f45cc7ac8c90169ffc473f61549a3e92f145057d9d750af403fa3bbb7dad1143",
+          "public_source_sha256": "f45cc7ac8c90169ffc473f61549a3e92f145057d9d750af403fa3bbb7dad1143"
+        },
+        "firmware/components/tinyllm/cluster_rpc.c": {
+          "original_sha256": "23eb3dbfcb8fcaecce688fe4bbc1051e9910c39bbad7e74cff4e54aec61f33d4",
+          "public_source_sha256": "23eb3dbfcb8fcaecce688fe4bbc1051e9910c39bbad7e74cff4e54aec61f33d4"
+        },
+        "firmware/components/tinyllm/gpt2_tokenizer.c": {
+          "original_sha256": "65b3afe3db44d3a7d2aa8078100239aacd0a327d14047ccc8ea39293981e5288",
+          "public_source_sha256": "65b3afe3db44d3a7d2aa8078100239aacd0a327d14047ccc8ea39293981e5288"
+        },
+        "firmware/components/tinyllm/include/cluster_rpc.h": {
+          "original_sha256": "b539358f106d39dc3c54b40c4caa4ae7e9d9cec40c3e266f98b5143d96160668",
+          "public_source_sha256": "b539358f106d39dc3c54b40c4caa4ae7e9d9cec40c3e266f98b5143d96160668"
+        },
+        "firmware/components/tinyllm/include/gpt2_tokenizer.h": {
+          "original_sha256": "5cd73d3901498eb598c0c9262d87f5f92aaeea9cfbc555505672d6671c456a1a",
+          "public_source_sha256": "5cd73d3901498eb598c0c9262d87f5f92aaeea9cfbc555505672d6671c456a1a"
+        },
+        "firmware/components/tinyllm/include/tinyllm.h": {
+          "original_sha256": "833d3fd851c30ed839a92efa0d5229312cd63183dd7b892a92bf45cb79dba3b8",
+          "public_source_sha256": "833d3fd851c30ed839a92efa0d5229312cd63183dd7b892a92bf45cb79dba3b8"
+        },
+        "firmware/components/tinyllm/tinyllm.c": {
+          "original_sha256": "7c2da727732977e08be2e8e0a7d702cf04ef4ddf025a5c7845ef20ab3b5f6431",
+          "public_source_sha256": "7c2da727732977e08be2e8e0a7d702cf04ef4ddf025a5c7845ef20ab3b5f6431"
+        },
+        "firmware/main/CMakeLists.txt": {
+          "original_sha256": "7596b30ebb06e21537a09ebb648998a9b10a3b7f29102b46d14926ccc1e56085",
+          "public_source_sha256": "7596b30ebb06e21537a09ebb648998a9b10a3b7f29102b46d14926ccc1e56085"
+        },
+        "firmware/main/Kconfig.projbuild": {
+          "original_sha256": "7bad2d9dff75bce313cd68874db6de9540451e34d0af9043e42bed2e34e77ea5",
+          "public_source_sha256": "7bad2d9dff75bce313cd68874db6de9540451e34d0af9043e42bed2e34e77ea5"
+        },
+        "firmware/main/app.h": {
+          "original_sha256": "566d948916018d06f907ffa50f713bd794c40cbacec01b90d9b3a58fdd4297b6",
+          "public_source_sha256": "566d948916018d06f907ffa50f713bd794c40cbacec01b90d9b3a58fdd4297b6"
+        },
+        "firmware/main/cluster.html": {
+          "original_sha256": "92ce5fa86b023a0732acce154e07c4358b05c9fb14723bdff5ecec40b8f1052b",
+          "public_source_sha256": "d47c5c65c681f13a4016fe5589d6a9c6171d71a52acc7c8bf4e8ad83659643d4"
+        },
+        "firmware/main/dispatcher.c": {
+          "original_sha256": "0515dc9842dde0be71bb21e9f08ffd507e5685781a7a868c5d31600e65526583",
+          "public_source_sha256": "0515dc9842dde0be71bb21e9f08ffd507e5685781a7a868c5d31600e65526583"
+        },
+        "firmware/main/index.html": {
+          "original_sha256": "76428303dcc936aa253da25219bb7153406191fd2c818446b3bf73d86a0b5b9d",
+          "public_source_sha256": "2c23880ca73e8eeb8fa485a539b3e85a9818a3c0511102e965459a17441cdc22"
+        },
+        "firmware/main/lan.c": {
+          "original_sha256": "5160ec9823957bcd1d87f60f865fbe3c8606eaaf65ce007107cfdf2a5b424368",
+          "public_source_sha256": "5160ec9823957bcd1d87f60f865fbe3c8606eaaf65ce007107cfdf2a5b424368"
+        },
+        "firmware/main/main.c": {
+          "original_sha256": "bee7a031183f8152c4af2006305b986b777dac089535ca001e4e7f277ca17267",
+          "public_source_sha256": "bee7a031183f8152c4af2006305b986b777dac089535ca001e4e7f277ca17267"
+        },
+        "firmware/main/service.c": {
+          "original_sha256": "e0ae0f1b262ccc49b5cd625cb3d87a29095c1108974217ec571608d4841f5f4c",
+          "public_source_sha256": "e0ae0f1b262ccc49b5cd625cb3d87a29095c1108974217ec571608d4841f5f4c"
+        },
+        "firmware/partitions.csv": {
+          "original_sha256": "f5ade5c6866297d6fa8a3d154da076fdfbd210e0fd34f4fc88b33bcb14483976",
+          "public_source_sha256": "f5ade5c6866297d6fa8a3d154da076fdfbd210e0fd34f4fc88b33bcb14483976"
+        },
+        "firmware/sdkconfig.defaults": {
+          "original_sha256": "9f4a2dd120407716bd184f5d8bb11bfe0bbd3937d49e67cc77b5f471626737fe",
+          "public_source_sha256": "9f4a2dd120407716bd184f5d8bb11bfe0bbd3937d49e67cc77b5f471626737fe"
+        },
+        "firmware/sdkconfig.rev1.defaults": {
+          "original_sha256": "0f80ab54f4ddb9e8cff8d7f9096b646b7dd3fce605d318877f5113b55794e80b",
+          "public_source_sha256": "0f80ab54f4ddb9e8cff8d7f9096b646b7dd3fce605d318877f5113b55794e80b"
+        },
+        "firmware/sdkconfig.rev3.defaults": {
+          "original_sha256": "7b40ef4c6cee9e809263ec079db688040e595a087796b1a1d1262ceb92036ad1",
+          "public_source_sha256": "7b40ef4c6cee9e809263ec079db688040e595a087796b1a1d1262ceb92036ad1"
+        }
+      },
+      "representation": "English/redacted source reconstruction; no private Git history"
+    }
+  ],
+  "bundles": [
+    {
+      "version": "0.2.0",
+      "revision_configuration": "rev1",
+      "chip": "esp32p4",
+      "idf": "5.5.4",
+      "purpose": "Keyless diagnostic/research build; authenticated inference and uploads intentionally disabled",
+      "private_key_included": false,
+      "compiled_LAN_key_length": 0,
+      "APP_REPRODUCIBLE_BUILD": true,
+      "path_and_private_marker_scan_passed": true,
+      "minimum_chip_revision_encoded": 100,
+      "maximum_chip_revision_encoded": 199,
+      "hardware_test_of_these_public_bytes": false,
+      "original_private_hardware_measurements": "See scientific data; public image bytes differ from the measured private deployment",
+      "model_included": false,
+      "flash_files": [
+        {
+          "filename": "bootloader.bin",
+          "offset": "0x2000",
+          "bytes": 21328,
+          "sha256": "e0aea8d426043c1268e089b70c884ff5f7a05fe5ef3afdf5dfff54afdeae93d3"
+        },
+        {
+          "filename": "p4_tinystories.bin",
+          "offset": "0x20000",
+          "bytes": 733088,
+          "sha256": "0bfc254b06d7ec0ef36f5e81c85aee988d47c90b458c4b2ba00a983ac2d96b2e"
+        },
+        {
+          "filename": "partition-table.bin",
+          "offset": "0x8000",
+          "bytes": 3072,
+          "sha256": "a90a58aea09558621809b0ceea69f583e8df24d5759c8f5eae4efc6253366d40"
+        },
+        {
+          "filename": "ota_data_initial.bin",
+          "offset": "0xf000",
+          "bytes": 8192,
+          "sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+        }
+      ],
+      "flash_settings": {
+        "flash_mode": "dio",
+        "flash_size": "32MB",
+        "flash_freq": "80m"
+      },
+      "image_info_sha256": "035c922cc4a0a284eae4037a4f3b31b591e68aeb517bc629c23e0db120a7a064"
+    },
+    {
+      "version": "0.3.0",
+      "revision_configuration": "rev1",
+      "chip": "esp32p4",
+      "idf": "5.5.4",
+      "purpose": "Keyless diagnostic/research build; authenticated inference and uploads intentionally disabled",
+      "private_key_included": false,
+      "compiled_LAN_key_length": 0,
+      "APP_REPRODUCIBLE_BUILD": true,
+      "path_and_private_marker_scan_passed": true,
+      "minimum_chip_revision_encoded": 100,
+      "maximum_chip_revision_encoded": 199,
+      "hardware_test_of_these_public_bytes": false,
+      "original_private_hardware_measurements": "See scientific data; public image bytes differ from the measured private deployment",
+      "model_included": false,
+      "flash_files": [
+        {
+          "filename": "bootloader.bin",
+          "offset": "0x2000",
+          "bytes": 21328,
+          "sha256": "e0aea8d426043c1268e089b70c884ff5f7a05fe5ef3afdf5dfff54afdeae93d3"
+        },
+        {
+          "filename": "p4_tinystories.bin",
+          "offset": "0x20000",
+          "bytes": 734016,
+          "sha256": "12f61593db528e12fbca8aaee052fb0732b0c9916778a40bf76ec748bb06c5db"
+        },
+        {
+          "filename": "partition-table.bin",
+          "offset": "0x8000",
+          "bytes": 3072,
+          "sha256": "a90a58aea09558621809b0ceea69f583e8df24d5759c8f5eae4efc6253366d40"
+        },
+        {
+          "filename": "ota_data_initial.bin",
+          "offset": "0xf000",
+          "bytes": 8192,
+          "sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+        }
+      ],
+      "flash_settings": {
+        "flash_mode": "dio",
+        "flash_size": "32MB",
+        "flash_freq": "80m"
+      },
+      "image_info_sha256": "f5e97338931cc8ee20c11ed0ecbdc2645d284114023308e6dc8064bb93edd2cb"
+    },
+    {
+      "version": "0.4.0",
+      "revision_configuration": "rev1",
+      "chip": "esp32p4",
+      "idf": "5.5.4",
+      "purpose": "Keyless diagnostic/research build; authenticated inference and uploads intentionally disabled",
+      "private_key_included": false,
+      "compiled_LAN_key_length": 0,
+      "APP_REPRODUCIBLE_BUILD": true,
+      "path_and_private_marker_scan_passed": true,
+      "minimum_chip_revision_encoded": 100,
+      "maximum_chip_revision_encoded": 199,
+      "hardware_test_of_these_public_bytes": false,
+      "original_private_hardware_measurements": "See scientific data; public image bytes differ from the measured private deployment",
+      "model_included": false,
+      "flash_files": [
+        {
+          "filename": "bootloader.bin",
+          "offset": "0x2000",
+          "bytes": 21328,
+          "sha256": "e0aea8d426043c1268e089b70c884ff5f7a05fe5ef3afdf5dfff54afdeae93d3"
+        },
+        {
+          "filename": "p4_tinystories.bin",
+          "offset": "0x20000",
+          "bytes": 734560,
+          "sha256": "1c5f94ca691f2392245f9cbd4469582e3387b0ce4e8ad5e2403d9c487d1078ad"
+        },
+        {
+          "filename": "partition-table.bin",
+          "offset": "0x8000",
+          "bytes": 3072,
+          "sha256": "a90a58aea09558621809b0ceea69f583e8df24d5759c8f5eae4efc6253366d40"
+        },
+        {
+          "filename": "ota_data_initial.bin",
+          "offset": "0xf000",
+          "bytes": 8192,
+          "sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+        }
+      ],
+      "flash_settings": {
+        "flash_mode": "dio",
+        "flash_size": "32MB",
+        "flash_freq": "80m"
+      },
+      "image_info_sha256": "8e18f1a0d0f58508ff0c44c4c402e43cd3ae21c2324a4e95883edd57ea99fdd3"
+    },
+    {
+      "version": "0.5.5",
+      "revision_configuration": "rev1",
+      "chip": "esp32p4",
+      "idf": "5.5.4",
+      "purpose": "Keyless diagnostic/research build; authenticated inference and uploads intentionally disabled",
+      "private_key_included": false,
+      "compiled_LAN_key_length": 0,
+      "APP_REPRODUCIBLE_BUILD": true,
+      "path_and_private_marker_scan_passed": true,
+      "minimum_chip_revision_encoded": 100,
+      "maximum_chip_revision_encoded": 199,
+      "hardware_test_of_these_public_bytes": false,
+      "original_private_hardware_measurements": "See scientific data; public image bytes differ from the measured private deployment",
+      "model_included": false,
+      "flash_files": [
+        {
+          "filename": "bootloader.bin",
+          "offset": "0x2000",
+          "bytes": 21328,
+          "sha256": "e0aea8d426043c1268e089b70c884ff5f7a05fe5ef3afdf5dfff54afdeae93d3"
+        },
+        {
+          "filename": "p4_tinystories.bin",
+          "offset": "0x20000",
+          "bytes": 739040,
+          "sha256": "c65f824d09166fe94334148812d535801dd41b8aaaa55a8ad55888f68d07966d"
+        },
+        {
+          "filename": "partition-table.bin",
+          "offset": "0x8000",
+          "bytes": 3072,
+          "sha256": "a90a58aea09558621809b0ceea69f583e8df24d5759c8f5eae4efc6253366d40"
+        },
+        {
+          "filename": "ota_data_initial.bin",
+          "offset": "0xf000",
+          "bytes": 8192,
+          "sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+        }
+      ],
+      "flash_settings": {
+        "flash_mode": "dio",
+        "flash_size": "32MB",
+        "flash_freq": "80m"
+      },
+      "image_info_sha256": "831d75ae56e379dcd4f4b6cfdc9b0a33e748bc3052cedb7b68dc50eb4a630d50"
+    },
+    {
+      "version": "0.5.5",
+      "revision_configuration": "rev3",
+      "chip": "esp32p4",
+      "idf": "5.5.4",
+      "purpose": "Keyless diagnostic/research build; authenticated inference and uploads intentionally disabled",
+      "private_key_included": false,
+      "compiled_LAN_key_length": 0,
+      "APP_REPRODUCIBLE_BUILD": true,
+      "path_and_private_marker_scan_passed": true,
+      "minimum_chip_revision_encoded": 300,
+      "maximum_chip_revision_encoded": 399,
+      "hardware_test_of_these_public_bytes": false,
+      "original_private_hardware_measurements": "See scientific data; public image bytes differ from the measured private deployment",
+      "model_included": false,
+      "flash_files": [
+        {
+          "filename": "bootloader.bin",
+          "offset": "0x2000",
+          "bytes": 21488,
+          "sha256": "a44c89c570ad31165d6ae4873553c7f476e5cfd1d25df660677cefe5d09e620e"
+        },
+        {
+          "filename": "p4_tinystories.bin",
+          "offset": "0x20000",
+          "bytes": 740320,
+          "sha256": "6c3cbb23fc8ef238c194bf38b2f889890c9609948b81baa9ca960482d63f8ec7"
+        },
+        {
+          "filename": "partition-table.bin",
+          "offset": "0x8000",
+          "bytes": 3072,
+          "sha256": "a90a58aea09558621809b0ceea69f583e8df24d5759c8f5eae4efc6253366d40"
+        },
+        {
+          "filename": "ota_data_initial.bin",
+          "offset": "0xf000",
+          "bytes": 8192,
+          "sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+        }
+      ],
+      "flash_settings": {
+        "flash_mode": "dio",
+        "flash_size": "32MB",
+        "flash_freq": "80m"
+      },
+      "image_info_sha256": "78de4db9c449067fc0235568eeb9089ba4fe5dd41f3c600a4f79cca95b09b3d1"
+    }
+  ],
+  "upload_performed_when_built": false,
+  "not_distributed": {
+    "0.1.x": "Only transport source overlays/private images preserved; no independently complete versioned rebuild here",
+    "0.5.0-0.5.4": "Intermediate diagnostic images/logs are private; complete independently pinned source trees not retained for every intermediate version"
+  },
+  "safety": "No private deployment binaries, keys, models, NVS, factory dumps, ELF, map or SDK installations included. These public images were not flashed on the research boards."
+}

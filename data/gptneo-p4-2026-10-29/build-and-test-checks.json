@@ -1,0 +1,18 @@
+{
+  "portable_tests_passed": 40,
+  "native_c_build_flags": "-O2 -Wall -Wextra -Werror -ffp-contract=off",
+  "firmware_version": "0.5.5",
+  "target": "ESP32-P4 revision 1.x; real boards revision 1.3",
+  "firmware_sha256": "c2d3c3d6f2f038b7a34ee509a4584554f8292babebfe2b5ec0a6f5b826af4ca9",
+  "core_numerical_source_unchanged_since_native_gate": true,
+  "source_sha256": {
+    "firmware/main/main.c": "bee7a031183f8152c4af2006305b986b777dac089535ca001e4e7f277ca17267",
+    "firmware/main/service.c": "e0ae0f1b262ccc49b5cd625cb3d87a29095c1108974217ec571608d4841f5f4c",
+    "firmware/main/lan.c": "5160ec9823957bcd1d87f60f865fbe3c8606eaaf65ce007107cfdf2a5b424368",
+    "firmware/components/tinyllm/tinyllm.c": "7c2da727732977e08be2e8e0a7d702cf04ef4ddf025a5c7845ef20ab3b5f6431",
+    "firmware/components/tinyllm/gpt2_tokenizer.c": "65b3afe3db44d3a7d2aa8078100239aacd0a327d14047ccc8ea39293981e5288"
+  },
+  "public_upload_in_this_task": false,
+  "independent_transformers_execution": false,
+  "hardware_logit_vectors_exported": false
+}

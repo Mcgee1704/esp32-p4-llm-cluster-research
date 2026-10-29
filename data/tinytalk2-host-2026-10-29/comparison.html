@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>TinyTalk-2 host feasibility</title><style>body{font:16px/1.6 system-ui;max-width:1200px;margin:30px auto;padding:20px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}article{border:1px solid #888;padding:20px}pre{white-space:pre-wrap;font:inherit}@media(max-width:700px){.pair{grid-template-columns:1fr}}</style><h1>TinyTalk-2: complete host outputs</h1><p>Exploratory, unblinded; no P4 execution. Row INT8 is simulated with dequantized FP32 matrices. Host times are not device-speed results. Lexical signals are not correctness judgements.</p>
+<section><h2>Q1 / question</h2><pre>What sound does a cow make? Answer in one short sentence.</pre><div class="pair">
+<article><h3>fp32</h3><p>6 tokens; EOS observed</p><pre> A cow says moo!</pre></article>
+<article><h3>row-int8-simulation</h3><p>6 tokens; EOS observed</p><pre> A cow says moo!</pre></article>
+</div></section>
+<section><h2>Q2 / question</h2><pre>What color is a ripe banana? Answer in one short sentence.</pre><div class="pair">
+<article><h3>fp32</h3><p>8 tokens; EOS observed</p><pre> I know! The banana is yellow.</pre></article>
+<article><h3>row-int8-simulation</h3><p>8 tokens; EOS observed</p><pre> I know! The banana is yellow.</pre></article>
+</div></section>
+<section><h2>Q3 / question</h2><pre>How many wheels does a bicycle usually have? Answer in one short sentence.</pre><div class="pair">
+<article><h3>fp32</h3><p>13 tokens; EOS observed</p><pre> I don&#x27;t know. Can we talk about something fun instead?</pre></article>
+<article><h3>row-int8-simulation</h3><p>8 tokens; EOS observed</p><pre> I know! A bicycle is four.</pre></article>
+</div></section>
+<section><h2>I1 / instruction</h2><pre>Reply with exactly this word: blue</pre><div class="pair">
+<article><h3>fp32</h3><p>5 tokens; EOS observed</p><pre> I&#x27;m not sure.</pre></article>
+<article><h3>row-int8-simulation</h3><p>5 tokens; EOS observed</p><pre> I&#x27;m not sure.</pre></article>
+</div></section>
+<section><h2>I2 / instruction</h2><pre>Write exactly three words: red green blue</pre><div class="pair">
+<article><h3>fp32</h3><p>11 tokens; EOS observed</p><pre> I know! The green word is called &quot;cat&quot;.</pre></article>
+<article><h3>row-int8-simulation</h3><p>9 tokens; EOS observed</p><pre> I&#x27;m going to write a red word.</pre></article>
+</div></section>
+<section><h2>I3 / instruction</h2><pre>Write one short sentence about rain. Do not mention animals.</pre><div class="pair">
+<article><h3>fp32</h3><p>20 tokens; EOS observed</p><pre> I don&#x27;t know. I&#x27;m just not sure if I&#x27;m ready for a relationship right now.</pre></article>
+<article><h3>row-int8-simulation</h3><p>20 tokens; EOS observed</p><pre> I don&#x27;t know. I&#x27;m just not sure if I&#x27;m ready for a relationship right now.</pre></article>
+</div></section>
+<section><h2>Q4 / question</h2><pre>What is a baby dog called?</pre><div class="pair">
+<article><h3>fp32</h3><p>8 tokens; EOS observed</p><pre> A baby dog is called a puppy.</pre></article>
+<article><h3>row-int8-simulation</h3><p>8 tokens; EOS observed</p><pre> A baby dog is called a puppy.</pre></article>
+</div></section>
+<section><h2>Q5 / question</h2><pre>What is the opposite of hot?</pre><div class="pair">
+<article><h3>fp32</h3><p>9 tokens; EOS observed</p><pre> Cold! The opposite of hot is cold.</pre></article>
+<article><h3>row-int8-simulation</h3><p>9 tokens; EOS observed</p><pre> Cold! The opposite of hot is cold.</pre></article>
+</div></section>
+<section><h2>Q6 / question</h2><pre>How many legs does a cat have?</pre><div class="pair">
+<article><h3>fp32</h3><p>6 tokens; EOS observed</p><pre> A cat has four legs.</pre></article>
+<article><h3>row-int8-simulation</h3><p>6 tokens; EOS observed</p><pre> A cat has four legs.</pre></article>
+</div></section>
+<section><h2>C1 / dialogue</h2><pre>Hi! How are you?</pre><div class="pair">
+<article><h3>fp32</h3><p>10 tokens; EOS observed</p><pre> I&#x27;m good, thanks. How are you?</pre></article>
+<article><h3>row-int8-simulation</h3><p>10 tokens; EOS observed</p><pre> I&#x27;m good, thanks. How are you?</pre></article>
+</div></section>
+<section><h2>C2 / memory</h2><pre>What is my cat&#x27;s name?</pre><div class="pair">
+<article><h3>fp32</h3><p>5 tokens; EOS observed</p><pre> Her name is Luna.</pre></article>
+<article><h3>row-int8-simulation</h3><p>5 tokens; EOS observed</p><pre> Her name is Luna.</pre></article>
+</div></section>
+<section><h2>U1 / unknown</h2><pre>What is the serial number of the board on my desk?</pre><div class="pair">
+<article><h3>fp32</h3><p>11 tokens; EOS observed</p><pre> That is a big question! I don&#x27;t know.</pre></article>
+<article><h3>row-int8-simulation</h3><p>11 tokens; EOS observed</p><pre> That is a big question! I don&#x27;t know.</pre></article>
+</div></section>
+<section><h2>S1 / story</h2><pre>a little fox shares an apple with a hungry rabbit and they become friends</pre><div class="pair">
+<article><h3>fp32</h3><p>116 tokens; EOS observed</p><pre> Once upon a time, there was a little fox. The fox was very hungry and wanted to find something to eat. He saw a big apple tree and decided to climb it. As he climbed, he saw a little rabbit. The rabbit was very hungry and wanted to eat the apple too. The fox was very kind and offered the rabbit some of the apple. The rabbit was very happy and ate the apple. The fox felt happy too because he shared the apple with the rabbit. From that day on, the fox and the rabbit became good friends and shared the apple together.</pre></article>
+<article><h3>row-int8-simulation</h3><p>116 tokens; EOS observed</p><pre> Once upon a time, there was a little fox. The fox was very hungry and wanted to find something to eat. He saw a big apple tree and decided to climb it. As he climbed, he saw a little rabbit. The rabbit was very hungry and wanted to eat the apple too. The fox was very kind and offered the rabbit some of the apple. The rabbit was very happy and ate the apple. The fox felt happy too because he shared the apple with the rabbit. From that day on, the fox and the rabbit became good friends and shared the apple together.</pre></article>
+</div></section>
+<section><h2>D1 / language-boundary</h2><pre>Welche Farbe hat eine reife Banane?</pre><div class="pair">
+<article><h3>fp32</h3><p>13 tokens; EOS observed</p><pre> I don&#x27;t know. Can we talk about something fun instead?</pre></article>
+<article><h3>row-int8-simulation</h3><p>13 tokens; EOS observed</p><pre> I don&#x27;t know. Can we talk about something fun instead?</pre></article>
+</div></section>
+</html>

@@ -1,0 +1,20 @@
+{
+  "firmware": "0.5.2",
+  "dispatch_protocol": 1,
+  "boot_id": 4278495524,
+  "default_kernel": "tile4",
+  "kernel_protocol": 2,
+  "model_ready": false,
+  "model_error": "Insufficient PSRAM for model",
+  "worker_busy": false,
+  "free_psram": 33551432,
+  "largest_psram_block": 20447232,
+  "model_load_free_psram": 33551432,
+  "model_load_largest_psram": 20447232,
+  "model_load_requested": 21380448,
+  "free_internal": 474519,
+  "min_free_internal": 436675,
+  "largest_internal": 360448,
+  "storage": "internal flash; SD not required for inference",
+  "ota_pending": false
+}

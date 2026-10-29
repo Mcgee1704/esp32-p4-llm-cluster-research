@@ -1,0 +1,75 @@
+{
+  "reviewer": "same assistant",
+  "masked": false,
+  "independent_review": false,
+  "classification": "Exploratory manual inspection after generation; not a frozen blind review",
+  "notes": {
+    "Q1": {
+      "first_fact_correct": true,
+      "requested_format_fulfilled": true,
+      "note": "Correct cow sound, one short sentence, observed EOS."
+    },
+    "Q2": {
+      "first_fact_correct": true,
+      "requested_format_fulfilled": false,
+      "note": "Correct yellow answer, but I know! plus the answer is two sentences rather than the requested one."
+    },
+    "Q3": {
+      "first_fact_correct": false,
+      "requested_format_fulfilled": false,
+      "note": "FP32 abstains. Row INT8 instead asserts the wrong bicycle count of four; a material negative quantization observation."
+    },
+    "I1": {
+      "requested_format_fulfilled": false,
+      "note": "Does not output exactly blue."
+    },
+    "I2": {
+      "requested_format_fulfilled": false,
+      "note": "Both variants produce unrelated prose rather than exactly red green blue."
+    },
+    "I3": {
+      "requested_format_fulfilled": false,
+      "note": "Relationship response, not a short sentence about rain."
+    },
+    "Q4": {
+      "first_fact_correct": true,
+      "note": "Baby dog is correctly called a puppy."
+    },
+    "Q5": {
+      "first_fact_correct": true,
+      "note": "Correct opposite of hot; no one-sentence constraint on this new task."
+    },
+    "Q6": {
+      "first_fact_correct": true,
+      "note": "Correct cat leg count of four."
+    },
+    "C1": {
+      "coherent_in_this_case": true,
+      "note": "Natural brief greeting and return question; one example only."
+    },
+    "C2": {
+      "context_fact_recalled": true,
+      "note": "Correctly recalls the synthetic name Luna from the provided short context. No persistent memory is tested."
+    },
+    "U1": {
+      "declines_unknown_in_this_case": true,
+      "note": "Explicitly says it does not know. The serial-number question contains no real device identifier."
+    },
+    "S1": {
+      "topic_fulfilled_in_this_case": true,
+      "note": "Complete story includes sharing an apple, hungry rabbit, and becoming friends. Observed EOS; a single story."
+    },
+    "D1": {
+      "german_question_answered": false,
+      "note": "Declines rather than answering yellow in either language; a single boundary probe, not a German benchmark."
+    }
+  },
+  "summary": {
+    "questions_correct_factual_content": "5/6 each",
+    "shared_question_format": "1/3 each",
+    "general_instruction_tasks": "0/3 each",
+    "fp32_Q3": "abstention",
+    "int8_Q3": "incorrect assertion",
+    "unchanged_complete_sequences": "12/14"
+  }
+}

@@ -1,6 +1,6 @@
 # Research log and coverage
 
-The source research checkpoint is `a0bf3bd9f9ceb5546f06703a1e4c17464db955d9`. Original private Git history
+The source research checkpoint is `efbd5ef466e2fac7ed7abb68eeabbaa3c5f025bf`. Original private Git history
 and personal commit metadata are not published. Original report filenames below
 are identifiers of local records, not additional public files. The English reports
 consolidate their scientific content; this is not a word-for-word translation.
@@ -14,11 +14,15 @@ consolidate their scientific content; this is not a word-for-word translation.
 | `docs/firmware-inbetriebnahme.md` | [HARDWARE.md](HARDWARE.md) |
 | `docs/firmware-pruefstand.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
 | `docs/github-einsatzideen.md` | [PRIOR_WORK_AND_PLANS.md](PRIOR_WORK_AND_PLANS.md) |
+| `docs/gptneo-format.md` | [GPTNEO_FORMAT.md](GPTNEO_FORMAT.md) |
 | `docs/poe-usb-pruefung.md` | [HARDWARE.md](HARDWARE.md) |
 | `docs/research/dispatcher-2026-10-29.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
+| `docs/research/firmware-publication-2026-10-29.md` | [FIRMWARE_VERSIONS.md](FIRMWARE_VERSIONS.md) |
 | `docs/research/firmware-umsetzung.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
 | `docs/research/forschungsplan.md` | [PRIOR_WORK_AND_PLANS.md](PRIOR_WORK_AND_PLANS.md) |
+| `docs/research/gptneo-p4-2026-10-29.md` | [GPTNEO_P4.md](GPTNEO_P4.md) |
 | `docs/research/lan-optimierung-2026-10-29.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
+| `docs/research/matched-models-2026-10-29.md` | [MATCHED_MODELS.md](MATCHED_MODELS.md) |
 | `docs/research/parallelbetrieb-2026-10-29.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
 | `docs/research/prospektive-pruefung-2026-10-29.md` | [SIMULATION.md](SIMULATION.md) |
 | `docs/research/rechenkern-v2-2026-10-29.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
@@ -28,8 +32,12 @@ consolidate their scientific content; this is not a word-for-word translation.
 | `docs/research/textmodell-naechste-stufe.md` | [MODELS_AND_QUALITY.md](MODELS_AND_QUALITY.md) |
 | `docs/research/textmodell-sft-2026-10-29.md` | [MODELS_AND_QUALITY.md](MODELS_AND_QUALITY.md) |
 | `docs/research/textqualitaet-v1-2026-10-29.md` | [MODELS_AND_QUALITY.md](MODELS_AND_QUALITY.md) |
+| `docs/research/tinytalk2-host-2026-10-29.md` | [TINYTALK_HOST.md](TINYTALK_HOST.md) |
 | `docs/research/upstream-befunde.md` | [PRIOR_WORK_AND_PLANS.md](PRIOR_WORK_AND_PLANS.md) |
 | `docs/research/zweier-test-2026-10-29.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
+| `docs/superpowers/plans/2026-10-29-gptneo-p4.md` | [GPTNEO_P4.md](GPTNEO_P4.md) |
+| `docs/superpowers/plans/2026-10-29-matched-model-comparison.md` | [MATCHED_MODELS.md](MATCHED_MODELS.md) |
+| `docs/superpowers/plans/2026-10-29-tinytalk2-host.md` | [TINYTALK_HOST.md](TINYTALK_HOST.md) |
 
 ## Scientific milestones
 
@@ -42,6 +50,11 @@ consolidate their scientific content; this is not a word-for-word translation.
 - Real mixed-workload calibration/validation records, frozen scenario V1, prospective check.
 - Static capacity/architecture audit; different compatible SFT checkpoint of the same size.
 - Ten new English tasks, complete token checks and frozen masked qualitative review.
+- GPT-Neo/GPT-2 tokenizer port, TinyTalk-2 numerical/device checks, failed warm
+  allocation and amended cold-restart/LAN-update verification on firmware 0.5.5.
+- Four matched models: new pinned TinyStories-Instruct-8M and TinyTalk 1 controls,
+  identical task bytes, full texts/manual rubric, real P4 reproduction and paired
+  throughput comparisons; English quality, timing and topology figures.
 
 Future electrical qualification, factory onboarding, SD persistence, a physical
 third lane, larger-model capacity, broader quality evaluation and fault-injection

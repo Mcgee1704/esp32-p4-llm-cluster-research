@@ -1,0 +1,15 @@
+{
+  "parameter_count": 19702528,
+  "non_token_embedding_parameters": 6836736,
+  "packed_weight_bytes": 20048452,
+  "tokenizer_bytes": 1121859,
+  "artifact_bytes": 21170439,
+  "kv_bytes": 4194304,
+  "work_vector_bytes": 18432,
+  "psram_including_reserve_bytes": 28099795,
+  "planning_reserve_bytes": 2097152,
+  "flash_fits": true,
+  "psram_fits_with_reserve": true,
+  "classification": "Proposed full-vocabulary row-INT8 layout; not exported or measured on P4",
+  "assumptions": "All 2048 learned position rows retained and quantized; norms/biases FP32; compact length/offset vocabulary and merge table; 8-byte/token search index; FP32 KV; allocator/stacks/network peaks not proven."
+}

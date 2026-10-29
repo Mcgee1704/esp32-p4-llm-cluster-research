@@ -1,0 +1,86 @@
+{
+  "devices": {
+    "node-1": {
+      "firmware": "0.5.5",
+      "dispatch_protocol": 1,
+      "boot_id": 3852182148,
+      "default_kernel": "tile4",
+      "kernel_protocol": 2,
+      "model_ready": true,
+      "restart_pending": false,
+      "restart_phase": 0,
+      "restart_create_result": 1,
+      "restart_heap_ok": 1,
+      "architecture": "gpt_neo",
+      "model_error": "",
+      "worker_busy": false,
+      "free_psram": 7627804,
+      "largest_psram_block": 7602176,
+      "model_load_free_psram": 33551716,
+      "model_load_largest_psram": 33030144,
+      "model_load_requested": 21380448,
+      "free_internal": 444787,
+      "min_free_internal": 429763,
+      "largest_internal": 360448,
+      "storage": "internal flash; SD not required for inference",
+      "layers": 8,
+      "context": 256,
+      "dim": 256,
+      "model_id": "8fb68b9d2c64d260277ecc4ad90a17cac6f8113db4b646a08b7c7ada295c9b60",
+      "ota_pending": false
+    },
+    "node-2": {
+      "firmware": "0.5.5",
+      "dispatch_protocol": 1,
+      "boot_id": 147573191,
+      "default_kernel": "tile4",
+      "kernel_protocol": 2,
+      "model_ready": true,
+      "restart_pending": false,
+      "restart_phase": 0,
+      "restart_create_result": 1,
+      "restart_heap_ok": 1,
+      "architecture": "gpt_neo",
+      "model_error": "",
+      "worker_busy": false,
+      "free_psram": 7627804,
+      "largest_psram_block": 7602176,
+      "model_load_free_psram": 33551716,
+      "model_load_largest_psram": 33030144,
+      "model_load_requested": 21380448,
+      "free_internal": 445303,
+      "min_free_internal": 429763,
+      "largest_internal": 360448,
+      "storage": "internal flash; SD not required for inference",
+      "layers": 8,
+      "context": 256,
+      "dim": 256,
+      "model_id": "8fb68b9d2c64d260277ecc4ad90a17cac6f8113db4b646a08b7c7ada295c9b60",
+      "ota_pending": false
+    }
+  },
+  "cluster": {
+    "firmware": "0.5.5",
+    "configured": true,
+    "maintenance": false,
+    "peer": "node-2",
+    "model_id": "8fb68b9d2c64d260277ecc4ad90a17cac6f8113db4b646a08b7c7ada295c9b60",
+    "capacity": 8,
+    "waiting_limit_ms": 180000,
+    "queued": 0,
+    "running": 0,
+    "available_slots": 8,
+    "lanes": [
+      {
+        "target": "local",
+        "last_probe_ok": false,
+        "last_error": ""
+      },
+      {
+        "target": "node-2",
+        "last_probe_ok": false,
+        "last_error": ""
+      }
+    ]
+  }
+}

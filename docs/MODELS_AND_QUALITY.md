@@ -1,5 +1,12 @@
 # Models, capacity and English text quality
 
+The sections below retain the earlier SFT/quality-V1 experiment. Later results
+are in [the matched four-model report](MATCHED_MODELS.md),
+[TinyTalk-2 host screening](TINYTALK_HOST.md) and
+[the completed GPT-Neo P4 study](GPTNEO_P4.md). GPT-Neo is now implemented in
+firmware 0.5.5. Earlier statements that it requires a port describe the decision
+at that earlier stage, not the current runtime.
+
 ## Capacity audit before changing models
 
 The full model is loaded on every P4, including layer-split mode. More boards

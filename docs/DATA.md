@@ -1,5 +1,14 @@
 # Data and publication provenance
 
+The expanded snapshot includes `data/tinytalk2-host-2026-10-29/`,
+`data/gptneo-p4-2026-10-29/` (including failed attempts and the completed
+continuation), and `data/matched-models-2026-10-29/`. New English SVG/PNG plots
+and topology are in `docs/figures/`; their JSON sidecars identify source hashes.
+PNG plots contain no text, EXIF or XMP metadata. The user's additional firmware
+request also admits separately rebuilt, checked keyless diagnostic images under
+`firmware-versions/`. Private deployment images and model binaries remain excluded.
+See [the firmware archive](FIRMWARE_VERSIONS.md) for file manifests and limitations.
+
 ## Representation and privacy
 
 `data/` contains recorded measurements, token streams, complete generated texts,

@@ -1,0 +1,124 @@
+[
+  {
+    "label": "story8",
+    "repository": "roneneldan/TinyStories-Instruct-8M",
+    "revision": "18d7c83c2d7b0685b0da3c26379dd4d4d90a1ffb",
+    "files": [
+      {
+        "name": "config.json",
+        "url": "https://huggingface.co/roneneldan/TinyStories-Instruct-8M/resolve/18d7c83c2d7b0685b0da3c26379dd4d4d90a1ffb/config.json",
+        "bytes": 1161,
+        "sha256": "bdcb700d3755c72f804c05ee4fbec2ec85ee0f0c1b38c6271e2000f6b4591789",
+        "remote_git_blob": "13f9ed26027b841071306297949f83751b4a7dbc",
+        "lfs": null
+      },
+      {
+        "name": "model.safetensors",
+        "url": "https://huggingface.co/roneneldan/TinyStories-Instruct-8M/resolve/18d7c83c2d7b0685b0da3c26379dd4d4d90a1ffb/model.safetensors",
+        "bytes": 112377544,
+        "sha256": "4d625b61fae5ca897e037b702e5774598eace89720be23a4bcce68d4cb0b665b",
+        "remote_git_blob": "caa6cc87fa8cb7b7ee3803cdd5d0be9c50fff458",
+        "lfs": {
+          "sha256": "4d625b61fae5ca897e037b702e5774598eace89720be23a4bcce68d4cb0b665b",
+          "size": 112377544,
+          "pointerSize": 134
+        }
+      },
+      {
+        "name": "tokenizer.json",
+        "url": "https://huggingface.co/roneneldan/TinyStories-Instruct-8M/resolve/18d7c83c2d7b0685b0da3c26379dd4d4d90a1ffb/tokenizer.json",
+        "bytes": 2107652,
+        "sha256": "f6ed3d307010c244c22aeffbde05f419cf277c23e64cf98b673cac5449cfeff5",
+        "remote_git_blob": "f53f61f36fdd6a4a52266aacfe6dde49575eaf65",
+        "lfs": null
+      },
+      {
+        "name": "readme.md",
+        "url": "https://huggingface.co/roneneldan/TinyStories-Instruct-8M/resolve/18d7c83c2d7b0685b0da3c26379dd4d4d90a1ffb/readme.md",
+        "bytes": 675,
+        "sha256": "41e744941a40a1e1c5d39b871ce85c4996b7f707dbfd99a0b7f6f900a9be0d0c",
+        "remote_git_blob": "33c11f30406e580e3e3a4a9a5ff98ad4bf7da541",
+        "lfs": null
+      },
+      {
+        "name": "tokenizer_config.json",
+        "url": "https://huggingface.co/roneneldan/TinyStories-Instruct-8M/resolve/18d7c83c2d7b0685b0da3c26379dd4d4d90a1ffb/tokenizer_config.json",
+        "bytes": 722,
+        "sha256": "3d76da0fd37493fbfcd3f0fa9757753d31f92e1779ebd9130809b45546a60261",
+        "remote_git_blob": "3ab536daa6ed35873cf0e35a890f0f08d762250b",
+        "lfs": null
+      }
+    ],
+    "source_type": "public GET only, no inference or project upload",
+    "model_python_executed": false
+  },
+  {
+    "label": "talk1",
+    "repository": "TheREZOR/TinyTalk",
+    "revision": "61c79ad139344cdd344a687b35fa8f1c52326154",
+    "files": [
+      {
+        "name": "config.json",
+        "url": "https://huggingface.co/TheREZOR/TinyTalk/resolve/61c79ad139344cdd344a687b35fa8f1c52326154/config.json",
+        "bytes": 1054,
+        "sha256": "08e9e9012b7051a291a53a034422facc8d3b762b57ce0c11cd1b47dfb5abfe70",
+        "remote_git_blob": "6b9f1072051d9fc655c9995f15fadb1b78f453de",
+        "lfs": null
+      },
+      {
+        "name": "model.safetensors",
+        "url": "https://huggingface.co/TheREZOR/TinyTalk/resolve/61c79ad139344cdd344a687b35fa8f1c52326154/model.safetensors",
+        "bytes": 33124616,
+        "sha256": "d7510ceac1d4f2a7d00b6f2da92cdce38706faa60a96c60884819d00ef58af77",
+        "remote_git_blob": "f8ee4fbc67c2c8a982f46eaa94eb1e17fc1334b2",
+        "lfs": {
+          "sha256": "d7510ceac1d4f2a7d00b6f2da92cdce38706faa60a96c60884819d00ef58af77",
+          "size": 33124616,
+          "pointerSize": 133
+        }
+      },
+      {
+        "name": "tokenizer.json",
+        "url": "https://huggingface.co/TheREZOR/TinyTalk/resolve/61c79ad139344cdd344a687b35fa8f1c52326154/tokenizer.json",
+        "bytes": 3557680,
+        "sha256": "1fe93b6152957cf9cfd6d89002467f789ce8b3f3e000b3a2edf27c808ddd0b9e",
+        "remote_git_blob": "d469fce8cf3cdfde529baad7b2528afa4205aabf",
+        "lfs": null
+      },
+      {
+        "name": "README.md",
+        "url": "https://huggingface.co/TheREZOR/TinyTalk/resolve/61c79ad139344cdd344a687b35fa8f1c52326154/README.md",
+        "bytes": 4401,
+        "sha256": "3fc736880287692ce4bd86e8feb57619e6fa84415cdcd855a9895e5ba49ecc82",
+        "remote_git_blob": "a1233a39a31417057824f2c671bf184d0ecf1474",
+        "lfs": null
+      },
+      {
+        "name": "NOTICE.md",
+        "url": "https://huggingface.co/TheREZOR/TinyTalk/resolve/61c79ad139344cdd344a687b35fa8f1c52326154/NOTICE.md",
+        "bytes": 2371,
+        "sha256": "2811c90dfbad3dd3bfbbdb138ad573b7c654052de8e7d8193a63ff83a024fca2",
+        "remote_git_blob": "d62d3a43147f28d0beb01c169468e3a36b147057",
+        "lfs": null
+      },
+      {
+        "name": "LICENSE",
+        "url": "https://huggingface.co/TheREZOR/TinyTalk/resolve/61c79ad139344cdd344a687b35fa8f1c52326154/LICENSE",
+        "bytes": 1296,
+        "sha256": "1b316675f4d732d32491eb0355598c300afca44f4b166cee8b1672dadd764d8a",
+        "remote_git_blob": "28cbe85de7237ea7d3c001afbafd61b7f00b1439",
+        "lfs": null
+      },
+      {
+        "name": "tokenizer_config.json",
+        "url": "https://huggingface.co/TheREZOR/TinyTalk/resolve/61c79ad139344cdd344a687b35fa8f1c52326154/tokenizer_config.json",
+        "bytes": 314,
+        "sha256": "6959fa789244fb0db075863e5167414ae2bae8c6b28e343935b0b1479fcc1f2c",
+        "remote_git_blob": "d1bfd9466f475f257eb1e8d2deeee3106ebd5e4b",
+        "lfs": null
+      }
+    ],
+    "source_type": "public GET only, no inference or project upload",
+    "model_python_executed": false
+  }
+]

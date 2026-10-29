@@ -11,8 +11,8 @@
   },
   "THIRD_PARTY.md": {
     "source": "THIRD_PARTY.md",
-    "original_sha256": "f7985c040c0196b1e840cf2caed2ac519a31f5a5a25446e17f710d59fca0cf97",
-    "published_sha256": "e5cf4d4e320bbf43f7aa30f07bdb0440043153ef4bdf0e4c4a90b595df91237f"
+    "original_sha256": "22294008386437c55bed6f8a343f211a7c165d1a3056d25622011c1cdddd6c44",
+    "published_sha256": "a09eebd5d56c39efbef500cee5f651218f0bf3fab41efc0b55688f18947acaeb"
   },
   "data/dispatcher-2026-10-29/batches.csv": {
     "source": "docs/research/data/dispatcher-2026-10-29/batches.csv",
@@ -63,6 +63,471 @@
     "source": "docs/research/data/dispatcher-2026-10-29/verify-final.json",
     "original_sha256": "22163f06ca1781dfc36086ab4ce7e5b4da8474b0c38a014206874376833d7850",
     "published_sha256": "6f44b3a968c1dd04cf37d671c0ce1e2a28f175227bf5d6bc02a05c42fbdd7108"
+  },
+  "data/firmware-publication-2026-10-29/catalog.json": {
+    "source": "docs/research/data/firmware-publication-2026-10-29/catalog.json",
+    "original_sha256": "ac76456da29acd7755e9b53eab0112a5369488b1969713262557ac555fcacfc1",
+    "published_sha256": "77c9a912da68330f7cf7020cc3379642bbce8bc9a7065f00852199fc0d06a871"
+  },
+  "data/firmware-publication-2026-10-29/package-sha256.json": {
+    "source": "docs/research/data/firmware-publication-2026-10-29/package-sha256.json",
+    "original_sha256": "b88d9b3baf36e6a47e4095b117f495a0b44f7fb8eda5c353d3dd947cbf719420",
+    "published_sha256": "7a86e415824fc29f475c1c3f924857636f02ceb8a89210bf16975b7166a28816"
+  },
+  "data/firmware-publication-2026-10-29/third-party-licenses.json": {
+    "source": "docs/research/data/firmware-publication-2026-10-29/third-party-licenses.json",
+    "original_sha256": "494ebbd48bad907f287439f399e16f3ddcdc5c51274a47d561c5bede14b02a43",
+    "published_sha256": "a5d2b7cdb6d03531c1cf439692a0df04e8a94912c30b6f71e5dd778c8a334e24"
+  },
+  "data/firmware-publication-2026-10-29/validation.json": {
+    "source": "docs/research/data/firmware-publication-2026-10-29/validation.json",
+    "original_sha256": "9f5b84945c71b48c1cb780186d1bf191e39de9bd7535ec43e3a5de282ea6083c",
+    "published_sha256": "0871ff79c0dd036042fd8dd3a0b689c97a0680abbc4b3a43e1cdf5f245854144"
+  },
+  "data/gptneo-p4-2026-10-29/before.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/before.json",
+    "original_sha256": "af2bbdabd72472cb108f87301ad1b8cc5153356473137b5e85ca4936fabf6d3d",
+    "published_sha256": "fa9936f146114511e877ad1bf9e664031c3c54d73c97e3cd32ecf74021858dfd"
+  },
+  "data/gptneo-p4-2026-10-29/build-and-test-checks.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/build-and-test-checks.json",
+    "original_sha256": "d2c7b60af1550eb71522cf17c89b44771961fadc712f189943bc521ec5f43bc6",
+    "published_sha256": "437a21f8c15897ccc662b1a5dc050f61590e2aa4f68896a3cfc8e57e66cfa06f"
+  },
+  "data/gptneo-p4-2026-10-29/cold-allocation-0.5.2.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/cold-allocation-0.5.2.json",
+    "original_sha256": "83627bcb6889c4d313ce60d4bd0bba0e8c7b1df3a380859676efa9c18ffc065a",
+    "published_sha256": "7d40eb7619de9802fb4b36b927c5d2f0fbbf8109fc69bc2332744f48dcb8f324"
+  },
+  "data/gptneo-p4-2026-10-29/cold-loaded-0.5.1.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/cold-loaded-0.5.1.json",
+    "original_sha256": "4193b75c4df9780b913de365cd133454cefa810b6e5e7d3a7a8efc8a0813bc2c",
+    "published_sha256": "faa60f7acec28db4d2eb4ddca8326e008492bcb2318d46cf089fff7d51f72129"
+  },
+  "data/gptneo-p4-2026-10-29/cold-sft-before-repro.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/cold-sft-before-repro.json",
+    "original_sha256": "b1a1813fde55d96b93130cc9bb1e447c9c84a5731cf936b720496497dd2a5c23",
+    "published_sha256": "33a4fc4ee28254cce5099191cf39f0fc062d0b1698e512e4ba243f53fd233a36"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/additional-checks.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/additional-checks.json",
+    "original_sha256": "73b13fb032b3b3b604dc5229978642cc10d40e8f6b30b5c2e548884178094396",
+    "published_sha256": "06a2d8cf458c9e40650f7c0eebe9a87aede7db1b718ebb1e79056730e9fef4a0"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/batches.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/batches.json",
+    "original_sha256": "1a0b7d7de7bf4cf743de83797b000ad82cf8f3404da2b08cf9f277699e84fd5d",
+    "published_sha256": "79eccd927039274874af6e77a3ba9448c276a613e1aeda5b712c2dc0c94c2eba"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/before-final-master-OTA.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/before-final-master-OTA.json",
+    "original_sha256": "e6b0e15242f58903ca0c27fa8d6d72ac0c9b79949dd8ced32f68c1e14211c971",
+    "published_sha256": "4b15d28c0a020620e619e03bb78204877e2f3d372d81288af00b3f23b45c2369"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/before.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/before.json",
+    "original_sha256": "13e6dc5174f05aa5f929401f8461721681a9b38023e56cf615ca8b00c88d6645",
+    "published_sha256": "150e0cd6b56600c3844ad846c01fb2c4510b4dfbd18006f73361e0794b71cb5e"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/block-1-cluster.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/block-1-cluster.json",
+    "original_sha256": "7160b4aba50aa48e96767bfe20382919a7864295579d78909f4d414c322b49ad",
+    "published_sha256": "f610cd477ebeea54594d2ec3ffa8c29d5d99d13139f8a94e255bf5d4323491f9"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/block-1-local.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/block-1-local.json",
+    "original_sha256": "0b0b44ad0d60e8d87dc36569167d97fd63762ef5b963ec8f802e7c273f75993c",
+    "published_sha256": "4edcec511a1574923779d69b6be8f634a27345458203d1b7885c580b524e2e28"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/block-2-cluster.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/block-2-cluster.json",
+    "original_sha256": "f72033111c8a61825d2e8124bc9f6a491481ce40037036706b2b9db154855b62",
+    "published_sha256": "2749f32adad2c265446df8a044cc2a334ac82b9a9d90a049d8aa70ea9b18b6cc"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/block-2-local.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/block-2-local.json",
+    "original_sha256": "ce3489f4bdc69867246ed1f9812360104e58b271bcd97bc8390910c2c47618fc",
+    "published_sha256": "50b6bb5237159be068b9ed6f04c51c7a878e4df60ff6b9ff1fc6a742b6d43a13"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/block-3-cluster.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/block-3-cluster.json",
+    "original_sha256": "873e96d3c5ab1d5f46eb462d29a5f9476852a92bcfc2fcf66f93d559f5b32db0",
+    "published_sha256": "4ed7ad14e3b1922cc5b7c8d179513f5147f5d8c7a495747b85c7d8970e78c28f"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/block-3-local.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/block-3-local.json",
+    "original_sha256": "4ed313837595253f7dd19b03cdbd765f19229f4460d08cebd8a2c05142714612",
+    "published_sha256": "8a9b152e698aa177d1d3a148b5a5e27411f1a0b8caaf1a3cc09d631691e35ebd"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/block-4-cluster.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/block-4-cluster.json",
+    "original_sha256": "35a61f9ddce10421cd90941d005d9171ff3cae0d8b98cc80fc8e17e86dd2fb08",
+    "published_sha256": "ce4b69aec008502a5c734c635d3e250f9d718275b6cda4107ff189c427b555dd"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/block-4-local.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/block-4-local.json",
+    "original_sha256": "c9092c44916e4d02503eb59b7ea658d11fcdb87abeb77ddd155ddd4dd2fc7dab",
+    "published_sha256": "9b0638fde38378ddcaa0734571906c5cb438f38f001c3d44694d872ad43df445"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/final-state.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/final-state.json",
+    "original_sha256": "f6c62bde0d69cc70f618bb29ce3b7facc38ba75455911bd6c5762dcc365aa14b",
+    "published_sha256": "e4a684ebce0e5d2189bc3e37c8273bc999c343bd846d6f896f57f87685da8777"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/layer-rpc-check.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/layer-rpc-check.json",
+    "original_sha256": "5b18800a7f27e721651cd1dc757763a1cfdfc2dcd571d91ff27dc986fdda8a64",
+    "published_sha256": "242ad350edd805373d4faaee91760e8914615fe8477a83f2db86112a535c1678"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/layer-rpc-check.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/layer-rpc-check.ndjson",
+    "original_sha256": "6ec327c93cb6e16d180ee768abd87be0a9ca5560f7396315c829e4c46479e6c6",
+    "published_sha256": "6ec327c93cb6e16d180ee768abd87be0a9ca5560f7396315c829e4c46479e6c6"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/master-C2.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/master-C2.ndjson",
+    "original_sha256": "126a014fab16a9318241c4921900d8f769423ad99dc1c19e91821a54e45d4c65",
+    "published_sha256": "126a014fab16a9318241c4921900d8f769423ad99dc1c19e91821a54e45d4c65"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/master-Q3.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/master-Q3.ndjson",
+    "original_sha256": "d0b5bc3753be5005d1f56621442cfd8e84fdb29ebbe1edebc3769e7f40e8a0c0",
+    "published_sha256": "d0b5bc3753be5005d1f56621442cfd8e84fdb29ebbe1edebc3769e7f40e8a0c0"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/master-S1.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/master-S1.ndjson",
+    "original_sha256": "eed8297a9badfc08c36fb3b71a6d116b19c7c545478900b6ecd353e7a671c49f",
+    "published_sha256": "eed8297a9badfc08c36fb3b71a6d116b19c7c545478900b6ecd353e7a671c49f"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/master-direct.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/master-direct.json",
+    "original_sha256": "9da6feb36ec857a9d51747f2b2f074ec95a5a05835f85f2bf7fe1dcd96189f05",
+    "published_sha256": "b7e44c2564597d62df16e999b180dd872d41d72464710dbb4b6966cce6bac766"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/master-model-ready.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/master-model-ready.json",
+    "original_sha256": "945961818a74c3f8aac69cb7540dfc1ace57031a2b9d8b62b923de76cc723572",
+    "published_sha256": "75f9a32c4ca656b2284e5ac8166be2f4423d55cc19114802e8ac659a6962ea21"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/master-sft-control.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/master-sft-control.ndjson",
+    "original_sha256": "84d7ab6577da5d9d7cfe0c8c2ffa9b65ce1d9310b514031110c766fbd6079ce9",
+    "published_sha256": "84d7ab6577da5d9d7cfe0c8c2ffa9b65ce1d9310b514031110c766fbd6079ce9"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/master-stage-passed.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/master-stage-passed.json",
+    "original_sha256": "b3ae8a6c30b6499d85caec468f04a57b4233aca1c18dd445af5ae61ebcebd34b",
+    "published_sha256": "e10d8e8023eba9ebd2d2c9223a30b1265e17e32aec2168b52b6f72f810b1314d"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/native-references.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/native-references.json",
+    "original_sha256": "94f035db169d0f91afd21d53c82660f7ec2693f70ced5d3ec542a67bd63e6512",
+    "published_sha256": "ebafc40183023dcb68e5e8e1f78f6b3c4e6300e41f093822ec54482b092be65d"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/peer-Q1.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/peer-Q1.ndjson",
+    "original_sha256": "8cd72fcb7e51b60e9c3612dc9e0cae640c7b26035d92fee5627c87cf0a9ba7d4",
+    "published_sha256": "8cd72fcb7e51b60e9c3612dc9e0cae640c7b26035d92fee5627c87cf0a9ba7d4"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/peer-Q3.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/peer-Q3.ndjson",
+    "original_sha256": "70aba7a782f035b80dc61c382169aea3cfaa4a88cef92a9a0f31c8870c83d6fd",
+    "published_sha256": "70aba7a782f035b80dc61c382169aea3cfaa4a88cef92a9a0f31c8870c83d6fd"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/peer-S1.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/peer-S1.ndjson",
+    "original_sha256": "e6be918048bfb7eb68bd2e7d3bd94b1418f454967e266cc69bdc4fef077e0298",
+    "published_sha256": "e6be918048bfb7eb68bd2e7d3bd94b1418f454967e266cc69bdc4fef077e0298"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/peer-after-OTA.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/peer-after-OTA.json",
+    "original_sha256": "911809496f634b9bc6cd08b3c90d1363b2c8832139d1c8c18fe1303c1e37ee73",
+    "published_sha256": "7cbcf3d97568652b6fe2502eaa5495f3d36d2761e2ac0e53be15c63548054284"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/peer-after-model-restart.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/peer-after-model-restart.json",
+    "original_sha256": "1643fc6891b091e2f474f321a38982b3c4d1ed3173ee70287838b753d0f7e458",
+    "published_sha256": "4702b62bb5cb5cd47c89c130f8b1f306192c62e4c1675fccd77a3ab71439ecc8"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/peer-after-model-restart.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/peer-after-model-restart.ndjson",
+    "original_sha256": "ccfb7e2b7635635b1e1369c541272bf7993a72d5593b42ef23af2fba8d16787a",
+    "published_sha256": "ccfb7e2b7635635b1e1369c541272bf7993a72d5593b42ef23af2fba8d16787a"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/peer-direct.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/peer-direct.json",
+    "original_sha256": "d5ec3807e224ef4f26997162f9f02c4f10d5fd90b697066720869e139e41eb96",
+    "published_sha256": "52af386922132f3945fc5c3f82f69980a0582b780d7937d8a9c5b6d71ab9368f"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/peer-firmware-ready.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/peer-firmware-ready.json",
+    "original_sha256": "a36f73a79849ed74b27657e26a428a9080f49ba8a022e70186e5ae9eb22c9857",
+    "published_sha256": "07e1d9cecb88864a51c983b4fa3d313a6e551bad3ff182d4e5c2bdea4a3b5aba"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/peer-stage-passed.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/peer-stage-passed.json",
+    "original_sha256": "b518ba0b31d694053a5e95168960ea5497f2551137e83c0df0fbdd3d5e2acaf0",
+    "published_sha256": "fbfb095b4bd042676adb942eccb78fc3cd266bffc9ad6bacb884790e7ecc024c"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/post-master-OTA-check.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/post-master-OTA-check.json",
+    "original_sha256": "599b3c87c5ff5a3a00fc32b8d2999b10d5bb7f4cb7f18847b0fea32585d066ec",
+    "published_sha256": "492d8aaaccd5aa10c7db7d1dcc5809ec582d9364662df93f4db636f39910e9a1"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/post-master-OTA-jobs.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/post-master-OTA-jobs.json",
+    "original_sha256": "543fb5356805da83a5ada5050c71eea08dad37b27b2722a601c3624705d204e4",
+    "published_sha256": "aa2bbf44b64db437e3aa7029b78eed7fb895a88ddb59884493e33689df187b8b"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/post-study-restart-probe-plan.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/post-study-restart-probe-plan.json",
+    "original_sha256": "7b3c99fe120866678fa61dde48b2a1860f1ed0ef66cdaf30cdd0630ecc3e5a73",
+    "published_sha256": "a0d1a7acfd69e265bfdd93f00003bf5abc0f142d716637442fcf5ad7c3381fd3"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/protocol.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/protocol.json",
+    "original_sha256": "609896f460f657b165500ab060e4c554f685881d05d9cceed533892f2530044f",
+    "published_sha256": "417f8d2600d27b037b58e9f3c8db8ebbc71327706a98d0c25813272ff2bc56e8"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/protocol.sha256": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/protocol.sha256",
+    "original_sha256": "21279233e882a4ae80da914cf4fdc25dc23af61da101fa78012771e0ca631a29",
+    "published_sha256": "ed62d2a4e4d4dd3a388e1ef5dd8ffc7d4b85447bab61cac2de1c996215046b62"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/summary.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/summary.json",
+    "original_sha256": "02c0ae229a041b3d83b914d118621f5e7b1f1464b55896456e999f09807f111e",
+    "published_sha256": "5852ad579cd69902ab5d8a21fff59c47180f316c438e008b6c639af6f08d1cd5"
+  },
+  "data/gptneo-p4-2026-10-29/completed-study/verified-final-state.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/completed-study/verified-final-state.json",
+    "original_sha256": "97c495c43b1ab73e5bb2fd784b08f2dda4c7fdcde75d503f91d3406697f42e10",
+    "published_sha256": "ffb4c28348e5ef0feb8c63c80a4ea9b758d1fd25ed8e5ded487aaed9b4ed96b9"
+  },
+  "data/gptneo-p4-2026-10-29/diagnosis-restored-sft.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/diagnosis-restored-sft.json",
+    "original_sha256": "913488172f834907fa64e193045e7f761b74d2a182677a9e2d59d34ba945a6ca",
+    "published_sha256": "78819fb05c04fcbb95a395a5ebe1b8aa24f1ec89f21c7e6bb6b834e7ee08a8c2"
+  },
+  "data/gptneo-p4-2026-10-29/error-peer.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/error-peer.json",
+    "original_sha256": "85ffe502894d5a75f8df8880849793973f480b34551346d319d5961830cc1217",
+    "published_sha256": "8a40ab024960cf273894eccba58c3a193b5e6b06c2cadaea5a6bca4a3b458e57"
+  },
+  "data/gptneo-p4-2026-10-29/export.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/export.json",
+    "original_sha256": "3c4e16897d7b58b7b0e151bee3dd60a002f8e257725b503edd456448b75fad27",
+    "published_sha256": "60e2525228c1618383e98f63f4654edd414409d3f545429787c09a3ec4b60fe9"
+  },
+  "data/gptneo-p4-2026-10-29/failed-allocation-measured.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/failed-allocation-measured.json",
+    "original_sha256": "238029bcfc2487e7c51f6d48ec95170c362d81e3f43715defb38560b91734dde",
+    "published_sha256": "eead465f6923f73d01de50e02c5682299ced94687b98bf8ac37f1ab707a1ff3a"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/before.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/before.json",
+    "original_sha256": "d2f887a7a172296cc803198fe6be98d6b7741aa5149cada85b0ab194de0f4661",
+    "published_sha256": "370ceadf86c3f053ca2d0dc24c60e76c6c64f7c50c2f7696af92926cfe30fd9e"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/error-master.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/error-master.json",
+    "original_sha256": "307067dd0541626c8ed7d25c2dac2cb24cbdbe67e339e14af14313abc15f8c56",
+    "published_sha256": "199ff42cd0da5ea485749bf85437f5758bc76f5e4e5e3f2c18a848feb6fdd9a4"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/error-peer.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/error-peer.json",
+    "original_sha256": "be52b70bd7adfd6baae6dde17cbffa1b984d4ba347b7eaae51f67c5bd1c0a8ca",
+    "published_sha256": "83255b696bd83d8069529fc44a16cf5d11acd8c2f3804f6d20751b3241733680"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/native-references.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/native-references.json",
+    "original_sha256": "94f035db169d0f91afd21d53c82660f7ec2693f70ced5d3ec542a67bd63e6512",
+    "published_sha256": "ebafc40183023dcb68e5e8e1f78f6b3c4e6300e41f093822ec54482b092be65d"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/peer-C1.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/peer-C1.ndjson",
+    "original_sha256": "630b230d42236b7d55c037f10dff9065a8f9016eb560db798b9f88dca36cbcc4",
+    "published_sha256": "630b230d42236b7d55c037f10dff9065a8f9016eb560db798b9f88dca36cbcc4"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/peer-C2.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/peer-C2.ndjson",
+    "original_sha256": "aa6872f5559368c722ff8a1393f18a67d368402c76962238af73c81c055fd875",
+    "published_sha256": "aa6872f5559368c722ff8a1393f18a67d368402c76962238af73c81c055fd875"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/peer-D1.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/peer-D1.ndjson",
+    "original_sha256": "acbc348aff163ab35f062b87b835ad3523ecdbe235998ce4e44843753ce2c24b",
+    "published_sha256": "acbc348aff163ab35f062b87b835ad3523ecdbe235998ce4e44843753ce2c24b"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/peer-I1.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/peer-I1.ndjson",
+    "original_sha256": "8cb31b13de10bf8d986abc415294a3a41d3166476b8a51e6c0b04bd89f1eb9ba",
+    "published_sha256": "8cb31b13de10bf8d986abc415294a3a41d3166476b8a51e6c0b04bd89f1eb9ba"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/peer-I2.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/peer-I2.ndjson",
+    "original_sha256": "e2679a15aea1d9d5937c4954e972e84bde3928709eb43ba7e74c3769abf08861",
+    "published_sha256": "e2679a15aea1d9d5937c4954e972e84bde3928709eb43ba7e74c3769abf08861"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/peer-I3.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/peer-I3.ndjson",
+    "original_sha256": "7b31ddec2193830da85f0e87ef15c339fad979caf356a1841d60f48dfa799a99",
+    "published_sha256": "7b31ddec2193830da85f0e87ef15c339fad979caf356a1841d60f48dfa799a99"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/peer-Q1.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/peer-Q1.ndjson",
+    "original_sha256": "3f85c9a0b0fc3e0f48c58c6cfcd7ee8ab1453c94348486154be8fd71f63ef1fd",
+    "published_sha256": "3f85c9a0b0fc3e0f48c58c6cfcd7ee8ab1453c94348486154be8fd71f63ef1fd"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/peer-Q2.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/peer-Q2.ndjson",
+    "original_sha256": "9997428e057397189f2c89af19b0294b719a09c68dc91debf29c6988e2c2bb18",
+    "published_sha256": "9997428e057397189f2c89af19b0294b719a09c68dc91debf29c6988e2c2bb18"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/peer-Q3.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/peer-Q3.ndjson",
+    "original_sha256": "1bcec76ec4e1548851f41ec9dc0b2aaf201f921220b8092b6f10b27e7426635b",
+    "published_sha256": "1bcec76ec4e1548851f41ec9dc0b2aaf201f921220b8092b6f10b27e7426635b"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/peer-Q4.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/peer-Q4.ndjson",
+    "original_sha256": "3650838131e7d2f82880e97d53a60f54a29821fb9022e3fc90f4bdafe0a91390",
+    "published_sha256": "3650838131e7d2f82880e97d53a60f54a29821fb9022e3fc90f4bdafe0a91390"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/peer-Q5.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/peer-Q5.ndjson",
+    "original_sha256": "561d0294919fec236ce7693d5386ad2172ad6f6894af3d3d1a3bc1120f50aadc",
+    "published_sha256": "561d0294919fec236ce7693d5386ad2172ad6f6894af3d3d1a3bc1120f50aadc"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/peer-Q6.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/peer-Q6.ndjson",
+    "original_sha256": "f6698dec5c290f9e73dfaa6a6c6169e6e354a011ee694e2ec4a9207832f0d239",
+    "published_sha256": "f6698dec5c290f9e73dfaa6a6c6169e6e354a011ee694e2ec4a9207832f0d239"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/peer-S1.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/peer-S1.ndjson",
+    "original_sha256": "0e6633ec7a5645a2537b5e00f0854c455889763ff4aa004140427468dbf8357e",
+    "published_sha256": "0e6633ec7a5645a2537b5e00f0854c455889763ff4aa004140427468dbf8357e"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/peer-U1.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/peer-U1.ndjson",
+    "original_sha256": "ea586271e6d592ffa6938d21dff0f653e16720cc7fc12f0c5f29245f2a6f2ed7",
+    "published_sha256": "ea586271e6d592ffa6938d21dff0f653e16720cc7fc12f0c5f29245f2a6f2ed7"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/peer-firmware-sft.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/peer-firmware-sft.json",
+    "original_sha256": "4d49a87a179cc6f64336654e2e93973b93041df2e0e0b6e9df4e60ec0b2ed268",
+    "published_sha256": "22444c1e1961ed7b640cd1070645167868d49e256df5fb1ca3a606e74daa7d32"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/peer-model-ready.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/peer-model-ready.json",
+    "original_sha256": "1acb2acfd0ca7a176e13d3740892ebb663e5c31dc36b991f0669e146796510c4",
+    "published_sha256": "8446bd3b4632a1c48b4ca9838ca67c866c6ef4685d66668a6cdaf1e15f1d8959"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/peer-results.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/peer-results.json",
+    "original_sha256": "954aa0514d94bf4d88fe2cc2cb6eb398e929dbfc7ae430a9761da8070d45bd58",
+    "published_sha256": "e7e1fd9928cf483600faf33fd4fb5df60ab234ced60663b80352deb7912a9a80"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/peer-sft-control.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/peer-sft-control.ndjson",
+    "original_sha256": "e93f1397a8210d80374006110b351dc993529445520f5d569c443ad7629ff1db",
+    "published_sha256": "e93f1397a8210d80374006110b351dc993529445520f5d569c443ad7629ff1db"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/protocol.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/protocol.json",
+    "original_sha256": "66b74083b7424b7f0d63fc05d28a31353f5addb7945b5a2924367aa4603a4a09",
+    "published_sha256": "22b0278a567399cff80f5e0e2e19a78f82714454d29882be133c2229089b816c"
+  },
+  "data/gptneo-p4-2026-10-29/final-study/protocol.sha256": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/final-study/protocol.sha256",
+    "original_sha256": "416580c44d0c77158bd7538e44053fe57443d37d077d1673d6485cb9edf135a5",
+    "published_sha256": "a4fa71357e0aa4563503b3484ed09d0a59e7d962c4fa859fc3b0fab36c409119"
+  },
+  "data/gptneo-p4-2026-10-29/hot-larger-neo-allocation.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/hot-larger-neo-allocation.json",
+    "original_sha256": "42bc43447e1ef826f3a0f1b2c2d7c130803ba335470c4fdf3c0123d51a029a74",
+    "published_sha256": "4e47e6bb8a3e631511a209b807f9d3f74dea479001d42475be5814413df079ad"
+  },
+  "data/gptneo-p4-2026-10-29/hot-smaller-sft-allocation.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/hot-smaller-sft-allocation.json",
+    "original_sha256": "639df4f3da987e571b35789e676a3969c984685c0d8ea21f6aeb945c270df54a",
+    "published_sha256": "55d33b3175c1d5c5a766640412b17da2872d1fca019ee45b9770ffd78a1d50be"
+  },
+  "data/gptneo-p4-2026-10-29/master-original-0.4.0-control.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/master-original-0.4.0-control.ndjson",
+    "original_sha256": "e81d0c05f1964cabb8e96da1b5d6bfe31a40041330a41983f72f999f37333466",
+    "published_sha256": "e81d0c05f1964cabb8e96da1b5d6bfe31a40041330a41983f72f999f37333466"
+  },
+  "data/gptneo-p4-2026-10-29/native-check.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/native-check.json",
+    "original_sha256": "e5a72f15e6328aeb11216c1ef571588141a7aa025e27c2d902732cce3b427f0a",
+    "published_sha256": "f47646fc95689320acd15cdbac7d3b76e4c70f27dc18cd7d5c0a8141bb9a61dd"
+  },
+  "data/gptneo-p4-2026-10-29/native-generations.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/native-generations.json",
+    "original_sha256": "7bb0aebc7d7cb5e91d4479f29dbf7c3b0e6c0fd787f63eb49c0308ff450f1a50",
+    "published_sha256": "9bf92140c987ec1a3cd4fb5d839696a0e4fc8b8f6467f384ca39ab3829b5a010"
+  },
+  "data/gptneo-p4-2026-10-29/native-references.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/native-references.json",
+    "original_sha256": "94f035db169d0f91afd21d53c82660f7ec2693f70ced5d3ec542a67bd63e6512",
+    "published_sha256": "ebafc40183023dcb68e5e8e1f78f6b3c4e6300e41f093822ec54482b092be65d"
+  },
+  "data/gptneo-p4-2026-10-29/peer-firmware-sft.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/peer-firmware-sft.json",
+    "original_sha256": "bbe6f81fe3838a7e14e415ae8807fa5d309d452736812c0d0c9b94b369e33ebd",
+    "published_sha256": "e5c2193fcb390317af1325cb9dbbc9f6d969811829b7b66539fa4113e6c06a88"
+  },
+  "data/gptneo-p4-2026-10-29/peer-first-tinytalk-after-reset.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/peer-first-tinytalk-after-reset.ndjson",
+    "original_sha256": "14d60d1b70402a19c7aa54f31a461a02eccc56a09980d1cb26f077fc3677168f",
+    "published_sha256": "14d60d1b70402a19c7aa54f31a461a02eccc56a09980d1cb26f077fc3677168f"
+  },
+  "data/gptneo-p4-2026-10-29/peer-recovered-status.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/peer-recovered-status.json",
+    "original_sha256": "0c1f77928ca1404143bf2ce53b21c3aebe29f197a626285d275005015deae7e4",
+    "published_sha256": "8ba9b0df35b4606b68c4c641d738a61d0b714701db5b1182228cb1e7cbd597e7"
+  },
+  "data/gptneo-p4-2026-10-29/peer-sft-control.ndjson": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/peer-sft-control.ndjson",
+    "original_sha256": "1fd592c31b0faf3744e91499369d68f98ba98be2729338f8ad793cf8802e824b",
+    "published_sha256": "1fd592c31b0faf3744e91499369d68f98ba98be2729338f8ad793cf8802e824b"
+  },
+  "data/gptneo-p4-2026-10-29/protocol.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/protocol.json",
+    "original_sha256": "fc3207ce03f0366957baff306e488a239dfc08ba68b98401c25ae1c419cd7146",
+    "published_sha256": "b247027eccfd30245b63a852e523fd565102fc2785202570a0e5ab6ad1618f10"
+  },
+  "data/gptneo-p4-2026-10-29/protocol.sha256": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/protocol.sha256",
+    "original_sha256": "90a3aa80dc73f6ca6e5635ae117c00b419ce745139356fdbb9c7f2479d884177",
+    "published_sha256": "d9fcef7bbd87f86196e05e61f98e7d4e44f7391bc31e971f8360ed34b99cc728"
+  },
+  "data/gptneo-p4-2026-10-29/restart-diag-0.5.4-after-ota.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/restart-diag-0.5.4-after-ota.json",
+    "original_sha256": "fc882e90dfb6bf351b088848f361a24a540a15fdc12283355489f5dc7ba455cc",
+    "published_sha256": "ade83571776bb16d4cadd0d3ae6c18b927f435fa1d26f4da85f078949e59a9f7"
+  },
+  "data/gptneo-p4-2026-10-29/restart-diag-0.5.4-boot.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/restart-diag-0.5.4-boot.json",
+    "original_sha256": "4b218f75575a25496d2e96f72e6e61d220487ca64dee2397a3e2d4d9cfdaa0a2",
+    "published_sha256": "43ead05c862d56a3b5e5c333cad0b31bc388e56070c0de61b003e6f291dcb24b"
+  },
+  "data/gptneo-p4-2026-10-29/restart-diag-after-story-result.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/restart-diag-after-story-result.json",
+    "original_sha256": "7d2ef6d826e77d744ad582268b118b11cd74141cf89862ff4bec0f66db29f4e4",
+    "published_sha256": "b46e456a7842e67588fcf2c53d7870504ec8d716d10f829ce47a2bb3bae00e21"
+  },
+  "data/gptneo-p4-2026-10-29/restart-diag-after-story-status.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/restart-diag-after-story-status.json",
+    "original_sha256": "ccc4074f8d5e7e97623a4a135e963a96de1c473d34617d033c6b44274fcbd5ac",
+    "published_sha256": "5b764f1dac99818f6d4b811c43e9bd71445b97c8b969e173ac802bc72a264789"
+  },
+  "data/gptneo-p4-2026-10-29/upload-diagnostic.json": {
+    "source": "docs/research/data/gptneo-p4-2026-10-29/upload-diagnostic.json",
+    "original_sha256": "c9dc154ec7d2bcb1bcd545e23adef993c0bd4776b2d3e4df6a8b143c7e14fe69",
+    "published_sha256": "55d5f7cf5ab66efb56881dc77669fc721857d01a94565066c294b003d85e0532"
   },
   "data/kernel-v2-2026-10-29/cluster-comparison/1-dual-cluster.json": {
     "source": "docs/research/data/kernel-v2-2026-10-29/cluster-comparison/1-dual-cluster.json",
@@ -909,6 +1374,616 @@
     "original_sha256": "82a21fca585deb3bd1ac741ef9c51204b09fb8e88d9c1aa17f7d8703ba96f55e",
     "published_sha256": "d1ef7af0f6b31871a0c19fd890e2a9e741bf776bced5d6d7062f82d800ea264f"
   },
+  "data/matched-models-2026-10-29/architecture-work.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/architecture-work.json",
+    "original_sha256": "7b28846ee603470f2f2599aab703f1f7177bd25decdc3967cec52218d58ec330",
+    "published_sha256": "9ee90046a11de2f344ccc0bb9052fecc481553617f7617d68822a335676de3c9"
+  },
+  "data/matched-models-2026-10-29/comparison.html": {
+    "source": "docs/research/data/matched-models-2026-10-29/comparison.html",
+    "original_sha256": "ec4d079a5049a7ea80e931d927864875a859baaaf22a929fc11a9638935504d0",
+    "published_sha256": "9404da2779a1c77413c074b22231d9f0a66ff56c2bdc8ba120b6fdde2528cb2a"
+  },
+  "data/matched-models-2026-10-29/downloads.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/downloads.json",
+    "original_sha256": "be17013f3fdb9ebde2fe74e7016964bea9f3a52c7e76f39b3a61aaa935913dba",
+    "published_sha256": "a3940c39b003714d2fc3a024cec4b31097aa4fdaf67c8ef620704616f575e8ad"
+  },
+  "data/matched-models-2026-10-29/exports.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/exports.json",
+    "original_sha256": "d4dc9092b96554797f5bb170c224582194bcd1f60a833918ed2b3248a504ebc1",
+    "published_sha256": "fd27c6fd5842842925f5a725621846133c97122ef4df6ac6e8a87dd43cfcccb5"
+  },
+  "data/matched-models-2026-10-29/hardware/batches.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/batches.json",
+    "original_sha256": "0977be6ed823f8e1e7897351cceed0f7a66465bb9949c606ba07ab5075738668",
+    "published_sha256": "a1856c0b077818d9187993d24481a54a348471872a4dab0eb2e660d24be03f4b"
+  },
+  "data/matched-models-2026-10-29/hardware/direct-progress.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/direct-progress.json",
+    "original_sha256": "9baba36bdf636332425ed7430d7d761a9f6e167493524faafb98c7f42d289d60",
+    "published_sha256": "75ee18f0531d2363f230275c8101b530b58bafc4ddbb7a1849f19be795caf7d6"
+  },
+  "data/matched-models-2026-10-29/hardware/direct.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/direct.json",
+    "original_sha256": "9baba36bdf636332425ed7430d7d761a9f6e167493524faafb98c7f42d289d60",
+    "published_sha256": "75ee18f0531d2363f230275c8101b530b58bafc4ddbb7a1849f19be795caf7d6"
+  },
+  "data/matched-models-2026-10-29/hardware/final-state.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/final-state.json",
+    "original_sha256": "b643b55f74a41b350eeb7357a0451cf0d12322dc3c889393cedf52bcf62c0a54",
+    "published_sha256": "b3f00c9e95a45d5d5d094e323a5e97cfc19fac2d829ff575b5382a031e94385c"
+  },
+  "data/matched-models-2026-10-29/hardware/initial-control-node-1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/initial-control-node-1.ndjson",
+    "original_sha256": "e88c7567f127cf5284421e0806d353a29d130c97e040a97dd3213ae5046db5c0",
+    "published_sha256": "e88c7567f127cf5284421e0806d353a29d130c97e040a97dd3213ae5046db5c0"
+  },
+  "data/matched-models-2026-10-29/hardware/initial-control-node-2.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/initial-control-node-2.ndjson",
+    "original_sha256": "18381a32cd218681b4995889008a6a74dc98244d1a47491e2630196bcd88464f",
+    "published_sha256": "18381a32cd218681b4995889008a6a74dc98244d1a47491e2630196bcd88464f"
+  },
+  "data/matched-models-2026-10-29/hardware/initial-state.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/initial-state.json",
+    "original_sha256": "04cdd66f1ae80c0e5cae1e257796d3d115fdc0d376f8dac2103459ac096cc5d1",
+    "published_sha256": "ee7e6aed0e2d8725f6ea31f1af997c4d38cea5d347eb81fe6d3e4ad97fe1a9cf"
+  },
+  "data/matched-models-2026-10-29/hardware/protocol.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/protocol.json",
+    "original_sha256": "faba645a6ebca8b3ed861f56ec752656596354f3eb73802a937a2f13992326e9",
+    "published_sha256": "fb9343057a478ebde76a7a9346abf979f1952a2ce5fad7e1f9a2ac9ab8f48c1e"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-C2.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-C2.ndjson",
+    "original_sha256": "1c5b2637bf92003ed8f739a6a57597c08c3420b2836542c8e38f86c8f39b9aa4",
+    "published_sha256": "1c5b2637bf92003ed8f739a6a57597c08c3420b2836542c8e38f86c8f39b9aa4"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-D1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-D1.ndjson",
+    "original_sha256": "f9c0b3ffa14cf043d251ec92392d5a09723aed2ca4a999f9249ced7ae9cc1ffe",
+    "published_sha256": "f9c0b3ffa14cf043d251ec92392d5a09723aed2ca4a999f9249ced7ae9cc1ffe"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-I1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-I1.ndjson",
+    "original_sha256": "5f977100009a8dab80e500b47cfa40fe1c1b66bc77a8a17075fa64d19f761831",
+    "published_sha256": "5f977100009a8dab80e500b47cfa40fe1c1b66bc77a8a17075fa64d19f761831"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-I2.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-I2.ndjson",
+    "original_sha256": "403a55888ac0fa06f6b7c746501916ee4e4dcb6f5991c57e6a7ac2c10cb49266",
+    "published_sha256": "403a55888ac0fa06f6b7c746501916ee4e4dcb6f5991c57e6a7ac2c10cb49266"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-I3.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-I3.ndjson",
+    "original_sha256": "8950198eb7eea1d05575e0f322f50f251735664c3f36b4e26e999700c1ee2e26",
+    "published_sha256": "8950198eb7eea1d05575e0f322f50f251735664c3f36b4e26e999700c1ee2e26"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-Q1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-Q1.ndjson",
+    "original_sha256": "49036a905e193b2b95b022df3d750cc08f0c837698b50a5c6ee90ae881678193",
+    "published_sha256": "49036a905e193b2b95b022df3d750cc08f0c837698b50a5c6ee90ae881678193"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-Q2.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-Q2.ndjson",
+    "original_sha256": "9ab905eb5b4224bf1744a8a170fdf614eefa883f578aa4fef146bbfc746ab820",
+    "published_sha256": "9ab905eb5b4224bf1744a8a170fdf614eefa883f578aa4fef146bbfc746ab820"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-Q3.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-Q3.ndjson",
+    "original_sha256": "e61e3d618e92939e9a2ca313d1dcd128ac0214880159e59813f2683674be1d9a",
+    "published_sha256": "e61e3d618e92939e9a2ca313d1dcd128ac0214880159e59813f2683674be1d9a"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-Q4.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-Q4.ndjson",
+    "original_sha256": "5ed09c6bd6ac1b92b19fae89e5eec2b7edce27e0ec6257aab37f1fa9ca4ee80e",
+    "published_sha256": "5ed09c6bd6ac1b92b19fae89e5eec2b7edce27e0ec6257aab37f1fa9ca4ee80e"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-Q5.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-Q5.ndjson",
+    "original_sha256": "987b17bfcff454df9337dd627020a02d62d353acaa8b456667867d31fa715199",
+    "published_sha256": "987b17bfcff454df9337dd627020a02d62d353acaa8b456667867d31fa715199"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-Q6.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-Q6.ndjson",
+    "original_sha256": "64c181cb1faf6b851c177632477d45dada397eda0a78605b9ec69e27c24b69fe",
+    "published_sha256": "64c181cb1faf6b851c177632477d45dada397eda0a78605b9ec69e27c24b69fe"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-S1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-S1.ndjson",
+    "original_sha256": "df6010d8aa1e46c6068471c4dfd8ca9a9e24086e35b08e4a2de42f5e2ee3681d",
+    "published_sha256": "df6010d8aa1e46c6068471c4dfd8ca9a9e24086e35b08e4a2de42f5e2ee3681d"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-S2.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-S2.ndjson",
+    "original_sha256": "f58c0b66a47d48f76891808259df84e64c87f7377e8e41c3e0c4389d53fd3238",
+    "published_sha256": "f58c0b66a47d48f76891808259df84e64c87f7377e8e41c3e0c4389d53fd3238"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-S3.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-S3.ndjson",
+    "original_sha256": "8c2ff2eef5f8cd9cef1e3a57aa4f95e6508d4191e941c082968ce890cbb4033f",
+    "published_sha256": "8c2ff2eef5f8cd9cef1e3a57aa4f95e6508d4191e941c082968ce890cbb4033f"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-S4.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-S4.ndjson",
+    "original_sha256": "52674cf201cd6aa9db9ec02ff2db3ccc4eb1654da2e6dcd63c00166f0ad0ce28",
+    "published_sha256": "52674cf201cd6aa9db9ec02ff2db3ccc4eb1654da2e6dcd63c00166f0ad0ce28"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-U1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-U1.ndjson",
+    "original_sha256": "64242fdcbf40074bda354cfd1df41a204b366ad788aea9d57aa28e91bf7c7528",
+    "published_sha256": "64242fdcbf40074bda354cfd1df41a204b366ad788aea9d57aa28e91bf7c7528"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-block-1-cluster.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-block-1-cluster.json",
+    "original_sha256": "221a6d91107ffff63292e9e090cdf0acdaece02fab5e27b4462585d046ea71c4",
+    "published_sha256": "35f509bf5fcc3f59a218b4c363677cef16320aef2d4f418a3c3f07c4f41a51f4"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-block-1-local.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-block-1-local.json",
+    "original_sha256": "7bd55869ca8311a54ead3b8d999d5e7c4525c08bc1e29f504d733bd2862144a4",
+    "published_sha256": "2c3a1847b7bdcf2669d9ce00ed6bc9d384c9505da32b863b725f09b8b25dfad1"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-block-2-cluster.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-block-2-cluster.json",
+    "original_sha256": "8b5484771c07c98c75cca00a9dd66402a78a0915339dbca49060b315bb1a2fed",
+    "published_sha256": "0995f0e57bea29e34f82aebd59c14df66f1b2af7a1faa7cefd3fa3c20d8e8aeb"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-block-2-local.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-block-2-local.json",
+    "original_sha256": "424fbcd4e9492b470c515a0226b65d9ac5e67b863b31e729f9af38c5af28e172",
+    "published_sha256": "9216c2d95a260e0b15a119fdfdbfb4e0f1440ef6b6c162b686bc70e591786722"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-block-3-cluster.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-block-3-cluster.json",
+    "original_sha256": "58b3a76441810ebbaed161924f4b17507b452747754bffdcf85554ec96b6adbc",
+    "published_sha256": "c9e202d07e5cef32a8f352654fba9c213748aef004adf8b3113a9f633610efc9"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-block-3-local.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-block-3-local.json",
+    "original_sha256": "a1bbb5c117a83dc47a88eddf152b59f09de20153350f843d731823ad50b92d70",
+    "published_sha256": "a36938b27523197eb1f95dd16d97b75e359f19a1fed1b0b7f2d76120f11c82d0"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-block-4-cluster.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-block-4-cluster.json",
+    "original_sha256": "6c5230a174d3ab7e9771c9e748f3e8738b072d629373c111d3ca420865875eec",
+    "published_sha256": "a2944028046a4b8097ce0da0c66526ee5c14e6378ce9172c8bc9946ccba87913"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-block-4-local.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-block-4-local.json",
+    "original_sha256": "dba8f698b9f84300936fbd160f4d5b4e1ab07d806d0f5859d6ac45dbdd128cdf",
+    "published_sha256": "28c7091d861710aec2184eab669f08ce10b9b3f3547df0c95726c5f213aaa8b1"
+  },
+  "data/matched-models-2026-10-29/hardware/sft-ready.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/sft-ready.json",
+    "original_sha256": "4a4dd79b7c8bd4cd58c849edf866869d0e2a954e3e6c42dd220d9531eb8f91f1",
+    "published_sha256": "ee0f55880a717e6e3b7dbffdc868817249ea3aab626d1b25ca305d4fdb3719fb"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-C2.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-C2.ndjson",
+    "original_sha256": "923ca906aa46dce6b4db63da4b9ba3f2cbeda382e4a40fcde51664157fb1b6ae",
+    "published_sha256": "923ca906aa46dce6b4db63da4b9ba3f2cbeda382e4a40fcde51664157fb1b6ae"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-D1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-D1.ndjson",
+    "original_sha256": "0314be918d5bf6ac23a6fdd317a4fe67c68992e90a9ddc7557810980c0717744",
+    "published_sha256": "0314be918d5bf6ac23a6fdd317a4fe67c68992e90a9ddc7557810980c0717744"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-I1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-I1.ndjson",
+    "original_sha256": "2f773ef63c9eb7d1deab2ac489db80a000f974fa376334ef5fff0edb0a52ffe9",
+    "published_sha256": "2f773ef63c9eb7d1deab2ac489db80a000f974fa376334ef5fff0edb0a52ffe9"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-I2.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-I2.ndjson",
+    "original_sha256": "d38e524ea6309a3786d663c342dae391ed3b28f1f9747547dd64e20bb268659c",
+    "published_sha256": "d38e524ea6309a3786d663c342dae391ed3b28f1f9747547dd64e20bb268659c"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-I3.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-I3.ndjson",
+    "original_sha256": "b041e14b929b2db98fc207af91372a232cc530fffa08881058dfb10cebdf58cc",
+    "published_sha256": "b041e14b929b2db98fc207af91372a232cc530fffa08881058dfb10cebdf58cc"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-Q1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-Q1.ndjson",
+    "original_sha256": "7c405678258a15f057066c164ffd0a9c2505f7feeebc9071323c3c65edf9edb7",
+    "published_sha256": "7c405678258a15f057066c164ffd0a9c2505f7feeebc9071323c3c65edf9edb7"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-Q2.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-Q2.ndjson",
+    "original_sha256": "891eba2ef73630347ffb13a18f0c790e58626e14cdda67e5d9fa0669e0587821",
+    "published_sha256": "891eba2ef73630347ffb13a18f0c790e58626e14cdda67e5d9fa0669e0587821"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-Q3.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-Q3.ndjson",
+    "original_sha256": "61517e6fd793cd1df86fdef4891c5564f91f9d65e055076d56c08c2146803e58",
+    "published_sha256": "61517e6fd793cd1df86fdef4891c5564f91f9d65e055076d56c08c2146803e58"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-Q4.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-Q4.ndjson",
+    "original_sha256": "7fe698c54c11599e4669ab24d5e13693ff930262cd41b292cadd79e75b0d5d1d",
+    "published_sha256": "7fe698c54c11599e4669ab24d5e13693ff930262cd41b292cadd79e75b0d5d1d"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-Q5.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-Q5.ndjson",
+    "original_sha256": "17268dfafe3fda47a32069ca3ce4f9ac96b12ab743c2872a5b3360ee398f649e",
+    "published_sha256": "17268dfafe3fda47a32069ca3ce4f9ac96b12ab743c2872a5b3360ee398f649e"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-Q6.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-Q6.ndjson",
+    "original_sha256": "b1970b4853cecd4066839f1dc4837212ec8cc1e05d88ebd281b52561c9a7e7c2",
+    "published_sha256": "b1970b4853cecd4066839f1dc4837212ec8cc1e05d88ebd281b52561c9a7e7c2"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-S1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-S1.ndjson",
+    "original_sha256": "230b1607980e949312f9beb5977409b8923896bd03a7dda88199c5ef3da95874",
+    "published_sha256": "230b1607980e949312f9beb5977409b8923896bd03a7dda88199c5ef3da95874"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-S2.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-S2.ndjson",
+    "original_sha256": "777ecf866edb4cef7e51da4e023dedde238f5d0726a6bc9f3000d0f24c6e7ef2",
+    "published_sha256": "777ecf866edb4cef7e51da4e023dedde238f5d0726a6bc9f3000d0f24c6e7ef2"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-S3.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-S3.ndjson",
+    "original_sha256": "e4aad2f7a7cd0360120959d14e1103172a4dad415fd7e0a677f2b71c7f9677ca",
+    "published_sha256": "e4aad2f7a7cd0360120959d14e1103172a4dad415fd7e0a677f2b71c7f9677ca"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-S4.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-S4.ndjson",
+    "original_sha256": "57d16a1953c1082fa209c38dd1591fe79f553b7b50f498e4d8410113a0eda772",
+    "published_sha256": "57d16a1953c1082fa209c38dd1591fe79f553b7b50f498e4d8410113a0eda772"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-U1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-U1.ndjson",
+    "original_sha256": "2ddc466263d68d37e0ac5abf64b4fc5852f6e80a2faf8cdd569838020221469c",
+    "published_sha256": "2ddc466263d68d37e0ac5abf64b4fc5852f6e80a2faf8cdd569838020221469c"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-block-1-cluster.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-block-1-cluster.json",
+    "original_sha256": "722eaa3f96571784f21a9774292b3fa6d037e9ea3613600e24a8469dbc92da0e",
+    "published_sha256": "c1f6d4f77e309da47dd0e522425772a61a87875b49e9ff09312c6d63c91a9c1a"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-block-1-local.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-block-1-local.json",
+    "original_sha256": "ddb359e7619d7ba863eafd270983fa65a93a1107c33e9cd73ad604ea9f7ebb1c",
+    "published_sha256": "eca59a5ca6c544c4a3c539c20f8b1488acc8d059d51f9b947a674d926dd3398c"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-block-2-cluster.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-block-2-cluster.json",
+    "original_sha256": "f9fc816144abb21843692f8fe74a787e67f56d2a90e1c99c81ea7206291b1a34",
+    "published_sha256": "9b705192e0e3f0e291bcaee4efcc5d5b0a2fde753fba9c12cfb4a735c2ffcac1"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-block-2-local.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-block-2-local.json",
+    "original_sha256": "4baa1ce47a2e1e4ddd78bac7eb39a14e078e34ea6aadba40cebfe5677c6eb3da",
+    "published_sha256": "6b6513169c193880a8e0b40bec5f684d069c108884e628a6fbd92aa24e1c40d5"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-block-3-cluster.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-block-3-cluster.json",
+    "original_sha256": "93dd01b38d37e24f096e3490938d4bb7c03fed3b4fa4e9d2aede55bf9d9f255a",
+    "published_sha256": "c8af4f97190c1b09cad76d32f12be23cc3bba6bd0d6af8f4e7d64c69d39a188f"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-block-3-local.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-block-3-local.json",
+    "original_sha256": "1dd6a999778f06f83a907c45f78c01997e82483b4cbc40ad5c98325611a3e7a2",
+    "published_sha256": "ac11cf8567b3f49687b765fbf6660152e6603af4d3665eaa4ae456378b36702b"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-block-4-cluster.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-block-4-cluster.json",
+    "original_sha256": "78d4e9ca66db5206047f15a1b6246cfed5a606131d4aa1b4d1b071aa53f6e99f",
+    "published_sha256": "09c80944d5ff9328345e19bec54fc3c8b11e5862d3e75140a8603ab55cf5cc00"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-block-4-local.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-block-4-local.json",
+    "original_sha256": "d2064c6bb26248e950f2941a2540d638f3f48e5c98422b833cfc6df1c85f947d",
+    "published_sha256": "ef38f178eac889dc9e7fda2bab3fc7cb66272d5af90f5099bdfd774ef2f0fa45"
+  },
+  "data/matched-models-2026-10-29/hardware/story8-ready.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/story8-ready.json",
+    "original_sha256": "d2ba541eb04a5f943a3ecf05336e90f6e8903fdc91d64a386f17ce72b3e17f96",
+    "published_sha256": "731d760c38259b01a3198b436a1a4278449d4cac25dd8952db72d668c951816b"
+  },
+  "data/matched-models-2026-10-29/hardware/summary.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/summary.json",
+    "original_sha256": "e1e1c989f4864edd24ffeba96372c984c229fd4e36774d94c1e4eadfa32f05f2",
+    "published_sha256": "e1d40563295f6acbd5045f015f9cf83d326c9dce88973867116b4279c4bfcb5a"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-C2.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-C2.ndjson",
+    "original_sha256": "9e04522b08d6c3f282f2ad2bf0c96be54247a130ec5ef9a40cefb488ddea8241",
+    "published_sha256": "9e04522b08d6c3f282f2ad2bf0c96be54247a130ec5ef9a40cefb488ddea8241"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-D1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-D1.ndjson",
+    "original_sha256": "bf5a22142e47fe5643ab932c4e769f4e715c2194e55bc8955103376000c6756c",
+    "published_sha256": "bf5a22142e47fe5643ab932c4e769f4e715c2194e55bc8955103376000c6756c"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-I1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-I1.ndjson",
+    "original_sha256": "95e1f4d361b46f561ef34680a957c351dda8ab585c43ffdeb620cc1007686c7a",
+    "published_sha256": "95e1f4d361b46f561ef34680a957c351dda8ab585c43ffdeb620cc1007686c7a"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-I2.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-I2.ndjson",
+    "original_sha256": "dcf890f90b29d0fd91cc526706bce4f24c9568e82ea9ce6666b91a06a585047e",
+    "published_sha256": "dcf890f90b29d0fd91cc526706bce4f24c9568e82ea9ce6666b91a06a585047e"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-I3.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-I3.ndjson",
+    "original_sha256": "568e8fff61bec82914b78448b4e3c463e0c477f1aca6a1aec09a5dcf4898d0a2",
+    "published_sha256": "568e8fff61bec82914b78448b4e3c463e0c477f1aca6a1aec09a5dcf4898d0a2"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-Q1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-Q1.ndjson",
+    "original_sha256": "49bebbc5ad20b81d0ed54447fa5cce71c787b5053d8bdb9dac183c20d9a18b9f",
+    "published_sha256": "49bebbc5ad20b81d0ed54447fa5cce71c787b5053d8bdb9dac183c20d9a18b9f"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-Q2.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-Q2.ndjson",
+    "original_sha256": "840b35ab1655c26000fc4e8919db95422e7641763dc1bc4f4cbf269cbdf5cbd3",
+    "published_sha256": "840b35ab1655c26000fc4e8919db95422e7641763dc1bc4f4cbf269cbdf5cbd3"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-Q3.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-Q3.ndjson",
+    "original_sha256": "1131d9e7106bb1a8d63315054c2e1ff4a2e04cb1430132d973e41d6d5c42acd6",
+    "published_sha256": "1131d9e7106bb1a8d63315054c2e1ff4a2e04cb1430132d973e41d6d5c42acd6"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-Q4.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-Q4.ndjson",
+    "original_sha256": "b6c3306fcadeb736ed6d1753a6b0a9c1331fe43e0cdedb1723a057db8f26eee3",
+    "published_sha256": "b6c3306fcadeb736ed6d1753a6b0a9c1331fe43e0cdedb1723a057db8f26eee3"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-Q5.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-Q5.ndjson",
+    "original_sha256": "b5900b078de03ec29a47a5f982a6403ba360d352bf2775cfca409e7dbab5004f",
+    "published_sha256": "b5900b078de03ec29a47a5f982a6403ba360d352bf2775cfca409e7dbab5004f"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-Q6.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-Q6.ndjson",
+    "original_sha256": "4989cf6561e5cebc632bc6bcf2d5dc95463121a5c57e83900ade5ea6868b6bda",
+    "published_sha256": "4989cf6561e5cebc632bc6bcf2d5dc95463121a5c57e83900ade5ea6868b6bda"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-S1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-S1.ndjson",
+    "original_sha256": "e2f1967a7671b124c286837294dd8b467982430e84db1c780897f9b267af529f",
+    "published_sha256": "e2f1967a7671b124c286837294dd8b467982430e84db1c780897f9b267af529f"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-S2.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-S2.ndjson",
+    "original_sha256": "8d09fcb74e53fd4dd844968cf682462f07610fad38a5d9af729bcaf156568c1d",
+    "published_sha256": "8d09fcb74e53fd4dd844968cf682462f07610fad38a5d9af729bcaf156568c1d"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-S3.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-S3.ndjson",
+    "original_sha256": "d8668267565838fb470c99fc1f057c2f27ba3abea8e3aa644cbea2c3f35c1a28",
+    "published_sha256": "d8668267565838fb470c99fc1f057c2f27ba3abea8e3aa644cbea2c3f35c1a28"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-S4.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-S4.ndjson",
+    "original_sha256": "7fea00725f64078b2917ad0578550a9b6605f52e3bc50a6fb8874a7f592bf4a2",
+    "published_sha256": "7fea00725f64078b2917ad0578550a9b6605f52e3bc50a6fb8874a7f592bf4a2"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-U1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-U1.ndjson",
+    "original_sha256": "35064e279f93978f8e837f8c8fecd83729b3e6f80aab3b43a4c9716c9e2da4ce",
+    "published_sha256": "35064e279f93978f8e837f8c8fecd83729b3e6f80aab3b43a4c9716c9e2da4ce"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-block-1-cluster.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-block-1-cluster.json",
+    "original_sha256": "5c678f0da6634760080609b2981831f86186f403f2fadb1e313d227a8731349e",
+    "published_sha256": "63f03805d1793f2c2dc27ea831775f444e90a3553cc3e9620e80f05af3c4c7de"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-block-1-local.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-block-1-local.json",
+    "original_sha256": "48f2347836696d6fc10e3a19de776fc991813d54b277332a351d9ac0e48604b0",
+    "published_sha256": "2cba00dfdc880ba6d7c98e0f08007f94972ffae30541821ad996726cfda345de"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-block-2-cluster.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-block-2-cluster.json",
+    "original_sha256": "7d206c5e35a1750a428fba7d46410fb0868ee4c95890eb099ec111f75ddb2d3a",
+    "published_sha256": "a6d78f9ca03ec221ec2b7882a2b87238472ea6bfb5fcbeb7cc3fbf1a2a629678"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-block-2-local.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-block-2-local.json",
+    "original_sha256": "bcef6602b0d670a84281137493eb1cb134760d0f7294c2478f173ab7f88e5666",
+    "published_sha256": "d724ad7f798162422cd7ffc2101f4c93ee0c95cb453be9514913c834b07c305c"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-block-3-cluster.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-block-3-cluster.json",
+    "original_sha256": "eb8c427dd6a5e1a373f08071281e4a66e4ebe8422dbca41f0cd9a672927ef9d3",
+    "published_sha256": "ca59fe9c100a85e095aa8c9be195225464bb6274e083ec80bac85f9bb5cc81bb"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-block-3-local.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-block-3-local.json",
+    "original_sha256": "e99ada2847baa13190e1d506944f897d2bae60276a9bc7a5ab602e560eb8563a",
+    "published_sha256": "adf7d8f7484cfaee1a1a31d0bc86ceabcf2938696f0a41f99273c4b224000b70"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-block-4-cluster.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-block-4-cluster.json",
+    "original_sha256": "4604b8d20957b8aa8a02066c95b0c10c8f9ba6c84a1ce56bba8df6d5f35cb91e",
+    "published_sha256": "ccb4eb556ddac67506a2abcfb81c97a083c9eb20c4188da11e9bc0252088664c"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-block-4-local.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-block-4-local.json",
+    "original_sha256": "53c304794fd904797cfd116cf8775ecd954a3209eb7df6806714e8a65f9b5b9b",
+    "published_sha256": "a121977259c6e8814ddb516efed1a0446b1dca219dd706ff917b8a8413a29304"
+  },
+  "data/matched-models-2026-10-29/hardware/talk1-ready.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk1-ready.json",
+    "original_sha256": "060127aa5b146dd81e9ae176aab61d4edbf5ea335dd831c2f829936eebea0b37",
+    "published_sha256": "f15f7a8a7ed36b3d08211f28754ab5d385148b8c50633e6785e1570ca187bfea"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-C2.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-C2.ndjson",
+    "original_sha256": "0b37d4dd52a83e53ad7acb24932afdd83e2cdd32ff4637269a4c9fffead2fb11",
+    "published_sha256": "0b37d4dd52a83e53ad7acb24932afdd83e2cdd32ff4637269a4c9fffead2fb11"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-D1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-D1.ndjson",
+    "original_sha256": "60bf003da5e7d6f76b2a7950f1401d61197dab072e3a118b58f3cd1710dc5c88",
+    "published_sha256": "60bf003da5e7d6f76b2a7950f1401d61197dab072e3a118b58f3cd1710dc5c88"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-I1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-I1.ndjson",
+    "original_sha256": "ced5eaa9923ecd9e837315a5d679b606b768ad00cceef00940c4f82fe7711acc",
+    "published_sha256": "ced5eaa9923ecd9e837315a5d679b606b768ad00cceef00940c4f82fe7711acc"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-I2.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-I2.ndjson",
+    "original_sha256": "a534355ee4e81dac5710d68b7fc733dd0278091a2860355afa90cfda4d87db00",
+    "published_sha256": "a534355ee4e81dac5710d68b7fc733dd0278091a2860355afa90cfda4d87db00"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-I3.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-I3.ndjson",
+    "original_sha256": "f0fbed874733b3e5b641c5532d756f33d3face6794ff80a55bc0b9f4b2af9a49",
+    "published_sha256": "f0fbed874733b3e5b641c5532d756f33d3face6794ff80a55bc0b9f4b2af9a49"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-Q1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-Q1.ndjson",
+    "original_sha256": "9bfe17c9ff1e48a98e4e4711caa1dfd5ea747cc8fd0d31358f46c35af212a8c1",
+    "published_sha256": "9bfe17c9ff1e48a98e4e4711caa1dfd5ea747cc8fd0d31358f46c35af212a8c1"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-Q2.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-Q2.ndjson",
+    "original_sha256": "ab53dc291230d78218a7e61467c41203b43ef255e0231f8a85df91e5fd37920a",
+    "published_sha256": "ab53dc291230d78218a7e61467c41203b43ef255e0231f8a85df91e5fd37920a"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-Q3.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-Q3.ndjson",
+    "original_sha256": "0caf2570c3547d37b27800edb0b8f90ca8b10a2c8c85766d800bc83f833bdaa4",
+    "published_sha256": "0caf2570c3547d37b27800edb0b8f90ca8b10a2c8c85766d800bc83f833bdaa4"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-Q4.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-Q4.ndjson",
+    "original_sha256": "be7ae890d920b6d065a3901221b9d6f93f8c018a88ec6ad1e96b99515d6a5d26",
+    "published_sha256": "be7ae890d920b6d065a3901221b9d6f93f8c018a88ec6ad1e96b99515d6a5d26"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-Q5.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-Q5.ndjson",
+    "original_sha256": "5cc1f0461242db4aef378acf6133765f5b892f473653af38c877806063514be4",
+    "published_sha256": "5cc1f0461242db4aef378acf6133765f5b892f473653af38c877806063514be4"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-Q6.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-Q6.ndjson",
+    "original_sha256": "da55eb7491ba8a29c84ee636f8a1b667ad1345f6025d0a656ea952f9ec4750ca",
+    "published_sha256": "da55eb7491ba8a29c84ee636f8a1b667ad1345f6025d0a656ea952f9ec4750ca"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-S1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-S1.ndjson",
+    "original_sha256": "ba7e355f4a7be04432e3b078ddf88245f8d101a518801e10a6a22e955dca7f87",
+    "published_sha256": "ba7e355f4a7be04432e3b078ddf88245f8d101a518801e10a6a22e955dca7f87"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-S2.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-S2.ndjson",
+    "original_sha256": "b55002fc6c1cbcefd865f512c2c44a41b167bb1bdf2d93e9cfc3d911b711abab",
+    "published_sha256": "b55002fc6c1cbcefd865f512c2c44a41b167bb1bdf2d93e9cfc3d911b711abab"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-S3.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-S3.ndjson",
+    "original_sha256": "335406eecaeffbc8362e8f74c22a82c1c211fca27cea96e0c5637dce582bd0eb",
+    "published_sha256": "335406eecaeffbc8362e8f74c22a82c1c211fca27cea96e0c5637dce582bd0eb"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-S4.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-S4.ndjson",
+    "original_sha256": "54b635cf1ed28e9c2d685f3f1a5aa8f5fc3053fad6d3c8b2a0c758710d8a95f8",
+    "published_sha256": "54b635cf1ed28e9c2d685f3f1a5aa8f5fc3053fad6d3c8b2a0c758710d8a95f8"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-U1.ndjson": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-U1.ndjson",
+    "original_sha256": "8f267a71d5da5f4c715178990984344a9f541b4625d3723fe262670c512ca5bd",
+    "published_sha256": "8f267a71d5da5f4c715178990984344a9f541b4625d3723fe262670c512ca5bd"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-block-1-cluster.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-block-1-cluster.json",
+    "original_sha256": "e2a94f204e0873c0d9b056bf3e90bafd62a67aeb83b2ea3f30828b5e868d565b",
+    "published_sha256": "ea63b6e508c1f12b73ca2af851ef3fe02c2bcbc4fd7f8e676d72ff4af07faa2a"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-block-1-local.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-block-1-local.json",
+    "original_sha256": "69d87f3181e22897b62cedb2d9457c951d8da17aea5c494d2a1c389af5d2b0fb",
+    "published_sha256": "523415af64646b2aec996f83a7acec0612c41bae55f062ba3f513d446b816ca2"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-block-2-cluster.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-block-2-cluster.json",
+    "original_sha256": "379c5e71009033e1b337f84cffd1e73d67aa799198c896250b789f5589402ced",
+    "published_sha256": "d84ad00ce8d0e2135becb8a596b8149b2962acf3bf26051753b5dc5d9dcc8209"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-block-2-local.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-block-2-local.json",
+    "original_sha256": "27f192f01d07d189654eba73d96b5598ef568ba20db8113c25abb3f69a420368",
+    "published_sha256": "da48d6704a71f9481b3867985de6119ad8e967f4e51fb229bb990f5498a10dcf"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-block-3-cluster.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-block-3-cluster.json",
+    "original_sha256": "29e4a17a53158dbf606d1754a7527a3afe4207b13ca6174a32d8fd0dc2960ce3",
+    "published_sha256": "0f6ba21f650606357185677cfda4d63e2aa6376ca0bddf262f3ece63e8e13fe7"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-block-3-local.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-block-3-local.json",
+    "original_sha256": "fac393999514ccd6985f5e8c54766bf550d2fc0a39f92793bef04b1e1d271393",
+    "published_sha256": "a358af91ded649157a9dae97e8411d26c7398a66daed6b0693dad730f809a25c"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-block-4-cluster.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-block-4-cluster.json",
+    "original_sha256": "01dd1c434061faaa4d6c401739de423d49570cdce48ce2314405da70572d68bd",
+    "published_sha256": "90f3f2b8a8fc3bf9a53c65c81ef549ab1e5f45e66721c31b5d234c7b328d49cf"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-block-4-local.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-block-4-local.json",
+    "original_sha256": "5dcfa2816f4a58d67abb271312fa0420654bcf46458f3eb8859b87c8b00382a5",
+    "published_sha256": "7c0cba846111f069bc99c0db1aedb3e61001f30b90f8f8bfb786b95c58dc0e92"
+  },
+  "data/matched-models-2026-10-29/hardware/talk2-ready.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/hardware/talk2-ready.json",
+    "original_sha256": "8a3c2d2ce761d21ae09a915f26fa8180ec678c8612ff822a3ae4b2ee165e0f7b",
+    "published_sha256": "de9651d6ceff345514e85926ab7aefc507822cdc719d8e41b2dcdd0ad4450dd9"
+  },
+  "data/matched-models-2026-10-29/host-progress.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/host-progress.json",
+    "original_sha256": "c9820a1c16da8328def1d290de72e637097b59d842906acf39c7534b6e9e1173",
+    "published_sha256": "8d8e06fb2e9671d2d537c7ef069c55e110c9dcbd570e5cc50c3d6ac661e277b6"
+  },
+  "data/matched-models-2026-10-29/host.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/host.json",
+    "original_sha256": "c9820a1c16da8328def1d290de72e637097b59d842906acf39c7534b6e9e1173",
+    "published_sha256": "8d8e06fb2e9671d2d537c7ef069c55e110c9dcbd570e5cc50c3d6ac661e277b6"
+  },
+  "data/matched-models-2026-10-29/manual-review.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/manual-review.json",
+    "original_sha256": "5ce0cb8aae02b5c5de331e9b6954c5087111aebb7cffef58cd2563edfdbd7150",
+    "published_sha256": "5878bfde2c598c3e98a8d3b522ce22152cbb9a158a76bf888f5a67adf69cea2d"
+  },
+  "data/matched-models-2026-10-29/numerical-checks.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/numerical-checks.json",
+    "original_sha256": "c777c28acebc3cdf344ed8a07832296b5d08395352bc2be8d2db919957a39f5a",
+    "published_sha256": "6aebe4e9ba8cc51c832f86a66e6038915378d1a13e8cadb022c6e04deea7e564"
+  },
+  "data/matched-models-2026-10-29/protocol.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/protocol.json",
+    "original_sha256": "962cb70f6e60233e4da991cb819ac6d84670303e6e4855488b220ab855921869",
+    "published_sha256": "5a33348ae5e9619a25fdf6bc9c266355f455a32e9d880727c1efd2ded1ef48d7"
+  },
+  "data/matched-models-2026-10-29/protocol.sha256": {
+    "source": "docs/research/data/matched-models-2026-10-29/protocol.sha256",
+    "original_sha256": "74619f557fb6c611b19de4eccf1d7a320f70a464658b2f80f230bf1d5ba9dea9",
+    "published_sha256": "b7459508a551dac5260e8da1a52eb905e10e94dbe2727d35343dc37092039ecf"
+  },
+  "data/matched-models-2026-10-29/quality-summary.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/quality-summary.json",
+    "original_sha256": "3e84e42d10693ff0036bb6597e9ffc74badc9c0d1f3267368dc270424c1597de",
+    "published_sha256": "877ad74a5c69d8bfdb435cb621cf83d9250946a858c7cca116559cc4d4a795c4"
+  },
+  "data/matched-models-2026-10-29/review-revisions.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/review-revisions.json",
+    "original_sha256": "f870011154da887448b7d69b068c5564b6b0c486a0bfd1b83bed6d2723b22b71",
+    "published_sha256": "17489897e18199642a3dbeb43aa8bdb0dfca48bba12d65a5fa2e0f5cab331965"
+  },
+  "data/matched-models-2026-10-29/validation.json": {
+    "source": "docs/research/data/matched-models-2026-10-29/validation.json",
+    "original_sha256": "8991a6d0a8c764867ddce086cb42c0ac592103de8fe7c6f521e714bb2a7dc56d",
+    "published_sha256": "22f601a415ebee3306fc2e86d102cd16d2604c7ef49d5380d2f207dfc3774626"
+  },
   "data/parallel-2026-10-29/batches.csv": {
     "source": "docs/research/data/parallel-2026-10-29/batches.csv",
     "original_sha256": "971da81fb3763c857f89d71ea010764c09ad72d424d3a8d601830ab1c531bbce",
@@ -1254,10 +2329,115 @@
     "original_sha256": "e5d343b56adb48379973c37d74ca51dc73b9ba6e35c146ef911a7ea7b10a2e60",
     "published_sha256": "091ac68bde8113333054232e4ccec574421b8ad11f3aa34de3d54c2ce1f64aa4"
   },
+  "data/tinytalk2-host-2026-10-29/asset-integrity.json": {
+    "source": "docs/research/data/tinytalk2-host-2026-10-29/asset-integrity.json",
+    "original_sha256": "d73300205f57b4383c59c912b1ec1b38caa559ed3aeac5ca075e33f7c1b5b528",
+    "published_sha256": "f28596f6a49a7b1cbfd855cdda9434d80d2fc150df50455ce7501d71a0498226"
+  },
+  "data/tinytalk2-host-2026-10-29/budget.json": {
+    "source": "docs/research/data/tinytalk2-host-2026-10-29/budget.json",
+    "original_sha256": "1ae92127beaaafe1dec680f0517ef8a6fffeab2d441c7488b7dd46fea60f0129",
+    "published_sha256": "a3b3b75982c602ca72fe8ecf957c0deaa3c168563071d8ef8ab6c7a750ec3bc6"
+  },
+  "data/tinytalk2-host-2026-10-29/checks.json": {
+    "source": "docs/research/data/tinytalk2-host-2026-10-29/checks.json",
+    "original_sha256": "4576498bf6d291bc264df819b3df09d5b82bb1c1bc1a66a3f02e3354d54ee8de",
+    "published_sha256": "b45ba1f6709436efb201d4440bd8fe45b1a522e4709d2206e2e4f2fdd461aed6"
+  },
+  "data/tinytalk2-host-2026-10-29/comparison.html": {
+    "source": "docs/research/data/tinytalk2-host-2026-10-29/comparison.html",
+    "original_sha256": "8d2af022fdae7639f66a58c8b3ad47fc84f516ad0d24c26d862dc46425b4068d",
+    "published_sha256": "7c18abfc3f94a36d1cea86c4b457e6fd7ce6c577a2c815f3d82d5dfdc4740f70"
+  },
+  "data/tinytalk2-host-2026-10-29/manual-review.json": {
+    "source": "docs/research/data/tinytalk2-host-2026-10-29/manual-review.json",
+    "original_sha256": "fd3860435ffad852a0b35edc09bcb374426ba26d81ed88e5f2a84afa789a51d0",
+    "published_sha256": "513da43521cb649f7896e3d9147c77d53b29be255201b77069f850076213e7ea"
+  },
+  "data/tinytalk2-host-2026-10-29/numerical.json": {
+    "source": "docs/research/data/tinytalk2-host-2026-10-29/numerical.json",
+    "original_sha256": "f3aa854f2439cf58f74a10b3ae1a529b3321834af1482fa5b50535a29c3c3bf8",
+    "published_sha256": "b46faf40dd64c18cbe423e82a90e76e331e5612e58d2e0f6c52a139e620cb759"
+  },
+  "data/tinytalk2-host-2026-10-29/partial-results.json": {
+    "source": "docs/research/data/tinytalk2-host-2026-10-29/partial-results.json",
+    "original_sha256": "6a8a0ccfc7ec2c55d1ffd5d8b46617b6704cd92c13b652cfb9fd4e4e48d906d4",
+    "published_sha256": "be10d5b48446f0751b0a188cc46420432fd023d9950f08f775d1e51bf749c3cb"
+  },
+  "data/tinytalk2-host-2026-10-29/protocol.json": {
+    "source": "docs/research/data/tinytalk2-host-2026-10-29/protocol.json",
+    "original_sha256": "3626eed0d7e3eeb330e93268c753b8f1de2d2ea1d57ed7bc86ab385abacdd48c",
+    "published_sha256": "76ddad4912bc26767db444ca870727f84021357b9e131a67c41d808d075834da"
+  },
+  "data/tinytalk2-host-2026-10-29/protocol.sha256": {
+    "source": "docs/research/data/tinytalk2-host-2026-10-29/protocol.sha256",
+    "original_sha256": "3633fa84d93ea2b2f8e4100f7253f6d518e6f071fa6f1f17d2b5b2d1efdc35d5",
+    "published_sha256": "88779e1c2ab49235e5ecb9d2312ee21af7f2722309de5c0dd1ea566a23921d49"
+  },
+  "data/tinytalk2-host-2026-10-29/results.json": {
+    "source": "docs/research/data/tinytalk2-host-2026-10-29/results.json",
+    "original_sha256": "6a8a0ccfc7ec2c55d1ffd5d8b46617b6704cd92c13b652cfb9fd4e4e48d906d4",
+    "published_sha256": "be10d5b48446f0751b0a188cc46420432fd023d9950f08f775d1e51bf749c3cb"
+  },
+  "data/tinytalk2-host-2026-10-29/sources.json": {
+    "source": "docs/research/data/tinytalk2-host-2026-10-29/sources.json",
+    "original_sha256": "0a8ce172cfdd91c250d7366bb257c30e725c626d0eda772b1525ddc43fb669fe",
+    "published_sha256": "77232480447e9eb219631a24ae47d0c6e302a854a19c9465762b97a8b8c084d9"
+  },
+  "data/tinytalk2-host-2026-10-29/summary.json": {
+    "source": "docs/research/data/tinytalk2-host-2026-10-29/summary.json",
+    "original_sha256": "96d8be2de802549e179af2fdef7a3ac0c1c5975f6b309298063a57405fb5d2bd",
+    "published_sha256": "3485d4aa8d7d2b2890c60f4d343f9ba1e8ec13998425665868f8b22da3f4ec32"
+  },
+  "docs/figures/matched-model-performance-2026-10-29.json": {
+    "source": "docs/research/figures/matched-model-performance-2026-10-29.json",
+    "original_sha256": "1e4ce62ae487c2f4bd06f59bbb8509e2a949d82845df23c95f6a9675910e526c",
+    "published_sha256": "a68bb1bc17e38f6570e51875d8b1f4c3b212144abc1c72f6e13ddbf91cc533ab"
+  },
+  "docs/figures/matched-model-performance-2026-10-29.png": {
+    "source": "docs/research/figures/matched-model-performance-2026-10-29.png",
+    "original_sha256": "d9c2fe900e39ddf88a0882dc6564f01c15e01b8cec10ebd9862265359dfa9553",
+    "published_sha256": "d9c2fe900e39ddf88a0882dc6564f01c15e01b8cec10ebd9862265359dfa9553"
+  },
+  "docs/figures/matched-model-performance-2026-10-29.svg": {
+    "source": "docs/research/figures/matched-model-performance-2026-10-29.svg",
+    "original_sha256": "80ded4a3a592a49517892d405f28996186e5fd6ac44ae8ecf84ed8922a6278c5",
+    "published_sha256": "c2df29ff67af0411a0e19f381395c098d2eec77d31b75c9f1f323f662bce3a21"
+  },
+  "docs/figures/matched-model-quality-2026-10-29.json": {
+    "source": "docs/research/figures/matched-model-quality-2026-10-29.json",
+    "original_sha256": "8844f158cad4a3ec7889fdb0025a9852857e035165641179d39b7a0b0b9a1469",
+    "published_sha256": "c8dddf5e80dd6bded62ff6b1f17ce41ca0596466b6881115fecaad1e89525aba"
+  },
+  "docs/figures/matched-model-quality-2026-10-29.png": {
+    "source": "docs/research/figures/matched-model-quality-2026-10-29.png",
+    "original_sha256": "95b08fc25d72ca59b492d36fd9bc779490ddb41a019afc03a76a2e7218df5c95",
+    "published_sha256": "95b08fc25d72ca59b492d36fd9bc779490ddb41a019afc03a76a2e7218df5c95"
+  },
+  "docs/figures/matched-model-quality-2026-10-29.svg": {
+    "source": "docs/research/figures/matched-model-quality-2026-10-29.svg",
+    "original_sha256": "fbd6a984488b98a32240f4b2bf56642aa2fcd9641f05fa517c39188afebf0818",
+    "published_sha256": "1afde8c324317091bbd96429db9adc419fa226e2a57756abc78250d172ce4005"
+  },
+  "docs/figures/matched-model-setup-2026-10-29.json": {
+    "source": "docs/research/figures/matched-model-setup-2026-10-29.json",
+    "original_sha256": "170c79481a459a11f7831aa2399ae44b6ac8c06544ad425e843a1839906b9660",
+    "published_sha256": "91b230c40946ac562b36714cd9e56596822e8dc3a0b22d9989047467d516d5c6"
+  },
+  "docs/figures/matched-model-setup-2026-10-29.png": {
+    "source": "docs/research/figures/matched-model-setup-2026-10-29.png",
+    "original_sha256": "b2249899f43f0db62e12fd31cb560f445b29fb0075e07649c35edee728592883",
+    "published_sha256": "b2249899f43f0db62e12fd31cb560f445b29fb0075e07649c35edee728592883"
+  },
+  "docs/figures/matched-model-setup-2026-10-29.svg": {
+    "source": "docs/research/figures/matched-model-setup-2026-10-29.svg",
+    "original_sha256": "cb8e64365d3bfcb7ae9a4213378e80761b56db6ff1e775abaf4e97cf37f21754",
+    "published_sha256": "53516edb524b9603a4239deba11ba782887907cf6975e85103444c05ab0d9e03"
+  },
   "firmware/CMakeLists.txt": {
     "source": "firmware/CMakeLists.txt",
-    "original_sha256": "e45b6e7ee970c81af7dd1751771094260c3b80b65bdb305ba307e43666fd33a9",
-    "published_sha256": "e45b6e7ee970c81af7dd1751771094260c3b80b65bdb305ba307e43666fd33a9"
+    "original_sha256": "69cd999d32face35d368fb289ebc83981fc340eef158e0bad07861719fe1ebeb",
+    "published_sha256": "69cd999d32face35d368fb289ebc83981fc340eef158e0bad07861719fe1ebeb"
   },
   "firmware/components/dispatch_queue/CMakeLists.txt": {
     "source": "firmware/components/dispatch_queue/CMakeLists.txt",
@@ -1276,28 +2456,38 @@
   },
   "firmware/components/tinyllm/CMakeLists.txt": {
     "source": "firmware/components/tinyllm/CMakeLists.txt",
-    "original_sha256": "2d23aad89ea7aa533e4ae963fbf6da3f813348b824a3af2e6c0ddf370aa3c588",
-    "published_sha256": "2d23aad89ea7aa533e4ae963fbf6da3f813348b824a3af2e6c0ddf370aa3c588"
+    "original_sha256": "f45cc7ac8c90169ffc473f61549a3e92f145057d9d750af403fa3bbb7dad1143",
+    "published_sha256": "f45cc7ac8c90169ffc473f61549a3e92f145057d9d750af403fa3bbb7dad1143"
   },
   "firmware/components/tinyllm/cluster_rpc.c": {
     "source": "firmware/components/tinyllm/cluster_rpc.c",
     "original_sha256": "23eb3dbfcb8fcaecce688fe4bbc1051e9910c39bbad7e74cff4e54aec61f33d4",
     "published_sha256": "23eb3dbfcb8fcaecce688fe4bbc1051e9910c39bbad7e74cff4e54aec61f33d4"
   },
+  "firmware/components/tinyllm/gpt2_tokenizer.c": {
+    "source": "firmware/components/tinyllm/gpt2_tokenizer.c",
+    "original_sha256": "65b3afe3db44d3a7d2aa8078100239aacd0a327d14047ccc8ea39293981e5288",
+    "published_sha256": "65b3afe3db44d3a7d2aa8078100239aacd0a327d14047ccc8ea39293981e5288"
+  },
   "firmware/components/tinyllm/include/cluster_rpc.h": {
     "source": "firmware/components/tinyllm/include/cluster_rpc.h",
     "original_sha256": "b539358f106d39dc3c54b40c4caa4ae7e9d9cec40c3e266f98b5143d96160668",
     "published_sha256": "b539358f106d39dc3c54b40c4caa4ae7e9d9cec40c3e266f98b5143d96160668"
   },
+  "firmware/components/tinyllm/include/gpt2_tokenizer.h": {
+    "source": "firmware/components/tinyllm/include/gpt2_tokenizer.h",
+    "original_sha256": "5cd73d3901498eb598c0c9262d87f5f92aaeea9cfbc555505672d6671c456a1a",
+    "published_sha256": "5cd73d3901498eb598c0c9262d87f5f92aaeea9cfbc555505672d6671c456a1a"
+  },
   "firmware/components/tinyllm/include/tinyllm.h": {
     "source": "firmware/components/tinyllm/include/tinyllm.h",
-    "original_sha256": "9990340c797343cb5f02617d935b667780e2cba58b86df6ada7b48ef75f94eab",
-    "published_sha256": "9990340c797343cb5f02617d935b667780e2cba58b86df6ada7b48ef75f94eab"
+    "original_sha256": "833d3fd851c30ed839a92efa0d5229312cd63183dd7b892a92bf45cb79dba3b8",
+    "published_sha256": "833d3fd851c30ed839a92efa0d5229312cd63183dd7b892a92bf45cb79dba3b8"
   },
   "firmware/components/tinyllm/tinyllm.c": {
     "source": "firmware/components/tinyllm/tinyllm.c",
-    "original_sha256": "3525f8d4b5870d291c0ad3d92ae661757dd9fb02a27d12a726a6c9951fe81f1f",
-    "published_sha256": "3525f8d4b5870d291c0ad3d92ae661757dd9fb02a27d12a726a6c9951fe81f1f"
+    "original_sha256": "7c2da727732977e08be2e8e0a7d702cf04ef4ddf025a5c7845ef20ab3b5f6431",
+    "published_sha256": "7c2da727732977e08be2e8e0a7d702cf04ef4ddf025a5c7845ef20ab3b5f6431"
   },
   "firmware/main/CMakeLists.txt": {
     "source": "firmware/main/CMakeLists.txt",
@@ -1311,8 +2501,8 @@
   },
   "firmware/main/app.h": {
     "source": "firmware/main/app.h",
-    "original_sha256": "61fdecf2fabb92ff68374ea69645308119091eb33c57a3442bb697b55bf3d9b4",
-    "published_sha256": "61fdecf2fabb92ff68374ea69645308119091eb33c57a3442bb697b55bf3d9b4"
+    "original_sha256": "566d948916018d06f907ffa50f713bd794c40cbacec01b90d9b3a58fdd4297b6",
+    "published_sha256": "566d948916018d06f907ffa50f713bd794c40cbacec01b90d9b3a58fdd4297b6"
   },
   "firmware/main/cluster.html": {
     "source": "firmware/main/cluster.html",
@@ -1326,23 +2516,23 @@
   },
   "firmware/main/index.html": {
     "source": "firmware/main/index.html",
-    "original_sha256": "815adb8c564b897933d2f2fdaf61a7bc42f2e1dc69fcf29410df5a186152fc38",
-    "published_sha256": "115039b8c2619a86bea194690bee473f6e0caf9e9465654ecc963d4bc4dc311c"
+    "original_sha256": "76428303dcc936aa253da25219bb7153406191fd2c818446b3bf73d86a0b5b9d",
+    "published_sha256": "2c23880ca73e8eeb8fa485a539b3e85a9818a3c0511102e965459a17441cdc22"
   },
   "firmware/main/lan.c": {
     "source": "firmware/main/lan.c",
-    "original_sha256": "b3f059ee10ab68bf569d37b28d84f770f9b9b350ccbd82a2b183ae8982adbdd8",
-    "published_sha256": "b3f059ee10ab68bf569d37b28d84f770f9b9b350ccbd82a2b183ae8982adbdd8"
+    "original_sha256": "5160ec9823957bcd1d87f60f865fbe3c8606eaaf65ce007107cfdf2a5b424368",
+    "published_sha256": "5160ec9823957bcd1d87f60f865fbe3c8606eaaf65ce007107cfdf2a5b424368"
   },
   "firmware/main/main.c": {
     "source": "firmware/main/main.c",
-    "original_sha256": "676f61ab601ad4d13514ae6dda9537a7bb0735b5c2f4eacc62cd27cd196e9fff",
-    "published_sha256": "676f61ab601ad4d13514ae6dda9537a7bb0735b5c2f4eacc62cd27cd196e9fff"
+    "original_sha256": "bee7a031183f8152c4af2006305b986b777dac089535ca001e4e7f277ca17267",
+    "published_sha256": "bee7a031183f8152c4af2006305b986b777dac089535ca001e4e7f277ca17267"
   },
   "firmware/main/service.c": {
     "source": "firmware/main/service.c",
-    "original_sha256": "479e6baca3419bf52ce4b049d888c4803ef6c3867969044841b14a946ce5edce",
-    "published_sha256": "479e6baca3419bf52ce4b049d888c4803ef6c3867969044841b14a946ce5edce"
+    "original_sha256": "e0ae0f1b262ccc49b5cd625cb3d87a29095c1108974217ec571608d4841f5f4c",
+    "published_sha256": "e0ae0f1b262ccc49b5cd625cb3d87a29095c1108974217ec571608d4841f5f4c"
   },
   "firmware/partitions.csv": {
     "source": "firmware/partitions.csv",
@@ -1379,6 +2569,11 @@
     "original_sha256": "b0dbab6434697054bc8a6355a1559dc2543d792a379f9de0245aa45dd8df1c56",
     "published_sha256": "b0dbab6434697054bc8a6355a1559dc2543d792a379f9de0245aa45dd8df1c56"
   },
+  "tests/test_gptneo_core.py": {
+    "source": "tests/test_gptneo_core.py",
+    "original_sha256": "c27d103981c10c65f2c49113a1fde42b02d98bd2a70eb7efaf69b0001d3683a8",
+    "published_sha256": "c27d103981c10c65f2c49113a1fde42b02d98bd2a70eb7efaf69b0001d3683a8"
+  },
   "tests/test_inference.py": {
     "source": "tests/test_inference.py",
     "original_sha256": "a24683a59cab75237c096b07a05b696669ee6d4a45559bb3148c0cee6cc16e03",
@@ -1389,6 +2584,11 @@
     "original_sha256": "93e6b12eac5f50bdd2745a6fcd158c7faff708b60cd67fbeff4f43b952da06c7",
     "published_sha256": "09523beeb1fc4d236662586bc0997c548eb5bd13112a69564945f66d915470bb"
   },
+  "tests/test_matched_models.py": {
+    "source": "tests/test_matched_models.py",
+    "original_sha256": "5511d3201a3f880dfb3e37dcc912fd0e9677da5cfee98e981da4038f194597c7",
+    "published_sha256": "5511d3201a3f880dfb3e37dcc912fd0e9677da5cfee98e981da4038f194597c7"
+  },
   "tests/test_model_memory_budget.py": {
     "source": "tests/test_model_memory_budget.py",
     "original_sha256": "04f6d14eff6c1b79e45314ed0b85044536e01c2171baf7c6ce593db610ab1c5b",
@@ -1398,6 +2598,16 @@
     "source": "tests/test_parallel_benchmark.py",
     "original_sha256": "9e17e28e2d94672cacb93792e24d023d36973d963ba6a888518f749c4176add1",
     "published_sha256": "9e17e28e2d94672cacb93792e24d023d36973d963ba6a888518f749c4176add1"
+  },
+  "tests/test_public_figures.py": {
+    "source": "tests/test_public_figures.py",
+    "original_sha256": "7fb329cfd9f8a38683c5153b65db8fa9d421221d4a86ebb0b0f855424a9db47a",
+    "published_sha256": "7fb329cfd9f8a38683c5153b65db8fa9d421221d4a86ebb0b0f855424a9db47a"
+  },
+  "tests/test_public_firmware.py": {
+    "source": "tests/test_public_firmware.py",
+    "original_sha256": "ae15222f46010b1720c282e54e62e8aafcae7d8404de3863352a3982d86c6bed",
+    "published_sha256": "ae15222f46010b1720c282e54e62e8aafcae7d8404de3863352a3982d86c6bed"
   },
   "tests/test_quality_indicators.py": {
     "source": "tests/test_quality_indicators.py",
@@ -1418,6 +2628,11 @@
     "source": "tests/test_simulation_records.py",
     "original_sha256": "cb786536c4c22b8ec28547d290ec51dfa7defa61e23b3ed77d774440d4e5a229",
     "published_sha256": "cb786536c4c22b8ec28547d290ec51dfa7defa61e23b3ed77d774440d4e5a229"
+  },
+  "tests/test_tinytalk_reference.py": {
+    "source": "tests/test_tinytalk_reference.py",
+    "original_sha256": "89e4856ecdb177e8d37821c2df2e25847246a662bf3dfaf5b7d289d5875e0a48",
+    "published_sha256": "89e4856ecdb177e8d37821c2df2e25847246a662bf3dfaf5b7d289d5875e0a48"
   },
   "tools/analyze_lan_benchmark.py": {
     "source": "tools/analyze_lan_benchmark.py",
@@ -1454,6 +2669,11 @@
     "original_sha256": "dd4e390baf39eedd45d7c861a5c69923ddd24166414faa0137f1276ffec93233",
     "published_sha256": "86cf79f63cdcfdfb996babd9e290a0f2a2124a6fca22b2341fa8ebd95a317062"
   },
+  "tools/build_public_firmware.ps1": {
+    "source": "tools/build_public_firmware.ps1",
+    "original_sha256": "6a17ab8c63b5dbd4ec9e8b8470affd570e74e9ef09ced26037b033e49f037a1d",
+    "published_sha256": "6a17ab8c63b5dbd4ec9e8b8470affd570e74e9ef09ced26037b033e49f037a1d"
+  },
   "tools/capture_boot.py": {
     "source": "tools/capture_boot.py",
     "original_sha256": "7ec74bf209be767f3eb43c3c4e0669f587597e5ab2f0f81e719299b419e8a768",
@@ -1463,6 +2683,11 @@
     "source": "tools/capture_queue_workload.py",
     "original_sha256": "bfd5362aee4500a8066790a4b9cbc7751f66602220410813db9633a02f2c8429",
     "published_sha256": "d391308977b119f1e931171e88d301c7ef3b9137645832dbbf022dde8c71c827"
+  },
+  "tools/check_gptneo_native.py": {
+    "source": "tools/check_gptneo_native.py",
+    "original_sha256": "f61a567642428a248639de4a8566a72c6218f2446235d01c0036af6c4a8a5420",
+    "published_sha256": "b4e021ba7c06151d301bf65e38034629f5d3afe24629201ca1c7d8ddd4041094"
   },
   "tools/check_kernel_hardware.py": {
     "source": "tools/check_kernel_hardware.py",
@@ -1479,10 +2704,25 @@
     "original_sha256": "b3a8112738989b0ef38ad92c3a14de6da68d4bb47618621ecf0719c2a93f07c5",
     "published_sha256": "b3a8112738989b0ef38ad92c3a14de6da68d4bb47618621ecf0719c2a93f07c5"
   },
+  "tools/evaluate_tinytalk.py": {
+    "source": "tools/evaluate_tinytalk.py",
+    "original_sha256": "7c4c2d6019b03d14731e85f277b610c4b0d67fc0a1683656338cb85a22cc0bf1",
+    "published_sha256": "d6714c277952727ce00e047d648bcc2716c035a29ebd04e0208be29ca4c3b50a"
+  },
   "tools/fetch_model.py": {
     "source": "tools/fetch_model.py",
     "original_sha256": "a095dc86e772fc30ade6055445c84fa36e486f720179444290c159fd59b29cbd",
     "published_sha256": "a095dc86e772fc30ade6055445c84fa36e486f720179444290c159fd59b29cbd"
+  },
+  "tools/gptneo_finish_study.py": {
+    "source": "tools/gptneo_finish_study.py",
+    "original_sha256": "78fcd3815bb2bb8c2c017eb6f305f2c31ca1ffad0e38470276e61bcfcbe0a235",
+    "published_sha256": "e919646fc1c5a81f13e38739ddf74b9c42623932483dcc7d920363d25c8f338e"
+  },
+  "tools/gptneo_p4_trial.py": {
+    "source": "tools/gptneo_p4_trial.py",
+    "original_sha256": "4848d919117b438064e0e828c9b264b73aa0e75cea0da75324d458548d19e5e2",
+    "published_sha256": "9bf7c9cbbec1d8e67d9075402bead0cb27771f480262dbe26a7b276a6eb20037"
   },
   "tools/import_sft_checkpoint.py": {
     "source": "tools/import_sft_checkpoint.py",
@@ -1494,6 +2734,16 @@
     "original_sha256": "e8c3916e07981040e9eb83eb326de64bbcffd9cd2c7873653c9026f785c2e0fd",
     "published_sha256": "e8c3916e07981040e9eb83eb326de64bbcffd9cd2c7873653c9026f785c2e0fd"
   },
+  "tools/matched_models.py": {
+    "source": "tools/matched_models.py",
+    "original_sha256": "acdb94b4283e47c744df3819f20f44d1614b23ba57c741ffe53e41d84c6c16b2",
+    "published_sha256": "3008eca103fda996f353a26db0a52c5bacc4e99240a157d83ae2ac2c0b8f623d"
+  },
+  "tools/matched_models_p4.py": {
+    "source": "tools/matched_models_p4.py",
+    "original_sha256": "98bff0b8458b6c502d23ccf26f4794ab358813005c4f7e796e824935c3b10107",
+    "published_sha256": "98bff0b8458b6c502d23ccf26f4794ab358813005c4f7e796e824935c3b10107"
+  },
   "tools/model_memory_budget.py": {
     "source": "tools/model_memory_budget.py",
     "original_sha256": "2776b32a79bdec9f9007f2a54e697c70e4ed8ecae8d524b2cc34586e18268ec0",
@@ -1504,20 +2754,55 @@
     "original_sha256": "aa030ced3da32fcab29b2b152362d4d1e27d802480c12386a2b8d9def0a99f34",
     "published_sha256": "aa030ced3da32fcab29b2b152362d4d1e27d802480c12386a2b8d9def0a99f34"
   },
+  "tools/pack_gptneo.py": {
+    "source": "tools/pack_gptneo.py",
+    "original_sha256": "6fb82cca421896f91362bf23505ff221ca82b08f4b6caadaf7038d99ed8c9c0c",
+    "published_sha256": "6fb82cca421896f91362bf23505ff221ca82b08f4b6caadaf7038d99ed8c9c0c"
+  },
   "tools/pack_model.py": {
     "source": "tools/pack_model.py",
     "original_sha256": "50fbee339a0162613595d99abdff82226dc24d9f46fa1eb05d240ca0dd711d52",
     "published_sha256": "50fbee339a0162613595d99abdff82226dc24d9f46fa1eb05d240ca0dd711d52"
+  },
+  "tools/plot_llm_findings.py": {
+    "source": "tools/plot_llm_findings.py",
+    "original_sha256": "c5d67a011afe56c3685113e8d8329b68556e7fde3d179e116e6cb4d7366992f7",
+    "published_sha256": "2740aeb2a9d6074a1c93d8311c71d2e58a6d1755e8aa80684b7a68aedaa6eb06"
+  },
+  "tools/plot_matched_models.py": {
+    "source": "tools/plot_matched_models.py",
+    "original_sha256": "85d38d6fa6581e2715353b783cf3bf44ce309300072cc7ed5c86818935d8561a",
+    "published_sha256": "adb5c336a7cb0bb965c6ca09774993478658b1250dcbac966a7db1e2c9232e04"
   },
   "tools/prospective_simulation_check.py": {
     "source": "tools/prospective_simulation_check.py",
     "original_sha256": "0091c597471c078892acf81415bb5b71222ee16165abf20685cb1457793c804b",
     "published_sha256": "1726c4b2364629f0973b16a8bbae0d1de2714a5464c5fcaf743ab3e93a64ac85"
   },
+  "tools/public_figure.py": {
+    "source": "tools/public_figure.py",
+    "original_sha256": "cc5e35d8383bf20fe2bd663f3618b1387b8fa0480a089d6576a1f1f70dce40f6",
+    "published_sha256": "cc5e35d8383bf20fe2bd663f3618b1387b8fa0480a089d6576a1f1f70dce40f6"
+  },
+  "tools/public_firmware_checks.py": {
+    "source": "tools/public_firmware_checks.py",
+    "original_sha256": "32be7a1d102bb8ba1f6c5bfa28853c0c9cd043fe049e022f843c935378c9bc66",
+    "published_sha256": "32be7a1d102bb8ba1f6c5bfa28853c0c9cd043fe049e022f843c935378c9bc66"
+  },
+  "tools/review_matched_models.py": {
+    "source": "tools/review_matched_models.py",
+    "original_sha256": "dbb179b1e59a9484f938345634cdf04e21be4fefae1f20c6cfcbaed7ae988811",
+    "published_sha256": "dbb179b1e59a9484f938345634cdf04e21be4fefae1f20c6cfcbaed7ae988811"
+  },
   "tools/simulate_cluster.py": {
     "source": "tools/simulate_cluster.py",
     "original_sha256": "3ad188567607b19c43016121db143a06512ae23fc33647d5c0142463430b2d42",
     "published_sha256": "5f8b67df6855c7468e6c09af75769c00e438bfe43eb2ad262af296604c509cf6"
+  },
+  "tools/summarize_matched_models.py": {
+    "source": "tools/summarize_matched_models.py",
+    "original_sha256": "b53c5ac710e63720ceeaeb094bc7448fb341cd5d5c57a23ea51d6a93bb5a088a",
+    "published_sha256": "72b43b72716b87081f52de715ae13183bfd43571a7177ffccff6a611803c518f"
   },
   "tools/summarize_text_quality.py": {
     "source": "tools/summarize_text_quality.py",
@@ -1526,8 +2811,8 @@
   },
   "tools/test.ps1": {
     "source": "tools/test.ps1",
-    "original_sha256": "04b557cfcba7e9747c68ccb00b72744201919b3b73dcf65354ae8ec341b810ec",
-    "published_sha256": "42e5818491b276ece22e6cc57b27c898583713e63f7a602332e0fed3bb392355"
+    "original_sha256": "91f615de93eff43bcf8c65c43ad8b0d29c9151c601d308167f75828efdbaeddd",
+    "published_sha256": "3868a72af7faa52846d7f19df9957d1fa42a9591c4f6f33ce6107ac42e4c6e6d"
   },
   "tools/text_quality_trial.py": {
     "source": "tools/text_quality_trial.py",
@@ -1538,6 +2823,16 @@
     "source": "tools/textmodel_trial.py",
     "original_sha256": "84aeaf58f2abff388049929e961f1eeb3e8579ace5731fb9ada5f2b02740036d",
     "published_sha256": "e3f89e4471536cb058576970c150be7ee81cb6d98343d27195898d9ecd023c95"
+  },
+  "tools/tinytalk_reference.py": {
+    "source": "tools/tinytalk_reference.py",
+    "original_sha256": "907228cc1a94dbd402cf9e76cea0edbd9fe4434de298d4928e0b7d3c96b9ae41",
+    "published_sha256": "907228cc1a94dbd402cf9e76cea0edbd9fe4434de298d4928e0b7d3c96b9ae41"
+  },
+  "tools/validate_matched_evidence.py": {
+    "source": "tools/validate_matched_evidence.py",
+    "original_sha256": "3d0adf96bc4d21ad55090c0554305b8953b0502d1b86260d3f9bfef4e8df6c44",
+    "published_sha256": "3d0adf96bc4d21ad55090c0554305b8953b0502d1b86260d3f9bfef4e8df6c44"
   },
   "tools/verify_artifacts.py": {
     "source": "tools/verify_artifacts.py",
@@ -2076,13 +3371,33 @@
   },
   "docs/DATA.md": {
     "source": "english-editorial/DATA.md",
-    "original_sha256": "04af172b67b31ec8dc44e92ce0c14b8b0c09ca3a8fa91d73de7c51354cb767ff",
-    "published_sha256": "04af172b67b31ec8dc44e92ce0c14b8b0c09ca3a8fa91d73de7c51354cb767ff"
+    "original_sha256": "336d642533ae4e96df3e11140412a4db00b848dc119171b9b6dcd8cea61a096b",
+    "published_sha256": "336d642533ae4e96df3e11140412a4db00b848dc119171b9b6dcd8cea61a096b"
+  },
+  "docs/FIRMWARE_VERSIONS.md": {
+    "source": "english-editorial/FIRMWARE_VERSIONS.md",
+    "original_sha256": "d7fb4501d834a300961f50733610db031e45440b555f1c2014d2e4d879fa6e41",
+    "published_sha256": "d7fb4501d834a300961f50733610db031e45440b555f1c2014d2e4d879fa6e41"
+  },
+  "docs/GPTNEO_FORMAT.md": {
+    "source": "english-editorial/GPTNEO_FORMAT.md",
+    "original_sha256": "9839c08ff0e67395be1d57ca5af0d6ffd67f6851be94222dba4adb767f43e145",
+    "published_sha256": "c5350a771d6e5bf96bc021adf946c5da2fa377fac736653fe114ae97a455f11d"
+  },
+  "docs/GPTNEO_P4.md": {
+    "source": "english-editorial/GPTNEO_P4.md",
+    "original_sha256": "3994e4a758324cd2eeb0a98c52b3933b236d48efccd5d10e96d9fbfea7278ef8",
+    "published_sha256": "8d43c83abf122a621914763e5988e482e17fcf36f8e135de090181c815735d90"
   },
   "docs/HARDWARE.md": {
     "source": "english-editorial/HARDWARE.md",
     "original_sha256": "ae5025f41501cce6cdbcc0de193cc989e8644c4d14135cfc430b6a3ae30acab1",
     "published_sha256": "ae5025f41501cce6cdbcc0de193cc989e8644c4d14135cfc430b6a3ae30acab1"
+  },
+  "docs/MATCHED_MODELS.md": {
+    "source": "english-editorial/MATCHED_MODELS.md",
+    "original_sha256": "dc3629760644b4c1e5617d6d7a81e0fb85f20269cfd1b68a82faa6e7542bde77",
+    "published_sha256": "3feb7b6d951708b8c4de758b9862116b72ba24813853200c5a2e34f16c228269"
   },
   "docs/METHODS.md": {
     "source": "english-editorial/METHODS.md",
@@ -2091,8 +3406,8 @@
   },
   "docs/MODELS_AND_QUALITY.md": {
     "source": "english-editorial/MODELS_AND_QUALITY.md",
-    "original_sha256": "ecf15a4e0b1b219a761161cd2cf2a0d9d9a5cf14d86304180eca0739d5557409",
-    "published_sha256": "ecf15a4e0b1b219a761161cd2cf2a0d9d9a5cf14d86304180eca0739d5557409"
+    "original_sha256": "87750e976f7afec691623cf975aff758820f0fbb709ba9c863a5ebb44ac459af",
+    "published_sha256": "87750e976f7afec691623cf975aff758820f0fbb709ba9c863a5ebb44ac459af"
   },
   "docs/PRIOR_WORK_AND_PLANS.md": {
     "source": "english-editorial/PRIOR_WORK_AND_PLANS.md",
@@ -2101,13 +3416,13 @@
   },
   "README.md": {
     "source": "english-editorial/README.md",
-    "original_sha256": "f515b8404eaaf345669797a6acb4f636813908a25efb376d0df539f94830b2f0",
-    "published_sha256": "f515b8404eaaf345669797a6acb4f636813908a25efb376d0df539f94830b2f0"
+    "original_sha256": "aeb7444b59f8470fa3963c71075247696badf3710196954f7f56bce81a601d17",
+    "published_sha256": "aeb7444b59f8470fa3963c71075247696badf3710196954f7f56bce81a601d17"
   },
   "docs/REPRODUCIBILITY.md": {
     "source": "english-editorial/REPRODUCIBILITY.md",
-    "original_sha256": "5bd0db07c54fff0943447bceb356be2bfa4d36798b7ba5bd3c27bdc3f6f014f9",
-    "published_sha256": "5bd0db07c54fff0943447bceb356be2bfa4d36798b7ba5bd3c27bdc3f6f014f9"
+    "original_sha256": "f6c0520674422319e8d05c15f3312874591e8420c7c7ef6d9303c8f4e8b7843e",
+    "published_sha256": "f6c0520674422319e8d05c15f3312874591e8420c7c7ef6d9303c8f4e8b7843e"
   },
   "docs/RESEARCH_REPORT.md": {
     "source": "english-editorial/RESEARCH_REPORT.md",
@@ -2118,5 +3433,935 @@
     "source": "english-editorial/SIMULATION.md",
     "original_sha256": "b9deb75238fb44c1f7cee82cdb5a594686acf561804af823fbfd9d9fa0c8f221",
     "published_sha256": "b9deb75238fb44c1f7cee82cdb5a594686acf561804af823fbfd9d9fa0c8f221"
+  },
+  "docs/TINYTALK_HOST.md": {
+    "source": "english-editorial/TINYTALK_HOST.md",
+    "original_sha256": "4c7342ae7f57ef31e39d673e2fe6edea5c19e02813d9101a2d4b60aaf4a409e6",
+    "published_sha256": "0dd73124770d801f8e77bb28acb7aeedab5658cac5ec1b56b6702bcd78abca23"
+  },
+  "firmware-versions/0.2.0/rev1/bootloader-image-info.txt": {
+    "source": "keyless-public-build/0.2.0/rev1/bootloader-image-info.txt",
+    "original_sha256": "aa365a4f70dc934c9d6000a816c558b5afbe7d0f70aa64b140948ab2a6200c9a",
+    "published_sha256": "aa984b8bca380066c43306fe647d821e8f1cd7f32cdd000f7f8e250d842fc9bb"
+  },
+  "firmware-versions/0.2.0/rev1/bootloader.bin": {
+    "source": "verified-keyless-public-build/0.2.0/rev1/bootloader.bin",
+    "original_sha256": "e0aea8d426043c1268e089b70c884ff5f7a05fe5ef3afdf5dfff54afdeae93d3",
+    "published_sha256": "e0aea8d426043c1268e089b70c884ff5f7a05fe5ef3afdf5dfff54afdeae93d3"
+  },
+  "firmware-versions/0.2.0/rev1/image-info.txt": {
+    "source": "keyless-public-build/0.2.0/rev1/image-info.txt",
+    "original_sha256": "d48c0bcd0e50a8b5f23e3c14a954f47ea0d907b492678845c74ee3a17ac4d08c",
+    "published_sha256": "035c922cc4a0a284eae4037a4f3b31b591e68aeb517bc629c23e0db120a7a064"
+  },
+  "firmware-versions/0.2.0/rev1/manifest.json": {
+    "source": "keyless-public-build/0.2.0/rev1/manifest.json",
+    "original_sha256": "1e9ed3eb3486eb7e1f5dff7040f05135241759736d269aaf79ac4d709f4a649b",
+    "published_sha256": "e88181ddf96ccab19e0e01747e1d71dc4d0847c6547ff25d78754f8ae1d0a2c3"
+  },
+  "firmware-versions/0.2.0/rev1/ota_data_initial.bin": {
+    "source": "verified-keyless-public-build/0.2.0/rev1/ota_data_initial.bin",
+    "original_sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f",
+    "published_sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+  },
+  "firmware-versions/0.2.0/rev1/p4_tinystories.bin": {
+    "source": "verified-keyless-public-build/0.2.0/rev1/p4_tinystories.bin",
+    "original_sha256": "0bfc254b06d7ec0ef36f5e81c85aee988d47c90b458c4b2ba00a983ac2d96b2e",
+    "published_sha256": "0bfc254b06d7ec0ef36f5e81c85aee988d47c90b458c4b2ba00a983ac2d96b2e"
+  },
+  "firmware-versions/0.2.0/rev1/partition-table.bin": {
+    "source": "verified-keyless-public-build/0.2.0/rev1/partition-table.bin",
+    "original_sha256": "a90a58aea09558621809b0ceea69f583e8df24d5759c8f5eae4efc6253366d40",
+    "published_sha256": "a90a58aea09558621809b0ceea69f583e8df24d5759c8f5eae4efc6253366d40"
+  },
+  "firmware-versions/0.2.0/source/firmware/CMakeLists.txt": {
+    "source": "keyless-public-build/0.2.0/source/firmware/CMakeLists.txt",
+    "original_sha256": "e25dcb774731effcc18d0115e7578b35019cd6947cfbcf0866ccdd6ef17d402f",
+    "published_sha256": "e25dcb774731effcc18d0115e7578b35019cd6947cfbcf0866ccdd6ef17d402f"
+  },
+  "firmware-versions/0.2.0/source/firmware/components/dispatch_queue/CMakeLists.txt": {
+    "source": "keyless-public-build/0.2.0/source/firmware/components/dispatch_queue/CMakeLists.txt",
+    "original_sha256": "6364e4b37f32f4a99c17ddecc9139689bf6a60c7404d803ca363983758d949d1",
+    "published_sha256": "6364e4b37f32f4a99c17ddecc9139689bf6a60c7404d803ca363983758d949d1"
+  },
+  "firmware-versions/0.2.0/source/firmware/components/dispatch_queue/dispatch_queue.c": {
+    "source": "keyless-public-build/0.2.0/source/firmware/components/dispatch_queue/dispatch_queue.c",
+    "original_sha256": "714b31d331aa9cb2ae11a7e8b839a15ec3b43fa74fa2919345347e8963c57c0a",
+    "published_sha256": "714b31d331aa9cb2ae11a7e8b839a15ec3b43fa74fa2919345347e8963c57c0a"
+  },
+  "firmware-versions/0.2.0/source/firmware/components/dispatch_queue/include/dispatch_queue.h": {
+    "source": "keyless-public-build/0.2.0/source/firmware/components/dispatch_queue/include/dispatch_queue.h",
+    "original_sha256": "9f4c61ce0e64b55421ca647785d265f6aa2da3e3c32dc0004f5b0ba3e46de828",
+    "published_sha256": "9f4c61ce0e64b55421ca647785d265f6aa2da3e3c32dc0004f5b0ba3e46de828"
+  },
+  "firmware-versions/0.2.0/source/firmware/components/tinyllm/cluster_rpc.c": {
+    "source": "keyless-public-build/0.2.0/source/firmware/components/tinyllm/cluster_rpc.c",
+    "original_sha256": "2c83d52a54711b32b3aac04a5df8026f75ad053364b1bd2874b64bad8afdddf3",
+    "published_sha256": "2c83d52a54711b32b3aac04a5df8026f75ad053364b1bd2874b64bad8afdddf3"
+  },
+  "firmware-versions/0.2.0/source/firmware/components/tinyllm/CMakeLists.txt": {
+    "source": "keyless-public-build/0.2.0/source/firmware/components/tinyllm/CMakeLists.txt",
+    "original_sha256": "61cd4ccfff31cba38442f656a911c655958a448d03109b223aed32f7fdb2ad82",
+    "published_sha256": "61cd4ccfff31cba38442f656a911c655958a448d03109b223aed32f7fdb2ad82"
+  },
+  "firmware-versions/0.2.0/source/firmware/components/tinyllm/include/cluster_rpc.h": {
+    "source": "keyless-public-build/0.2.0/source/firmware/components/tinyllm/include/cluster_rpc.h",
+    "original_sha256": "b539358f106d39dc3c54b40c4caa4ae7e9d9cec40c3e266f98b5143d96160668",
+    "published_sha256": "b539358f106d39dc3c54b40c4caa4ae7e9d9cec40c3e266f98b5143d96160668"
+  },
+  "firmware-versions/0.2.0/source/firmware/components/tinyllm/include/tinyllm.h": {
+    "source": "keyless-public-build/0.2.0/source/firmware/components/tinyllm/include/tinyllm.h",
+    "original_sha256": "a6ff9da0e73a4af41e2811dd89561b75a1796bf87afcf8ab0c3e3436eab03685",
+    "published_sha256": "a6ff9da0e73a4af41e2811dd89561b75a1796bf87afcf8ab0c3e3436eab03685"
+  },
+  "firmware-versions/0.2.0/source/firmware/components/tinyllm/tinyllm.c": {
+    "source": "keyless-public-build/0.2.0/source/firmware/components/tinyllm/tinyllm.c",
+    "original_sha256": "20040f2c7a1bae7bb15ddf47532e05f2a2df296b367aec65133fc3b7f5ad7ce0",
+    "published_sha256": "20040f2c7a1bae7bb15ddf47532e05f2a2df296b367aec65133fc3b7f5ad7ce0"
+  },
+  "firmware-versions/0.2.0/source/firmware/main/app.h": {
+    "source": "keyless-public-build/0.2.0/source/firmware/main/app.h",
+    "original_sha256": "61fdecf2fabb92ff68374ea69645308119091eb33c57a3442bb697b55bf3d9b4",
+    "published_sha256": "61fdecf2fabb92ff68374ea69645308119091eb33c57a3442bb697b55bf3d9b4"
+  },
+  "firmware-versions/0.2.0/source/firmware/main/cluster.html": {
+    "source": "keyless-public-build/0.2.0/source/firmware/main/cluster.html",
+    "original_sha256": "d47c5c65c681f13a4016fe5589d6a9c6171d71a52acc7c8bf4e8ad83659643d4",
+    "published_sha256": "d47c5c65c681f13a4016fe5589d6a9c6171d71a52acc7c8bf4e8ad83659643d4"
+  },
+  "firmware-versions/0.2.0/source/firmware/main/CMakeLists.txt": {
+    "source": "keyless-public-build/0.2.0/source/firmware/main/CMakeLists.txt",
+    "original_sha256": "7596b30ebb06e21537a09ebb648998a9b10a3b7f29102b46d14926ccc1e56085",
+    "published_sha256": "7596b30ebb06e21537a09ebb648998a9b10a3b7f29102b46d14926ccc1e56085"
+  },
+  "firmware-versions/0.2.0/source/firmware/main/dispatcher.c": {
+    "source": "keyless-public-build/0.2.0/source/firmware/main/dispatcher.c",
+    "original_sha256": "1cc7d79e9f66a9b9875bf5906d40cc24699a357d272eecbf414fa9b3fac19184",
+    "published_sha256": "1cc7d79e9f66a9b9875bf5906d40cc24699a357d272eecbf414fa9b3fac19184"
+  },
+  "firmware-versions/0.2.0/source/firmware/main/index.html": {
+    "source": "keyless-public-build/0.2.0/source/firmware/main/index.html",
+    "original_sha256": "115039b8c2619a86bea194690bee473f6e0caf9e9465654ecc963d4bc4dc311c",
+    "published_sha256": "115039b8c2619a86bea194690bee473f6e0caf9e9465654ecc963d4bc4dc311c"
+  },
+  "firmware-versions/0.2.0/source/firmware/main/Kconfig.projbuild": {
+    "source": "keyless-public-build/0.2.0/source/firmware/main/Kconfig.projbuild",
+    "original_sha256": "7bad2d9dff75bce313cd68874db6de9540451e34d0af9043e42bed2e34e77ea5",
+    "published_sha256": "7bad2d9dff75bce313cd68874db6de9540451e34d0af9043e42bed2e34e77ea5"
+  },
+  "firmware-versions/0.2.0/source/firmware/main/lan.c": {
+    "source": "keyless-public-build/0.2.0/source/firmware/main/lan.c",
+    "original_sha256": "b3f059ee10ab68bf569d37b28d84f770f9b9b350ccbd82a2b183ae8982adbdd8",
+    "published_sha256": "b3f059ee10ab68bf569d37b28d84f770f9b9b350ccbd82a2b183ae8982adbdd8"
+  },
+  "firmware-versions/0.2.0/source/firmware/main/main.c": {
+    "source": "keyless-public-build/0.2.0/source/firmware/main/main.c",
+    "original_sha256": "676f61ab601ad4d13514ae6dda9537a7bb0735b5c2f4eacc62cd27cd196e9fff",
+    "published_sha256": "676f61ab601ad4d13514ae6dda9537a7bb0735b5c2f4eacc62cd27cd196e9fff"
+  },
+  "firmware-versions/0.2.0/source/firmware/main/service.c": {
+    "source": "keyless-public-build/0.2.0/source/firmware/main/service.c",
+    "original_sha256": "a64b6f7cbed6b888b258561dcb629cc6f7f009acc0c471f47080013c20f0ad76",
+    "published_sha256": "a64b6f7cbed6b888b258561dcb629cc6f7f009acc0c471f47080013c20f0ad76"
+  },
+  "firmware-versions/0.2.0/source/firmware/partitions.csv": {
+    "source": "keyless-public-build/0.2.0/source/firmware/partitions.csv",
+    "original_sha256": "f5ade5c6866297d6fa8a3d154da076fdfbd210e0fd34f4fc88b33bcb14483976",
+    "published_sha256": "f5ade5c6866297d6fa8a3d154da076fdfbd210e0fd34f4fc88b33bcb14483976"
+  },
+  "firmware-versions/0.2.0/source/firmware/sdkconfig.defaults": {
+    "source": "keyless-public-build/0.2.0/source/firmware/sdkconfig.defaults",
+    "original_sha256": "9f4a2dd120407716bd184f5d8bb11bfe0bbd3937d49e67cc77b5f471626737fe",
+    "published_sha256": "9f4a2dd120407716bd184f5d8bb11bfe0bbd3937d49e67cc77b5f471626737fe"
+  },
+  "firmware-versions/0.2.0/source/firmware/sdkconfig.rev1.defaults": {
+    "source": "keyless-public-build/0.2.0/source/firmware/sdkconfig.rev1.defaults",
+    "original_sha256": "0f80ab54f4ddb9e8cff8d7f9096b646b7dd3fce605d318877f5113b55794e80b",
+    "published_sha256": "0f80ab54f4ddb9e8cff8d7f9096b646b7dd3fce605d318877f5113b55794e80b"
+  },
+  "firmware-versions/0.2.0/source/firmware/sdkconfig.rev3.defaults": {
+    "source": "keyless-public-build/0.2.0/source/firmware/sdkconfig.rev3.defaults",
+    "original_sha256": "7b40ef4c6cee9e809263ec079db688040e595a087796b1a1d1262ceb92036ad1",
+    "published_sha256": "7b40ef4c6cee9e809263ec079db688040e595a087796b1a1d1262ceb92036ad1"
+  },
+  "firmware-versions/0.3.0/rev1/bootloader-image-info.txt": {
+    "source": "keyless-public-build/0.3.0/rev1/bootloader-image-info.txt",
+    "original_sha256": "aa365a4f70dc934c9d6000a816c558b5afbe7d0f70aa64b140948ab2a6200c9a",
+    "published_sha256": "aa984b8bca380066c43306fe647d821e8f1cd7f32cdd000f7f8e250d842fc9bb"
+  },
+  "firmware-versions/0.3.0/rev1/bootloader.bin": {
+    "source": "verified-keyless-public-build/0.3.0/rev1/bootloader.bin",
+    "original_sha256": "e0aea8d426043c1268e089b70c884ff5f7a05fe5ef3afdf5dfff54afdeae93d3",
+    "published_sha256": "e0aea8d426043c1268e089b70c884ff5f7a05fe5ef3afdf5dfff54afdeae93d3"
+  },
+  "firmware-versions/0.3.0/rev1/image-info.txt": {
+    "source": "keyless-public-build/0.3.0/rev1/image-info.txt",
+    "original_sha256": "b1cc0437798c86a0c316b7f95a2a3a9f151e7da25ca658f4c1118ebb6feb8632",
+    "published_sha256": "f5e97338931cc8ee20c11ed0ecbdc2645d284114023308e6dc8064bb93edd2cb"
+  },
+  "firmware-versions/0.3.0/rev1/manifest.json": {
+    "source": "keyless-public-build/0.3.0/rev1/manifest.json",
+    "original_sha256": "97b15712541bd9ddd9f2d1135b490db31015cb9b079249b3c35a80b8fd054790",
+    "published_sha256": "cd7f6eb91d62c4c31e275f637299569297d38672a90eb165b45d52ac190beed3"
+  },
+  "firmware-versions/0.3.0/rev1/ota_data_initial.bin": {
+    "source": "verified-keyless-public-build/0.3.0/rev1/ota_data_initial.bin",
+    "original_sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f",
+    "published_sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+  },
+  "firmware-versions/0.3.0/rev1/p4_tinystories.bin": {
+    "source": "verified-keyless-public-build/0.3.0/rev1/p4_tinystories.bin",
+    "original_sha256": "12f61593db528e12fbca8aaee052fb0732b0c9916778a40bf76ec748bb06c5db",
+    "published_sha256": "12f61593db528e12fbca8aaee052fb0732b0c9916778a40bf76ec748bb06c5db"
+  },
+  "firmware-versions/0.3.0/rev1/partition-table.bin": {
+    "source": "verified-keyless-public-build/0.3.0/rev1/partition-table.bin",
+    "original_sha256": "a90a58aea09558621809b0ceea69f583e8df24d5759c8f5eae4efc6253366d40",
+    "published_sha256": "a90a58aea09558621809b0ceea69f583e8df24d5759c8f5eae4efc6253366d40"
+  },
+  "firmware-versions/0.3.0/source/firmware/CMakeLists.txt": {
+    "source": "keyless-public-build/0.3.0/source/firmware/CMakeLists.txt",
+    "original_sha256": "e2d3092b82d48ef7800639ba57a9b9e90c97dbe6017888fc994a635993f1ceab",
+    "published_sha256": "e2d3092b82d48ef7800639ba57a9b9e90c97dbe6017888fc994a635993f1ceab"
+  },
+  "firmware-versions/0.3.0/source/firmware/components/dispatch_queue/CMakeLists.txt": {
+    "source": "keyless-public-build/0.3.0/source/firmware/components/dispatch_queue/CMakeLists.txt",
+    "original_sha256": "6364e4b37f32f4a99c17ddecc9139689bf6a60c7404d803ca363983758d949d1",
+    "published_sha256": "6364e4b37f32f4a99c17ddecc9139689bf6a60c7404d803ca363983758d949d1"
+  },
+  "firmware-versions/0.3.0/source/firmware/components/dispatch_queue/dispatch_queue.c": {
+    "source": "keyless-public-build/0.3.0/source/firmware/components/dispatch_queue/dispatch_queue.c",
+    "original_sha256": "714b31d331aa9cb2ae11a7e8b839a15ec3b43fa74fa2919345347e8963c57c0a",
+    "published_sha256": "714b31d331aa9cb2ae11a7e8b839a15ec3b43fa74fa2919345347e8963c57c0a"
+  },
+  "firmware-versions/0.3.0/source/firmware/components/dispatch_queue/include/dispatch_queue.h": {
+    "source": "keyless-public-build/0.3.0/source/firmware/components/dispatch_queue/include/dispatch_queue.h",
+    "original_sha256": "9f4c61ce0e64b55421ca647785d265f6aa2da3e3c32dc0004f5b0ba3e46de828",
+    "published_sha256": "9f4c61ce0e64b55421ca647785d265f6aa2da3e3c32dc0004f5b0ba3e46de828"
+  },
+  "firmware-versions/0.3.0/source/firmware/components/tinyllm/cluster_rpc.c": {
+    "source": "keyless-public-build/0.3.0/source/firmware/components/tinyllm/cluster_rpc.c",
+    "original_sha256": "23eb3dbfcb8fcaecce688fe4bbc1051e9910c39bbad7e74cff4e54aec61f33d4",
+    "published_sha256": "23eb3dbfcb8fcaecce688fe4bbc1051e9910c39bbad7e74cff4e54aec61f33d4"
+  },
+  "firmware-versions/0.3.0/source/firmware/components/tinyllm/CMakeLists.txt": {
+    "source": "keyless-public-build/0.3.0/source/firmware/components/tinyllm/CMakeLists.txt",
+    "original_sha256": "ed3adec2a5fed5ff267fcc0c6b0e90ecc40c2fce1611d6b1ac5c90477c10a320",
+    "published_sha256": "ed3adec2a5fed5ff267fcc0c6b0e90ecc40c2fce1611d6b1ac5c90477c10a320"
+  },
+  "firmware-versions/0.3.0/source/firmware/components/tinyllm/include/cluster_rpc.h": {
+    "source": "keyless-public-build/0.3.0/source/firmware/components/tinyllm/include/cluster_rpc.h",
+    "original_sha256": "b539358f106d39dc3c54b40c4caa4ae7e9d9cec40c3e266f98b5143d96160668",
+    "published_sha256": "b539358f106d39dc3c54b40c4caa4ae7e9d9cec40c3e266f98b5143d96160668"
+  },
+  "firmware-versions/0.3.0/source/firmware/components/tinyllm/include/tinyllm.h": {
+    "source": "keyless-public-build/0.3.0/source/firmware/components/tinyllm/include/tinyllm.h",
+    "original_sha256": "2e88f54ec94263bca28119caa38d89f6b989f6a6d2c9a2a357dab8fd8a6afa9d",
+    "published_sha256": "2e88f54ec94263bca28119caa38d89f6b989f6a6d2c9a2a357dab8fd8a6afa9d"
+  },
+  "firmware-versions/0.3.0/source/firmware/components/tinyllm/tinyllm.c": {
+    "source": "keyless-public-build/0.3.0/source/firmware/components/tinyllm/tinyllm.c",
+    "original_sha256": "cbac8b115f01cb01ac1b284ce91c1d6174abed9eeb5e3e159e51759a2abeca0b",
+    "published_sha256": "cbac8b115f01cb01ac1b284ce91c1d6174abed9eeb5e3e159e51759a2abeca0b"
+  },
+  "firmware-versions/0.3.0/source/firmware/main/app.h": {
+    "source": "keyless-public-build/0.3.0/source/firmware/main/app.h",
+    "original_sha256": "61fdecf2fabb92ff68374ea69645308119091eb33c57a3442bb697b55bf3d9b4",
+    "published_sha256": "61fdecf2fabb92ff68374ea69645308119091eb33c57a3442bb697b55bf3d9b4"
+  },
+  "firmware-versions/0.3.0/source/firmware/main/cluster.html": {
+    "source": "keyless-public-build/0.3.0/source/firmware/main/cluster.html",
+    "original_sha256": "d47c5c65c681f13a4016fe5589d6a9c6171d71a52acc7c8bf4e8ad83659643d4",
+    "published_sha256": "d47c5c65c681f13a4016fe5589d6a9c6171d71a52acc7c8bf4e8ad83659643d4"
+  },
+  "firmware-versions/0.3.0/source/firmware/main/CMakeLists.txt": {
+    "source": "keyless-public-build/0.3.0/source/firmware/main/CMakeLists.txt",
+    "original_sha256": "7596b30ebb06e21537a09ebb648998a9b10a3b7f29102b46d14926ccc1e56085",
+    "published_sha256": "7596b30ebb06e21537a09ebb648998a9b10a3b7f29102b46d14926ccc1e56085"
+  },
+  "firmware-versions/0.3.0/source/firmware/main/dispatcher.c": {
+    "source": "keyless-public-build/0.3.0/source/firmware/main/dispatcher.c",
+    "original_sha256": "006dc4e99ff2d2770cc8d78da50e8416428c079ef249c91d8ae9eb1b3fd09f53",
+    "published_sha256": "006dc4e99ff2d2770cc8d78da50e8416428c079ef249c91d8ae9eb1b3fd09f53"
+  },
+  "firmware-versions/0.3.0/source/firmware/main/index.html": {
+    "source": "keyless-public-build/0.3.0/source/firmware/main/index.html",
+    "original_sha256": "115039b8c2619a86bea194690bee473f6e0caf9e9465654ecc963d4bc4dc311c",
+    "published_sha256": "115039b8c2619a86bea194690bee473f6e0caf9e9465654ecc963d4bc4dc311c"
+  },
+  "firmware-versions/0.3.0/source/firmware/main/Kconfig.projbuild": {
+    "source": "keyless-public-build/0.3.0/source/firmware/main/Kconfig.projbuild",
+    "original_sha256": "7bad2d9dff75bce313cd68874db6de9540451e34d0af9043e42bed2e34e77ea5",
+    "published_sha256": "7bad2d9dff75bce313cd68874db6de9540451e34d0af9043e42bed2e34e77ea5"
+  },
+  "firmware-versions/0.3.0/source/firmware/main/lan.c": {
+    "source": "keyless-public-build/0.3.0/source/firmware/main/lan.c",
+    "original_sha256": "b3f059ee10ab68bf569d37b28d84f770f9b9b350ccbd82a2b183ae8982adbdd8",
+    "published_sha256": "b3f059ee10ab68bf569d37b28d84f770f9b9b350ccbd82a2b183ae8982adbdd8"
+  },
+  "firmware-versions/0.3.0/source/firmware/main/main.c": {
+    "source": "keyless-public-build/0.3.0/source/firmware/main/main.c",
+    "original_sha256": "676f61ab601ad4d13514ae6dda9537a7bb0735b5c2f4eacc62cd27cd196e9fff",
+    "published_sha256": "676f61ab601ad4d13514ae6dda9537a7bb0735b5c2f4eacc62cd27cd196e9fff"
+  },
+  "firmware-versions/0.3.0/source/firmware/main/service.c": {
+    "source": "keyless-public-build/0.3.0/source/firmware/main/service.c",
+    "original_sha256": "747cf513c67542fcd709edb360173d876ee1faed60055ead4a2d086650cbac35",
+    "published_sha256": "747cf513c67542fcd709edb360173d876ee1faed60055ead4a2d086650cbac35"
+  },
+  "firmware-versions/0.3.0/source/firmware/partitions.csv": {
+    "source": "keyless-public-build/0.3.0/source/firmware/partitions.csv",
+    "original_sha256": "f5ade5c6866297d6fa8a3d154da076fdfbd210e0fd34f4fc88b33bcb14483976",
+    "published_sha256": "f5ade5c6866297d6fa8a3d154da076fdfbd210e0fd34f4fc88b33bcb14483976"
+  },
+  "firmware-versions/0.3.0/source/firmware/sdkconfig.defaults": {
+    "source": "keyless-public-build/0.3.0/source/firmware/sdkconfig.defaults",
+    "original_sha256": "9f4a2dd120407716bd184f5d8bb11bfe0bbd3937d49e67cc77b5f471626737fe",
+    "published_sha256": "9f4a2dd120407716bd184f5d8bb11bfe0bbd3937d49e67cc77b5f471626737fe"
+  },
+  "firmware-versions/0.3.0/source/firmware/sdkconfig.rev1.defaults": {
+    "source": "keyless-public-build/0.3.0/source/firmware/sdkconfig.rev1.defaults",
+    "original_sha256": "0f80ab54f4ddb9e8cff8d7f9096b646b7dd3fce605d318877f5113b55794e80b",
+    "published_sha256": "0f80ab54f4ddb9e8cff8d7f9096b646b7dd3fce605d318877f5113b55794e80b"
+  },
+  "firmware-versions/0.3.0/source/firmware/sdkconfig.rev3.defaults": {
+    "source": "keyless-public-build/0.3.0/source/firmware/sdkconfig.rev3.defaults",
+    "original_sha256": "7b40ef4c6cee9e809263ec079db688040e595a087796b1a1d1262ceb92036ad1",
+    "published_sha256": "7b40ef4c6cee9e809263ec079db688040e595a087796b1a1d1262ceb92036ad1"
+  },
+  "firmware-versions/0.4.0/rev1/bootloader-image-info.txt": {
+    "source": "keyless-public-build/0.4.0/rev1/bootloader-image-info.txt",
+    "original_sha256": "aa365a4f70dc934c9d6000a816c558b5afbe7d0f70aa64b140948ab2a6200c9a",
+    "published_sha256": "aa984b8bca380066c43306fe647d821e8f1cd7f32cdd000f7f8e250d842fc9bb"
+  },
+  "firmware-versions/0.4.0/rev1/bootloader.bin": {
+    "source": "verified-keyless-public-build/0.4.0/rev1/bootloader.bin",
+    "original_sha256": "e0aea8d426043c1268e089b70c884ff5f7a05fe5ef3afdf5dfff54afdeae93d3",
+    "published_sha256": "e0aea8d426043c1268e089b70c884ff5f7a05fe5ef3afdf5dfff54afdeae93d3"
+  },
+  "firmware-versions/0.4.0/rev1/image-info.txt": {
+    "source": "keyless-public-build/0.4.0/rev1/image-info.txt",
+    "original_sha256": "5ca2e6b3da19adb4badac1e5f05e8907cd17010c32803a9cf3198aaa93945257",
+    "published_sha256": "8e18f1a0d0f58508ff0c44c4c402e43cd3ae21c2324a4e95883edd57ea99fdd3"
+  },
+  "firmware-versions/0.4.0/rev1/manifest.json": {
+    "source": "keyless-public-build/0.4.0/rev1/manifest.json",
+    "original_sha256": "dcec28b72e12982b16b17b8cf8f16b8410c89d81f4acb9c98bf56539c9274a6d",
+    "published_sha256": "84cb4049735885cdadb9035a762dc5874812519dc83f40e9552b8667ab50dcf0"
+  },
+  "firmware-versions/0.4.0/rev1/ota_data_initial.bin": {
+    "source": "verified-keyless-public-build/0.4.0/rev1/ota_data_initial.bin",
+    "original_sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f",
+    "published_sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+  },
+  "firmware-versions/0.4.0/rev1/p4_tinystories.bin": {
+    "source": "verified-keyless-public-build/0.4.0/rev1/p4_tinystories.bin",
+    "original_sha256": "1c5f94ca691f2392245f9cbd4469582e3387b0ce4e8ad5e2403d9c487d1078ad",
+    "published_sha256": "1c5f94ca691f2392245f9cbd4469582e3387b0ce4e8ad5e2403d9c487d1078ad"
+  },
+  "firmware-versions/0.4.0/rev1/partition-table.bin": {
+    "source": "verified-keyless-public-build/0.4.0/rev1/partition-table.bin",
+    "original_sha256": "a90a58aea09558621809b0ceea69f583e8df24d5759c8f5eae4efc6253366d40",
+    "published_sha256": "a90a58aea09558621809b0ceea69f583e8df24d5759c8f5eae4efc6253366d40"
+  },
+  "firmware-versions/0.4.0/source/firmware/CMakeLists.txt": {
+    "source": "keyless-public-build/0.4.0/source/firmware/CMakeLists.txt",
+    "original_sha256": "e45b6e7ee970c81af7dd1751771094260c3b80b65bdb305ba307e43666fd33a9",
+    "published_sha256": "e45b6e7ee970c81af7dd1751771094260c3b80b65bdb305ba307e43666fd33a9"
+  },
+  "firmware-versions/0.4.0/source/firmware/components/dispatch_queue/CMakeLists.txt": {
+    "source": "keyless-public-build/0.4.0/source/firmware/components/dispatch_queue/CMakeLists.txt",
+    "original_sha256": "6364e4b37f32f4a99c17ddecc9139689bf6a60c7404d803ca363983758d949d1",
+    "published_sha256": "6364e4b37f32f4a99c17ddecc9139689bf6a60c7404d803ca363983758d949d1"
+  },
+  "firmware-versions/0.4.0/source/firmware/components/dispatch_queue/dispatch_queue.c": {
+    "source": "keyless-public-build/0.4.0/source/firmware/components/dispatch_queue/dispatch_queue.c",
+    "original_sha256": "714b31d331aa9cb2ae11a7e8b839a15ec3b43fa74fa2919345347e8963c57c0a",
+    "published_sha256": "714b31d331aa9cb2ae11a7e8b839a15ec3b43fa74fa2919345347e8963c57c0a"
+  },
+  "firmware-versions/0.4.0/source/firmware/components/dispatch_queue/include/dispatch_queue.h": {
+    "source": "keyless-public-build/0.4.0/source/firmware/components/dispatch_queue/include/dispatch_queue.h",
+    "original_sha256": "9f4c61ce0e64b55421ca647785d265f6aa2da3e3c32dc0004f5b0ba3e46de828",
+    "published_sha256": "9f4c61ce0e64b55421ca647785d265f6aa2da3e3c32dc0004f5b0ba3e46de828"
+  },
+  "firmware-versions/0.4.0/source/firmware/components/tinyllm/cluster_rpc.c": {
+    "source": "keyless-public-build/0.4.0/source/firmware/components/tinyllm/cluster_rpc.c",
+    "original_sha256": "23eb3dbfcb8fcaecce688fe4bbc1051e9910c39bbad7e74cff4e54aec61f33d4",
+    "published_sha256": "23eb3dbfcb8fcaecce688fe4bbc1051e9910c39bbad7e74cff4e54aec61f33d4"
+  },
+  "firmware-versions/0.4.0/source/firmware/components/tinyllm/CMakeLists.txt": {
+    "source": "keyless-public-build/0.4.0/source/firmware/components/tinyllm/CMakeLists.txt",
+    "original_sha256": "2d23aad89ea7aa533e4ae963fbf6da3f813348b824a3af2e6c0ddf370aa3c588",
+    "published_sha256": "2d23aad89ea7aa533e4ae963fbf6da3f813348b824a3af2e6c0ddf370aa3c588"
+  },
+  "firmware-versions/0.4.0/source/firmware/components/tinyllm/include/cluster_rpc.h": {
+    "source": "keyless-public-build/0.4.0/source/firmware/components/tinyllm/include/cluster_rpc.h",
+    "original_sha256": "b539358f106d39dc3c54b40c4caa4ae7e9d9cec40c3e266f98b5143d96160668",
+    "published_sha256": "b539358f106d39dc3c54b40c4caa4ae7e9d9cec40c3e266f98b5143d96160668"
+  },
+  "firmware-versions/0.4.0/source/firmware/components/tinyllm/include/tinyllm.h": {
+    "source": "keyless-public-build/0.4.0/source/firmware/components/tinyllm/include/tinyllm.h",
+    "original_sha256": "9990340c797343cb5f02617d935b667780e2cba58b86df6ada7b48ef75f94eab",
+    "published_sha256": "9990340c797343cb5f02617d935b667780e2cba58b86df6ada7b48ef75f94eab"
+  },
+  "firmware-versions/0.4.0/source/firmware/components/tinyllm/tinyllm.c": {
+    "source": "keyless-public-build/0.4.0/source/firmware/components/tinyllm/tinyllm.c",
+    "original_sha256": "3525f8d4b5870d291c0ad3d92ae661757dd9fb02a27d12a726a6c9951fe81f1f",
+    "published_sha256": "3525f8d4b5870d291c0ad3d92ae661757dd9fb02a27d12a726a6c9951fe81f1f"
+  },
+  "firmware-versions/0.4.0/source/firmware/main/app.h": {
+    "source": "keyless-public-build/0.4.0/source/firmware/main/app.h",
+    "original_sha256": "61fdecf2fabb92ff68374ea69645308119091eb33c57a3442bb697b55bf3d9b4",
+    "published_sha256": "61fdecf2fabb92ff68374ea69645308119091eb33c57a3442bb697b55bf3d9b4"
+  },
+  "firmware-versions/0.4.0/source/firmware/main/cluster.html": {
+    "source": "keyless-public-build/0.4.0/source/firmware/main/cluster.html",
+    "original_sha256": "d47c5c65c681f13a4016fe5589d6a9c6171d71a52acc7c8bf4e8ad83659643d4",
+    "published_sha256": "d47c5c65c681f13a4016fe5589d6a9c6171d71a52acc7c8bf4e8ad83659643d4"
+  },
+  "firmware-versions/0.4.0/source/firmware/main/CMakeLists.txt": {
+    "source": "keyless-public-build/0.4.0/source/firmware/main/CMakeLists.txt",
+    "original_sha256": "7596b30ebb06e21537a09ebb648998a9b10a3b7f29102b46d14926ccc1e56085",
+    "published_sha256": "7596b30ebb06e21537a09ebb648998a9b10a3b7f29102b46d14926ccc1e56085"
+  },
+  "firmware-versions/0.4.0/source/firmware/main/dispatcher.c": {
+    "source": "keyless-public-build/0.4.0/source/firmware/main/dispatcher.c",
+    "original_sha256": "0515dc9842dde0be71bb21e9f08ffd507e5685781a7a868c5d31600e65526583",
+    "published_sha256": "0515dc9842dde0be71bb21e9f08ffd507e5685781a7a868c5d31600e65526583"
+  },
+  "firmware-versions/0.4.0/source/firmware/main/index.html": {
+    "source": "keyless-public-build/0.4.0/source/firmware/main/index.html",
+    "original_sha256": "115039b8c2619a86bea194690bee473f6e0caf9e9465654ecc963d4bc4dc311c",
+    "published_sha256": "115039b8c2619a86bea194690bee473f6e0caf9e9465654ecc963d4bc4dc311c"
+  },
+  "firmware-versions/0.4.0/source/firmware/main/Kconfig.projbuild": {
+    "source": "keyless-public-build/0.4.0/source/firmware/main/Kconfig.projbuild",
+    "original_sha256": "7bad2d9dff75bce313cd68874db6de9540451e34d0af9043e42bed2e34e77ea5",
+    "published_sha256": "7bad2d9dff75bce313cd68874db6de9540451e34d0af9043e42bed2e34e77ea5"
+  },
+  "firmware-versions/0.4.0/source/firmware/main/lan.c": {
+    "source": "keyless-public-build/0.4.0/source/firmware/main/lan.c",
+    "original_sha256": "b3f059ee10ab68bf569d37b28d84f770f9b9b350ccbd82a2b183ae8982adbdd8",
+    "published_sha256": "b3f059ee10ab68bf569d37b28d84f770f9b9b350ccbd82a2b183ae8982adbdd8"
+  },
+  "firmware-versions/0.4.0/source/firmware/main/main.c": {
+    "source": "keyless-public-build/0.4.0/source/firmware/main/main.c",
+    "original_sha256": "676f61ab601ad4d13514ae6dda9537a7bb0735b5c2f4eacc62cd27cd196e9fff",
+    "published_sha256": "676f61ab601ad4d13514ae6dda9537a7bb0735b5c2f4eacc62cd27cd196e9fff"
+  },
+  "firmware-versions/0.4.0/source/firmware/main/service.c": {
+    "source": "keyless-public-build/0.4.0/source/firmware/main/service.c",
+    "original_sha256": "479e6baca3419bf52ce4b049d888c4803ef6c3867969044841b14a946ce5edce",
+    "published_sha256": "479e6baca3419bf52ce4b049d888c4803ef6c3867969044841b14a946ce5edce"
+  },
+  "firmware-versions/0.4.0/source/firmware/partitions.csv": {
+    "source": "keyless-public-build/0.4.0/source/firmware/partitions.csv",
+    "original_sha256": "f5ade5c6866297d6fa8a3d154da076fdfbd210e0fd34f4fc88b33bcb14483976",
+    "published_sha256": "f5ade5c6866297d6fa8a3d154da076fdfbd210e0fd34f4fc88b33bcb14483976"
+  },
+  "firmware-versions/0.4.0/source/firmware/sdkconfig.defaults": {
+    "source": "keyless-public-build/0.4.0/source/firmware/sdkconfig.defaults",
+    "original_sha256": "9f4a2dd120407716bd184f5d8bb11bfe0bbd3937d49e67cc77b5f471626737fe",
+    "published_sha256": "9f4a2dd120407716bd184f5d8bb11bfe0bbd3937d49e67cc77b5f471626737fe"
+  },
+  "firmware-versions/0.4.0/source/firmware/sdkconfig.rev1.defaults": {
+    "source": "keyless-public-build/0.4.0/source/firmware/sdkconfig.rev1.defaults",
+    "original_sha256": "0f80ab54f4ddb9e8cff8d7f9096b646b7dd3fce605d318877f5113b55794e80b",
+    "published_sha256": "0f80ab54f4ddb9e8cff8d7f9096b646b7dd3fce605d318877f5113b55794e80b"
+  },
+  "firmware-versions/0.4.0/source/firmware/sdkconfig.rev3.defaults": {
+    "source": "keyless-public-build/0.4.0/source/firmware/sdkconfig.rev3.defaults",
+    "original_sha256": "7b40ef4c6cee9e809263ec079db688040e595a087796b1a1d1262ceb92036ad1",
+    "published_sha256": "7b40ef4c6cee9e809263ec079db688040e595a087796b1a1d1262ceb92036ad1"
+  },
+  "firmware-versions/0.5.5/rev1/bootloader-image-info.txt": {
+    "source": "keyless-public-build/0.5.5/rev1/bootloader-image-info.txt",
+    "original_sha256": "aa365a4f70dc934c9d6000a816c558b5afbe7d0f70aa64b140948ab2a6200c9a",
+    "published_sha256": "aa984b8bca380066c43306fe647d821e8f1cd7f32cdd000f7f8e250d842fc9bb"
+  },
+  "firmware-versions/0.5.5/rev1/bootloader.bin": {
+    "source": "verified-keyless-public-build/0.5.5/rev1/bootloader.bin",
+    "original_sha256": "e0aea8d426043c1268e089b70c884ff5f7a05fe5ef3afdf5dfff54afdeae93d3",
+    "published_sha256": "e0aea8d426043c1268e089b70c884ff5f7a05fe5ef3afdf5dfff54afdeae93d3"
+  },
+  "firmware-versions/0.5.5/rev1/image-info.txt": {
+    "source": "keyless-public-build/0.5.5/rev1/image-info.txt",
+    "original_sha256": "e5bbb494790c119e07f2d1cf33be926ce3ae2e07bf243c79682ef837c79e125a",
+    "published_sha256": "831d75ae56e379dcd4f4b6cfdc9b0a33e748bc3052cedb7b68dc50eb4a630d50"
+  },
+  "firmware-versions/0.5.5/rev1/manifest.json": {
+    "source": "keyless-public-build/0.5.5/rev1/manifest.json",
+    "original_sha256": "b146c71482d2257bef9d7f1378d4a341f373a55128bd76f4699b23faa5fb7d9b",
+    "published_sha256": "f0f6edd90dfeb57430e5d32ebf93fa7d4bc1cdc749567f19d4a89eeb26454f81"
+  },
+  "firmware-versions/0.5.5/rev1/ota_data_initial.bin": {
+    "source": "verified-keyless-public-build/0.5.5/rev1/ota_data_initial.bin",
+    "original_sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f",
+    "published_sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+  },
+  "firmware-versions/0.5.5/rev1/p4_tinystories.bin": {
+    "source": "verified-keyless-public-build/0.5.5/rev1/p4_tinystories.bin",
+    "original_sha256": "c65f824d09166fe94334148812d535801dd41b8aaaa55a8ad55888f68d07966d",
+    "published_sha256": "c65f824d09166fe94334148812d535801dd41b8aaaa55a8ad55888f68d07966d"
+  },
+  "firmware-versions/0.5.5/rev1/partition-table.bin": {
+    "source": "verified-keyless-public-build/0.5.5/rev1/partition-table.bin",
+    "original_sha256": "a90a58aea09558621809b0ceea69f583e8df24d5759c8f5eae4efc6253366d40",
+    "published_sha256": "a90a58aea09558621809b0ceea69f583e8df24d5759c8f5eae4efc6253366d40"
+  },
+  "firmware-versions/0.5.5/rev3/bootloader-image-info.txt": {
+    "source": "keyless-public-build/0.5.5/rev3/bootloader-image-info.txt",
+    "original_sha256": "f1503a7e2d4248c426091cdcbbc1a2bf378ef216dede68050944238907bb2b23",
+    "published_sha256": "e54b9d921f4699360963915ff24ae5fcbcb59fad434de70056ed2f9fc97b43d8"
+  },
+  "firmware-versions/0.5.5/rev3/bootloader.bin": {
+    "source": "verified-keyless-public-build/0.5.5/rev3/bootloader.bin",
+    "original_sha256": "a44c89c570ad31165d6ae4873553c7f476e5cfd1d25df660677cefe5d09e620e",
+    "published_sha256": "a44c89c570ad31165d6ae4873553c7f476e5cfd1d25df660677cefe5d09e620e"
+  },
+  "firmware-versions/0.5.5/rev3/image-info.txt": {
+    "source": "keyless-public-build/0.5.5/rev3/image-info.txt",
+    "original_sha256": "56979df232746ce35d4eb788a334a6711b4d7321e2d1af24524699f0b942c378",
+    "published_sha256": "78de4db9c449067fc0235568eeb9089ba4fe5dd41f3c600a4f79cca95b09b3d1"
+  },
+  "firmware-versions/0.5.5/rev3/manifest.json": {
+    "source": "keyless-public-build/0.5.5/rev3/manifest.json",
+    "original_sha256": "95593ea79ff4885637d240aecb6550d8fe0a87c081c09e97430f52da650939c0",
+    "published_sha256": "75d5de0367cf01bf71e644cb4728558c6ad7412eccdfeed975cf6d978ca26e95"
+  },
+  "firmware-versions/0.5.5/rev3/ota_data_initial.bin": {
+    "source": "verified-keyless-public-build/0.5.5/rev3/ota_data_initial.bin",
+    "original_sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f",
+    "published_sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+  },
+  "firmware-versions/0.5.5/rev3/p4_tinystories.bin": {
+    "source": "verified-keyless-public-build/0.5.5/rev3/p4_tinystories.bin",
+    "original_sha256": "6c3cbb23fc8ef238c194bf38b2f889890c9609948b81baa9ca960482d63f8ec7",
+    "published_sha256": "6c3cbb23fc8ef238c194bf38b2f889890c9609948b81baa9ca960482d63f8ec7"
+  },
+  "firmware-versions/0.5.5/rev3/partition-table.bin": {
+    "source": "verified-keyless-public-build/0.5.5/rev3/partition-table.bin",
+    "original_sha256": "a90a58aea09558621809b0ceea69f583e8df24d5759c8f5eae4efc6253366d40",
+    "published_sha256": "a90a58aea09558621809b0ceea69f583e8df24d5759c8f5eae4efc6253366d40"
+  },
+  "firmware-versions/0.5.5/source/firmware/CMakeLists.txt": {
+    "source": "keyless-public-build/0.5.5/source/firmware/CMakeLists.txt",
+    "original_sha256": "69cd999d32face35d368fb289ebc83981fc340eef158e0bad07861719fe1ebeb",
+    "published_sha256": "69cd999d32face35d368fb289ebc83981fc340eef158e0bad07861719fe1ebeb"
+  },
+  "firmware-versions/0.5.5/source/firmware/components/dispatch_queue/CMakeLists.txt": {
+    "source": "keyless-public-build/0.5.5/source/firmware/components/dispatch_queue/CMakeLists.txt",
+    "original_sha256": "6364e4b37f32f4a99c17ddecc9139689bf6a60c7404d803ca363983758d949d1",
+    "published_sha256": "6364e4b37f32f4a99c17ddecc9139689bf6a60c7404d803ca363983758d949d1"
+  },
+  "firmware-versions/0.5.5/source/firmware/components/dispatch_queue/dispatch_queue.c": {
+    "source": "keyless-public-build/0.5.5/source/firmware/components/dispatch_queue/dispatch_queue.c",
+    "original_sha256": "714b31d331aa9cb2ae11a7e8b839a15ec3b43fa74fa2919345347e8963c57c0a",
+    "published_sha256": "714b31d331aa9cb2ae11a7e8b839a15ec3b43fa74fa2919345347e8963c57c0a"
+  },
+  "firmware-versions/0.5.5/source/firmware/components/dispatch_queue/include/dispatch_queue.h": {
+    "source": "keyless-public-build/0.5.5/source/firmware/components/dispatch_queue/include/dispatch_queue.h",
+    "original_sha256": "9f4c61ce0e64b55421ca647785d265f6aa2da3e3c32dc0004f5b0ba3e46de828",
+    "published_sha256": "9f4c61ce0e64b55421ca647785d265f6aa2da3e3c32dc0004f5b0ba3e46de828"
+  },
+  "firmware-versions/0.5.5/source/firmware/components/tinyllm/cluster_rpc.c": {
+    "source": "keyless-public-build/0.5.5/source/firmware/components/tinyllm/cluster_rpc.c",
+    "original_sha256": "23eb3dbfcb8fcaecce688fe4bbc1051e9910c39bbad7e74cff4e54aec61f33d4",
+    "published_sha256": "23eb3dbfcb8fcaecce688fe4bbc1051e9910c39bbad7e74cff4e54aec61f33d4"
+  },
+  "firmware-versions/0.5.5/source/firmware/components/tinyllm/CMakeLists.txt": {
+    "source": "keyless-public-build/0.5.5/source/firmware/components/tinyllm/CMakeLists.txt",
+    "original_sha256": "f45cc7ac8c90169ffc473f61549a3e92f145057d9d750af403fa3bbb7dad1143",
+    "published_sha256": "f45cc7ac8c90169ffc473f61549a3e92f145057d9d750af403fa3bbb7dad1143"
+  },
+  "firmware-versions/0.5.5/source/firmware/components/tinyllm/gpt2_tokenizer.c": {
+    "source": "keyless-public-build/0.5.5/source/firmware/components/tinyllm/gpt2_tokenizer.c",
+    "original_sha256": "65b3afe3db44d3a7d2aa8078100239aacd0a327d14047ccc8ea39293981e5288",
+    "published_sha256": "65b3afe3db44d3a7d2aa8078100239aacd0a327d14047ccc8ea39293981e5288"
+  },
+  "firmware-versions/0.5.5/source/firmware/components/tinyllm/include/cluster_rpc.h": {
+    "source": "keyless-public-build/0.5.5/source/firmware/components/tinyllm/include/cluster_rpc.h",
+    "original_sha256": "b539358f106d39dc3c54b40c4caa4ae7e9d9cec40c3e266f98b5143d96160668",
+    "published_sha256": "b539358f106d39dc3c54b40c4caa4ae7e9d9cec40c3e266f98b5143d96160668"
+  },
+  "firmware-versions/0.5.5/source/firmware/components/tinyllm/include/gpt2_tokenizer.h": {
+    "source": "keyless-public-build/0.5.5/source/firmware/components/tinyllm/include/gpt2_tokenizer.h",
+    "original_sha256": "5cd73d3901498eb598c0c9262d87f5f92aaeea9cfbc555505672d6671c456a1a",
+    "published_sha256": "5cd73d3901498eb598c0c9262d87f5f92aaeea9cfbc555505672d6671c456a1a"
+  },
+  "firmware-versions/0.5.5/source/firmware/components/tinyllm/include/tinyllm.h": {
+    "source": "keyless-public-build/0.5.5/source/firmware/components/tinyllm/include/tinyllm.h",
+    "original_sha256": "833d3fd851c30ed839a92efa0d5229312cd63183dd7b892a92bf45cb79dba3b8",
+    "published_sha256": "833d3fd851c30ed839a92efa0d5229312cd63183dd7b892a92bf45cb79dba3b8"
+  },
+  "firmware-versions/0.5.5/source/firmware/components/tinyllm/tinyllm.c": {
+    "source": "keyless-public-build/0.5.5/source/firmware/components/tinyllm/tinyllm.c",
+    "original_sha256": "7c2da727732977e08be2e8e0a7d702cf04ef4ddf025a5c7845ef20ab3b5f6431",
+    "published_sha256": "7c2da727732977e08be2e8e0a7d702cf04ef4ddf025a5c7845ef20ab3b5f6431"
+  },
+  "firmware-versions/0.5.5/source/firmware/main/app.h": {
+    "source": "keyless-public-build/0.5.5/source/firmware/main/app.h",
+    "original_sha256": "566d948916018d06f907ffa50f713bd794c40cbacec01b90d9b3a58fdd4297b6",
+    "published_sha256": "566d948916018d06f907ffa50f713bd794c40cbacec01b90d9b3a58fdd4297b6"
+  },
+  "firmware-versions/0.5.5/source/firmware/main/cluster.html": {
+    "source": "keyless-public-build/0.5.5/source/firmware/main/cluster.html",
+    "original_sha256": "d47c5c65c681f13a4016fe5589d6a9c6171d71a52acc7c8bf4e8ad83659643d4",
+    "published_sha256": "d47c5c65c681f13a4016fe5589d6a9c6171d71a52acc7c8bf4e8ad83659643d4"
+  },
+  "firmware-versions/0.5.5/source/firmware/main/CMakeLists.txt": {
+    "source": "keyless-public-build/0.5.5/source/firmware/main/CMakeLists.txt",
+    "original_sha256": "7596b30ebb06e21537a09ebb648998a9b10a3b7f29102b46d14926ccc1e56085",
+    "published_sha256": "7596b30ebb06e21537a09ebb648998a9b10a3b7f29102b46d14926ccc1e56085"
+  },
+  "firmware-versions/0.5.5/source/firmware/main/dispatcher.c": {
+    "source": "keyless-public-build/0.5.5/source/firmware/main/dispatcher.c",
+    "original_sha256": "0515dc9842dde0be71bb21e9f08ffd507e5685781a7a868c5d31600e65526583",
+    "published_sha256": "0515dc9842dde0be71bb21e9f08ffd507e5685781a7a868c5d31600e65526583"
+  },
+  "firmware-versions/0.5.5/source/firmware/main/index.html": {
+    "source": "keyless-public-build/0.5.5/source/firmware/main/index.html",
+    "original_sha256": "2c23880ca73e8eeb8fa485a539b3e85a9818a3c0511102e965459a17441cdc22",
+    "published_sha256": "2c23880ca73e8eeb8fa485a539b3e85a9818a3c0511102e965459a17441cdc22"
+  },
+  "firmware-versions/0.5.5/source/firmware/main/Kconfig.projbuild": {
+    "source": "keyless-public-build/0.5.5/source/firmware/main/Kconfig.projbuild",
+    "original_sha256": "7bad2d9dff75bce313cd68874db6de9540451e34d0af9043e42bed2e34e77ea5",
+    "published_sha256": "7bad2d9dff75bce313cd68874db6de9540451e34d0af9043e42bed2e34e77ea5"
+  },
+  "firmware-versions/0.5.5/source/firmware/main/lan.c": {
+    "source": "keyless-public-build/0.5.5/source/firmware/main/lan.c",
+    "original_sha256": "5160ec9823957bcd1d87f60f865fbe3c8606eaaf65ce007107cfdf2a5b424368",
+    "published_sha256": "5160ec9823957bcd1d87f60f865fbe3c8606eaaf65ce007107cfdf2a5b424368"
+  },
+  "firmware-versions/0.5.5/source/firmware/main/main.c": {
+    "source": "keyless-public-build/0.5.5/source/firmware/main/main.c",
+    "original_sha256": "bee7a031183f8152c4af2006305b986b777dac089535ca001e4e7f277ca17267",
+    "published_sha256": "bee7a031183f8152c4af2006305b986b777dac089535ca001e4e7f277ca17267"
+  },
+  "firmware-versions/0.5.5/source/firmware/main/service.c": {
+    "source": "keyless-public-build/0.5.5/source/firmware/main/service.c",
+    "original_sha256": "e0ae0f1b262ccc49b5cd625cb3d87a29095c1108974217ec571608d4841f5f4c",
+    "published_sha256": "e0ae0f1b262ccc49b5cd625cb3d87a29095c1108974217ec571608d4841f5f4c"
+  },
+  "firmware-versions/0.5.5/source/firmware/partitions.csv": {
+    "source": "keyless-public-build/0.5.5/source/firmware/partitions.csv",
+    "original_sha256": "f5ade5c6866297d6fa8a3d154da076fdfbd210e0fd34f4fc88b33bcb14483976",
+    "published_sha256": "f5ade5c6866297d6fa8a3d154da076fdfbd210e0fd34f4fc88b33bcb14483976"
+  },
+  "firmware-versions/0.5.5/source/firmware/sdkconfig.defaults": {
+    "source": "keyless-public-build/0.5.5/source/firmware/sdkconfig.defaults",
+    "original_sha256": "9f4a2dd120407716bd184f5d8bb11bfe0bbd3937d49e67cc77b5f471626737fe",
+    "published_sha256": "9f4a2dd120407716bd184f5d8bb11bfe0bbd3937d49e67cc77b5f471626737fe"
+  },
+  "firmware-versions/0.5.5/source/firmware/sdkconfig.rev1.defaults": {
+    "source": "keyless-public-build/0.5.5/source/firmware/sdkconfig.rev1.defaults",
+    "original_sha256": "0f80ab54f4ddb9e8cff8d7f9096b646b7dd3fce605d318877f5113b55794e80b",
+    "published_sha256": "0f80ab54f4ddb9e8cff8d7f9096b646b7dd3fce605d318877f5113b55794e80b"
+  },
+  "firmware-versions/0.5.5/source/firmware/sdkconfig.rev3.defaults": {
+    "source": "keyless-public-build/0.5.5/source/firmware/sdkconfig.rev3.defaults",
+    "original_sha256": "7b40ef4c6cee9e809263ec079db688040e595a087796b1a1d1262ceb92036ad1",
+    "published_sha256": "7b40ef4c6cee9e809263ec079db688040e595a087796b1a1d1262ceb92036ad1"
+  },
+  "firmware-versions/catalog.json": {
+    "source": "keyless-public-build/catalog.json",
+    "original_sha256": "ac76456da29acd7755e9b53eab0112a5369488b1969713262557ac555fcacfc1",
+    "published_sha256": "77c9a912da68330f7cf7020cc3379642bbce8bc9a7065f00852199fc0d06a871"
+  },
+  "firmware-versions/third-party-licenses/compiler-runtime/gcc/COPYING": {
+    "source": "public-upstream-licence/third-party-licenses/compiler-runtime/gcc/COPYING",
+    "original_sha256": "231f7edcc7352d7734a96eef0b8030f77982678c516876fcb81e25b32d68564c",
+    "published_sha256": "231f7edcc7352d7734a96eef0b8030f77982678c516876fcb81e25b32d68564c"
+  },
+  "firmware-versions/third-party-licenses/compiler-runtime/gcc/COPYING.LIB": {
+    "source": "public-upstream-licence/third-party-licenses/compiler-runtime/gcc/COPYING.LIB",
+    "original_sha256": "a9bdde5616ecdd1e980b44f360600ee8783b1f99b8cc83a2beb163a0a390e861",
+    "published_sha256": "a9bdde5616ecdd1e980b44f360600ee8783b1f99b8cc83a2beb163a0a390e861"
+  },
+  "firmware-versions/third-party-licenses/compiler-runtime/gcc/COPYING.RUNTIME": {
+    "source": "public-upstream-licence/third-party-licenses/compiler-runtime/gcc/COPYING.RUNTIME",
+    "original_sha256": "9d6b43ce4d8de0c878bf16b54d8e7a10d9bd42b75178153e3af6a815bdc90f74",
+    "published_sha256": "9d6b43ce4d8de0c878bf16b54d8e7a10d9bd42b75178153e3af6a815bdc90f74"
+  },
+  "firmware-versions/third-party-licenses/compiler-runtime/gcc/COPYING3": {
+    "source": "public-upstream-licence/third-party-licenses/compiler-runtime/gcc/COPYING3",
+    "original_sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "published_sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+  },
+  "firmware-versions/third-party-licenses/compiler-runtime/gcc/COPYING3.LIB": {
+    "source": "public-upstream-licence/third-party-licenses/compiler-runtime/gcc/COPYING3.LIB",
+    "original_sha256": "a853c2ffec17057872340eee242ae4d96cbf2b520ae27d903e1b2fef1a5f9d1c",
+    "published_sha256": "a853c2ffec17057872340eee242ae4d96cbf2b520ae27d903e1b2fef1a5f9d1c"
+  },
+  "firmware-versions/third-party-licenses/compiler-runtime/newlib/COPYING": {
+    "source": "public-upstream-licence/third-party-licenses/compiler-runtime/newlib/COPYING",
+    "original_sha256": "231f7edcc7352d7734a96eef0b8030f77982678c516876fcb81e25b32d68564c",
+    "published_sha256": "231f7edcc7352d7734a96eef0b8030f77982678c516876fcb81e25b32d68564c"
+  },
+  "firmware-versions/third-party-licenses/compiler-runtime/newlib/COPYING.LIB": {
+    "source": "public-upstream-licence/third-party-licenses/compiler-runtime/newlib/COPYING.LIB",
+    "original_sha256": "a9bdde5616ecdd1e980b44f360600ee8783b1f99b8cc83a2beb163a0a390e861",
+    "published_sha256": "a9bdde5616ecdd1e980b44f360600ee8783b1f99b8cc83a2beb163a0a390e861"
+  },
+  "firmware-versions/third-party-licenses/compiler-runtime/newlib/COPYING.LIBGLOSS": {
+    "source": "public-upstream-licence/third-party-licenses/compiler-runtime/newlib/COPYING.LIBGLOSS",
+    "original_sha256": "f3b7f3e4426b1fa6f60198dae7adfedd94b77b28db2d108adc0253575011e0ff",
+    "published_sha256": "f3b7f3e4426b1fa6f60198dae7adfedd94b77b28db2d108adc0253575011e0ff"
+  },
+  "firmware-versions/third-party-licenses/compiler-runtime/newlib/COPYING.NEWLIB": {
+    "source": "public-upstream-licence/third-party-licenses/compiler-runtime/newlib/COPYING.NEWLIB",
+    "original_sha256": "422aa40293093fb54fc66e692a0d68fd0b24ed5602e5d1d33ad05ba3909057e9",
+    "published_sha256": "422aa40293093fb54fc66e692a0d68fd0b24ed5602e5d1d33ad05ba3909057e9"
+  },
+  "firmware-versions/third-party-licenses/compiler-runtime/newlib/COPYING3": {
+    "source": "public-upstream-licence/third-party-licenses/compiler-runtime/newlib/COPYING3",
+    "original_sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "published_sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+  },
+  "firmware-versions/third-party-licenses/compiler-runtime/newlib/COPYING3.LIB": {
+    "source": "public-upstream-licence/third-party-licenses/compiler-runtime/newlib/COPYING3.LIB",
+    "original_sha256": "a853c2ffec17057872340eee242ae4d96cbf2b520ae27d903e1b2fef1a5f9d1c",
+    "published_sha256": "a853c2ffec17057872340eee242ae4d96cbf2b520ae27d903e1b2fef1a5f9d1c"
+  },
+  "firmware-versions/third-party-licenses/compiler-runtime/picolibc/COPYING.GPL2": {
+    "source": "public-upstream-licence/third-party-licenses/compiler-runtime/picolibc/COPYING.GPL2",
+    "original_sha256": "231f7edcc7352d7734a96eef0b8030f77982678c516876fcb81e25b32d68564c",
+    "published_sha256": "231f7edcc7352d7734a96eef0b8030f77982678c516876fcb81e25b32d68564c"
+  },
+  "firmware-versions/third-party-licenses/compiler-runtime/picolibc/COPYING.NEWLIB": {
+    "source": "public-upstream-licence/third-party-licenses/compiler-runtime/picolibc/COPYING.NEWLIB",
+    "original_sha256": "fcfb5ec69b6ab52676dcc4dab7cf4338c8000ef97812dadd35b8592a640a8419",
+    "published_sha256": "fcfb5ec69b6ab52676dcc4dab7cf4338c8000ef97812dadd35b8592a640a8419"
+  },
+  "firmware-versions/third-party-licenses/compiler-runtime/picolibc/COPYING.picolibc": {
+    "source": "public-upstream-licence/third-party-licenses/compiler-runtime/picolibc/COPYING.picolibc",
+    "original_sha256": "1e427387b690483dad761268beb0f09a824ecba6132c4dfee78d1fb21a6e75b5",
+    "published_sha256": "1e427387b690483dad761268beb0f09a824ecba6132c4dfee78d1fb21a6e75b5"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/bootloader/subproject/components/micro-ecc/micro-ecc/LICENSE.txt": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/bootloader/subproject/components/micro-ecc/micro-ecc/LICENSE.txt",
+    "original_sha256": "fd0fcdaba5ad2a9ca9b051dd7db92b71a550ce8cd88c4aaae1a8edc564a71eec",
+    "published_sha256": "fd0fcdaba5ad2a9ca9b051dd7db92b71a550ce8cd88c4aaae1a8edc564a71eec"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/bt/common/tinycrypt/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/bt/common/tinycrypt/LICENSE",
+    "original_sha256": "59cac5d953f95834e29d3379daad878a054b0c0448ef5782287af4b830d54a87",
+    "published_sha256": "59cac5d953f95834e29d3379daad878a054b0c0448ef5782287af4b830d54a87"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/bt/controller/lib_esp32/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/bt/controller/lib_esp32/LICENSE",
+    "original_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+    "published_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/bt/controller/lib_esp32c2/esp32c2-bt-lib/NOTICE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/bt/controller/lib_esp32c2/esp32c2-bt-lib/NOTICE",
+    "original_sha256": "2fa59a1d928afc5b232d7a4671ec6b8ed5873e9bd73117a7f7d82f9548f1e5c4",
+    "published_sha256": "2fa59a1d928afc5b232d7a4671ec6b8ed5873e9bd73117a7f7d82f9548f1e5c4"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/bt/controller/lib_esp32c3_family/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/bt/controller/lib_esp32c3_family/LICENSE",
+    "original_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+    "published_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/bt/controller/lib_esp32c5/esp32c5-bt-lib/NOTICE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/bt/controller/lib_esp32c5/esp32c5-bt-lib/NOTICE",
+    "original_sha256": "bfde574eb85bf89b275fed95ec64b2fb15372b31b0c0609aa1419cb460e923d2",
+    "published_sha256": "bfde574eb85bf89b275fed95ec64b2fb15372b31b0c0609aa1419cb460e923d2"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/bt/controller/lib_esp32c6/esp32c6-bt-lib/NOTICE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/bt/controller/lib_esp32c6/esp32c6-bt-lib/NOTICE",
+    "original_sha256": "bfde574eb85bf89b275fed95ec64b2fb15372b31b0c0609aa1419cb460e923d2",
+    "published_sha256": "bfde574eb85bf89b275fed95ec64b2fb15372b31b0c0609aa1419cb460e923d2"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/bt/controller/lib_esp32h2/esp32h2-bt-lib/NOTICE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/bt/controller/lib_esp32h2/esp32h2-bt-lib/NOTICE",
+    "original_sha256": "73da9ed090c372a73be6a273d769f374a4b24dea92215125dde7501e0294ede8",
+    "published_sha256": "73da9ed090c372a73be6a273d769f374a4b24dea92215125dde7501e0294ede8"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/bt/esp_ble_mesh/lib/lib/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/bt/esp_ble_mesh/lib/lib/LICENSE",
+    "original_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+    "published_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/bt/host/nimble/nimble/ext/tinycrypt/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/bt/host/nimble/nimble/ext/tinycrypt/LICENSE",
+    "original_sha256": "2ef507c5270c8f91fe191a3af0fdb2cafdb70d34bcd5039c206471770fded2dd",
+    "published_sha256": "2ef507c5270c8f91fe191a3af0fdb2cafdb70d34bcd5039c206471770fded2dd"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/bt/host/nimble/nimble/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/bt/host/nimble/nimble/LICENSE",
+    "original_sha256": "22189d48b0f923ce46b24b68ea6f51d7d725f091756b4be95264c0907c0e839c",
+    "published_sha256": "22189d48b0f923ce46b24b68ea6f51d7d725f091756b4be95264c0907c0e839c"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/bt/host/nimble/nimble/NOTICE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/bt/host/nimble/nimble/NOTICE",
+    "original_sha256": "0eecb2edc6a28e1666befe0ebb3ff3c7147a29a8f80bf45aa84666f939b602de",
+    "published_sha256": "0eecb2edc6a28e1666befe0ebb3ff3c7147a29a8f80bf45aa84666f939b602de"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/cmock/CMock/LICENSE.txt": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/cmock/CMock/LICENSE.txt",
+    "original_sha256": "e7735cc9a725bb950b8350bd61eea0a9391c52885ee2da84146e101c48ef22d8",
+    "published_sha256": "e7735cc9a725bb950b8350bd61eea0a9391c52885ee2da84146e101c48ef22d8"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/cmock/CMock/vendor/unity/LICENSE.txt": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/cmock/CMock/vendor/unity/LICENSE.txt",
+    "original_sha256": "d43e3e832d22e639399ea42e2a8e6f16c543187bdeb0ffe368a29768b3986a33",
+    "published_sha256": "d43e3e832d22e639399ea42e2a8e6f16c543187bdeb0ffe368a29768b3986a33"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/console/argtable3/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/console/argtable3/LICENSE",
+    "original_sha256": "6d40319bacbddadf27a707b4ec95dab8a1659db7cccd7737bf96e8b06ec496d6",
+    "published_sha256": "6d40319bacbddadf27a707b4ec95dab8a1659db7cccd7737bf96e8b06ec496d6"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/console/linenoise/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/console/linenoise/LICENSE",
+    "original_sha256": "02c2719d5b822fbff9958d66aabfe960395ad9dfa75bb3ebc5716438849e26ee",
+    "published_sha256": "02c2719d5b822fbff9958d66aabfe960395ad9dfa75bb3ebc5716438849e26ee"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/driver/test_apps/components/esp_serial_slave_link/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/driver/test_apps/components/esp_serial_slave_link/LICENSE",
+    "original_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+    "published_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/esp_coex/lib/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/esp_coex/lib/LICENSE",
+    "original_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+    "published_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/esp_phy/lib/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/esp_phy/lib/LICENSE",
+    "original_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+    "published_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/esp_wifi/lib/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/esp_wifi/lib/LICENSE",
+    "original_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+    "published_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/esptool_py/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/esptool_py/LICENSE",
+    "original_sha256": "189b1af95d661151e054cea10c91b3d754e4de4d3fecfb074c1fb29476f7167b",
+    "published_sha256": "189b1af95d661151e054cea10c91b3d754e4de4d3fecfb074c1fb29476f7167b"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/freertos/FreeRTOS-Kernel/LICENSE.md": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/freertos/FreeRTOS-Kernel/LICENSE.md",
+    "original_sha256": "9eb6f69d48a1dd764e8a33f14a584f460d3cec653477c136a95dd6df9c249211",
+    "published_sha256": "9eb6f69d48a1dd764e8a33f14a584f460d3cec653477c136a95dd6df9c249211"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/http_parser/LICENSE.txt": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/http_parser/LICENSE.txt",
+    "original_sha256": "14f0f5ea26db2dd47f77e2d8321d36a712cd5e2d2c94e75bc32b0ffecb5f9407",
+    "published_sha256": "14f0f5ea26db2dd47f77e2d8321d36a712cd5e2d2c94e75bc32b0ffecb5f9407"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/json/cJSON/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/json/cJSON/LICENSE",
+    "original_sha256": "ca7ea72cf3674a70394b1f377e85dc402a2dfae37385f14da6ccba4296849f9b",
+    "published_sha256": "ca7ea72cf3674a70394b1f377e85dc402a2dfae37385f14da6ccba4296849f9b"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/json/cJSON/tests/unity/docs/license.txt": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/json/cJSON/tests/unity/docs/license.txt",
+    "original_sha256": "d43e3e832d22e639399ea42e2a8e6f16c543187bdeb0ffe368a29768b3986a33",
+    "published_sha256": "d43e3e832d22e639399ea42e2a8e6f16c543187bdeb0ffe368a29768b3986a33"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/lwip/lwip/contrib/apps/LwipMibCompiler/SharpSnmpLib/license.txt": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/lwip/lwip/contrib/apps/LwipMibCompiler/SharpSnmpLib/license.txt",
+    "original_sha256": "d3f3fd767721d951509623be078ee66da41c65cff6e14a91c97f18269f55dd35",
+    "published_sha256": "d3f3fd767721d951509623be078ee66da41c65cff6e14a91c97f18269f55dd35"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/lwip/lwip/COPYING": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/lwip/lwip/COPYING",
+    "original_sha256": "d51980b934e4411a8e0d80ce61afa28978bf0d49c50d0ee93f705679cb8a6042",
+    "published_sha256": "d51980b934e4411a8e0d80ce61afa28978bf0d49c50d0ee93f705679cb8a6042"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/mbedtls/mbedtls/framework/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/mbedtls/mbedtls/framework/LICENSE",
+    "original_sha256": "ff57ed3fa7a901736f9e5d77bef8de9791db159c3dd59c54d6a73c7ed29f67ca",
+    "published_sha256": "ff57ed3fa7a901736f9e5d77bef8de9791db159c3dd59c54d6a73c7ed29f67ca"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/mbedtls/mbedtls/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/mbedtls/mbedtls/LICENSE",
+    "original_sha256": "f8582e76de1b7dd1caa680ab9a82cf2455b4392f00613b68a63df88121909175",
+    "published_sha256": "f8582e76de1b7dd1caa680ab9a82cf2455b4392f00613b68a63df88121909175"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/mqtt/esp-mqtt/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/mqtt/esp-mqtt/LICENSE",
+    "original_sha256": "a839bc49e61d4042207414bb135616f9aec4f6cf4c24bfdcf3ca52bf984cf6a6",
+    "published_sha256": "a839bc49e61d4042207414bb135616f9aec4f6cf4c24bfdcf3ca52bf984cf6a6"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/newlib/COPYING.NEWLIB": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/newlib/COPYING.NEWLIB",
+    "original_sha256": "df5d7e8e96db77d711ef463ba98f1206202ec6796dfd61156420604df9f7787a",
+    "published_sha256": "df5d7e8e96db77d711ef463ba98f1206202ec6796dfd61156420604df9f7787a"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/newlib/COPYING.picolibc": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/newlib/COPYING.picolibc",
+    "original_sha256": "2a99316f9925b1022aad4b3d048c0f9c5e3e81fef4210e0c0ce9179d692613fb",
+    "published_sha256": "2a99316f9925b1022aad4b3d048c0f9c5e3e81fef4210e0c0ce9179d692613fb"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/openthread/lib/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/openthread/lib/LICENSE",
+    "original_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+    "published_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/openthread/openthread/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/openthread/openthread/LICENSE",
+    "original_sha256": "d8ca37fbdc4635a74a07a8abea70bda1649b319cfbd647f221102803ae18f375",
+    "published_sha256": "d8ca37fbdc4635a74a07a8abea70bda1649b319cfbd647f221102803ae18f375"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/openthread/openthread/NOTICE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/openthread/openthread/NOTICE",
+    "original_sha256": "8054d2b21d4a963db2ee0c7b9a87e452e60e64f5534e12f427e481015c067f03",
+    "published_sha256": "8054d2b21d4a963db2ee0c7b9a87e452e60e64f5534e12f427e481015c067f03"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/openthread/openthread/third_party/jlink/SEGGER_RTT_V640/License.txt": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/openthread/openthread/third_party/jlink/SEGGER_RTT_V640/License.txt",
+    "original_sha256": "f2aaeb9650e9660b757a8f831bd1688266ee2b9b03a994152c820e47bd5aa189",
+    "published_sha256": "f2aaeb9650e9660b757a8f831bd1688266ee2b9b03a994152c820e47bd5aa189"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/openthread/openthread/third_party/mbedtls/repo/framework/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/openthread/openthread/third_party/mbedtls/repo/framework/LICENSE",
+    "original_sha256": "ff57ed3fa7a901736f9e5d77bef8de9791db159c3dd59c54d6a73c7ed29f67ca",
+    "published_sha256": "ff57ed3fa7a901736f9e5d77bef8de9791db159c3dd59c54d6a73c7ed29f67ca"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/openthread/openthread/third_party/mbedtls/repo/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/openthread/openthread/third_party/mbedtls/repo/LICENSE",
+    "original_sha256": "f8582e76de1b7dd1caa680ab9a82cf2455b4392f00613b68a63df88121909175",
+    "published_sha256": "f8582e76de1b7dd1caa680ab9a82cf2455b4392f00613b68a63df88121909175"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/openthread/openthread/tools/otci/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/openthread/openthread/tools/otci/LICENSE",
+    "original_sha256": "cc287832d76f99f26c2f390fa823f444ca90f36e074c0114798b596b5a7517ab",
+    "published_sha256": "cc287832d76f99f26c2f390fa823f444ca90f36e074c0114798b596b5a7517ab"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/protobuf-c/protobuf-c/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/protobuf-c/protobuf-c/LICENSE",
+    "original_sha256": "94fcfb715aa895ec64032ec6050112d3fa59e3f909db4721a8f1993b87f82f0d",
+    "published_sha256": "94fcfb715aa895ec64032ec6050112d3fa59e3f909db4721a8f1993b87f82f0d"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/spiffs/spiffs/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/spiffs/spiffs/LICENSE",
+    "original_sha256": "e8be7464b572f1ea73027c54acf44eae31b55b5996a086b61d00535d1ce7be95",
+    "published_sha256": "e8be7464b572f1ea73027c54acf44eae31b55b5996a086b61d00535d1ce7be95"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/unity/unity/LICENSE.txt": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/unity/unity/LICENSE.txt",
+    "original_sha256": "9074ec3ba0f6f4d4caa4e10ead9c96aef7b200e1330035d31017af1a52812602",
+    "published_sha256": "9074ec3ba0f6f4d4caa4e10ead9c96aef7b200e1330035d31017af1a52812602"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/components/wpa_supplicant/COPYING": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/components/wpa_supplicant/COPYING",
+    "original_sha256": "8c6f3a27cc3025636eb8f3019a3204953c74bb2a8dcab8fb89c0d63bf8b0e6f5",
+    "published_sha256": "8c6f3a27cc3025636eb8f3019a3204953c74bb2a8dcab8fb89c0d63bf8b0e6f5"
+  },
+  "firmware-versions/third-party-licenses/esp-idf/LICENSE": {
+    "source": "public-upstream-licence/third-party-licenses/esp-idf/LICENSE",
+    "original_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+    "published_sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5"
+  },
+  "firmware-versions/third-party-licenses/manifest.json": {
+    "source": "public-upstream-licence/third-party-licenses/manifest.json",
+    "original_sha256": "494ebbd48bad907f287439f399e16f3ddcdc5c51274a47d561c5bede14b02a43",
+    "published_sha256": "494ebbd48bad907f287439f399e16f3ddcdc5c51274a47d561c5bede14b02a43"
   }
 }

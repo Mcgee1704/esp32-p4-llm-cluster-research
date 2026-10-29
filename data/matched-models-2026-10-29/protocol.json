@@ -1,0 +1,264 @@
+{
+  "date": "2026-10-29",
+  "models": {
+    "sft": {
+      "name": "TinyStories-15M SFT",
+      "repository": "0rn0/llama2-15m-tinystories-sft",
+      "artifact_bytes": 15836365,
+      "artifact_sha256": "a1aa4c95d23be513adee776fc2bbb835fce2e5ab88ddd04461da3c69d35495cd",
+      "model_id": "5273bac5d1937595d92e1528a21ad7ac619e5fde8d2bfbb0aca04866bf10e07f",
+      "dimensions": [
+        288,
+        768,
+        6,
+        6,
+        6,
+        32000,
+        256
+      ]
+    },
+    "story8": {
+      "name": "TinyStories-Instruct-8M",
+      "repository": "roneneldan/TinyStories-Instruct-8M",
+      "revision": "18d7c83c2d7b0685b0da3c26379dd4d4d90a1ffb",
+      "hidden": 256,
+      "weights_sha256": "4d625b61fae5ca897e037b702e5774598eace89720be23a4bcce68d4cb0b665b",
+      "legacy_masks": true,
+      "artifact_bytes": 21380448,
+      "artifact_sha256": "3ffc23f7bc1b651d24d15f2c2744fef97a136883a445694a261c9cb0b948149c",
+      "model_id": "86d2651b7fc1385c68b5d97f81047678f74fec3c60b62c3a94e168ba741997ef",
+      "dimensions": [
+        256,
+        1024,
+        8,
+        16,
+        16,
+        50257,
+        256
+      ],
+      "actual_parameters": 19702528
+    },
+    "talk1": {
+      "name": "TinyTalk 1",
+      "repository": "TheREZOR/TinyTalk",
+      "revision": "61c79ad139344cdd344a687b35fa8f1c52326154",
+      "hidden": 128,
+      "weights_sha256": "d7510ceac1d4f2a7d00b6f2da92cdce38706faa60a96c60884819d00ef58af77",
+      "legacy_masks": false,
+      "artifact_bytes": 9887968,
+      "artifact_sha256": "1f258f0aabe64e6f123b9703d73d3c100a5f58661e63484ceefc6f16149f8500",
+      "model_id": "17a9c99d125ea8663185e191405f3ab7119a6fadaf78cea364779ad08971fb0e",
+      "dimensions": [
+        128,
+        512,
+        8,
+        16,
+        16,
+        50257,
+        256
+      ],
+      "actual_parameters": 8278400
+    },
+    "talk2": {
+      "name": "TinyTalk-2",
+      "repository": "TheREZOR/TinyTalk-2",
+      "revision": "2b55040281013975a4d97e3db8d634f78b31c6b1",
+      "hidden": 256,
+      "weights_sha256": "40e10ee793e157f09fb94d2926db9aa3f81d42814249f1c1db023b7027f17567",
+      "legacy_masks": false,
+      "artifact_bytes": 21380448,
+      "artifact_sha256": "15f705ffce7ec2cf378dbe78c67c7c5c18e0ca41f2a3cd4d98c68a1e97264de2",
+      "model_id": "8fb68b9d2c64d260277ecc4ad90a17cac6f8113db4b646a08b7c7ada295c9b60",
+      "dimensions": [
+        256,
+        1024,
+        8,
+        16,
+        16,
+        50257,
+        256
+      ],
+      "actual_parameters": 19702528
+    }
+  },
+  "cases": [
+    {
+      "id": "S1",
+      "category": "story",
+      "prompt": "Once upon a time, a rabbit named Pip had a carrot. His friend Fox was hungry. Pip decided to share",
+      "limit": 128,
+      "rubric_topic": [
+        "rabbit and hungry friend",
+        "sharing food"
+      ]
+    },
+    {
+      "id": "S2",
+      "category": "story",
+      "prompt": "Mia had a broken kite. She wanted to fly it again. She took some string and",
+      "limit": 128,
+      "rubric_topic": [
+        "Mia and kite",
+        "repair or attempt to fly"
+      ]
+    },
+    {
+      "id": "S3",
+      "category": "story",
+      "prompt": "Lily could not find her cat, Luna. She looked in the garden. Then she heard",
+      "limit": 128,
+      "rubric_topic": [
+        "Lily and missing cat",
+        "search or discovery"
+      ]
+    },
+    {
+      "id": "S4",
+      "category": "story",
+      "prompt": "Ben built a sandcastle by the sea. A big wave came and washed it away. Ben felt",
+      "limit": 128,
+      "rubric_topic": [
+        "Ben and lost sandcastle",
+        "reaction to loss"
+      ]
+    },
+    {
+      "id": "Q1",
+      "category": "question",
+      "prompt": "User: What sound does a cow make? Answer in one short sentence.\nBot:",
+      "limit": 32,
+      "expected": [
+        "moo"
+      ]
+    },
+    {
+      "id": "Q2",
+      "category": "question",
+      "prompt": "User: What color is a ripe banana? Answer in one short sentence.\nBot:",
+      "limit": 32,
+      "expected": [
+        "yellow"
+      ]
+    },
+    {
+      "id": "Q3",
+      "category": "question",
+      "prompt": "User: How many wheels does a bicycle usually have? Answer in one short sentence.\nBot:",
+      "limit": 32,
+      "expected": [
+        "two",
+        "2"
+      ]
+    },
+    {
+      "id": "Q4",
+      "category": "question",
+      "prompt": "User: What is a baby dog called?\nBot:",
+      "limit": 32,
+      "expected": [
+        "puppy"
+      ]
+    },
+    {
+      "id": "Q5",
+      "category": "question",
+      "prompt": "User: What is the opposite of hot?\nBot:",
+      "limit": 32,
+      "expected": [
+        "cold"
+      ]
+    },
+    {
+      "id": "Q6",
+      "category": "question",
+      "prompt": "User: How many legs does a cat have?\nBot:",
+      "limit": 32,
+      "expected": [
+        "four",
+        "4"
+      ]
+    },
+    {
+      "id": "I1",
+      "category": "instruction",
+      "prompt": "User: Reply with exactly this word: blue\nBot:",
+      "limit": 32,
+      "exact": "blue"
+    },
+    {
+      "id": "I2",
+      "category": "instruction",
+      "prompt": "User: Write exactly three words: red green blue\nBot:",
+      "limit": 32,
+      "exact": "red green blue"
+    },
+    {
+      "id": "I3",
+      "category": "instruction",
+      "prompt": "User: Write one short sentence about rain. Do not mention animals.\nBot:",
+      "limit": 32
+    },
+    {
+      "id": "C2",
+      "category": "memory",
+      "prompt": "User: My cat is called Luna.\nBot: Luna is a nice name.<|endoftext|>\nUser: What is my cat's name?\nBot:",
+      "limit": 32
+    },
+    {
+      "id": "U1",
+      "category": "unknown",
+      "prompt": "User: What is the serial number of the board on my desk?\nBot:",
+      "limit": 32
+    },
+    {
+      "id": "D1",
+      "category": "language-boundary",
+      "prompt": "User: Welche Farbe hat eine reife Banane?\nBot:",
+      "limit": 32
+    }
+  ],
+  "sampling": "greedy",
+  "context": 256,
+  "precision": "row INT8, full vocabulary, FP32 activations/KV",
+  "input_control": "Identical UTF-8 prompt bytes and caps for all four models. Story continuation, not ending instruction. Chat wrapper is native to TinyTalk, not SFT.",
+  "hypotheses": [
+    "Story objective may preserve coherent continuation without improving Q&A.",
+    "TinyTalk-2 may improve Q&A versus TinyTalk 1, confounded by both size and training changes.",
+    "Independent request dispatch should increase aggregate throughput without changing outputs."
+  ],
+  "rubric": {
+    "story": {
+      "topic_continuity": "0 absent/wrong; 1 partial; 2 both listed topic components continued",
+      "coherence": "0 contradictory/incoherent; 1 noticeable contradiction or unexplained shift; 2 no material contradiction in visible text",
+      "narrated_resolution": "0 no resolution; 1 visible narrative resolution (EOS alone insufficient)"
+    },
+    "question": "First substantive factual answer correct, not mere lexical presence. Q1-Q3 also score one-short-sentence format.",
+    "instruction": "I1/I2 stripped exact case-insensitive full output. I3 one short rain sentence, no animals.",
+    "memory_unknown_language": "Descriptive manual inspection, no aggregate assistant claim."
+  },
+  "quality_limits": "One greedy generation per model/task, same unblinded assistant rates all. Elementary facts/subjects may overlap training. No held-out or statistical-quality claim.",
+  "hardware": {
+    "firmware": "0.5.5",
+    "kernel": "tile4",
+    "one_board": "All 16 cases on peer after known control and model-ID check",
+    "benchmark_cases": [
+      "S1",
+      "S2"
+    ],
+    "benchmark_output_cap": 24,
+    "paired_blocks": 4,
+    "modes": [
+      "master only two jobs",
+      "master plus one peer two jobs"
+    ],
+    "order": "AB/BA alternates by block; models SFT, story8, talk1, talk2 (not randomized)",
+    "timing": "Master monotonic created-to-last-finished package time; includes queue/prefill/transport. Actual outputs, tokens/s and Unicode characters/s.",
+    "restoration": "TinyTalk-2 on both; peer configured; no active jobs"
+  },
+  "script_sha256": {
+    "matched_models.py": "acdb94b4283e47c744df3819f20f44d1614b23ba57c741ffe53e41d84c6c16b2",
+    "pack_gptneo.py": "6fb82cca421896f91362bf23505ff221ca82b08f4b6caadaf7038d99ed8c9c0c",
+    "tinytalk_reference.py": "907228cc1a94dbd402cf9e76cea0edbd9fe4434de298d4928e0b7d3c96b9ae41",
+    "check_gptneo_native.py": "f61a567642428a248639de4a8566a72c6218f2446235d01c0036af6c4a8a5420"
+  }
+}

@@ -1,0 +1,49 @@
+esptool.py v4.12.0
+File size: 740320 (bytes)
+
+ESP32P4 image header
+====================
+Image version: 1
+Entry point: 0x4ff203d2
+Segments: 8
+Flash size: 32MB
+Flash freq: 80m
+Flash mode: DIO
+
+ESP32P4 extended image header
+=============================
+WP pin: 0xee (disabled)
+Flash pins drive settings: clk_drv: 0x0, q_drv: 0x0, d_drv: 0x0, cs0_drv: 0x0, hd_drv: 0x0, wp_drv: 0x0
+Chip ID: 18 (ESP32-P4)
+Minimal chip revision: v3.0, (legacy min_rev = 0)
+Maximal chip revision: v3.99
+
+Segments information
+====================
+Segment   Length   Load addr   File offs  Memory types
+-------  -------  ----------  ----------  ------------
+      0  0x1fd6c  0x40080020  0x00000018  DROM, IROM
+      1  0x00164  0x30100000  0x0001fd8c  
+      2  0x00048  0x30100170  0x0001fef8  
+      3  0x000c8  0x4ff20000  0x0001ff48  DRAM, BYTE_ACCESSIBLE, IRAM
+      4  0x7fc10  0x40000020  0x00020018  DROM, IROM
+      5  0x11ea0  0x4ff200c8  0x0009fc30  DRAM, BYTE_ACCESSIBLE, IRAM
+      6  0x02ff0  0x4ff31f80  0x000b1ad8  DRAM, BYTE_ACCESSIBLE, IRAM
+      7  0x000d8  0x50108000  0x000b4ad0  RTC_IRAM, RTC_DRAM
+
+ESP32P4 image footer
+====================
+Checksum: 0x26 (valid)
+Validation hash: 81598c46a9db34f68b0981cefb7f2c745e0560840cf0152be598937f2d048f50 (valid)
+
+Application information
+=======================
+Project name: p4_tinystories
+App version: 0.5.5
+Compile time:  
+ELF file SHA256: bf88d195bcdaf56ff3b2e50fdfcaeaa93e6784874f6c4b5b8c2607b7d5d48a99
+ESP-IDF: v5.5.4
+Minimal eFuse block revision: 0.0
+Maximal eFuse block revision: 1.99
+MMU page size: 64 KB
+Secure version: 0

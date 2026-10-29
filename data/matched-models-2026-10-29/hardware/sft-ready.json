@@ -1,0 +1,28 @@
+{
+  "node-1": {
+    "firmware": "0.5.5",
+    "architecture": "llama",
+    "model_id": "5273bac5d1937595d92e1528a21ad7ac619e5fde8d2bfbb0aca04866bf10e07f",
+    "model_ready": true,
+    "default_kernel": "tile4",
+    "worker_busy": false,
+    "restart_pending": false,
+    "ota_pending": false,
+    "free_heap": null,
+    "free_psram": 12556804,
+    "largest_psram_block": 9699328
+  },
+  "node-2": {
+    "firmware": "0.5.5",
+    "architecture": "llama",
+    "model_id": "5273bac5d1937595d92e1528a21ad7ac619e5fde8d2bfbb0aca04866bf10e07f",
+    "model_ready": true,
+    "default_kernel": "tile4",
+    "worker_busy": false,
+    "restart_pending": false,
+    "ota_pending": false,
+    "free_heap": null,
+    "free_psram": 12892684,
+    "largest_psram_block": 9699328
+  }
+}
