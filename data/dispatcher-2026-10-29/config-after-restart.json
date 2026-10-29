@@ -1,0 +1,24 @@
+{
+  "firmware": "0.2.0",
+  "configured": true,
+  "maintenance": false,
+  "peer": "node-2",
+  "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+  "capacity": 8,
+  "waiting_limit_ms": 180000,
+  "queued": 0,
+  "running": 0,
+  "available_slots": 8,
+  "lanes": [
+    {
+      "target": "local",
+      "last_probe_ok": false,
+      "last_error": ""
+    },
+    {
+      "target": "node-2",
+      "last_probe_ok": false,
+      "last_error": ""
+    }
+  ]
+}

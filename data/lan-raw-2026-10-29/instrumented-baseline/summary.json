@@ -1,0 +1,79 @@
+{
+  "date_utc": "2026-10-29T00:55:17.170719+00:00",
+  "master": "node-1",
+  "peer": "node-2",
+  "prompt": "Once upon a time",
+  "output_tokens": 24,
+  "tokens_identical": true,
+  "status_after": {
+    "node-1": {
+      "firmware": "0.1.1",
+      "model_ready": true,
+      "model_error": "",
+      "worker_busy": false,
+      "free_psram": 12892852,
+      "storage": "internal flash; SD not required for inference",
+      "layers": 6,
+      "context": 256,
+      "dim": 288,
+      "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+      "ota_pending": false
+    },
+    "node-2": {
+      "firmware": "0.1.1",
+      "model_ready": true,
+      "model_error": "",
+      "worker_busy": false,
+      "free_psram": 12892852,
+      "storage": "internal flash; SD not required for inference",
+      "layers": 6,
+      "context": 256,
+      "dim": 288,
+      "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+      "ota_pending": false
+    }
+  },
+  "solo": {
+    "elapsed_ms": 20895.42,
+    "ttft_ms": 2063.297,
+    "elapsed_range_ms": [
+      20895.243,
+      20896.558
+    ],
+    "profile_medians": {
+      "master_compute_ms": 20867.209,
+      "stream_ms": 22.703,
+      "rpc_total_ms": 0,
+      "rpc_open_ms": 0,
+      "rpc_write_ms": 0,
+      "rpc_wait_headers_ms": 0,
+      "rpc_read_ms": 0,
+      "worker_compute_ms": 0,
+      "rpc_calls": 0,
+      "connections": 0,
+      "worker_reports": 0
+    }
+  },
+  "pair": {
+    "elapsed_ms": 33985.522,
+    "ttft_ms": 4738.959,
+    "elapsed_range_ms": [
+      32551.326,
+      33986.826
+    ],
+    "profile_medians": {
+      "master_compute_ms": 16467.937,
+      "stream_ms": 22.226,
+      "rpc_total_ms": 17487.27,
+      "rpc_open_ms": 77.767,
+      "rpc_write_ms": 11.703,
+      "rpc_wait_headers_ms": 17367.823,
+      "rpc_read_ms": 21.619,
+      "worker_compute_ms": 4404.917,
+      "rpc_calls": 30,
+      "connections": 30,
+      "worker_reports": 30
+    }
+  },
+  "pair_extra_percent": 62.645795107253164
+}

@@ -1,0 +1,55 @@
+{
+  "date_utc": "2026-10-29T01:13:14.984995+00:00",
+  "prompts": {
+    "A": "Once upon a time",
+    "B": "One day, a little girl"
+  },
+  "tokens_per_job": 24,
+  "orders": [
+    [
+      "serial",
+      "parallel"
+    ],
+    [
+      "parallel",
+      "serial"
+    ],
+    [
+      "parallel",
+      "serial"
+    ],
+    [
+      "serial",
+      "parallel"
+    ]
+  ],
+  "status_before": {
+    "node-1": {
+      "firmware": "0.1.3",
+      "model_ready": true,
+      "model_error": "",
+      "worker_busy": false,
+      "free_psram": 12892852,
+      "storage": "internal flash; SD not required for inference",
+      "layers": 6,
+      "context": 256,
+      "dim": 288,
+      "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+      "ota_pending": false
+    },
+    "node-2": {
+      "firmware": "0.1.3",
+      "model_ready": true,
+      "model_error": "",
+      "worker_busy": false,
+      "free_psram": 12892852,
+      "storage": "internal flash; SD not required for inference",
+      "layers": 6,
+      "context": 256,
+      "dim": 288,
+      "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+      "ota_pending": false
+    }
+  },
+  "script_sha256": "2dd7891bb5c537d739b05a288c0eeaf1c583b7a787039eee789076c73b3d2caf"
+}

@@ -1,0 +1,64 @@
+{
+  "firmware": "0.2.0",
+  "master_cluster": {
+    "firmware": "0.2.0",
+    "configured": true,
+    "maintenance": false,
+    "peer": "node-2",
+    "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+    "capacity": 8,
+    "waiting_limit_ms": 180000,
+    "queued": 0,
+    "running": 0,
+    "available_slots": 8,
+    "lanes": [
+      {
+        "target": "local",
+        "last_probe_ok": true,
+        "last_error": ""
+      },
+      {
+        "target": "node-2",
+        "last_probe_ok": true,
+        "last_error": ""
+      }
+    ]
+  },
+  "image_sha256": "e503b09c2123e0c8989e3bd84f00138ce8cee63051ee95fed292a4c8519beca5",
+  "devices": {
+    "board1": {
+      "host": "node-1",
+      "status": {
+        "firmware": "0.2.0",
+        "dispatch_protocol": 1,
+        "model_ready": true,
+        "model_error": "",
+        "worker_busy": false,
+        "free_psram": 11549164,
+        "storage": "internal flash; SD not required for inference",
+        "layers": 6,
+        "context": 256,
+        "dim": 288,
+        "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+        "ota_pending": false
+      }
+    },
+    "board2": {
+      "host": "node-2",
+      "status": {
+        "firmware": "0.2.0",
+        "dispatch_protocol": 1,
+        "model_ready": true,
+        "model_error": "",
+        "worker_busy": false,
+        "free_psram": 12892684,
+        "storage": "internal flash; SD not required for inference",
+        "layers": 6,
+        "context": 256,
+        "dim": 288,
+        "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+        "ota_pending": false
+      }
+    }
+  }
+}

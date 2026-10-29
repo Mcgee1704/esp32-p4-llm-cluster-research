@@ -1,0 +1,56 @@
+{
+  "all_tokens_match_previous_parallel_experiment": true,
+  "blocks": 4,
+  "jobs": 16,
+  "local": {
+    "master_elapsed_ms": 38985.0,
+    "client_elapsed_ms": 39098.59425000468,
+    "tokens_per_second": 1.2312427864969213,
+    "overlap_ms": 0.0,
+    "range_ms": [
+      38977,
+      38987
+    ]
+  },
+  "cluster": {
+    "master_elapsed_ms": 21231.0,
+    "client_elapsed_ms": 21343.778449998354,
+    "tokens_per_second": 2.2608449958309977,
+    "overlap_ms": 19751.5,
+    "range_ms": [
+      21229,
+      21236
+    ]
+  },
+  "paired_speedups": [
+    1.8357506121680165,
+    1.8359397079604334,
+    1.8362377543330821,
+    1.8364501389608554
+  ],
+  "median_paired_speedup": 1.8360887311467577,
+  "final_cluster": {
+    "firmware": "0.2.0",
+    "configured": true,
+    "maintenance": false,
+    "peer": "node-2",
+    "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+    "capacity": 8,
+    "waiting_limit_ms": 180000,
+    "queued": 0,
+    "running": 0,
+    "available_slots": 8,
+    "lanes": [
+      {
+        "target": "local",
+        "last_probe_ok": false,
+        "last_error": ""
+      },
+      {
+        "target": "node-2",
+        "last_probe_ok": false,
+        "last_error": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "model_bytes": 15836365,
+  "model_sha256": "c40ac6300a9d078abd80dca8f638ed061d3addda9aff4ffff998025ab9d1399a",
+  "hardware_tested": false,
+  "variants": {
+    "rev1": {
+      "bytes": 783168,
+      "sha256": "4a3af338b11c073d19e7b8a8266b6e3d8130349ca99c1d5afaa70cb943833635",
+      "chip_revision_min": 100,
+      "chip_revision_max": 199,
+      "partitions": {
+        "nvs": {
+          "offset": 36864,
+          "size": 24576
+        },
+        "otadata": {
+          "offset": 61440,
+          "size": 8192
+        },
+        "phy_init": {
+          "offset": 69632,
+          "size": 4096
+        },
+        "ota_0": {
+          "offset": 131072,
+          "size": 3145728
+        },
+        "ota_1": {
+          "offset": 3276800,
+          "size": 3145728
+        },
+        "model": {
+          "offset": 6422528,
+          "size": 25165824
+        }
+      }
+    },
+    "rev3": {
+      "bytes": 784448,
+      "sha256": "06e9dd9db700396557d206a0730cbd6fd2a78f031f0dd485028485a0640bb7bb",
+      "chip_revision_min": 300,
+      "chip_revision_max": 399,
+      "partitions": {
+        "nvs": {
+          "offset": 36864,
+          "size": 24576
+        },
+        "otadata": {
+          "offset": 61440,
+          "size": 8192
+        },
+        "phy_init": {
+          "offset": 69632,
+          "size": 4096
+        },
+        "ota_0": {
+          "offset": 131072,
+          "size": 3145728
+        },
+        "ota_1": {
+          "offset": 3276800,
+          "size": 3145728
+        },
+        "model": {
+          "offset": 6422528,
+          "size": 25165824
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.local/
+tmp/
+build/
+__pycache__/
+*.pyc
+firmware/sdkconfig*
+!firmware/sdkconfig.defaults
+!firmware/sdkconfig.*.defaults

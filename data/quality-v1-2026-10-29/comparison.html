@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Text quality comparison</title><style>body{font:16px/1.6 system-ui;max-width:1200px;margin:30px auto;padding:20px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}article{border:1px solid #aaa;padding:20px}pre{white-space:pre-wrap;font:inherit}@media(max-width:700px){.pair{grid-template-columns:1fr}}</style><h1>Complete text quality comparison</h1><p>Labels revealed after the original masked review. English notes are translations. The same assistant conducted the study and reviewed outputs. No independent or fully blinded user study.</p>
+<section><h2>S1</h2><pre>Write a story about: a rabbit who shares a carrot with a hungry friend
+With: happy ending
+
+### Story:
+</pre><div class="pair">
+<article><h3>baseline</h3><p>11/128 output tokens; 7.321 seconds; inferred engine stop</p><pre> &#10;Moral: Sharing is caring.</pre><p>Only a moral about sharing, no rabbit/carrot narrative; an end token is not a narrated happy resolution.</p></article>
+<article><h3>sft</h3><p>128/128 output tokens; 43.491 seconds; limit reached</p><pre>Once upon a time there was a rabbit who lived in a big forest. He was very happy and loved to eat carrots. One day he saw a big carrot and he wanted to eat it. He hopped over to it and started to nibble on it.&#10;Suddenly, he heard a voice. It was a little voice. It said, &quot;Please, don&#x27;t eat me!&quot; The rabbit looked around and saw a little fox. The fox said, &quot;Please don&#x27;t eat me. I am very hungry.&quot;&#10;The rabbit thought for a moment and then</pre><p>Rabbit, carrot and hungry fox are present; sharing has not been shown. The request not to be eaten has an inconsistent referent. Open at the limit.</p></article>
+</div></section>
+<section><h2>S2</h2><pre>Write a story about: a child who repairs a broken kite
+With: happy ending
+
+### Story:
+</pre><div class="pair">
+<article><h3>baseline</h3><p>19/128 output tokens; 8.643 seconds; inferred engine stop</p><pre>Moral: Always be careful when you do something, so you don&#x27;t get hurt.</pre><p>Only a general cautionary moral, no child/kite/repair event; an inferred stop without a story.</p></article>
+<article><h3>sft</h3><p>116/128 output tokens; 37.052 seconds; inferred engine stop</p><pre>Once upon a time there was a little child who wanted to repair something. He looked around and saw a kite in the sky. He was so excited! He ran to the kite and grabbed it. He was so happy to have a new kite. He ran back to the kite and put the kite in the sky. He watched it fly and it made him smile. He was so proud of his repaired kite. He was so happy that he had been able to repair it. He was so proud of himself. The end.</pre><p>Child and kite are present, but repair is only asserted: the child grabs a flying kite and is then proud of repairing it. Positive resolution with The end and an inferred stop.</p></article>
+</div></section>
+<section><h2>S3</h2><pre>Write a story about: a girl who cannot find her lost cat
+With: sad ending
+
+### Story:
+</pre><div class="pair">
+<article><h3>baseline</h3><p>128/128 output tokens; 42.129 seconds; limit reached</p><pre>Mary:&#10;Mary: &quot;I&#x27;m so sad. I can&#x27;t find my cat anywhere.&quot;&#10;Mary: &quot;I&#x27;m sorry, I can&#x27;t find it.&quot;&#10;Mary: &quot;It&#x27;s okay. I&#x27;ll help you look for it.&quot;&#10;Mary and her friend searched the whole house, but they couldn&#x27;t find the cat.&#10;Mary: &quot;I&#x27;m so sad. I can&#x27;t find my cat.&quot;&#10;Mary: &quot;I&#x27;m sorry, I can&#x27;t find it.&quot;&#10;Mary&#x27;s friend: &quot;It&#x27;s okay.</pre><p>Lost cat and search are central. Mary takes inconsistent speaker roles and dialogue passages repeat. Open at the limit.</p></article>
+<article><h3>sft</h3><p>76/128 output tokens; 24.823 seconds; inferred engine stop</p><pre>One day, the girl went to the park to play. She saw a cat. The cat was very pretty. The girl wanted to play with the cat. She tried to catch the cat, but the cat was too fast.&#10;The girl was sad. She could not find the cat. The cat was gone. The girl went home with a bad ending to her day.</pre><p>A girl sees a cat that escapes; her ownership of an already lost cat is not established. Sad return home and an inferred stop.</p></article>
+</div></section>
+<section><h2>S4</h2><pre>Write a story about: a boy whose sandcastle is washed away by the sea
+With: sad ending
+
+### Story:
+</pre><div class="pair">
+<article><h3>baseline</h3><p>128/128 output tokens; 40.918 seconds; limit reached</p><pre> &#10;Mary: &quot;I wish I had a sandcastle like this.&quot;&#10;Mary&#x27;s mom smiled and said, &quot;I know, but it&#x27;s not possible. It&#x27;s too hard to make.&quot;&#10;Mary was sad, but she knew her mom was right. She decided to make a sandcastle instead.&#10;The next day, she went to the beach and started building her sandcastle. She worked hard and soon she had a beautiful sandcastle.&#10;Mary was so proud of her sandcastle. She was glad that she had made it.&#10;Mary&#x27;s mom was proud of her too</pre><p>A girl builds a sandcastle rather than a boy losing one to the sea. Contradiction: the action is impossible, then chosen as the alternative. Positive direction, open at the limit.</p></article>
+<article><h3>sft</h3><p>128/128 output tokens; 42.5 seconds; limit reached</p><pre>Once upon a time, there was a boy who had a sandcastle. He was so proud of it that he wanted to show it to everyone. He ran to the sea and shouted, &quot;Look at my sandcastle! It&#x27;s so big and beautiful!&quot;&#10;The boy&#x27;s mom smiled and said, &quot;That&#x27;s great! But don&#x27;t forget to wash it away.&quot;&#10;The boy was so excited that he ran back to the beach and started to wash his sandcastle. He was so proud of his work.&#10;But then, something terrible happened. The sea started to get bigger and bigger.</pre><p>Boy, castle and sea are present. The mother asks him to wash the castle and he is proud of doing so. The sea rises; destruction has not been shown. Open at the limit.</p></article>
+</div></section>
+<section><h2>Q1</h2><pre>What sound does a cow make? Answer in one short sentence.</pre><div class="pair">
+<article><h3>baseline</h3><p>32/32 output tokens; 10.54 seconds; limit reached</p><pre> The cow makes a loud moo. The cow is very happy.&#10;The cow is very proud of the cow. The cow is very proud of the cow</pre><p>The first sentence correctly says moo, followed by repeated narrative instead of a single short sentence.</p></article>
+<article><h3>sft</h3><p>32/32 output tokens; 10.278 seconds; limit reached</p><pre>&#10;Lily is curious. She asks her mom, &quot;What sound do you make?&quot;&#10;Her mom says, &quot;A cow makes a sound. A cow</pre><p>Dialogue about sounds; no concrete cow sound in the output.</p></article>
+</div></section>
+<section><h2>Q2</h2><pre>What color is a ripe banana? Answer in one short sentence.</pre><div class="pair">
+<article><h3>baseline</h3><p>32/32 output tokens; 10.542 seconds; limit reached</p><pre> It is a very special banana. It is a very special banana.&#10;One day, the little girl was playing in the garden. She saw a</pre><p>Repeats that the banana is special, then starts a story; no colour.</p></article>
+<article><h3>sft</h3><p>32/32 output tokens; 10.538 seconds; limit reached</p><pre>&#10;Lily is curious. She likes to learn new words. She asks her mom, &quot;What is a banana?&quot;&#10;Her mom says, &quot;</pre><p>Dialogue asks what a banana is, with no colour answer.</p></article>
+</div></section>
+<section><h2>Q3</h2><pre>How many wheels does a bicycle usually have? Answer in one short sentence.</pre><div class="pair">
+<article><h3>baseline</h3><p>32/32 output tokens; 11.386 seconds; limit reached</p><pre>&#10;&quot;Mommy, I have four wheels!&quot;&#10;Mommy smiled. &quot;That&#x27;s great, sweetheart. You can use them to</pre><p>Mentions four wheels rather than two, then continues dialogue.</p></article>
+<article><h3>sft</h3><p>32/32 output tokens; 11.407 seconds; limit reached</p><pre>&#10;Lily is curious. She asks her mom, &quot;What is that?&quot;&#10;Her mom says, &quot;That is a bicycle. It is a</pre><p>Curiosity dialogue about a bicycle, with no wheel count.</p></article>
+</div></section>
+<section><h2>I1</h2><pre>Reply with exactly this word: blue</pre><div class="pair">
+<article><h3>baseline</h3><p>32/32 output tokens; 9.618 seconds; limit reached</p><pre>. He loved to play with his toys and make them talk. One day, he was playing with his toy car when he heard a loud noise.</pre><p>Narrates toys instead of outputting exactly blue.</p></article>
+<article><h3>sft</h3><p>32/32 output tokens; 9.628 seconds; limit reached</p><pre>.&#10;Mommy and Daddy take the blue word out of the fridge. It is a special word that can make people happy.&#10;Mom</pre><p>Narrates a blue word in a fridge instead of outputting exactly blue.</p></article>
+</div></section>
+<section><h2>I2</h2><pre>Write exactly three words: red green blue</pre><div class="pair">
+<article><h3>baseline</h3><p>32/32 output tokens; 9.61 seconds; limit reached</p><pre>. He loved to play with his friends and explore the world around him. One day, he found a big, shiny rock. He was so excited and</pre><p>Narrates friends and a rock instead of the three words.</p></article>
+<article><h3>sft</h3><p>32/32 output tokens; 9.623 seconds; limit reached</p><pre>berries, yellow and orange ones, and yellow and green.&#10;One day, a little girl named Lily went to the park with her mom. She</pre><p>Begins with berries as a continuation of blue, then colours and a story instead of the three words.</p></article>
+</div></section>
+<section><h2>I3</h2><pre>Write one short sentence about rain. Do not mention animals.</pre><div class="pair">
+<article><h3>baseline</h3><p>32/32 output tokens; 10.407 seconds; limit reached</p><pre> He is a little ignorant about rain. He does not know what rain is.&#10;One day, he saw a big rainbow in the sky. He</pre><p>Multiple sentences about not understanding rain and a rainbow, not a single short sentence.</p></article>
+<article><h3>sft</h3><p>32/32 output tokens; 10.399 seconds; limit reached</p><pre>&#10;Later that day, Lily&#x27;s mommy told her that there was a storm coming and they needed to go inside. Lily was sad because</pre><p>Multiple sentences about a storm and going inside, not a single short sentence.</p></article>
+</div></section>
+</html>

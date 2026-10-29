@@ -1,0 +1,21 @@
+{
+  "sourceCommit": "5822029b7132894d5c982041c42fda93c5b7f5d5",
+  "kind": "static_calculation_not_measurement",
+  "hiddenSize": 896,
+  "payloadBytes": 3584,
+  "spiFrameBytes": 4096,
+  "spiClockHz": 10000000,
+  "idealSpiFrameMs": 3.2767999999999997,
+  "packedLinearWeightBytesPerLayer": 3727360,
+  "normBytesPerLayer": 3584,
+  "scaleBytesPerLayer": 28,
+  "biasBytesPerLayer": 4608,
+  "layerBytes": 3735580,
+  "fourLayerBytes": 14942320,
+  "all24LayersBytes": 89653920,
+  "embeddingPackedBytesExcludingHeaderAndScales": 14336000,
+  "lowerBoundWeightsBytes": 103989920,
+  "twoBoardNominalFlashBytes": 67108864,
+  "kvBytesPerLayerAt512": 524288,
+  "kvBytes24LayersAt512": 12582912
+}

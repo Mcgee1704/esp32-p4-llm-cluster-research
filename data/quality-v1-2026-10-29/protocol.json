@@ -1,0 +1,104 @@
+{
+  "cases": [
+    {
+      "id": "S1",
+      "category": "story",
+      "topic": "a rabbit who shares a carrot with a hungry friend",
+      "ending": "happy",
+      "limit": 128,
+      "prompt": "Write a story about: a rabbit who shares a carrot with a hungry friend\nWith: happy ending\n\n### Story:\n"
+    },
+    {
+      "id": "S2",
+      "category": "story",
+      "topic": "a child who repairs a broken kite",
+      "ending": "happy",
+      "limit": 128,
+      "prompt": "Write a story about: a child who repairs a broken kite\nWith: happy ending\n\n### Story:\n"
+    },
+    {
+      "id": "S3",
+      "category": "story",
+      "topic": "a girl who cannot find her lost cat",
+      "ending": "sad",
+      "limit": 128,
+      "prompt": "Write a story about: a girl who cannot find her lost cat\nWith: sad ending\n\n### Story:\n"
+    },
+    {
+      "id": "S4",
+      "category": "story",
+      "topic": "a boy whose sandcastle is washed away by the sea",
+      "ending": "sad",
+      "limit": 128,
+      "prompt": "Write a story about: a boy whose sandcastle is washed away by the sea\nWith: sad ending\n\n### Story:\n"
+    },
+    {
+      "id": "Q1",
+      "category": "question",
+      "limit": 32,
+      "expected": [
+        "moo"
+      ],
+      "prompt": "What sound does a cow make? Answer in one short sentence."
+    },
+    {
+      "id": "Q2",
+      "category": "question",
+      "limit": 32,
+      "expected": [
+        "yellow"
+      ],
+      "prompt": "What color is a ripe banana? Answer in one short sentence."
+    },
+    {
+      "id": "Q3",
+      "category": "question",
+      "limit": 32,
+      "expected": [
+        "two",
+        "2"
+      ],
+      "prompt": "How many wheels does a bicycle usually have? Answer in one short sentence."
+    },
+    {
+      "id": "I1",
+      "category": "instruction",
+      "limit": 32,
+      "exact": "blue",
+      "prompt": "Reply with exactly this word: blue"
+    },
+    {
+      "id": "I2",
+      "category": "instruction",
+      "limit": 32,
+      "exact": "red green blue",
+      "prompt": "Write exactly three words: red green blue"
+    },
+    {
+      "id": "I3",
+      "category": "instruction",
+      "limit": 32,
+      "prompt": "Write one short sentence about rain. Do not mention animals."
+    }
+  ],
+  "model_ids": {
+    "baseline": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+    "sft": "5273bac5d1937595d92e1528a21ad7ac619e5fde8d2bfbb0aca04866bf10e07f"
+  },
+  "sampler": "greedy",
+  "order": [
+    "sft",
+    "baseline"
+  ],
+  "language": "English",
+  "quality_review": "Same assistant, masked model labels per pair; not an independent or fully blinded study",
+  "rubric": {
+    "coherence": "0 empty/unintelligible; 1 understandable with major contradictions/repetition; 2 connected understandable English",
+    "story_topic": "0 absent; 1 partial; 2 central topic/action present",
+    "story_ending": "assess only a completed, EOS-ended story; otherwise not assessable",
+    "questions": "manually judge first answer; lexical signal alone is not proof",
+    "instructions": "exact-output rules or rain sentence heuristic plus manual judgement",
+    "repetition": "flag if any fourgram occurs at least three times or a word repeats three times consecutively"
+  },
+  "script_sha256": "a296609816ddeace4b6bb3fa54a2618f22241ea8333236e7f997891ca9945698"
+}

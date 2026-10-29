@@ -1,0 +1,16 @@
+[
+  {
+    "mode": "solo",
+    "repetition": 1,
+    "tokens": [
+      29892,
+      727
+    ],
+    "client_elapsed_ms": 2936.999999998079,
+    "done": true,
+    "output_tokens": 2,
+    "elapsed_ms": 2879.461,
+    "ttft_ms": 2063.291,
+    "boards": 1
+  }
+]

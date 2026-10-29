@@ -1,0 +1,61 @@
+{
+  "sft": {
+    "cases": 10,
+    "output_tokens": 640,
+    "eos_count": 2,
+    "repetition_flag_cases": [],
+    "story_topic_scores": {
+      "S1": 1,
+      "S2": 1,
+      "S3": 1,
+      "S4": 1
+    },
+    "story_coherence_scores": {
+      "S1": 1,
+      "S2": 1,
+      "S3": 2,
+      "S4": 1
+    },
+    "completed_stories_with_requested_ending": [
+      "S2",
+      "S3"
+    ],
+    "stories_ending_not_assessable": [
+      "S1",
+      "S4"
+    ],
+    "questions_first_answer_correct": [],
+    "questions_fully_fulfilled": [],
+    "instructions_fulfilled": []
+  },
+  "baseline": {
+    "cases": 10,
+    "output_tokens": 478,
+    "eos_count": 2,
+    "repetition_flag_cases": [
+      "Q1"
+    ],
+    "story_topic_scores": {
+      "S1": 1,
+      "S2": 0,
+      "S3": 2,
+      "S4": 1
+    },
+    "story_coherence_scores": {
+      "S1": 2,
+      "S2": 2,
+      "S3": 1,
+      "S4": 1
+    },
+    "completed_stories_with_requested_ending": [],
+    "stories_ending_not_assessable": [
+      "S3",
+      "S4"
+    ],
+    "questions_first_answer_correct": [
+      "Q1"
+    ],
+    "questions_fully_fulfilled": [],
+    "instructions_fulfilled": []
+  }
+}

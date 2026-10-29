@@ -1,0 +1,106 @@
+{
+  "method": "Peer occupied by separate direct inference; no cable/network outage injected",
+  "no_job_polling_first_seconds": 6,
+  "unavailable_snapshot": {
+    "firmware": "0.2.0",
+    "configured": true,
+    "maintenance": false,
+    "peer": "node-2",
+    "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+    "capacity": 8,
+    "waiting_limit_ms": 180000,
+    "queued": 0,
+    "running": 1,
+    "available_slots": 7,
+    "lanes": [
+      {
+        "target": "local",
+        "last_probe_ok": true,
+        "last_error": "",
+        "active_job": "5c12c48700000016"
+      },
+      {
+        "target": "node-2",
+        "last_probe_ok": false,
+        "last_error": "Backend unavailable or unauthorized (HTTP -1)"
+      }
+    ]
+  },
+  "fallback_jobs": [
+    {
+      "id": "5c12c48700000015",
+      "state": "done",
+      "target": "local",
+      "error": "",
+      "created_ms": 580080,
+      "started_ms": 580331,
+      "finished_ms": 584582,
+      "output_tokens": 4,
+      "queue_ms": 251,
+      "raw_ndjson": "{\"bytes_hex\":\"2c\",\"token\":29892}\n{\"bytes_hex\":\"207468657265\",\"token\":727}\n{\"bytes_hex\":\"20776173\",\"token\":471}\n{\"bytes_hex\":\"2061\",\"token\":263}\n{\"done\":true,\"output_tokens\":4,\"elapsed_ms\":4081.614,\"ttft_ms\":1933.201,\"boards\":1,\"profile\":{\"master_compute_ms\":4074.547,\"stream_ms\":4.994,\"rpc_total_ms\":0,\"rpc_open_ms\":0,\"rpc_write_ms\":0,\"rpc_wait_headers_ms\":0,\"rpc_read_ms\":0,\"worker_compute_ms\":0,\"rpc_calls\":0,\"connections\":0,\"worker_reports\":0}}\n"
+    },
+    {
+      "id": "5c12c48700000016",
+      "state": "done",
+      "target": "local",
+      "error": "",
+      "created_ms": 580111,
+      "started_ms": 584830,
+      "finished_ms": 589832,
+      "output_tokens": 4,
+      "queue_ms": 4719,
+      "raw_ndjson": "{\"bytes_hex\":\"206e616d6564\",\"token\":4257}\n{\"bytes_hex\":\"204c\",\"token\":365}\n{\"bytes_hex\":\"696c79\",\"token\":2354}\n{\"bytes_hex\":\"2077656e74\",\"token\":3512}\n{\"done\":true,\"output_tokens\":4,\"elapsed_ms\":4751.929,\"ttft_ms\":2580.502,\"boards\":1,\"profile\":{\"master_compute_ms\":4744.576,\"stream_ms\":5.026,\"rpc_total_ms\":0,\"rpc_open_ms\":0,\"rpc_write_ms\":0,\"rpc_wait_headers_ms\":0,\"rpc_read_ms\":0,\"worker_compute_ms\":0,\"rpc_calls\":0,\"connections\":0,\"worker_reports\":0}}\n"
+    }
+  ],
+  "peer_direct_raw": "{\"bytes_hex\":\"2c\",\"token\":29892}\n{\"bytes_hex\":\"207468657265\",\"token\":727}\n{\"bytes_hex\":\"20776173\",\"token\":471}\n{\"bytes_hex\":\"2061\",\"token\":263}\n{\"bytes_hex\":\"206c6974746c65\",\"token\":2217}\n{\"bytes_hex\":\"206769726c\",\"token\":7826}\n{\"bytes_hex\":\"206e616d6564\",\"token\":4257}\n{\"bytes_hex\":\"204c\",\"token\":365}\n{\"bytes_hex\":\"696c79\",\"token\":2354}\n{\"bytes_hex\":\"2e\",\"token\":29889}\n{\"bytes_hex\":\"20536865\",\"token\":2296}\n{\"bytes_hex\":\"206c6f766564\",\"token\":18012}\n{\"bytes_hex\":\"20746f\",\"token\":304}\n{\"bytes_hex\":\"20706c6179\",\"token\":1708}\n{\"bytes_hex\":\"206f757473696465\",\"token\":5377}\n{\"bytes_hex\":\"20696e\",\"token\":297}\n{\"bytes_hex\":\"20746865\",\"token\":278}\n{\"bytes_hex\":\"2073756e\",\"token\":6575}\n{\"bytes_hex\":\"7368\",\"token\":845}\n{\"bytes_hex\":\"696e65\",\"token\":457}\n{\"bytes_hex\":\"2e\",\"token\":29889}\n{\"bytes_hex\":\"204f6e65\",\"token\":3118}\n{\"bytes_hex\":\"20646179\",\"token\":2462}\n{\"bytes_hex\":\"2c\",\"token\":29892}\n{\"bytes_hex\":\"20736865\",\"token\":1183}\n{\"bytes_hex\":\"20736177\",\"token\":4446}\n{\"bytes_hex\":\"2061\",\"token\":263}\n{\"bytes_hex\":\"20626967\",\"token\":4802}\n{\"bytes_hex\":\"2c\",\"token\":29892}\n{\"bytes_hex\":\"20726564\",\"token\":2654}\n{\"bytes_hex\":\"2062616c6c\",\"token\":8287}\n{\"bytes_hex\":\"20696e\",\"token\":297}\n{\"done\":true,\"output_tokens\":32,\"elapsed_ms\":27475.939,\"ttft_ms\":2062.819,\"boards\":1,\"profile\":{\"master_compute_ms\":27439.513,\"stream_ms\":29.024,\"rpc_total_ms\":0,\"rpc_open_ms\":0,\"rpc_write_ms\":0,\"rpc_wait_headers_ms\":0,\"rpc_read_ms\":0,\"worker_compute_ms\":0,\"rpc_calls\":0,\"connections\":0,\"worker_reports\":0}}\n",
+  "recovery_jobs": [
+    {
+      "id": "5c12c48700000017",
+      "state": "done",
+      "target": "node-2",
+      "error": "",
+      "created_ms": 605484,
+      "started_ms": 605580,
+      "finished_ms": 610333,
+      "output_tokens": 4,
+      "queue_ms": 96,
+      "raw_ndjson": "{\"bytes_hex\":\"2c\",\"token\":29892}\n{\"bytes_hex\":\"207468657265\",\"token\":727}\n{\"bytes_hex\":\"20776173\",\"token\":471}\n{\"bytes_hex\":\"2061\",\"token\":263}\n{\"done\":true,\"output_tokens\":4,\"elapsed_ms\":4509.078,\"ttft_ms\":2062.955,\"boards\":1,\"profile\":{\"master_compute_ms\":4503.231,\"stream_ms\":3.884,\"rpc_total_ms\":0,\"rpc_open_ms\":0,\"rpc_write_ms\":0,\"rpc_wait_headers_ms\":0,\"rpc_read_ms\":0,\"worker_compute_ms\":0,\"rpc_calls\":0,\"connections\":0,\"worker_reports\":0}}\n"
+    },
+    {
+      "id": "5c12c48700000018",
+      "state": "done",
+      "target": "local",
+      "error": "",
+      "created_ms": 605493,
+      "started_ms": 605581,
+      "finished_ms": 610582,
+      "output_tokens": 4,
+      "queue_ms": 88,
+      "raw_ndjson": "{\"bytes_hex\":\"206e616d6564\",\"token\":4257}\n{\"bytes_hex\":\"204c\",\"token\":365}\n{\"bytes_hex\":\"696c79\",\"token\":2354}\n{\"bytes_hex\":\"2077656e74\",\"token\":3512}\n{\"done\":true,\"output_tokens\":4,\"elapsed_ms\":4790.605,\"ttft_ms\":2603.188,\"boards\":1,\"profile\":{\"master_compute_ms\":4783.047,\"stream_ms\":5.038,\"rpc_total_ms\":0,\"rpc_open_ms\":0,\"rpc_write_ms\":0,\"rpc_wait_headers_ms\":0,\"rpc_read_ms\":0,\"worker_compute_ms\":0,\"rpc_calls\":0,\"connections\":0,\"worker_reports\":0}}\n"
+    }
+  ],
+  "cluster_after": {
+    "firmware": "0.2.0",
+    "configured": true,
+    "maintenance": false,
+    "peer": "node-2",
+    "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+    "capacity": 8,
+    "waiting_limit_ms": 180000,
+    "queued": 0,
+    "running": 0,
+    "available_slots": 8,
+    "lanes": [
+      {
+        "target": "local",
+        "last_probe_ok": true,
+        "last_error": ""
+      },
+      {
+        "target": "node-2",
+        "last_probe_ok": true,
+        "last_error": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "date_utc": "2026-10-29T00:44:28.231026+00:00",
+  "master": "node-1",
+  "peer": "node-2",
+  "prompt": "Once upon a time",
+  "output_tokens": 24,
+  "tokens_identical": true,
+  "status_after": {
+    "node-1": {
+      "firmware": "0.1.0",
+      "model_ready": true,
+      "model_error": "",
+      "worker_busy": false,
+      "free_psram": 12892852,
+      "storage": "internal flash; SD not required for inference",
+      "layers": 6,
+      "context": 256,
+      "dim": 288,
+      "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+      "ota_pending": false
+    },
+    "node-2": {
+      "firmware": "0.1.0",
+      "model_ready": true,
+      "model_error": "",
+      "worker_busy": false,
+      "free_psram": 12892852,
+      "storage": "internal flash; SD not required for inference",
+      "layers": 6,
+      "context": 256,
+      "dim": 288,
+      "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+      "ota_pending": false
+    }
+  },
+  "solo": {
+    "elapsed_ms": 20895.208,
+    "ttft_ms": 2063.07,
+    "elapsed_min_ms": 20895.072,
+    "elapsed_max_ms": 20895.399
+  },
+  "pair": {
+    "elapsed_ms": 33982.061,
+    "ttft_ms": 4735.587,
+    "elapsed_min_ms": 32558.274,
+    "elapsed_max_ms": 33999.968
+  },
+  "pair_extra_percent": 62.63088168349415
+}

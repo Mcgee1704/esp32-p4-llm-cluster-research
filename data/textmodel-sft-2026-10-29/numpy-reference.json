@@ -1,0 +1,26 @@
+{
+  "source": "BF16 tensors independently row-quantized; NumPy forward versus packed portable C",
+  "positions": [
+    {
+      "position": 0,
+      "max_absolute_logit_error": 2.193450927734375e-05,
+      "argmax_equal": true
+    },
+    {
+      "position": 1,
+      "max_absolute_logit_error": 2.9087066650390625e-05,
+      "argmax_equal": true
+    },
+    {
+      "position": 2,
+      "max_absolute_logit_error": 2.288818359375e-05,
+      "argmax_equal": true
+    },
+    {
+      "position": 3,
+      "max_absolute_logit_error": 1.5735626220703125e-05,
+      "argmax_equal": true
+    }
+  ],
+  "absolute_tolerance": 0.002
+}

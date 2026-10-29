@@ -1,0 +1,42 @@
+{
+  "node-1": {
+    "firmware": "0.4.0",
+    "dispatch_protocol": 1,
+    "boot_id": 1400501662,
+    "default_kernel": "tile4",
+    "kernel_protocol": 2,
+    "model_ready": true,
+    "model_error": "",
+    "worker_busy": false,
+    "free_psram": 11549164,
+    "free_internal": 451219,
+    "min_free_internal": 425363,
+    "largest_internal": 360448,
+    "storage": "internal flash; SD not required for inference",
+    "layers": 6,
+    "context": 256,
+    "dim": 288,
+    "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+    "ota_pending": false
+  },
+  "node-2": {
+    "firmware": "0.4.0",
+    "dispatch_protocol": 1,
+    "boot_id": 4206769193,
+    "default_kernel": "tile4",
+    "kernel_protocol": 2,
+    "model_ready": true,
+    "model_error": "",
+    "worker_busy": false,
+    "free_psram": 12892684,
+    "free_internal": 454291,
+    "min_free_internal": 438139,
+    "largest_internal": 360448,
+    "storage": "internal flash; SD not required for inference",
+    "layers": 6,
+    "context": 256,
+    "dim": 288,
+    "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+    "ota_pending": false
+  }
+}

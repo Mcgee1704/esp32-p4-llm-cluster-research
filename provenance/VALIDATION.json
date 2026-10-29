@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-29",
+  "scope": "Offline publication representation, not new hardware measurements",
+  "native_libraries": [
+    "tinyllm and cluster_rpc",
+    "dispatch_queue"
+  ],
+  "native_build": "Passed; -O2 -Wall -Wextra -Werror, inference additionally -ffp-contract=off",
+  "unit_tests_passed": 29,
+  "unit_tests_skipped": 0,
+  "lan_summary_reproduced_exactly": true,
+  "simulation_numerical_results_reproduced_exactly": true,
+  "baseline_memory_budget_check_passed": true,
+  "source_lineage_checksums_verified": 424,
+  "markdown_relative_links_valid": true,
+  "private_key_and_known_identity_scan_passed": true,
+  "esp_idf_rebuild_of_english_snapshot": false,
+  "english_snapshot_installed_on_hardware": false,
+  "external_upload_performed_at_validation_time": false,
+  "limitations": "Historical device results describe the original firmware. Toolchains, model weights and binary device images are excluded."
+}

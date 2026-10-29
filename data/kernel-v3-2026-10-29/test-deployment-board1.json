@@ -1,0 +1,20 @@
+{
+  "firmware": "0.4.0-test",
+  "dispatch_protocol": 1,
+  "boot_id": 3294799771,
+  "default_kernel": "dual",
+  "kernel_protocol": 2,
+  "model_ready": true,
+  "model_error": "",
+  "worker_busy": false,
+  "free_psram": 12892684,
+  "free_internal": 465455,
+  "min_free_internal": 448867,
+  "largest_internal": 368640,
+  "storage": "internal flash; SD not required for inference",
+  "layers": 6,
+  "context": 256,
+  "dim": 288,
+  "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+  "ota_pending": false
+}

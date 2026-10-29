@@ -1,0 +1,140 @@
+{
+  "reviewer": "same assistant that planned the experiment; model labels not opened before this file was frozen; style may disclose identity",
+  "masked_pairs_sha256": "fbeec12c8d63088e69b15cadb01b3d517d9931d8ff10b548ad002d6a5e3e2d89",
+  "ratings": {
+    "S1": {
+      "A": {
+        "coherence": 1,
+        "story_topic": 1,
+        "ending_matches": null,
+        "note": "Rabbit, carrot and hungry fox are present; sharing has not been shown. The request not to be eaten has an inconsistent referent. Open at the limit."
+      },
+      "B": {
+        "coherence": 2,
+        "story_topic": 1,
+        "ending_matches": false,
+        "note": "Only a moral about sharing, no rabbit/carrot narrative; an end token is not a narrated happy resolution."
+      }
+    },
+    "S2": {
+      "A": {
+        "coherence": 1,
+        "story_topic": 1,
+        "ending_matches": true,
+        "note": "Child and kite are present, but repair is only asserted: the child grabs a flying kite and is then proud of repairing it. Positive resolution with The end and an inferred stop."
+      },
+      "B": {
+        "coherence": 2,
+        "story_topic": 0,
+        "ending_matches": false,
+        "note": "Only a general cautionary moral, no child/kite/repair event; an inferred stop without a story."
+      }
+    },
+    "S3": {
+      "A": {
+        "coherence": 1,
+        "story_topic": 2,
+        "ending_matches": null,
+        "note": "Lost cat and search are central. Mary takes inconsistent speaker roles and dialogue passages repeat. Open at the limit."
+      },
+      "B": {
+        "coherence": 2,
+        "story_topic": 1,
+        "ending_matches": true,
+        "note": "A girl sees a cat that escapes; her ownership of an already lost cat is not established. Sad return home and an inferred stop."
+      }
+    },
+    "S4": {
+      "A": {
+        "coherence": 1,
+        "story_topic": 1,
+        "ending_matches": null,
+        "note": "A girl builds a sandcastle rather than a boy losing one to the sea. Contradiction: the action is impossible, then chosen as the alternative. Positive direction, open at the limit."
+      },
+      "B": {
+        "coherence": 1,
+        "story_topic": 1,
+        "ending_matches": null,
+        "note": "Boy, castle and sea are present. The mother asks him to wash the castle and he is proud of doing so. The sea rises; destruction has not been shown. Open at the limit."
+      }
+    },
+    "Q1": {
+      "A": {
+        "coherence": 2,
+        "first_answer_correct": false,
+        "question_request_fulfilled": false,
+        "note": "Dialogue about sounds; no concrete cow sound in the output."
+      },
+      "B": {
+        "coherence": 1,
+        "first_answer_correct": true,
+        "question_request_fulfilled": false,
+        "note": "The first sentence correctly says moo, followed by repeated narrative instead of a single short sentence."
+      }
+    },
+    "Q2": {
+      "A": {
+        "coherence": 1,
+        "first_answer_correct": false,
+        "question_request_fulfilled": false,
+        "note": "Repeats that the banana is special, then starts a story; no colour."
+      },
+      "B": {
+        "coherence": 2,
+        "first_answer_correct": false,
+        "question_request_fulfilled": false,
+        "note": "Dialogue asks what a banana is, with no colour answer."
+      }
+    },
+    "Q3": {
+      "A": {
+        "coherence": 2,
+        "first_answer_correct": false,
+        "question_request_fulfilled": false,
+        "note": "Curiosity dialogue about a bicycle, with no wheel count."
+      },
+      "B": {
+        "coherence": 2,
+        "first_answer_correct": false,
+        "question_request_fulfilled": false,
+        "note": "Mentions four wheels rather than two, then continues dialogue."
+      }
+    },
+    "I1": {
+      "A": {
+        "coherence": 2,
+        "instruction_fulfilled": false,
+        "note": "Narrates toys instead of outputting exactly blue."
+      },
+      "B": {
+        "coherence": 2,
+        "instruction_fulfilled": false,
+        "note": "Narrates a blue word in a fridge instead of outputting exactly blue."
+      }
+    },
+    "I2": {
+      "A": {
+        "coherence": 2,
+        "instruction_fulfilled": false,
+        "note": "Narrates friends and a rock instead of the three words."
+      },
+      "B": {
+        "coherence": 1,
+        "instruction_fulfilled": false,
+        "note": "Begins with berries as a continuation of blue, then colours and a story instead of the three words."
+      }
+    },
+    "I3": {
+      "A": {
+        "coherence": 2,
+        "instruction_fulfilled": false,
+        "note": "Multiple sentences about a storm and going inside, not a single short sentence."
+      },
+      "B": {
+        "coherence": 2,
+        "instruction_fulfilled": false,
+        "note": "Multiple sentences about not understanding rain and a rainbow, not a single short sentence."
+      }
+    }
+  }
+}

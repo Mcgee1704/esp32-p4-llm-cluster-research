@@ -1,0 +1,7 @@
+{
+  "tensor_count": 56,
+  "legacy_sha256": "4160d262fefb25f6eba2a028b7ed028776a7e6c48538404539b06d027a371621",
+  "tokenizer_identical_to_baseline": true,
+  "tokenizer_sha256": "50a52ef822ee9e83de5ce9d0be0a025a773d019437f58b5ff9dcafb063ece361",
+  "external_code_executed": false
+}

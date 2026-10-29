@@ -1,0 +1,31 @@
+{
+  "status_after": {
+    "firmware": "0.3.0",
+    "dispatch_protocol": 1,
+    "boot_id": 2070362289,
+    "default_kernel": "dual",
+    "kernel_protocol": 1,
+    "model_ready": true,
+    "model_error": "",
+    "worker_busy": false,
+    "free_psram": 12892684,
+    "storage": "internal flash; SD not required for inference",
+    "layers": 6,
+    "context": 256,
+    "dim": 288,
+    "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+    "ota_pending": false
+  },
+  "all_tokens_identical": true,
+  "variants": {
+    "dual": {
+      "elapsed_ms_median": 10743.537,
+      "elapsed_ms_range": [
+        10564.761,
+        10922.313
+      ],
+      "ttft_ms_median": 1271.3615,
+      "jobs": 2
+    }
+  }
+}

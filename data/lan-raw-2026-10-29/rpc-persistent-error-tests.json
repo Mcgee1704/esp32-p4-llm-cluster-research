@@ -1,0 +1,49 @@
+{
+  "checks": [
+    {
+      "test": "wrong key rejected",
+      "http_status": 401
+    },
+    {
+      "test": "wrong model rejected",
+      "http_status": 409
+    },
+    {
+      "test": "begin accepted",
+      "http_status": 200
+    },
+    {
+      "test": "concurrent session rejected",
+      "http_status": 409
+    },
+    {
+      "test": "out of order step rejected",
+      "http_status": 409
+    },
+    {
+      "test": "valid step after rejections accepted",
+      "http_status": 200
+    },
+    {
+      "test": "replayed step rejected",
+      "http_status": 409
+    },
+    {
+      "test": "end accepted",
+      "http_status": 200
+    }
+  ],
+  "final_status": {
+    "firmware": "0.1.3",
+    "model_ready": true,
+    "model_error": "",
+    "worker_busy": false,
+    "free_psram": 12892852,
+    "storage": "internal flash; SD not required for inference",
+    "layers": 6,
+    "context": 256,
+    "dim": 288,
+    "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+    "ota_pending": false
+  }
+}

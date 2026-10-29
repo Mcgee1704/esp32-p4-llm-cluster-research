@@ -1,0 +1,40 @@
+{
+  "blocks": 4,
+  "jobs_per_batch": 2,
+  "tokens_per_batch": 48,
+  "all_token_sequences_match": true,
+  "serial": {
+    "elapsed_ms": 42535.131250000006,
+    "tokens_per_second": 1.1284789441023055,
+    "overlap_ms": 0.0,
+    "start_skew_ms": 20943.9395,
+    "mean_completion_ms": 31739.31305,
+    "mean_request_ms": 21267.477550000003,
+    "elapsed_range_ms": [
+      42534.3282,
+      42554.7758
+    ]
+  },
+  "parallel": {
+    "elapsed_ms": 21593.43275,
+    "tokens_per_second": 2.222898124191594,
+    "overlap_ms": 20950.29585,
+    "start_skew_ms": 0.2081,
+    "mean_completion_ms": 21274.490074999998,
+    "mean_request_ms": 21272.82345,
+    "elapsed_range_ms": [
+      21588.122,
+      21605.0652
+    ]
+  },
+  "paired_speedups": [
+    1.9701190038015324,
+    1.9695169726234354,
+    1.9712124936110702,
+    1.9687201962250964
+  ],
+  "median_paired_speedup": 1.9698179882124838,
+  "efficiency_vs_ideal_two": 0.9849089941062419,
+  "practical_gain_target_met": true,
+  "date_utc": "2026-10-29T01:17:32.526074+00:00"
+}

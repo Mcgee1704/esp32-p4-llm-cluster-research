@@ -1,0 +1,76 @@
+{
+  "format": "P4LM0001 row INT8",
+  "cases": {
+    "actual_stories15M": {
+      "weights_bytes": 15402368,
+      "artifact_bytes": 15836365,
+      "kv_bytes": 3538944,
+      "psram_base_bytes": 20498074,
+      "internal_work_payload_bytes": 10752,
+      "planning_reserve_bytes": 2097152,
+      "psram_including_reserve_bytes": 22595226,
+      "flash_partition_bytes": 25165824,
+      "psram_bytes": 33554432,
+      "flash_fits": true,
+      "psram_fits_with_reserve": true,
+      "notes": "Excludes allocator alignment, internal state/stacks and exact network peaks; 2 MiB is a planning assumption. Work bank duplicated for comparisons."
+    },
+    "same_model_context_64": {
+      "weights_bytes": 15402368,
+      "artifact_bytes": 15836365,
+      "kv_bytes": 884736,
+      "psram_base_bytes": 17839258,
+      "internal_work_payload_bytes": 10752,
+      "planning_reserve_bytes": 2097152,
+      "psram_including_reserve_bytes": 19936410,
+      "flash_partition_bytes": 25165824,
+      "psram_bytes": 33554432,
+      "flash_fits": true,
+      "psram_fits_with_reserve": true,
+      "notes": "Excludes allocator alignment, internal state/stacks and exact network peaks; 2 MiB is a planning assumption. Work bank duplicated for comparisons."
+    },
+    "same_model_context_128": {
+      "weights_bytes": 15402368,
+      "artifact_bytes": 15836365,
+      "kv_bytes": 1769472,
+      "psram_base_bytes": 18725530,
+      "internal_work_payload_bytes": 10752,
+      "planning_reserve_bytes": 2097152,
+      "psram_including_reserve_bytes": 20822682,
+      "flash_partition_bytes": 25165824,
+      "psram_bytes": 33554432,
+      "flash_fits": true,
+      "psram_fits_with_reserve": true,
+      "notes": "Excludes allocator alignment, internal state/stacks and exact network peaks; 2 MiB is a planning assumption. Work bank duplicated for comparisons."
+    },
+    "same_model_context_512": {
+      "weights_bytes": 15402368,
+      "artifact_bytes": 15836365,
+      "kv_bytes": 7077888,
+      "psram_base_bytes": 24043162,
+      "internal_work_payload_bytes": 10752,
+      "planning_reserve_bytes": 2097152,
+      "psram_including_reserve_bytes": 26140314,
+      "flash_partition_bytes": 25165824,
+      "psram_bytes": 33554432,
+      "flash_fits": true,
+      "psram_fits_with_reserve": true,
+      "notes": "Excludes allocator alignment, internal state/stacks and exact network peaks; 2 MiB is a planning assumption. Work bank duplicated for comparisons."
+    },
+    "hypothetical_12_layers_no_checkpoint_available": {
+      "weights_bytes": 21459584,
+      "artifact_bytes": 21893581,
+      "kv_bytes": 7077888,
+      "psram_base_bytes": 30094234,
+      "internal_work_payload_bytes": 10752,
+      "planning_reserve_bytes": 2097152,
+      "psram_including_reserve_bytes": 32191386,
+      "flash_partition_bytes": 25165824,
+      "psram_bytes": 33554432,
+      "flash_fits": true,
+      "psram_fits_with_reserve": true,
+      "notes": "Excludes allocator alignment, internal state/stacks and exact network peaks; 2 MiB is a planning assumption. Work bank duplicated for comparisons."
+    }
+  },
+  "capacity_scales_with_current_board_count": false
+}

@@ -1,0 +1,39 @@
+{
+  "status_after": {
+    "firmware": "0.3.0-dual-test",
+    "dispatch_protocol": 1,
+    "boot_id": 3696301160,
+    "default_kernel": "paced",
+    "model_ready": true,
+    "model_error": "",
+    "worker_busy": false,
+    "free_psram": 12892684,
+    "storage": "internal flash; SD not required for inference",
+    "layers": 6,
+    "context": 256,
+    "dim": 288,
+    "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+    "ota_pending": false
+  },
+  "all_tokens_identical": true,
+  "variants": {
+    "paced": {
+      "elapsed_ms_median": 18020.6025,
+      "elapsed_ms_range": [
+        17734.41,
+        18309.665
+      ],
+      "ttft_ms_median": 2071.7225,
+      "jobs": 6
+    },
+    "dual": {
+      "elapsed_ms_median": 10699.607,
+      "elapsed_ms_range": [
+        10508.17,
+        10893.868
+      ],
+      "ttft_ms_median": 1263.5079999999998,
+      "jobs": 6
+    }
+  }
+}

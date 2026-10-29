@@ -1,0 +1,26 @@
+{
+  "selected": {
+    "repo": "0rn0/llama2-15m-tinystories-sft",
+    "revision": "4d69f1c13019afcf5c50b621c73cb9c92e01bb4e",
+    "license_declared": "MIT",
+    "larger_than_baseline": false,
+    "reason": "Different trained/instruction-tuned text checkpoint; matches audited engine and byte budget"
+  },
+  "alternatives": [
+    {
+      "repo": "karpathy/tinyllamas",
+      "candidate": "stories42M.bin",
+      "reason": "Approx. 42M parameters in original model family exceed 24 MiB at INT8; requires a different storage/quantization strategy"
+    },
+    {
+      "repo": "SauravP97/tiny-stories-19M-instruct",
+      "revision": "d0508973eb6c0d6a102285a566350643c4977e9a",
+      "reason": "GPT-Neo rather than implemented Llama architecture"
+    },
+    {
+      "repo": "TheREZOR/TinyTalk-2",
+      "revision": "2b55040281013975a4d97e3db8d634f78b31c6b1",
+      "reason": "GPT-Neo; separate runtime/tokenizer port needed"
+    }
+  ]
+}

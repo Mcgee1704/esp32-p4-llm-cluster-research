@@ -1,0 +1,42 @@
+{
+  "S1": {
+    "A": "sft",
+    "B": "baseline"
+  },
+  "S2": {
+    "A": "sft",
+    "B": "baseline"
+  },
+  "S3": {
+    "A": "baseline",
+    "B": "sft"
+  },
+  "S4": {
+    "A": "baseline",
+    "B": "sft"
+  },
+  "Q1": {
+    "A": "sft",
+    "B": "baseline"
+  },
+  "Q2": {
+    "A": "baseline",
+    "B": "sft"
+  },
+  "Q3": {
+    "A": "sft",
+    "B": "baseline"
+  },
+  "I1": {
+    "A": "baseline",
+    "B": "sft"
+  },
+  "I2": {
+    "A": "baseline",
+    "B": "sft"
+  },
+  "I3": {
+    "A": "sft",
+    "B": "baseline"
+  }
+}

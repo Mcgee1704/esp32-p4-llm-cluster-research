@@ -1,0 +1,46 @@
+{
+  "calibration": {
+    "jobs": 6,
+    "output_tokens": 128,
+    "requested_tokens": 128,
+    "packet_ms": 37757,
+    "queue_ms_range": [
+      241,
+      21448
+    ],
+    "targets": {
+      "node-2": 2,
+      "local": 4
+    },
+    "prompt_tokens": [
+      5,
+      7,
+      70
+    ]
+  },
+  "validation": {
+    "jobs": 6,
+    "output_tokens": 160,
+    "requested_tokens": 160,
+    "packet_ms": 42545,
+    "queue_ms_range": [
+      44,
+      24021
+    ],
+    "targets": {
+      "node-2": 3,
+      "local": 3
+    },
+    "prompt_tokens": [
+      5,
+      7,
+      70
+    ]
+  },
+  "forwarding_residual_ms_range": [
+    18.916000000000167,
+    300.3189999999995
+  ],
+  "reference_prefix_tokens": 224,
+  "simulation_performed": false
+}

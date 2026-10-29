@@ -1,0 +1,414 @@
+[
+  {
+    "model": "sft",
+    "case": "S1",
+    "category": "story",
+    "text": "Once upon a time there was a rabbit who lived in a big forest. He was very happy and loved to eat carrots. One day he saw a big carrot and he wanted to eat it. He hopped over to it and started to nibble on it.\nSuddenly, he heard a voice. It was a little voice. It said, \"Please, don't eat me!\" The rabbit looked around and saw a little fox. The fox said, \"Please don't eat me. I am very hungry.\"\nThe rabbit thought for a moment and then",
+    "output_tokens": 128,
+    "prompt_tokens": 31,
+    "limit": 128,
+    "elapsed_ms": 43490.949,
+    "ttft_ms": 4082.579,
+    "queue_ms": 99,
+    "target": "local",
+    "indicators": {
+      "words": 91,
+      "limit_reached": true,
+      "eos_inferred": false,
+      "max_fourgram_occurrences": 2,
+      "repetition_flag": false
+    }
+  },
+  {
+    "model": "sft",
+    "case": "S2",
+    "category": "story",
+    "text": "Once upon a time there was a little child who wanted to repair something. He looked around and saw a kite in the sky. He was so excited! He ran to the kite and grabbed it. He was so happy to have a new kite. He ran back to the kite and put the kite in the sky. He watched it fly and it made him smile. He was so proud of his repaired kite. He was so happy that he had been able to repair it. He was so proud of himself. The end.",
+    "output_tokens": 116,
+    "prompt_tokens": 27,
+    "limit": 128,
+    "elapsed_ms": 37052.278,
+    "ttft_ms": 3357.098,
+    "queue_ms": 88,
+    "target": "node-2",
+    "indicators": {
+      "words": 95,
+      "limit_reached": false,
+      "eos_inferred": true,
+      "max_fourgram_occurrences": 2,
+      "repetition_flag": false
+    }
+  },
+  {
+    "model": "sft",
+    "case": "S3",
+    "category": "story",
+    "text": "One day, the girl went to the park to play. She saw a cat. The cat was very pretty. The girl wanted to play with the cat. She tried to catch the cat, but the cat was too fast.\nThe girl was sad. She could not find the cat. The cat was gone. The girl went home with a bad ending to her day.",
+    "output_tokens": 76,
+    "prompt_tokens": 26,
+    "limit": 128,
+    "elapsed_ms": 24823.288,
+    "ttft_ms": 3227.342,
+    "queue_ms": 37591,
+    "target": "node-2",
+    "indicators": {
+      "words": 64,
+      "limit_reached": false,
+      "eos_inferred": true,
+      "max_fourgram_occurrences": 2,
+      "repetition_flag": false
+    }
+  },
+  {
+    "model": "sft",
+    "case": "S4",
+    "category": "story",
+    "text": "Once upon a time, there was a boy who had a sandcastle. He was so proud of it that he wanted to show it to everyone. He ran to the sea and shouted, \"Look at my sandcastle! It's so big and beautiful!\"\nThe boy's mom smiled and said, \"That's great! But don't forget to wash it away.\"\nThe boy was so excited that he ran back to the beach and started to wash his sandcastle. He was so proud of his work.\nBut then, something terrible happened. The sea started to get bigger and bigger.",
+    "output_tokens": 128,
+    "prompt_tokens": 30,
+    "limit": 128,
+    "elapsed_ms": 42500.033,
+    "ttft_ms": 3906.925,
+    "queue_ms": 44054,
+    "target": "local",
+    "indicators": {
+      "words": 95,
+      "limit_reached": true,
+      "eos_inferred": false,
+      "max_fourgram_occurrences": 2,
+      "repetition_flag": false
+    }
+  },
+  {
+    "model": "sft",
+    "case": "Q1",
+    "category": "question",
+    "text": "\nLily is curious. She asks her mom, \"What sound do you make?\"\nHer mom says, \"A cow makes a sound. A cow",
+    "output_tokens": 32,
+    "prompt_tokens": 14,
+    "limit": 32,
+    "elapsed_ms": 10278.098,
+    "ttft_ms": 1773.262,
+    "queue_ms": 62799,
+    "target": "node-2",
+    "indicators": {
+      "words": 22,
+      "limit_reached": true,
+      "eos_inferred": false,
+      "max_fourgram_occurrences": 1,
+      "repetition_flag": false,
+      "answer_signal_in_first_20_words": false
+    }
+  },
+  {
+    "model": "sft",
+    "case": "Q2",
+    "category": "question",
+    "text": "\nLily is curious. She likes to learn new words. She asks her mom, \"What is a banana?\"\nHer mom says, \"",
+    "output_tokens": 32,
+    "prompt_tokens": 16,
+    "limit": 32,
+    "elapsed_ms": 10538.326,
+    "ttft_ms": 2002.037,
+    "queue_ms": 73551,
+    "target": "node-2",
+    "indicators": {
+      "words": 20,
+      "limit_reached": true,
+      "eos_inferred": false,
+      "max_fourgram_occurrences": 1,
+      "repetition_flag": false,
+      "answer_signal_in_first_20_words": false
+    }
+  },
+  {
+    "model": "sft",
+    "case": "Q3",
+    "category": "question",
+    "text": "\nLily is curious. She asks her mom, \"What is that?\"\nHer mom says, \"That is a bicycle. It is a",
+    "output_tokens": 32,
+    "prompt_tokens": 19,
+    "limit": 32,
+    "elapsed_ms": 11406.555,
+    "ttft_ms": 2487.394,
+    "queue_ms": 39,
+    "target": "local",
+    "indicators": {
+      "words": 20,
+      "limit_reached": true,
+      "eos_inferred": false,
+      "max_fourgram_occurrences": 1,
+      "repetition_flag": false,
+      "answer_signal_in_first_20_words": false
+    }
+  },
+  {
+    "model": "sft",
+    "case": "I1",
+    "category": "instruction",
+    "text": ".\nMommy and Daddy take the blue word out of the fridge. It is a special word that can make people happy.\nMom",
+    "output_tokens": 32,
+    "prompt_tokens": 9,
+    "limit": 32,
+    "elapsed_ms": 9628.091,
+    "ttft_ms": 1178.935,
+    "queue_ms": 20,
+    "target": "node-2",
+    "indicators": {
+      "words": 22,
+      "limit_reached": true,
+      "eos_inferred": false,
+      "max_fourgram_occurrences": 1,
+      "repetition_flag": false,
+      "exact_format_pass": false
+    }
+  },
+  {
+    "model": "sft",
+    "case": "I2",
+    "category": "instruction",
+    "text": "berries, yellow and orange ones, and yellow and green.\nOne day, a little girl named Lily went to the park with her mom. She",
+    "output_tokens": 32,
+    "prompt_tokens": 9,
+    "limit": 32,
+    "elapsed_ms": 9622.778,
+    "ttft_ms": 1183.944,
+    "queue_ms": 10013,
+    "target": "node-2",
+    "indicators": {
+      "words": 24,
+      "limit_reached": true,
+      "eos_inferred": false,
+      "max_fourgram_occurrences": 1,
+      "repetition_flag": false,
+      "exact_format_pass": false
+    }
+  },
+  {
+    "model": "sft",
+    "case": "I3",
+    "category": "instruction",
+    "text": "\nLater that day, Lily's mommy told her that there was a storm coming and they needed to go inside. Lily was sad because",
+    "output_tokens": 32,
+    "prompt_tokens": 13,
+    "limit": 32,
+    "elapsed_ms": 10399.308,
+    "ttft_ms": 1700.74,
+    "queue_ms": 11734,
+    "target": "local",
+    "indicators": {
+      "words": 23,
+      "limit_reached": true,
+      "eos_inferred": false,
+      "max_fourgram_occurrences": 1,
+      "repetition_flag": false,
+      "restricted_sentence_heuristic_pass": false
+    }
+  },
+  {
+    "model": "baseline",
+    "case": "S1",
+    "category": "story",
+    "text": " \nMoral: Sharing is caring.",
+    "output_tokens": 11,
+    "prompt_tokens": 31,
+    "limit": 128,
+    "elapsed_ms": 7321.324,
+    "ttft_ms": 4102.324,
+    "queue_ms": 221,
+    "target": "local",
+    "indicators": {
+      "words": 4,
+      "limit_reached": false,
+      "eos_inferred": true,
+      "max_fourgram_occurrences": 1,
+      "repetition_flag": false
+    }
+  },
+  {
+    "model": "baseline",
+    "case": "S2",
+    "category": "story",
+    "text": "Moral: Always be careful when you do something, so you don't get hurt.",
+    "output_tokens": 19,
+    "prompt_tokens": 27,
+    "limit": 128,
+    "elapsed_ms": 8642.749,
+    "ttft_ms": 3355.853,
+    "queue_ms": 190,
+    "target": "node-2",
+    "indicators": {
+      "words": 13,
+      "limit_reached": false,
+      "eos_inferred": true,
+      "max_fourgram_occurrences": 1,
+      "repetition_flag": false
+    }
+  },
+  {
+    "model": "baseline",
+    "case": "S3",
+    "category": "story",
+    "text": "Mary:\nMary: \"I'm so sad. I can't find my cat anywhere.\"\nMary: \"I'm sorry, I can't find it.\"\nMary: \"It's okay. I'll help you look for it.\"\nMary and her friend searched the whole house, but they couldn't find the cat.\nMary: \"I'm so sad. I can't find my cat.\"\nMary: \"I'm sorry, I can't find it.\"\nMary's friend: \"It's okay.",
+    "output_tokens": 128,
+    "prompt_tokens": 26,
+    "limit": 128,
+    "elapsed_ms": 42128.926,
+    "ttft_ms": 3391.866,
+    "queue_ms": 7932,
+    "target": "local",
+    "indicators": {
+      "words": 61,
+      "limit_reached": true,
+      "eos_inferred": false,
+      "max_fourgram_occurrences": 2,
+      "repetition_flag": false
+    }
+  },
+  {
+    "model": "baseline",
+    "case": "S4",
+    "category": "story",
+    "text": " \nMary: \"I wish I had a sandcastle like this.\"\nMary's mom smiled and said, \"I know, but it's not possible. It's too hard to make.\"\nMary was sad, but she knew her mom was right. She decided to make a sandcastle instead.\nThe next day, she went to the beach and started building her sandcastle. She worked hard and soon she had a beautiful sandcastle.\nMary was so proud of her sandcastle. She was glad that she had made it.\nMary's mom was proud of her too",
+    "output_tokens": 128,
+    "prompt_tokens": 30,
+    "limit": 128,
+    "elapsed_ms": 40918.202,
+    "ttft_ms": 3743.11,
+    "queue_ms": 9162,
+    "target": "node-2",
+    "indicators": {
+      "words": 87,
+      "limit_reached": true,
+      "eos_inferred": false,
+      "max_fourgram_occurrences": 1,
+      "repetition_flag": false
+    }
+  },
+  {
+    "model": "baseline",
+    "case": "Q1",
+    "category": "question",
+    "text": " The cow makes a loud moo. The cow is very happy.\nThe cow is very proud of the cow. The cow is very proud of the cow",
+    "output_tokens": 32,
+    "prompt_tokens": 14,
+    "limit": 32,
+    "elapsed_ms": 10540.497,
+    "ttft_ms": 1814.335,
+    "queue_ms": 50401,
+    "target": "local",
+    "indicators": {
+      "words": 27,
+      "limit_reached": true,
+      "eos_inferred": false,
+      "max_fourgram_occurrences": 3,
+      "repetition_flag": true,
+      "answer_signal_in_first_20_words": true
+    }
+  },
+  {
+    "model": "baseline",
+    "case": "Q2",
+    "category": "question",
+    "text": " It is a very special banana. It is a very special banana.\nOne day, the little girl was playing in the garden. She saw a",
+    "output_tokens": 32,
+    "prompt_tokens": 16,
+    "limit": 32,
+    "elapsed_ms": 10541.797,
+    "ttft_ms": 2013.813,
+    "queue_ms": 50379,
+    "target": "node-2",
+    "indicators": {
+      "words": 25,
+      "limit_reached": true,
+      "eos_inferred": false,
+      "max_fourgram_occurrences": 2,
+      "repetition_flag": false,
+      "answer_signal_in_first_20_words": false
+    }
+  },
+  {
+    "model": "baseline",
+    "case": "Q3",
+    "category": "question",
+    "text": "\n\"Mommy, I have four wheels!\"\nMommy smiled. \"That's great, sweetheart. You can use them to",
+    "output_tokens": 32,
+    "prompt_tokens": 19,
+    "limit": 32,
+    "elapsed_ms": 11385.983,
+    "ttft_ms": 2482.377,
+    "queue_ms": 88,
+    "target": "local",
+    "indicators": {
+      "words": 15,
+      "limit_reached": true,
+      "eos_inferred": false,
+      "max_fourgram_occurrences": 1,
+      "repetition_flag": false,
+      "answer_signal_in_first_20_words": false
+    }
+  },
+  {
+    "model": "baseline",
+    "case": "I1",
+    "category": "instruction",
+    "text": ". He loved to play with his toys and make them talk. One day, he was playing with his toy car when he heard a loud noise.",
+    "output_tokens": 32,
+    "prompt_tokens": 9,
+    "limit": 32,
+    "elapsed_ms": 9618.078,
+    "ttft_ms": 1182.498,
+    "queue_ms": 75,
+    "target": "node-2",
+    "indicators": {
+      "words": 26,
+      "limit_reached": true,
+      "eos_inferred": false,
+      "max_fourgram_occurrences": 1,
+      "repetition_flag": false,
+      "exact_format_pass": false
+    }
+  },
+  {
+    "model": "baseline",
+    "case": "I2",
+    "category": "instruction",
+    "text": ". He loved to play with his friends and explore the world around him. One day, he found a big, shiny rock. He was so excited and",
+    "output_tokens": 32,
+    "prompt_tokens": 9,
+    "limit": 32,
+    "elapsed_ms": 9610.216,
+    "ttft_ms": 1185.851,
+    "queue_ms": 10046,
+    "target": "node-2",
+    "indicators": {
+      "words": 26,
+      "limit_reached": true,
+      "eos_inferred": false,
+      "max_fourgram_occurrences": 1,
+      "repetition_flag": false,
+      "exact_format_pass": false
+    }
+  },
+  {
+    "model": "baseline",
+    "case": "I3",
+    "category": "instruction",
+    "text": " He is a little ignorant about rain. He does not know what rain is.\nOne day, he saw a big rainbow in the sky. He",
+    "output_tokens": 32,
+    "prompt_tokens": 13,
+    "limit": 32,
+    "elapsed_ms": 10406.542,
+    "ttft_ms": 1695.427,
+    "queue_ms": 11759,
+    "target": "local",
+    "indicators": {
+      "words": 25,
+      "limit_reached": true,
+      "eos_inferred": false,
+      "max_fourgram_occurrences": 1,
+      "repetition_flag": false,
+      "restricted_sentence_heuristic_pass": false
+    }
+  }
+]

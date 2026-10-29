@@ -1,0 +1,21 @@
+{
+  "format": "P4LM0001",
+  "quantization": "row-wise symmetric int8 weights, FP32 activations",
+  "source_sha256": "4160d262fefb25f6eba2a028b7ed028776a7e6c48538404539b06d027a371621",
+  "tokenizer_sha256": "50a52ef822ee9e83de5ce9d0be0a025a773d019437f58b5ff9dcafb063ece361",
+  "artifact_sha256": "a1aa4c95d23be513adee776fc2bbb835fce2e5ab88ddd04461da3c69d35495cd",
+  "model_id_sha256": "5273bac5d1937595d92e1528a21ad7ac619e5fde8d2bfbb0aca04866bf10e07f",
+  "bytes": 15836365,
+  "weights_bytes": 15402368,
+  "tokenizer_bytes": 433869,
+  "dimensions": {
+    "dim": 288,
+    "hidden": 768,
+    "layers": 6,
+    "heads": 6,
+    "kv_heads": 6,
+    "vocab": 32000,
+    "context": 256
+  },
+  "kv_bytes": 3538944
+}

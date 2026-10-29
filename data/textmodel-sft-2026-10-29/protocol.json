@@ -1,0 +1,28 @@
+{
+  "models": {
+    "baseline": {
+      "bytes": 15836365,
+      "sha256": "c40ac6300a9d078abd80dca8f638ed061d3addda9aff4ffff998025ab9d1399a",
+      "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a"
+    },
+    "sft": {
+      "bytes": 15836365,
+      "sha256": "a1aa4c95d23be513adee776fc2bbb835fce2e5ab88ddd04461da3c69d35495cd",
+      "model_id": "5273bac5d1937595d92e1528a21ad7ac619e5fde8d2bfbb0aca04866bf10e07f"
+    }
+  },
+  "prompts": [
+    "Write a story about: a little girl and her dog\nWith: happy ending\n\n### Story:\n",
+    "Write a story about: a boy who lost his favorite toy\nWith: sad ending\n\n### Story:\n"
+  ],
+  "direct_rounds": 2,
+  "cluster_rounds": 2,
+  "timing_tokens": 24,
+  "qualitative_tokens": 96,
+  "sampler": "greedy",
+  "order": [
+    "baseline",
+    "sft"
+  ],
+  "script_sha256": "84aeaf58f2abff388049929e961f1eeb3e8579ace5731fb9ada5f2b02740036d"
+}

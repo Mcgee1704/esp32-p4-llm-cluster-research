@@ -1,0 +1,52 @@
+{
+  "status_after": {
+    "firmware": "0.4.0-test",
+    "dispatch_protocol": 1,
+    "boot_id": 1777141151,
+    "default_kernel": "dual",
+    "kernel_protocol": 2,
+    "model_ready": true,
+    "model_error": "",
+    "worker_busy": false,
+    "free_psram": 12892684,
+    "free_internal": 454287,
+    "min_free_internal": 443123,
+    "largest_internal": 368640,
+    "storage": "internal flash; SD not required for inference",
+    "layers": 6,
+    "context": 256,
+    "dim": 288,
+    "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+    "ota_pending": false
+  },
+  "all_tokens_identical": true,
+  "variants": {
+    "dual": {
+      "elapsed_ms_median": 10744.447,
+      "elapsed_ms_range": [
+        10566.194,
+        10935.648
+      ],
+      "ttft_ms_median": 1271.563,
+      "jobs": 6
+    },
+    "sram": {
+      "elapsed_ms_median": 10565.7905,
+      "elapsed_ms_range": [
+        10367.227,
+        10757.251
+      ],
+      "ttft_ms_median": 1244.3629999999998,
+      "jobs": 6
+    },
+    "tile4": {
+      "elapsed_ms_median": 7052.2119999999995,
+      "elapsed_ms_range": [
+        6920.565,
+        7197.633
+      ],
+      "ttft_ms_median": 832.518,
+      "jobs": 6
+    }
+  }
+}

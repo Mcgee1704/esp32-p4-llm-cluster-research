@@ -1,0 +1,29 @@
+{
+  "legacy/cluster vs dual/cluster": {
+    "paired_speedups": [
+      1.914806611006986,
+      1.9150477164280846,
+      1.915317771340944,
+      1.9160487513849824
+    ],
+    "median_paired_speedup": 1.9151827438845141
+  },
+  "paced/cluster vs dual/cluster": {
+    "paired_speedups": [
+      1.6603339580848526,
+      1.6612985685071575,
+      1.6595672175839156,
+      1.661808574107219
+    ],
+    "median_paired_speedup": 1.660816263296005
+  },
+  "dual/local vs dual/cluster": {
+    "paired_speedups": [
+      1.9370420855341626,
+      1.936690524880709,
+      1.9378940194240928,
+      1.9371857155032814
+    ],
+    "median_paired_speedup": 1.937113900518722
+  }
+}

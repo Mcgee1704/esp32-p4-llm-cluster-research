@@ -1,0 +1,125 @@
+{
+  "nodes": 3,
+  "makespan_ms": 31164.53173712171,
+  "jobs": [
+    {
+      "case_index": 0,
+      "lane": 0,
+      "role": "local",
+      "arrival_ms": 0,
+      "start_ms": 253.0,
+      "finish_ms": 5631.135181904555,
+      "queue_ms": 253.0,
+      "service_ms": 5378.135181904555
+    },
+    {
+      "case_index": 1,
+      "lane": 1,
+      "role": "worker",
+      "arrival_ms": 18,
+      "start_ms": 253.0,
+      "finish_ms": 9648.195426745026,
+      "queue_ms": 235.0,
+      "service_ms": 9395.195426745026
+    },
+    {
+      "case_index": 2,
+      "lane": 2,
+      "role": "worker",
+      "arrival_ms": 48,
+      "start_ms": 253.0,
+      "finish_ms": 12376.945571730985,
+      "queue_ms": 205.0,
+      "service_ms": 12123.945571730985
+    },
+    {
+      "case_index": 3,
+      "lane": 0,
+      "role": "local",
+      "arrival_ms": 65,
+      "start_ms": 5878.135181904555,
+      "finish_ms": 19870.457822022094,
+      "queue_ms": 5813.135181904555,
+      "service_ms": 13992.322640117538
+    },
+    {
+      "case_index": 4,
+      "lane": 1,
+      "role": "worker",
+      "arrival_ms": 82,
+      "start_ms": 9851.195426745026,
+      "finish_ms": 17092.843988936806,
+      "queue_ms": 9769.195426745026,
+      "service_ms": 7241.64856219178
+    },
+    {
+      "case_index": 5,
+      "lane": 2,
+      "role": "worker",
+      "arrival_ms": 96,
+      "start_ms": 12579.945571730985,
+      "finish_ms": 31164.53173712171,
+      "queue_ms": 12483.945571730985,
+      "service_ms": 18584.586165390723
+    }
+  ],
+  "output_tokens": 160,
+  "classification": "scenario; not a validated three-node performance claim",
+  "conditional_on_exploratory_check": true,
+  "speedup_vs_simulated_two_nodes": 1.3677029256140503,
+  "sensitivity": [
+    {
+      "extra_worker_scale": 0.8,
+      "probe_scale": 0.0,
+      "makespan_ms": 24614.82538969737
+    },
+    {
+      "extra_worker_scale": 0.8,
+      "probe_scale": 1.0,
+      "makespan_ms": 25022.82538969737
+    },
+    {
+      "extra_worker_scale": 0.8,
+      "probe_scale": 2.0,
+      "makespan_ms": 25478.82538969737
+    },
+    {
+      "extra_worker_scale": 1.0,
+      "probe_scale": 0.0,
+      "makespan_ms": 30756.53173712171
+    },
+    {
+      "extra_worker_scale": 1.0,
+      "probe_scale": 1.0,
+      "makespan_ms": 31164.53173712171
+    },
+    {
+      "extra_worker_scale": 1.0,
+      "probe_scale": 2.0,
+      "makespan_ms": 31620.53173712171
+    },
+    {
+      "extra_worker_scale": 1.2,
+      "probe_scale": 0.0,
+      "makespan_ms": 36898.23808454605
+    },
+    {
+      "extra_worker_scale": 1.2,
+      "probe_scale": 1.0,
+      "makespan_ms": 37306.23808454605
+    },
+    {
+      "extra_worker_scale": 1.2,
+      "probe_scale": 2.0,
+      "makespan_ms": 37762.23808454605
+    }
+  ],
+  "sensitivity_is_confidence_interval": false,
+  "assumptions": [
+    "extra worker copies the existing worker",
+    "third dispatcher lane will exist",
+    "no extra master or switch contention",
+    "same known output lengths; no EOS prediction",
+    "independent full-model requests"
+  ]
+}

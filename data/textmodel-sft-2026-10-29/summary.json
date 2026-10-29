@@ -1,0 +1,30 @@
+{
+  "baseline": {
+    "direct_jobs": 4,
+    "direct_elapsed_median_ms": 9497.806,
+    "direct_ttft_median_ms": 3115.2615,
+    "cluster_packet_ms": [
+      10006,
+      9832
+    ],
+    "cluster_median_ms": 9919.0,
+    "quality_actual_tokens": [
+      96,
+      96
+    ]
+  },
+  "sft": {
+    "direct_jobs": 4,
+    "direct_elapsed_median_ms": 9503.668,
+    "direct_ttft_median_ms": 3107.193,
+    "cluster_packet_ms": [
+      9999,
+      9824
+    ],
+    "cluster_median_ms": 9911.5,
+    "quality_actual_tokens": [
+      96,
+      77
+    ]
+  }
+}

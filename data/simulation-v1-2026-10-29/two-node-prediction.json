@@ -1,0 +1,67 @@
+{
+  "nodes": 2,
+  "makespan_ms": 42623.821232253285,
+  "jobs": [
+    {
+      "case_index": 0,
+      "lane": 0,
+      "role": "local",
+      "arrival_ms": 0,
+      "start_ms": 253.0,
+      "finish_ms": 5631.135181904555,
+      "queue_ms": 253.0,
+      "service_ms": 5378.135181904555
+    },
+    {
+      "case_index": 1,
+      "lane": 1,
+      "role": "worker",
+      "arrival_ms": 18,
+      "start_ms": 253.0,
+      "finish_ms": 9648.195426745026,
+      "queue_ms": 235.0,
+      "service_ms": 9395.195426745026
+    },
+    {
+      "case_index": 2,
+      "lane": 0,
+      "role": "local",
+      "arrival_ms": 48,
+      "start_ms": 5878.135181904555,
+      "finish_ms": 18009.36375363554,
+      "queue_ms": 5830.135181904555,
+      "service_ms": 12131.228571730986
+    },
+    {
+      "case_index": 3,
+      "lane": 1,
+      "role": "worker",
+      "arrival_ms": 65,
+      "start_ms": 9851.195426745026,
+      "finish_ms": 23836.235066862562,
+      "queue_ms": 9786.195426745026,
+      "service_ms": 13985.039640117537
+    },
+    {
+      "case_index": 4,
+      "lane": 0,
+      "role": "local",
+      "arrival_ms": 82,
+      "start_ms": 18256.36375363554,
+      "finish_ms": 25505.295315827323,
+      "queue_ms": 18174.36375363554,
+      "service_ms": 7248.931562191779
+    },
+    {
+      "case_index": 5,
+      "lane": 1,
+      "role": "worker",
+      "arrival_ms": 96,
+      "start_ms": 24039.235066862562,
+      "finish_ms": 42623.821232253285,
+      "queue_ms": 23943.235066862562,
+      "service_ms": 18584.586165390723
+    }
+  ],
+  "output_tokens": 160
+}

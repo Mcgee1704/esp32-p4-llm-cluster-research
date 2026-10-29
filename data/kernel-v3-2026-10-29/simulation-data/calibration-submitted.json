@@ -1,0 +1,56 @@
+[
+  {
+    "id": "9d7ebb0400000021",
+    "dataset": "calibration",
+    "case_index": 0,
+    "prompt_index": 0,
+    "requested_tokens": 8,
+    "client_submit_start_ms": 0.0013999961083754897,
+    "client_accept_ms": 18.9059999975143
+  },
+  {
+    "id": "9d7ebb0400000022",
+    "dataset": "calibration",
+    "case_index": 1,
+    "prompt_index": 1,
+    "requested_tokens": 24,
+    "client_submit_start_ms": 19.848299998557195,
+    "client_accept_ms": 28.232099997694604
+  },
+  {
+    "id": "9d7ebb0400000023",
+    "dataset": "calibration",
+    "case_index": 2,
+    "prompt_index": 2,
+    "requested_tokens": 16,
+    "client_submit_start_ms": 28.85660000902135,
+    "client_accept_ms": 49.4267000030959
+  },
+  {
+    "id": "9d7ebb0400000024",
+    "dataset": "calibration",
+    "case_index": 3,
+    "prompt_index": 0,
+    "requested_tokens": 48,
+    "client_submit_start_ms": 49.977300004684366,
+    "client_accept_ms": 56.35120000806637
+  },
+  {
+    "id": "9d7ebb0400000025",
+    "dataset": "calibration",
+    "case_index": 4,
+    "prompt_index": 1,
+    "requested_tokens": 8,
+    "client_submit_start_ms": 56.94880000373814,
+    "client_accept_ms": 63.32790000305977
+  },
+  {
+    "id": "9d7ebb0400000026",
+    "dataset": "calibration",
+    "case_index": 5,
+    "prompt_index": 2,
+    "requested_tokens": 24,
+    "client_submit_start_ms": 63.87979999999516,
+    "client_accept_ms": 70.48409999697469
+  }
+]

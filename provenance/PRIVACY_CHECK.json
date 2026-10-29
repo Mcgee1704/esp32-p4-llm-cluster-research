@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "files_scanned": 432,
+  "numeric_json_files_checked": 161,
+  "private_key_found": false,
+  "private_identity_markers_found": false,
+  "binary_artifacts_included": false,
+  "raw_numerical_measurements_preserved": true,
+  "models_and_generated_English_texts_not_translated": true
+}

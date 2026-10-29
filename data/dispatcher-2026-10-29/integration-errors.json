@@ -1,0 +1,164 @@
+{
+  "checks": [
+    {
+      "test": "invalid prompt",
+      "status": 400
+    },
+    {
+      "test": "public peer rejected",
+      "status": 400
+    },
+    {
+      "test": "self peer rejected",
+      "status": 400
+    },
+    {
+      "test": "missing valid key",
+      "status": 401
+    },
+    {
+      "test": "capacity rejects ninth",
+      "status": 429
+    },
+    {
+      "test": "active configuration protected",
+      "status": 409
+    },
+    {
+      "test": "model update blocked while jobs active",
+      "status": 409
+    },
+    {
+      "test": "running cancellation rejected",
+      "status": 409
+    },
+    {
+      "test": "wrong expected model rejected at engine",
+      "status": 409
+    }
+  ],
+  "cancelled": 6,
+  "running_cancel_checked": true,
+  "jobs": [
+    {
+      "id": "7202e07900000004",
+      "state": "done",
+      "target": "node-2",
+      "error": "",
+      "created_ms": 333441,
+      "started_ms": 333465,
+      "finished_ms": 338218,
+      "output_tokens": 4,
+      "queue_ms": 24,
+      "raw_ndjson": "{\"bytes_hex\":\"2c\",\"token\":29892}\n{\"bytes_hex\":\"207468657265\",\"token\":727}\n{\"bytes_hex\":\"20776173\",\"token\":471}\n{\"bytes_hex\":\"2061\",\"token\":263}\n{\"done\":true,\"output_tokens\":4,\"elapsed_ms\":4509.57,\"ttft_ms\":2063.446,\"boards\":1,\"profile\":{\"master_compute_ms\":4503.695,\"stream_ms\":3.906,\"rpc_total_ms\":0,\"rpc_open_ms\":0,\"rpc_write_ms\":0,\"rpc_wait_headers_ms\":0,\"rpc_read_ms\":0,\"worker_compute_ms\":0,\"rpc_calls\":0,\"connections\":0,\"worker_reports\":0}}\n"
+    },
+    {
+      "id": "7202e07900000005",
+      "state": "done",
+      "target": "local",
+      "error": "",
+      "created_ms": 333472,
+      "started_ms": 333716,
+      "finished_ms": 338467,
+      "output_tokens": 4,
+      "queue_ms": 244,
+      "raw_ndjson": "{\"bytes_hex\":\"2c\",\"token\":29892}\n{\"bytes_hex\":\"207468657265\",\"token\":727}\n{\"bytes_hex\":\"20776173\",\"token\":471}\n{\"bytes_hex\":\"2061\",\"token\":263}\n{\"done\":true,\"output_tokens\":4,\"elapsed_ms\":4657.439,\"ttft_ms\":2159.079,\"boards\":1,\"profile\":{\"master_compute_ms\":4649.714,\"stream_ms\":5.716,\"rpc_total_ms\":0,\"rpc_open_ms\":0,\"rpc_write_ms\":0,\"rpc_wait_headers_ms\":0,\"rpc_read_ms\":0,\"worker_compute_ms\":0,\"rpc_calls\":0,\"connections\":0,\"worker_reports\":0}}\n"
+    },
+    {
+      "id": "7202e07900000006",
+      "state": "cancelled",
+      "target": "",
+      "error": "",
+      "created_ms": 333479,
+      "started_ms": 0,
+      "finished_ms": 333858,
+      "output_tokens": 0,
+      "queue_ms": 379,
+      "raw_ndjson": ""
+    },
+    {
+      "id": "7202e07900000007",
+      "state": "cancelled",
+      "target": "",
+      "error": "",
+      "created_ms": 333503,
+      "started_ms": 0,
+      "finished_ms": 333923,
+      "output_tokens": 0,
+      "queue_ms": 420,
+      "raw_ndjson": ""
+    },
+    {
+      "id": "7202e07900000008",
+      "state": "cancelled",
+      "target": "",
+      "error": "",
+      "created_ms": 333534,
+      "started_ms": 0,
+      "finished_ms": 333964,
+      "output_tokens": 0,
+      "queue_ms": 430,
+      "raw_ndjson": ""
+    },
+    {
+      "id": "7202e07900000009",
+      "state": "cancelled",
+      "target": "",
+      "error": "",
+      "created_ms": 333564,
+      "started_ms": 0,
+      "finished_ms": 334016,
+      "output_tokens": 0,
+      "queue_ms": 452,
+      "raw_ndjson": ""
+    },
+    {
+      "id": "7202e0790000000a",
+      "state": "cancelled",
+      "target": "",
+      "error": "",
+      "created_ms": 333595,
+      "started_ms": 0,
+      "finished_ms": 334078,
+      "output_tokens": 0,
+      "queue_ms": 483,
+      "raw_ndjson": ""
+    },
+    {
+      "id": "7202e0790000000b",
+      "state": "cancelled",
+      "target": "",
+      "error": "",
+      "created_ms": 333611,
+      "started_ms": 0,
+      "finished_ms": 334123,
+      "output_tokens": 0,
+      "queue_ms": 512,
+      "raw_ndjson": ""
+    }
+  ],
+  "cluster_after": {
+    "firmware": "0.2.0",
+    "configured": true,
+    "maintenance": false,
+    "peer": "node-2",
+    "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+    "capacity": 8,
+    "waiting_limit_ms": 180000,
+    "queued": 0,
+    "running": 0,
+    "available_slots": 8,
+    "lanes": [
+      {
+        "target": "local",
+        "last_probe_ok": true,
+        "last_error": ""
+      },
+      {
+        "target": "node-2",
+        "last_probe_ok": true,
+        "last_error": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "status_after": {
+    "firmware": "0.2.0",
+    "dispatch_protocol": 1,
+    "model_ready": true,
+    "model_error": "",
+    "worker_busy": false,
+    "free_psram": 12892684,
+    "storage": "internal flash; SD not required for inference",
+    "layers": 6,
+    "context": 256,
+    "dim": 288,
+    "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+    "ota_pending": false
+  },
+  "all_tokens_identical": true,
+  "variants": {
+    "default": {
+      "elapsed_ms_median": 21208.222,
+      "elapsed_ms_range": [
+        20889.992,
+        21526.452
+      ],
+      "ttft_ms_median": 2375.0905000000002,
+      "jobs": 2
+    }
+  }
+}

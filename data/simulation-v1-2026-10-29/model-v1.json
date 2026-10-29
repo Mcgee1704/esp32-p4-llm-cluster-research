@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "coefficients_ms": [
+    0.0,
+    141.37524213301072,
+    269.1933580691557
+  ],
+  "forwarding_ms": {
+    "local": 222.78999999999996,
+    "worker": 215.50700000000006
+  },
+  "refill_gap_ms": {
+    "local": 247,
+    "worker": 203
+  },
+  "initial_probe_ms": {
+    "local": 253,
+    "worker": 253
+  },
+  "training_job_ids": [
+    "9d7ebb0400000021",
+    "9d7ebb0400000022",
+    "9d7ebb0400000023",
+    "9d7ebb0400000024",
+    "9d7ebb0400000025",
+    "9d7ebb0400000026"
+  ],
+  "training_backend_rmse_ms": 136.29947785090854,
+  "reference_firmware": "0.4.0",
+  "reference_kernel": "tile4",
+  "reference_model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+  "calibration_jobs": 6,
+  "source_sha256": "3ad188567607b19c43016121db143a06512ae23fc33647d5c0142463430b2d42",
+  "data_sha256": "a5e7f1ce13def6a77377bd5ba2775ac141d0f1d289ca683114e2c2fd62b559d5"
+}

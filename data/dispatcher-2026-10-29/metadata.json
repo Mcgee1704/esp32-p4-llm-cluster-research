@@ -1,0 +1,29 @@
+{
+  "master": "node-1",
+  "peer": "node-2",
+  "job_endpoint": "http://node-1:8081/api/jobs",
+  "orders": [
+    [
+      "local",
+      "cluster"
+    ],
+    [
+      "cluster",
+      "local"
+    ],
+    [
+      "cluster",
+      "local"
+    ],
+    [
+      "local",
+      "cluster"
+    ]
+  ],
+  "prompts": [
+    "Once upon a time",
+    "One day, a little girl"
+  ],
+  "tokens_per_job": 24,
+  "script_sha256": "2ce9f1a45d961d1720a6e6f12ceb38f23196ca0c04e2198382da4597c75b8faa"
+}

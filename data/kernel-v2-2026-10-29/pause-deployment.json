@@ -1,0 +1,16 @@
+{
+  "firmware": "0.3.0-pause",
+  "dispatch_protocol": 1,
+  "boot_id": 118665529,
+  "default_kernel": "paced",
+  "model_ready": true,
+  "model_error": "",
+  "worker_busy": false,
+  "free_psram": 12892684,
+  "storage": "internal flash; SD not required for inference",
+  "layers": 6,
+  "context": 256,
+  "dim": 288,
+  "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+  "ota_pending": false
+}

@@ -1,0 +1,31 @@
+{
+  "host": "node-2",
+  "kernels": [
+    "legacy",
+    "paced"
+  ],
+  "repeats": 3,
+  "prompts": [
+    "Once upon a time",
+    "One day, a little girl"
+  ],
+  "tokens": 24,
+  "date_utc": "2026-10-29T07:51:06.623079+00:00",
+  "script_sha256": "8d5f0eaa8670352bab7e0709b6f2d32579311669ff9f798206748c0f5a25a531",
+  "status_before": {
+    "firmware": "0.3.0-pause",
+    "dispatch_protocol": 1,
+    "boot_id": 118665529,
+    "default_kernel": "paced",
+    "model_ready": true,
+    "model_error": "",
+    "worker_busy": false,
+    "free_psram": 12892684,
+    "storage": "internal flash; SD not required for inference",
+    "layers": 6,
+    "context": 256,
+    "dim": 288,
+    "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+    "ota_pending": false
+  }
+}

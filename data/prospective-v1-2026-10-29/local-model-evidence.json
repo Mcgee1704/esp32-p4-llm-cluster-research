@@ -1,0 +1,29 @@
+{
+  "current_model": {
+    "source_manifest_sha256": "17344243c0cf4e764bc2efc29d735610f2a16b09267119295e1c222f9de58e02",
+    "dimensions": {
+      "dim": 288,
+      "hidden": 768,
+      "layers": 6,
+      "heads": 6,
+      "kv_heads": 6,
+      "vocab": 32000,
+      "context": 256
+    },
+    "tokenizer_bytes": 433869,
+    "artifact_bytes": 15836365
+  },
+  "cached_qwen_reference": {
+    "config_sha256": "3fb36c5a4606c8c76f9eb4d4f689f58f11b9e6283277b34bc01c7ee85b1a5949",
+    "selected_fields": {
+      "model_type": "qwen2",
+      "hidden_size": 896,
+      "intermediate_size": 4864,
+      "num_hidden_layers": 24,
+      "rope_theta": 1000000.0,
+      "rms_norm_eps": 1e-06,
+      "bos_token_id": 31997,
+      "eos_token_id": 31997
+    }
+  }
+}

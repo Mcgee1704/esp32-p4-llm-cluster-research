@@ -1,0 +1,254 @@
+{
+  "prompts": [
+    "Once upon a time, a small fox found a red ball.",
+    "One sunny morning, two friends walked to the river. They wanted to build a small boat.",
+    "There was a little bird who could not fly. Every day, its friends helped it practice. There was a little bird who could not fly. Every day, its friends helped it practice. "
+  ],
+  "cases": [
+    [
+      0,
+      16
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      2,
+      24
+    ],
+    [
+      0,
+      32
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      1,
+      24
+    ]
+  ],
+  "prompt_tokens": [
+    15,
+    21,
+    40
+  ],
+  "predictions": {
+    "1": {
+      "nodes": 1,
+      "makespan_ms": 53615.181455165,
+      "jobs": [
+        {
+          "case_index": 0,
+          "lane": 0,
+          "role": "local",
+          "arrival_ms": 0,
+          "start_ms": 253.0,
+          "finish_ms": 6762.137118968641,
+          "queue_ms": 253.0,
+          "service_ms": 6509.137118968641
+        },
+        {
+          "case_index": 1,
+          "lane": 0,
+          "role": "local",
+          "arrival_ms": 20,
+          "start_ms": 7009.137118968641,
+          "finish_ms": 12212.978826182101,
+          "queue_ms": 6989.137118968641,
+          "service_ms": 5203.84170721346
+        },
+        {
+          "case_index": 2,
+          "lane": 0,
+          "role": "local",
+          "arrival_ms": 40,
+          "start_ms": 12459.978826182101,
+          "finish_ms": 24657.043863029256,
+          "queue_ms": 12419.978826182101,
+          "service_ms": 12197.065036847154
+        },
+        {
+          "case_index": 3,
+          "lane": 0,
+          "role": "local",
+          "arrival_ms": 60,
+          "start_ms": 24904.043863029256,
+          "finish_ms": 35720.27471110439,
+          "queue_ms": 24844.043863029256,
+          "service_ms": 10816.23084807513
+        },
+        {
+          "case_index": 4,
+          "lane": 0,
+          "role": "local",
+          "arrival_ms": 80,
+          "start_ms": 35967.27471110439,
+          "finish_ms": 43857.24601884505,
+          "queue_ms": 35887.27471110439,
+          "service_ms": 7889.971307740663
+        },
+        {
+          "case_index": 5,
+          "lane": 0,
+          "role": "local",
+          "arrival_ms": 100,
+          "start_ms": 44104.24601884505,
+          "finish_ms": 53615.181455165,
+          "queue_ms": 44004.24601884505,
+          "service_ms": 9510.935436319953
+        }
+      ],
+      "output_tokens": 112
+    },
+    "2": {
+      "nodes": 2,
+      "makespan_ms": 27583.303403363723,
+      "jobs": [
+        {
+          "case_index": 0,
+          "lane": 0,
+          "role": "local",
+          "arrival_ms": 0,
+          "start_ms": 253.0,
+          "finish_ms": 6762.137118968641,
+          "queue_ms": 253.0,
+          "service_ms": 6509.137118968641
+        },
+        {
+          "case_index": 1,
+          "lane": 1,
+          "role": "worker",
+          "arrival_ms": 20,
+          "start_ms": 253.0,
+          "finish_ms": 5449.55870721346,
+          "queue_ms": 233.0,
+          "service_ms": 5196.55870721346
+        },
+        {
+          "case_index": 2,
+          "lane": 1,
+          "role": "worker",
+          "arrival_ms": 40,
+          "start_ms": 5652.55870721346,
+          "finish_ms": 17842.340744060613,
+          "queue_ms": 5612.55870721346,
+          "service_ms": 12189.782036847153
+        },
+        {
+          "case_index": 3,
+          "lane": 0,
+          "role": "local",
+          "arrival_ms": 60,
+          "start_ms": 7009.137118968641,
+          "finish_ms": 17825.36796704377,
+          "queue_ms": 6949.137118968641,
+          "service_ms": 10816.23084807513
+        },
+        {
+          "case_index": 4,
+          "lane": 1,
+          "role": "worker",
+          "arrival_ms": 80,
+          "start_ms": 18045.340744060613,
+          "finish_ms": 25928.029051801277,
+          "queue_ms": 17965.340744060613,
+          "service_ms": 7882.688307740664
+        },
+        {
+          "case_index": 5,
+          "lane": 0,
+          "role": "local",
+          "arrival_ms": 100,
+          "start_ms": 18072.36796704377,
+          "finish_ms": 27583.303403363723,
+          "queue_ms": 17972.36796704377,
+          "service_ms": 9510.935436319953
+        }
+      ],
+      "output_tokens": 112
+    },
+    "3": {
+      "nodes": 3,
+      "makespan_ms": 22149.434473167104,
+      "jobs": [
+        {
+          "case_index": 0,
+          "lane": 0,
+          "role": "local",
+          "arrival_ms": 0,
+          "start_ms": 253.0,
+          "finish_ms": 6762.137118968641,
+          "queue_ms": 253.0,
+          "service_ms": 6509.137118968641
+        },
+        {
+          "case_index": 1,
+          "lane": 1,
+          "role": "worker",
+          "arrival_ms": 20,
+          "start_ms": 253.0,
+          "finish_ms": 5449.55870721346,
+          "queue_ms": 233.0,
+          "service_ms": 5196.55870721346
+        },
+        {
+          "case_index": 2,
+          "lane": 2,
+          "role": "worker",
+          "arrival_ms": 40,
+          "start_ms": 253.0,
+          "finish_ms": 12442.782036847153,
+          "queue_ms": 213.0,
+          "service_ms": 12189.782036847153
+        },
+        {
+          "case_index": 3,
+          "lane": 1,
+          "role": "worker",
+          "arrival_ms": 60,
+          "start_ms": 5652.55870721346,
+          "finish_ms": 16461.506555288594,
+          "queue_ms": 5592.55870721346,
+          "service_ms": 10808.947848075131
+        },
+        {
+          "case_index": 4,
+          "lane": 0,
+          "role": "local",
+          "arrival_ms": 80,
+          "start_ms": 7009.137118968641,
+          "finish_ms": 14899.108426709303,
+          "queue_ms": 6929.137118968641,
+          "service_ms": 7889.971307740663
+        },
+        {
+          "case_index": 5,
+          "lane": 2,
+          "role": "worker",
+          "arrival_ms": 100,
+          "start_ms": 12645.782036847153,
+          "finish_ms": 22149.434473167104,
+          "queue_ms": 12545.782036847153,
+          "service_ms": 9503.652436319951
+        }
+      ],
+      "output_tokens": 112
+    }
+  },
+  "model_sha256": "e7371f2e67650792ee63f42c0c6261d60743c8978134fd121714d385b760d037",
+  "script_sha256": "0091c597471c078892acf81415bb5b71222ee16165abf20685cb1457793c804b",
+  "criteria": {
+    "makespan_relative_error_max": 0.1
+  },
+  "assumptions": [
+    "all requested tokens produced",
+    "planned arrivals 20 ms apart"
+  ],
+  "measurement_order": [
+    "cluster",
+    "local"
+  ]
+}

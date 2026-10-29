@@ -1,0 +1,74 @@
+{
+  "all_tokens_identical": true,
+  "jobs": 32,
+  "status_after": {
+    "node-1": {
+      "firmware": "0.3.0",
+      "dispatch_protocol": 1,
+      "boot_id": 63065551,
+      "default_kernel": "dual",
+      "kernel_protocol": 1,
+      "model_ready": true,
+      "model_error": "",
+      "worker_busy": false,
+      "free_psram": 11549164,
+      "storage": "internal flash; SD not required for inference",
+      "layers": 6,
+      "context": 256,
+      "dim": 288,
+      "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+      "ota_pending": false
+    },
+    "node-2": {
+      "firmware": "0.3.0",
+      "dispatch_protocol": 1,
+      "boot_id": 2070362289,
+      "default_kernel": "dual",
+      "kernel_protocol": 1,
+      "model_ready": true,
+      "model_error": "",
+      "worker_busy": false,
+      "free_psram": 12892684,
+      "storage": "internal flash; SD not required for inference",
+      "layers": 6,
+      "context": 256,
+      "dim": 288,
+      "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+      "ota_pending": false
+    }
+  },
+  "cases": {
+    "legacy-cluster": {
+      "median_ms": 22478.5,
+      "range_ms": [
+        22475,
+        22482
+      ],
+      "tokens_per_second": 2.1353738280457657
+    },
+    "paced-cluster": {
+      "median_ms": 19493.0,
+      "range_ms": [
+        19480,
+        19498
+      ],
+      "tokens_per_second": 2.4624225117311234
+    },
+    "dual-cluster": {
+      "median_ms": 11737.0,
+      "range_ms": [
+        11733,
+        11738
+      ],
+      "tokens_per_second": 4.089631110883464
+    },
+    "dual-local": {
+      "median_ms": 22733.0,
+      "range_ms": [
+        22729,
+        22747
+      ],
+      "tokens_per_second": 2.1114679754585386
+    }
+  }
+}

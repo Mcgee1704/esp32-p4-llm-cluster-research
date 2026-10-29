@@ -1,0 +1,10 @@
+{
+  "model.safetensors": {
+    "matches_remote_lfs_sha256": true,
+    "sha256": "037e7e31ae4e1585b29fc8d238d18ce468042a9b04cefbdae6dbf8244f2b8f91"
+  },
+  "tokenizer.model": {
+    "matches_remote_lfs_sha256": true,
+    "sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347"
+  }
+}

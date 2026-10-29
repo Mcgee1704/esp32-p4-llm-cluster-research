@@ -1,0 +1,119 @@
+{
+  "date_utc": "2026-10-29T08:01:56.664884+00:00",
+  "orders": [
+    [
+      [
+        "legacy",
+        "cluster"
+      ],
+      [
+        "paced",
+        "cluster"
+      ],
+      [
+        "dual",
+        "cluster"
+      ],
+      [
+        "dual",
+        "local"
+      ]
+    ],
+    [
+      [
+        "paced",
+        "cluster"
+      ],
+      [
+        "dual",
+        "cluster"
+      ],
+      [
+        "dual",
+        "local"
+      ],
+      [
+        "legacy",
+        "cluster"
+      ]
+    ],
+    [
+      [
+        "dual",
+        "cluster"
+      ],
+      [
+        "dual",
+        "local"
+      ],
+      [
+        "legacy",
+        "cluster"
+      ],
+      [
+        "paced",
+        "cluster"
+      ]
+    ],
+    [
+      [
+        "dual",
+        "local"
+      ],
+      [
+        "legacy",
+        "cluster"
+      ],
+      [
+        "paced",
+        "cluster"
+      ],
+      [
+        "dual",
+        "cluster"
+      ]
+    ]
+  ],
+  "prompts": [
+    "Once upon a time",
+    "One day, a little girl"
+  ],
+  "tokens_per_job": 24,
+  "status_before": {
+    "node-1": {
+      "firmware": "0.3.0",
+      "dispatch_protocol": 1,
+      "boot_id": 63065551,
+      "default_kernel": "dual",
+      "kernel_protocol": 1,
+      "model_ready": true,
+      "model_error": "",
+      "worker_busy": false,
+      "free_psram": 12892684,
+      "storage": "internal flash; SD not required for inference",
+      "layers": 6,
+      "context": 256,
+      "dim": 288,
+      "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+      "ota_pending": false
+    },
+    "node-2": {
+      "firmware": "0.3.0",
+      "dispatch_protocol": 1,
+      "boot_id": 2070362289,
+      "default_kernel": "dual",
+      "kernel_protocol": 1,
+      "model_ready": true,
+      "model_error": "",
+      "worker_busy": false,
+      "free_psram": 12892684,
+      "storage": "internal flash; SD not required for inference",
+      "layers": 6,
+      "context": 256,
+      "dim": 288,
+      "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+      "ota_pending": false
+    }
+  },
+  "script_sha256": "1f294cd62c9066508c3209e0d726f7affba60bb7e0846594169bbba194e39c5a"
+}

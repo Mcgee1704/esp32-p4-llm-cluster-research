@@ -1,0 +1,22 @@
+{
+  "README.md": {
+    "url": "https://huggingface.co/0rn0/llama2-15m-tinystories-sft/resolve/4d69f1c13019afcf5c50b621c73cb9c92e01bb4e/README.md",
+    "bytes": 5581,
+    "sha256": "5cf0cd7bc40203afb57b4beac31ca04043dc7450b2ae4ceeb23935facf904bb1"
+  },
+  "config.json": {
+    "url": "https://huggingface.co/0rn0/llama2-15m-tinystories-sft/resolve/4d69f1c13019afcf5c50b621c73cb9c92e01bb4e/config.json",
+    "bytes": 173,
+    "sha256": "a52ce16f78af3379462c9cb0532c7494331f864bfdd7b6ea477254be95d46655"
+  },
+  "tokenizer.model": {
+    "url": "https://huggingface.co/0rn0/llama2-15m-tinystories-sft/resolve/4d69f1c13019afcf5c50b621c73cb9c92e01bb4e/tokenizer.model",
+    "bytes": 499723,
+    "sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347"
+  },
+  "model.safetensors": {
+    "url": "https://huggingface.co/0rn0/llama2-15m-tinystories-sft/resolve/4d69f1c13019afcf5c50b621c73cb9c92e01bb4e/model.safetensors",
+    "bytes": 30389000,
+    "sha256": "037e7e31ae4e1585b29fc8d238d18ce468042a9b04cefbdae6dbf8244f2b8f91"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "source_research_commit": "a0bf3bd9f9ceb5546f06703a1e4c17464db955d9",
+  "target": "https://github.com/Mcgee1704/esp32-p4-llm-cluster-research",
+  "branch": "main",
+  "language": "English",
+  "upload_performed_at_build_time": false,
+  "numeric_json_files_checked": 161,
+  "history": "fresh public snapshot; private Git history excluded",
+  "licence": "MIT for original contributions; upstream terms retained"
+}

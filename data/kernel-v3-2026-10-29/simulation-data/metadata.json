@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-10-29T08:48:40.499477+00:00",
+  "hardware_nodes": 2,
+  "simulated_nodes": 0,
+  "plans": {
+    "calibration": [
+      [
+        0,
+        8
+      ],
+      [
+        1,
+        24
+      ],
+      [
+        2,
+        16
+      ],
+      [
+        0,
+        48
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        24
+      ]
+    ],
+    "validation": [
+      [
+        1,
+        16
+      ],
+      [
+        0,
+        32
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        1,
+        48
+      ],
+      [
+        0,
+        24
+      ],
+      [
+        2,
+        32
+      ]
+    ]
+  },
+  "prompts": [
+    "Once upon a time",
+    "One day, a little girl",
+    "Once upon a time, there was a little girl. She lived near a forest. Once upon a time, there was a little girl. She lived near a forest. Once upon a time, there was a little girl. She lived near a forest. Once upon a time, there was a little girl. She lived near a forest. "
+  ],
+  "status_before": {
+    "node-1": {
+      "firmware": "0.4.0",
+      "dispatch_protocol": 1,
+      "boot_id": 1400501662,
+      "default_kernel": "tile4",
+      "kernel_protocol": 2,
+      "model_ready": true,
+      "model_error": "",
+      "worker_busy": false,
+      "free_psram": 11549164,
+      "free_internal": 450807,
+      "min_free_internal": 425523,
+      "largest_internal": 360448,
+      "storage": "internal flash; SD not required for inference",
+      "layers": 6,
+      "context": 256,
+      "dim": 288,
+      "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+      "ota_pending": false
+    },
+    "node-2": {
+      "firmware": "0.4.0",
+      "dispatch_protocol": 1,
+      "boot_id": 4206769193,
+      "default_kernel": "tile4",
+      "kernel_protocol": 2,
+      "model_ready": true,
+      "model_error": "",
+      "worker_busy": false,
+      "free_psram": 12892684,
+      "free_internal": 454291,
+      "min_free_internal": 438139,
+      "largest_internal": 360448,
+      "storage": "internal flash; SD not required for inference",
+      "layers": 6,
+      "context": 256,
+      "dim": 288,
+      "model_id": "5a87778471464024a58c793dac66fedca10ad169f90d1691f642fd05dc6bd18a",
+      "ota_pending": false
+    }
+  },
+  "script_sha256": "bfd5362aee4500a8066790a4b9cbc7751f66602220410813db9633a02f2c8429",
+  "clock_notes": "Master timestamps share one boot clock. Client offsets are relative to each burst start; never subtract them from board clocks.",
+  "split_notes": "Validation burst reserved in advance; no fitting or third-node prediction performed."
+}
