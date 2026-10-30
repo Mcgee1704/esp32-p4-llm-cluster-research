@@ -2,9 +2,9 @@ cff-version: 1.2.0
 message: "Please cite the versioned research snapshot and its pinned model sources. No DOI has been assigned."
 type: software
 title: "ESP32-P4 LLM Cluster Research"
-version: "research-v8"
+version: "research-v9"
 authors:
   - name: "Mcgee1704"
 repository-code: "https://github.com/Mcgee1704/esp32-p4-llm-cluster-research"
 license: MIT
-abstract: "Two-board embedded inference experiments. Original contributions are MIT; upstream models, Unicode data and libraries retain their separate licences. Version8 archives evidence through30 October2026. No DOI is assigned."
+abstract: "Two-board embedded inference experiments. Original contributions are MIT; upstream models, Unicode data and libraries retain their separate licences. Version9 archives evidence through30 October2026. No DOI is assigned."

@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "protocol_commit": "0d5f664877278ef2e61dd4158a3749facf8bbefa",
+  "ratings_commit": "5de1bb80213d272e3dcd1b99a786909dc6538710",
+  "actual_streams_checked": 51,
+  "new_quality_outputs": 48,
+  "reused_quality_outputs": 0,
+  "existing_tests_passed": 95,
+  "test_log_sha256": "f25b4a99850bf56f63371d1f06fd45f40378954d783f38e919560436550fb74c",
+  "manifest_relationships_checked": {
+    "record-audit.json": 61,
+    "artifact-audit.json": 80
+  },
+  "generated_figures_visually_reviewed": 2,
+  "archived_dll_preserved": true,
+  "genuine_artifact_and_recording_source_guards_passed": true,
+  "tiny_restored": true,
+  "both_firmware": "0.9.0",
+  "queue": 0,
+  "running": 0,
+  "new_models_downloaded": 0,
+  "new_firmware_writes": 0,
+  "online_upload_performed": false,
+  "source_sha256": {
+    "protocol.json": "f9f720d40cd7ef3bba07cac5e1f617fe8726e33b8605fc7fe027c8ba38e6e7bf",
+    "host-receipt.json": "90a73c1fcaae4219552d6deb5f6d0ac858955b4af1540caa7260d858b6e198b9",
+    "masked-ratings.json": "b904f0cce399b7f422bb99cc9015dff27b1d4bbaf03949d55607c2d357e9e0a5",
+    "unblinding.json": "238daa904c312cadcab99bfb3ec7d24eab554999036b0b2c13dfba2924419474",
+    "summary.json": "b1004a86009114c647e7b5a90d0eb118e0475551f800e8c9e73ced8b36644898",
+    "final.json": "1b7d9e60ffe5f5da911d55488a1130bdb655263421d233d1e546be1ab780861e",
+    "record-audit.json": "00a5f76f7cdcccbe99a5bc24620018d28ed327f6011d8906aa93923a786b87d8",
+    "artifact-audit.json": "0fc2958da9bf5ca19f425cde205776456fc01f175683a67d7e96beaaad25eb22"
+  },
+  "limitations": "Recorded host/device equality and descriptive same-author review; no independent semantic re-rating, energy measurement or population ranking."
+}

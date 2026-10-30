@@ -1,0 +1,108 @@
+{
+  "mapping": {
+    "nonce": "9ac893ff45e62665e89bb0bb6c2801b71108ebc2f54b783fcee6b7e1fd1154ec",
+    "labels": {
+      "F01": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "F02": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "F03": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "F04": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "R01": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "R02": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "R03": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "R04": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "I01": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "I02": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "I03": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "I04": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "G01": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "G02": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "G03": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "G04": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "U01": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "U02": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "U03": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "U04": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "S01": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "S02": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "S03": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "S04": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      }
+    }
+  },
+  "mapping_sha256": "d8db08befc9c97e59290d7386585401fdd98475a575d932b6ffcab7cb79a0681",
+  "ratings_commit": "5de1bb80213d272e3dcd1b99a786909dc6538710",
+  "ratings_sha256": "b904f0cce399b7f422bb99cc9015dff27b1d4bbaf03949d55607c2d357e9e0a5",
+  "masked_responses_sha256": "33f2ef550fad8805f5f1ff8cf9f50965c4d39aa6c1f66dcf11bc68016dac0368",
+  "scope": "Unsealed only after committed masked ratings; same author, not independent/fully blind."
+}

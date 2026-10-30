@@ -1,0 +1,150 @@
+[
+  {
+    "id": "F01",
+    "category": "facts",
+    "user": "In a typical flowering plant, which part takes up water from the soil? Answer briefly.",
+    "expected": "Roots; not leaves, petals or stem as the primary soil uptake organ."
+  },
+  {
+    "id": "F02",
+    "category": "facts",
+    "user": "Which instrument measures air temperature: a ruler or a thermometer? Answer briefly.",
+    "expected": "Thermometer, not ruler."
+  },
+  {
+    "id": "F03",
+    "category": "facts",
+    "user": "What is the usual name for liquid water slowly becoming water vapor from its surface? Answer briefly.",
+    "expected": "Evaporation; vaporization is acceptable if not specifically claimed to require boiling."
+  },
+  {
+    "id": "F04",
+    "category": "facts",
+    "user": "Which direction on a compass is opposite west? Answer briefly.",
+    "expected": "East, not north/south/west."
+  },
+  {
+    "id": "R01",
+    "category": "reasoning",
+    "user": "Mia has four buttons and finds three more. How many buttons does she have now? Answer briefly.",
+    "expected": "Seven or7; no alternative total or invented further transaction."
+  },
+  {
+    "id": "R02",
+    "category": "reasoning",
+    "user": "There are nine grapes. Lee eats four. How many grapes remain? Answer briefly.",
+    "expected": "Five or5."
+  },
+  {
+    "id": "R03",
+    "category": "reasoning",
+    "user": "A ribbon is longer than a string. The string is longer than a thread. Which is shortest? Answer briefly.",
+    "expected": "The thread; transitive comparison."
+  },
+  {
+    "id": "R04",
+    "category": "reasoning",
+    "user": "A bag contains only red and blue beads. All red beads are round. Does that prove every blue bead is round? Answer briefly.",
+    "expected": "No/not necessarily/cannot conclude. Claiming that no blue bead can be round is also unsupported."
+  },
+  {
+    "id": "I01",
+    "category": "exact",
+    "user": "Reply with exactly this lowercase word and nothing else: lantern",
+    "expected": "lantern"
+  },
+  {
+    "id": "I02",
+    "category": "exact",
+    "user": "Reply with exactly these two lowercase words and nothing else: amber cloud",
+    "expected": "amber cloud"
+  },
+  {
+    "id": "I03",
+    "category": "exact",
+    "user": "Write only the digits 42, with no words or punctuation.",
+    "expected": "42"
+  },
+  {
+    "id": "I04",
+    "category": "exact",
+    "user": "Return exactly this JSON object and nothing else: {\"ok\":true}",
+    "expected": "{\"ok\":true}"
+  },
+  {
+    "id": "G01",
+    "category": "grounded",
+    "user": "Note: The parcel is behind the sofa, not under the table. Where is the parcel? Answer briefly.",
+    "expected": "Behind the sofa; merely sofa without the relation is incomplete, under the table is wrong."
+  },
+  {
+    "id": "G02",
+    "category": "grounded",
+    "user": "Dialogue: Ava: My pet is a rabbit. Ben: My pet is a turtle. Question: What is Ben's pet? Answer briefly.",
+    "expected": "Turtle, with no attribution to Ava or rabbit as Ben's pet."
+  },
+  {
+    "id": "G03",
+    "category": "grounded",
+    "user": "At first the badge was in a coat. Then Tess moved it to a basket. Where is the badge now? Answer briefly.",
+    "expected": "In the basket, not still in the coat."
+  },
+  {
+    "id": "G04",
+    "category": "grounded",
+    "user": "Record: name=Ivo; drink=tea; cup=yellow. What color is Ivo's cup? Answer briefly.",
+    "expected": "Yellow, not tea as a color or an invented color."
+  },
+  {
+    "id": "U01",
+    "category": "uncertainty",
+    "subgroup": "unanswerable",
+    "user": "No address is provided. What is the street address of the imaginary shop Veluno? Say if it cannot be determined.",
+    "expected": "Explicitly not known/not supplied/cannot determine; no invented street, town or house number."
+  },
+  {
+    "id": "U02",
+    "category": "uncertainty",
+    "subgroup": "unanswerable",
+    "user": "A sealed envelope contains an unknown number of cards. No count is given. How many cards are inside? Say if it cannot be determined.",
+    "expected": "Explicitly cannot determine/not enough information/unknown; no asserted count."
+  },
+  {
+    "id": "U03",
+    "category": "uncertainty",
+    "subgroup": "answerable",
+    "user": "Note: The code for the fictional locker is 731. What is the code? Answer briefly.",
+    "expected": "731; no refusal when the answer is supplied."
+  },
+  {
+    "id": "U04",
+    "category": "uncertainty",
+    "subgroup": "answerable",
+    "user": "Note: The imaginary shop Veluno is on Maple Road. On which road is it? Answer briefly.",
+    "expected": "Maple Road; no refusal or invented alternative road."
+  },
+  {
+    "id": "S01",
+    "category": "story",
+    "user": "Tell a two-sentence story in which a snail loses its hat and a robin helps find it. End with the hat found.",
+    "expected": "Snail loses hat; robin helps find it; hat visibly recovered; consistent roles; exactly two sentences."
+  },
+  {
+    "id": "S02",
+    "category": "story",
+    "user": "Tell a two-sentence story in which a child fixes a broken toy train and makes it run again.",
+    "expected": "Child repairs a broken toy train; train visibly runs again; no material contradiction; exactly two sentences."
+  },
+  {
+    "id": "S03",
+    "category": "story",
+    "user": "Tell a two-sentence story in which a fox returns a borrowed lantern to an owl before dark.",
+    "expected": "Fox borrowed lantern and returns it to owl before dark; consistent ownership/sequence; exactly two sentences."
+  },
+  {
+    "id": "S04",
+    "category": "story",
+    "user": "Tell a two-sentence story in which two friends share the last pear and both feel happy.",
+    "expected": "Two friends share the final pear; both visibly happy; no contradictory unshared ending; exactly two sentences."
+  }
+]

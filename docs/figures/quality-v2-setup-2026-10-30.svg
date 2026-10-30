@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1150" viewBox="0 0 1600 1150" role="img">
+<title>Broader quality V2: protocol, physical setup and masking</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1150" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">Broader quality V2: protocol, physical setup and masking</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Existing local model artifacts · no downloads / firmware changes · original protocol commit0d5f664</text>
+<rect x="48" y="145" width="484" height="90" rx="14" fill="white"/>
+<text x="72" y="182" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">Basic facts</text>
+<text x="72" y="216" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">4 new tasks</text>
+<rect x="558" y="145" width="484" height="90" rx="14" fill="white"/>
+<text x="582" y="182" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">Arithmetic / reasoning</text>
+<text x="582" y="216" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">4 new tasks</text>
+<rect x="1068" y="145" width="484" height="90" rx="14" fill="white"/>
+<text x="1092" y="182" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">Literal output format</text>
+<text x="1092" y="216" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">4 new tasks</text>
+<rect x="48" y="257" width="484" height="90" rx="14" fill="white"/>
+<text x="72" y="294" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">Context / dialogue</text>
+<text x="72" y="328" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">4 new tasks</text>
+<rect x="558" y="257" width="484" height="90" rx="14" fill="white"/>
+<text x="582" y="294" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">Missing information</text>
+<text x="582" y="328" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">4 new tasks</text>
+<rect x="1068" y="257" width="484" height="90" rx="14" fill="white"/>
+<text x="1092" y="294" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">Short narratives</text>
+<text x="1092" y="328" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">4 new tasks</text>
+<rect x="48" y="410" width="704" height="160" rx="14" fill="white"/>
+<text x="72" y="453" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Coordinator P4</text>
+<text x="72" y="498" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Tokenizer, embedding/output, layers0–3</text>
+<text x="72" y="541" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">32MiB PSRAM /32MiB flash</text>
+<rect x="848" y="410" width="704" height="160" rx="14" fill="white"/>
+<text x="872" y="453" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Worker P4</text>
+<text x="872" y="498" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Layers4–11, own FP32 KV</text>
+<text x="872" y="541" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">32MiB PSRAM /32MiB flash</text>
+<path d="M752 465 L848 465" stroke="#3378ad" stroke-width="4" fill="none"/>
+<path d="M835 457 L848 465 L835 473" stroke="#3378ad" stroke-width="4" fill="none"/>
+<path d="M848 525 L752 525" stroke="#178476" stroke-width="4" fill="none"/>
+<path d="M765 517 L752 525 L765 533" stroke="#178476" stroke-width="4" fill="none"/>
+<text x="800" y="440" fill="#193347" font-size="20" font-weight="normal" text-anchor="middle">LAN</text>
+<text x="48" y="632" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">Tiny24 → Supra24 → restore Tiny. Both boards cooperate in every answer.</text>
+<rect x="48" y="675" width="484" height="165" rx="14" fill="white"/>
+<text x="71" y="719" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">Before answers</text>
+<text x="71" y="767" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Freeze24 tasks + criteria + inputs</text>
+<text x="71" y="805" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Commit model-label mapping hash</text>
+<rect x="558" y="675" width="484" height="165" rx="14" fill="white"/>
+<text x="581" y="719" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">Recorded execution</text>
+<text x="581" y="767" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">48 native references + known controls</text>
+<text x="581" y="805" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">48 real answers +3 control streams</text>
+<rect x="1068" y="675" width="484" height="165" rx="14" fill="white"/>
+<text x="1091" y="719" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">After recording</text>
+<text x="1091" y="767" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Model-label-masked A/B ratings</text>
+<text x="1091" y="805" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Commit ratings, then unseal mapping</text>
+<rect x="48" y="891" width="1504" height="174" rx="14" fill="#dce9f2"/>
+<text x="72" y="936" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">No quality-output reuse; exact runtime reference equality for all51 streams.</text>
+<text x="72" y="981" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Same assistant designed tasks and judged outputs. Style/length may reveal identity despite labels.</text>
+<text x="72" y="1024" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Final recorded state: genuine TinyBrainBot restored on both0.9.0 boards; ready/idle, queue empty.</text>
+<text x="48" y="1111" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Different native wrappers/tokenizers; greedy outputs; fixed model order. Quality-case durations are unequal work.</text>
+</svg>

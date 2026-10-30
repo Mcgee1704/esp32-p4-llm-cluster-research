@@ -1,0 +1,19 @@
+{
+  "title": "quality-v2-setup",
+  "date": "2026-10-30",
+  "source_sha256": {
+    "docs/research/data/quality-v2-2026-10-30/protocol.json": "f9f720d40cd7ef3bba07cac5e1f617fe8726e33b8605fc7fe027c8ba38e6e7bf",
+    "docs/research/data/quality-v2-2026-10-30/cases.json": "a4450b794747e6a9e9a9fdbb93309645aa5d56391b738843675c623415f8b1f8",
+    "docs/research/data/quality-v2-2026-10-30/summary.json": "b1004a86009114c647e7b5a90d0eb118e0475551f800e8c9e73ced8b36644898",
+    "docs/research/data/quality-v2-2026-10-30/masked-responses.json": "33f2ef550fad8805f5f1ff8cf9f50965c4d39aa6c1f66dcf11bc68016dac0368",
+    "docs/research/data/quality-v2-2026-10-30/masked-ratings.json": "b904f0cce399b7f422bb99cc9015dff27b1d4bbaf03949d55607c2d357e9e0a5",
+    "docs/research/data/quality-v2-2026-10-30/unblinding.json": "238daa904c312cadcab99bfb3ec7d24eab554999036b0b2c13dfba2924419474",
+    "docs/research/data/quality-v2-2026-10-30/reviewed-results.json": "22491e2b1e08ad36b8c778796ebab331f4150663002a5b4e9053906534816b81",
+    "docs/research/data/quality-v2-2026-10-30/record-audit.json": "00a5f76f7cdcccbe99a5bc24620018d28ed327f6011d8906aa93923a786b87d8",
+    "docs/research/data/quality-v2-2026-10-30/final.json": "1b7d9e60ffe5f5da911d55488a1130bdb655263421d233d1e546be1ab780861e",
+    "tools/quality_v2_results.py": "4af214a23a26dd289db8ac737c3d671f832948a3db5545b50e75d04fdbfe51cb",
+    "tools/plot_matched_models.py": "85d38d6fa6581e2715353b783cf3bf44ce309300072cc7ed5c86818935d8561a",
+    "tools/plot_quality_v2.py": "b1852e93a3be351695e57a1adcd41da87e83d4101b74b36cd7afe3b3529f8a4d"
+  },
+  "scope": "24 constructed English tasks,48 new real-device answers,51 actual streams. Same-author model-label-masked review, not independent/fully blind. Criteria and cases frozen before answers; ratings committed before unmasking. No pooled ranking or quality-case speed comparison."
+}

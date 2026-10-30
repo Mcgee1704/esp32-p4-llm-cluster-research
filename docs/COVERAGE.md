@@ -1,13 +1,12 @@
 # Research log and coverage
 
-The source research checkpoint is `ccfca5771890a58f944e0c3dfa8e3683000436e3`. Original private Git history
+The source research checkpoint is `0420de041addbe6abfefa7306d6fe26684b8422e`. Original private Git history
 and personal commit metadata are not published. Original report filenames below
 are identifiers of local records, not additional public files. The English reports
 consolidate their scientific content; this is not a word-for-word translation.
 
 | Original record identifier | English coverage |
 | --- | --- |
-| `docs/JOURNAL.md` | [COVERAGE.md](COVERAGE.md) |
 | `docs/automatische-aufnahme.md` | [PRIOR_WORK_AND_PLANS.md](PRIOR_WORK_AND_PLANS.md) |
 | `docs/board1-inbetriebnahme.md` | [HARDWARE.md](HARDWARE.md) |
 | `docs/board2-inbetriebnahme.md` | [HARDWARE.md](HARDWARE.md) |
@@ -30,6 +29,9 @@ consolidate their scientific content; this is not a word-for-word translation.
 | `docs/research/parallelbetrieb-2026-10-29.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
 | `docs/research/prospektive-pruefung-2026-10-29.md` | [SIMULATION.md](SIMULATION.md) |
 | `docs/research/publication-local-review-2026-10-30.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
+| `docs/research/publication-local-review-v8-2026-10-30.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
+| `docs/research/quality-v2-2026-10-30.md` | [quality-v2-2026-10-30.md](quality-v2-2026-10-30.md) |
+| `docs/research/quality-v2-plan-2026-10-30.md` | [quality-v2-plan-2026-10-30.md](quality-v2-plan-2026-10-30.md) |
 | `docs/research/rechenkern-v2-2026-10-29.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
 | `docs/research/rechenkern-v3-2026-10-29.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
 | `docs/research/simulation-datenbasis.md` | [SIMULATION.md](SIMULATION.md) |
@@ -47,14 +49,6 @@ consolidate their scientific content; this is not a word-for-word translation.
 | `docs/research/tinytalk2-host-2026-10-29.md` | [TINYTALK_HOST.md](TINYTALK_HOST.md) |
 | `docs/research/upstream-befunde.md` | [PRIOR_WORK_AND_PLANS.md](PRIOR_WORK_AND_PLANS.md) |
 | `docs/research/zweier-test-2026-10-29.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
-| `docs/superpowers/plans/2026-10-29-gptneo-p4.md` | [GPTNEO_P4.md](GPTNEO_P4.md) |
-| `docs/superpowers/plans/2026-10-29-matched-model-comparison.md` | [MATCHED_MODELS.md](MATCHED_MODELS.md) |
-| `docs/superpowers/plans/2026-10-29-public-reproducibility-audit-followup.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
-| `docs/superpowers/plans/2026-10-29-supra-quantization-v2.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
-| `docs/superpowers/plans/2026-10-29-tinybrainbot-local-quality.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
-| `docs/superpowers/plans/2026-10-29-tinybrainbot-p4-tokenizer.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
-| `docs/superpowers/plans/2026-10-29-tinytalk2-host.md` | [TINYTALK_HOST.md](TINYTALK_HOST.md) |
-| `docs/superpowers/plans/2026-10-30-tinybrainbot-supra-matched.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
 
 ## Scientific milestones
 
@@ -86,3 +80,8 @@ matched-model, memory, production-kernel and comparison records. Generated plots
 and explicit source records preserve figure lineage. Snapshot assembly performs
 archive checks only and is not a new device experiment. Firmware0.8.0/0.9.0
 have complete source-only archives; keyless public BINs still end at0.5.5.
+
+The [complete chronology](CHRONOLOGY.md) includes initial experiments onward.
+The [broader qualityV2 report](quality-v2-2026-10-30.md) adds a prospective
+24-task set with48 fresh outputs, explicit model-label masking and original
+ratings/unblinding provenance; it does not silently replace earlier reviews.

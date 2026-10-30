@@ -6,7 +6,8 @@ import hashlib,json,pathlib,re,subprocess,xml.etree.ElementTree as ET
 from html import escape
 
 REPORTS=['matched-p4-2026-10-30.md','int4-memory-2026-10-30.md',
-         'int4-pair-2026-10-30.md','supra-tiny-v09-2026-10-30.md']
+         'int4-pair-2026-10-30.md','supra-tiny-v09-2026-10-30.md',
+         'quality-v2-2026-10-30.md']
 
 
 def english_early_figure(b):
@@ -206,6 +207,77 @@ those guards to make archived output appear to be a fresh model/device run.
     for fig in sorted((b.output/'docs/figures').glob('*.png')):
         name=fig.name;page.append('<figure><a href="docs/figures/'+name+'"><img loading="lazy" src="docs/figures/'+name+'" alt="'+escape(fig.stem)+'"></a><figcaption>'+escape(fig.stem)+'</figcaption></figure>')
     page.append('</div></html>');b.put('index.html','\n'.join(page),'English-v8-editorial/figure-browser')
+    enrich_quality_v2(b)
+
+
+def enrich_quality_v2(b):
+    data=b.output/'data/quality-v2-2026-10-30'
+    summary=json.loads((data/'summary.json').read_text(encoding='utf-8'))
+    assert summary['actual_streams_checked']==51 and summary['new_quality_outputs']==48 and summary['reused_quality_outputs']==0
+    assert (b.output/'docs/CHRONOLOGY.md').exists()
+    intro='''\n## Complete history and new prospective qualityV2 study
+
+[Read the project from its first experiments onward](CHRONOLOGY.md).
+This includes negative results, corrections, measured versus simulated stages
+and source availability; it does not expose private Git history or journals.
+
+The [new24-task quality study](quality-v2-2026-10-30.md) adds48 fresh two-P4
+answers and51 actual streams, with model-label-masked same-author ratings
+committed before unblinding. It is not an independent/fully blinded review.
+The [complete response viewer](../data/quality-v2-2026-10-30/comparison.html)
+preserves every answer, cap/EOS status, frozen criterion and rating note.
+Different cases/caps mean earlier rates are not pooled into an improvement claim.
+'''
+    p=b.output/'docs/RESEARCH_INDEX.md';s=p.read_text(encoding='utf-8').replace('snapshot v8','snapshot v9').replace('RELEASE_NOTES_V8.md','RELEASE_NOTES_V9.md');first,rest=s.split('\n',1)
+    b.put('docs/RESEARCH_INDEX.md',first+intro+rest,'English-v9-editorial/evidence-index')
+    notes='''# Research snapshot v9
+
+Extends the unchanged previously published v8 archive with the prospective
+24-task qualityV2 experiment,48 fresh actual outputs, committed model-label-
+masked ratings, unblinding receipt, two figures and a complete response viewer.
+No model weights, sampling rule, quantizer or firmware changed. This is new
+measurement on the same existing models, not a model-quality upgrade.
+
+[The full chronology](CHRONOLOGY.md) makes every retained research stage from
+initial bring-up onward discoverable. Older failures, data, source snapshots,
+historical hashes and evidence limits remain. Private Git history, personal
+journals, device identities/credentials, model weights and provisioned firmware
+images are excluded. All previous public commit metadata uses GitHub noreply
+authorship; the publication does not import private source-repository metadata.
+
+Public sources still end at0.9.0; existing keyless diagnostic binary bundles
+still end at0.5.5. No new ESP/public binary build or hardware qualification is
+claimed from archive assembly. No DOI has been assigned.
+
+See [the quality report](quality-v2-2026-10-30.md), [index](RESEARCH_INDEX.md),
+[provenance](DATA.md) and [read-only reproduction](REPRODUCIBILITY.md).
+'''
+    b.put('docs/RELEASE_NOTES_V9.md',notes,'English-v9-editorial/release-notes')
+    p=b.output/'README.md';s=p.read_text(encoding='utf-8').replace('research snapshot v8','research snapshot v9').replace('RELEASE_NOTES_V8.md','RELEASE_NOTES_V9.md')
+    first,rest=s.split('\n',1)
+    head='''\n## From the beginning, including the new broader quality study
+
+[Complete project chronology](docs/CHRONOLOGY.md) ·
+[new qualityV2 report](docs/quality-v2-2026-10-30.md) ·
+[all48 new responses](data/quality-v2-2026-10-30/comparison.html).
+Original numerical results and negative findings are retained; private data
+and private Git history are excluded. Review is model-label-masked by the same
+author, not independent or completely blind. See individual task/cap limits.
+'''
+    b.put('README.md',first+head+rest,'English-v9-editorial/README')
+    p=b.output/'CITATION.cff';s=p.read_text(encoding='utf-8').replace('research-v8','research-v9').replace('Version8','Version9');b.put('CITATION.cff',s,'English-v9-editorial/citation')
+    p=b.output/'index.html';s=p.read_text(encoding='utf-8').replace('Version8 release notes','Version9 release notes').replace('RELEASE_NOTES_V8.md','RELEASE_NOTES_V9.md')
+    s=s.replace('<h2>Latest reports</h2>','<p><a href="docs/CHRONOLOGY.md">Complete project chronology</a></p><h2>Latest reports</h2>');b.put('index.html',s,'English-v9-editorial/figure-browser')
+    p=b.output/'docs/REPRODUCIBILITY.md';s=p.read_text(encoding='utf-8')
+    s+='''\n## Prospective qualityV2 records
+
+The same read-only archive checker additionally verifies all51 actual qualityV2
+streams,48 paired review rows, the model-label mapping commitment and category
+counts. It reproduces recorded review arithmetic, not an independent semantic
+rating or proof that the author could not infer identities. No device, model
+weights, private authentication or review nonce file is needed.
+'''
+    b.put('docs/REPRODUCIBILITY.md',s,'English-v9-editorial/reproduction')
 
 
 def append_coverage(b):
@@ -218,5 +290,10 @@ matched-model, memory, production-kernel and comparison records. Generated plots
 and explicit source records preserve figure lineage. Snapshot assembly performs
 archive checks only and is not a new device experiment. Firmware0.8.0/0.9.0
 have complete source-only archives; keyless public BINs still end at0.5.5.
+
+The [complete chronology](CHRONOLOGY.md) includes initial experiments onward.
+The [broader qualityV2 report](quality-v2-2026-10-30.md) adds a prospective
+24-task set with48 fresh outputs, explicit model-label masking and original
+ratings/unblinding provenance; it does not silently replace earlier reviews.
 '''
     p.write_bytes(s.encode('utf-8'))

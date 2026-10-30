@@ -1,4 +1,16 @@
-# Research snapshot v8: evidence index
+# Research snapshot v9: evidence index
+## Complete history and new prospective qualityV2 study
+
+[Read the project from its first experiments onward](CHRONOLOGY.md).
+This includes negative results, corrections, measured versus simulated stages
+and source availability; it does not expose private Git history or journals.
+
+The [new24-task quality study](quality-v2-2026-10-30.md) adds48 fresh two-P4
+answers and51 actual streams, with model-label-masked same-author ratings
+committed before unblinding. It is not an independent/fully blinded review.
+The [complete response viewer](../data/quality-v2-2026-10-30/comparison.html)
+preserves every answer, cap/EOS status, frozen criterion and rating note.
+Different cases/caps mean earlier rates are not pooled into an improvement claim.
 
 The evidence cutoff is30 October2026. New results below are archived alongside
 the earlier story/dialogue, transport, dispatch, numerical and simulation work.
@@ -30,7 +42,7 @@ exact output equality, small-sample, unblinded and not independent.
   rebuilt public keyless diagnostic BINs still stop at0.5.5. Private measured
   images carry authentication and are excluded. Redacted0.8.0/0.9.0 public bytes
   have no ESP build or physical-device acceptance claim.
-- [Release notes](RELEASE_NOTES_V8.md), [coverage](COVERAGE.md),
+- [Release notes](RELEASE_NOTES_V9.md), [coverage](COVERAGE.md),
   [browse all figures](../index.html).
 
 ## Evidence boundaries

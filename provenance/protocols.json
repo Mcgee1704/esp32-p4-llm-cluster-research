@@ -54,6 +54,12 @@
     "legacy_marker_present": false
   },
   {
+    "path": "data/quality-v2-2026-10-30/protocol.json",
+    "historical_sha256": "f9f720d40cd7ef3bba07cac5e1f617fe8726e33b8605fc7fe027c8ba38e6e7bf",
+    "public_sha256": "f9f720d40cd7ef3bba07cac5e1f617fe8726e33b8605fc7fe027c8ba38e6e7bf",
+    "legacy_marker_present": true
+  },
+  {
     "path": "data/supra-quantization-v2-2026-10-29/protocol.json",
     "historical_sha256": "17ae0060d770bc82c3b793e1c6b2f310566f57a1f62d63f2d1eb57760a549c5e",
     "public_sha256": "17ae0060d770bc82c3b793e1c6b2f310566f57a1f62d63f2d1eb57760a549c5e",

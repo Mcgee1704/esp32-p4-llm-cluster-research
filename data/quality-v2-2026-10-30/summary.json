@@ -1,0 +1,188 @@
+{
+  "counts": {
+    "facts": {
+      "tinybrainbot": {
+        "n": 4,
+        "eos": 0,
+        "cap_reached": 4,
+        "core": 1,
+        "confirmed_clean": 0,
+        "uncertain_clean": 1
+      },
+      "supra": {
+        "n": 4,
+        "eos": 0,
+        "cap_reached": 4,
+        "core": 0,
+        "confirmed_clean": 0,
+        "uncertain_clean": 0
+      }
+    },
+    "reasoning": {
+      "tinybrainbot": {
+        "n": 4,
+        "eos": 1,
+        "cap_reached": 3,
+        "core": 2,
+        "confirmed_clean": 1,
+        "uncertain_clean": 0
+      },
+      "supra": {
+        "n": 4,
+        "eos": 0,
+        "cap_reached": 4,
+        "core": 0,
+        "confirmed_clean": 0,
+        "uncertain_clean": 0
+      }
+    },
+    "exact": {
+      "tinybrainbot": {
+        "n": 4,
+        "eos": 1,
+        "cap_reached": 3,
+        "exact": 0
+      },
+      "supra": {
+        "n": 4,
+        "eos": 0,
+        "cap_reached": 4,
+        "exact": 0
+      }
+    },
+    "grounded": {
+      "tinybrainbot": {
+        "n": 4,
+        "eos": 2,
+        "cap_reached": 2,
+        "core": 2,
+        "confirmed_clean": 2,
+        "uncertain_clean": 0
+      },
+      "supra": {
+        "n": 4,
+        "eos": 0,
+        "cap_reached": 4,
+        "core": 0,
+        "confirmed_clean": 0,
+        "uncertain_clean": 1
+      }
+    },
+    "uncertainty": {
+      "tinybrainbot": {
+        "n": 4,
+        "eos": 1,
+        "cap_reached": 3,
+        "core": 4,
+        "confirmed_clean": 2,
+        "uncertain_clean": 1,
+        "subgroups": {
+          "unanswerable": {
+            "n": 2,
+            "core": 2,
+            "confirmed_clean": 1
+          },
+          "answerable": {
+            "n": 2,
+            "core": 2,
+            "confirmed_clean": 1
+          }
+        }
+      },
+      "supra": {
+        "n": 4,
+        "eos": 0,
+        "cap_reached": 4,
+        "core": 1,
+        "confirmed_clean": 0,
+        "uncertain_clean": 1,
+        "subgroups": {
+          "unanswerable": {
+            "n": 2,
+            "core": 0,
+            "confirmed_clean": 0
+          },
+          "answerable": {
+            "n": 2,
+            "core": 1,
+            "confirmed_clean": 0
+          }
+        }
+      }
+    },
+    "story": {
+      "tinybrainbot": {
+        "n": 4,
+        "eos": 0,
+        "cap_reached": 4,
+        "topic": 1,
+        "coherent": 2,
+        "resolution": 2,
+        "two_sentences": 1,
+        "strict_completion": 0
+      },
+      "supra": {
+        "n": 4,
+        "eos": 0,
+        "cap_reached": 4,
+        "topic": 0,
+        "coherent": 3,
+        "resolution": 0,
+        "two_sentences": 0,
+        "strict_completion": 0
+      }
+    }
+  },
+  "paired_cases": {
+    "facts": {
+      "both_success": 0,
+      "tiny_only": 0,
+      "supra_only": 0,
+      "neither": 3,
+      "uncertain_pair": 1
+    },
+    "reasoning": {
+      "both_success": 0,
+      "tiny_only": 1,
+      "supra_only": 0,
+      "neither": 3,
+      "uncertain_pair": 0
+    },
+    "exact": {
+      "both_success": 0,
+      "tiny_only": 0,
+      "supra_only": 0,
+      "neither": 4,
+      "uncertain_pair": 0
+    },
+    "grounded": {
+      "both_success": 0,
+      "tiny_only": 2,
+      "supra_only": 0,
+      "neither": 1,
+      "uncertain_pair": 1
+    },
+    "uncertainty": {
+      "both_success": 0,
+      "tiny_only": 1,
+      "supra_only": 0,
+      "neither": 1,
+      "uncertain_pair": 2
+    },
+    "story": {
+      "both_success": 0,
+      "tiny_only": 0,
+      "supra_only": 0,
+      "neither": 4,
+      "uncertain_pair": 0
+    }
+  },
+  "new_cases": 24,
+  "new_quality_outputs": 48,
+  "actual_streams_checked": 51,
+  "reused_quality_outputs": 0,
+  "masking": "Model-label-masked same-author review, not independent or completely blind; ratings committed before unsealing.",
+  "ratings_commit": "5de1bb80213d272e3dcd1b99a786909dc6538710",
+  "scope": "Constructed English cases; n=4/category, no pooled ranking, significance or matched-work speed claim.",
+  "restored_tinybrainbot": true
+}

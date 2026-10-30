@@ -1,12 +1,20 @@
 # ESP32-P4 LLM Cluster Research
-## Latest evidence: firmware0.9.0 and research snapshot v8
+## From the beginning, including the new broader quality study
+
+[Complete project chronology](docs/CHRONOLOGY.md) ·
+[new qualityV2 report](docs/quality-v2-2026-10-30.md) ·
+[all48 new responses](data/quality-v2-2026-10-30/comparison.html).
+Original numerical results and negative findings are retained; private data
+and private Git history are excluded. Review is model-label-masked by the same
+author, not independent or completely blind. See individual task/cap limits.
+## Latest evidence: firmware0.9.0 and research snapshot v9
 
 [Start with the organized evidence index](docs/RESEARCH_INDEX.md) or
 [browse reports and all figures](index.html). The latest same-kernel model
 comparison, INT4 production optimization and separated memory measurements are
 included with raw outputs and source hashes. Source now ends at0.9.0; public
 keyless diagnostic binaries still end at0.5.5. Measured private firmware images
-are not distributed. See [v8 release notes](docs/RELEASE_NOTES_V8.md).
+are not distributed. See [v8 release notes](docs/RELEASE_NOTES_V9.md).
 
 The earlier v7 status below is historical context, not the latest device/source
 status. See the indexed per-study dates, firmware versions and evidence scopes.

@@ -90,12 +90,12 @@ def verify(root):
     fresh=root/'data/supra-tiny-v09-2026-10-30'
     if fresh.exists():
         refs=read(root/'data/matched-p4-2026-10-30/host-references.json')
-        def check_stream(path,model,case):
+        def check_stream(path,model,case,reference_set=None):
             items=[json.loads(line) for line in path.read_bytes().splitlines()]
             assert sum(bool(x.get('done')) for x in items)==1 and items[-1].get('done') and not items[-1].get('error')
             tokens=[x['token'] for x in items if 'token' in x]
             text=b''.join(bytes.fromhex(x['bytes_hex']) for x in items if 'bytes_hex' in x).decode('utf-8','replace')
-            expected=refs[model][case];assert tokens==expected['tokens'] and text==expected['text'] and items[-1]['eos']==expected['eos']
+            expected=(refs if reference_set is None else reference_set)[model][case];assert tokens==expected['tokens'] and text==expected['text'] and items[-1]['eos']==expected['eos']
             return items[-1]
         rows=read(fresh/'timing-runs.json');assert len(rows)==12
         for row in rows:assert check_stream(fresh/row['file'],row['model'],row['case'])==row['done']
@@ -125,6 +125,37 @@ def verify(root):
         assert sum(len(x['measurements']) for x in runs)==96 and all(x['valid'] for x in runs)
         latest={'v09_fresh_streams':27,'v09_reused_streams':12,'v09_timing':timing,
                 'kernel_speedup':ks['paired_baseline_over_candidate'],'microbench_raw_modes':96,'restored_tinybrainbot_recorded':True}
+    q2=root/'data/quality-v2-2026-10-30'
+    if q2.exists():
+        assert fresh.exists(),'Full chronology requires the preceding model study'
+        qp=read(q2/'protocol.json');qr=read(q2/'host-references.json');runs=read(q2/'device-runs.json');controls=read(q2/'controls.json');final=read(q2/'final.json')
+        assert len(qp['cases'])==24 and len(runs)==48 and len(controls)==2 and final['completed'] and final['queued']==final['running']==0
+        assert [(x['model'],x['case']) for x in runs]==[(m,c) for m in ['tinybrainbot','supra'] for c in qp['case_order']]
+        allrows=runs+controls+[final['restoration_control']];assert len({x['file'] for x in allrows})==51
+        for row in allrows:assert check_stream(q2/row['file'],row['model'],row['case'],qr)==row['done']
+        masked=read(q2/'masked-responses.json');ratings=read(q2/'masked-ratings.json');u=read(q2/'unblinding.json');resolved=read(q2/'reviewed-results.json');summary=read(q2/'summary.json')
+        assert len(masked['rows'])==24 and len(ratings['rows'])==len(resolved)==48 and summary['actual_streams_checked']==51
+        mapping=u['mapping'];digest=hashlib.sha256((json.dumps(mapping,indent=2)+'\n').encode()).hexdigest();assert digest==qp['mask_commitment_sha256']==u['mapping_sha256']
+        assert u['ratings_sha256']==representations['data/quality-v2-2026-10-30/masked-ratings.json']['historical_sha256']
+        assert u['masked_responses_sha256']==representations['data/quality-v2-2026-10-30/masked-responses.json']['historical_sha256']
+        assert {(x['case'],x['label']) for x in ratings['rows']}=={(c['id'],lab) for c in qp['cases'] for lab in ['A','B']}
+        for rating in ratings['rows']:
+            case=next(c for c in qp['cases'] if c['id']==rating['case']);model=mapping['labels'][case['id']][rating['label']]
+            output=next(x for x in masked['rows'] if x['case']==case['id'])['outputs'][rating['label']]
+            assert output['text']==qr[model][case['id']]['text'] and output['eos']==qr[model][case['id']]['eos']
+            rr=next(x for x in resolved if x['case']==case['id'] and x['model']==model)
+            assert all(rr[k]==v for k,v in rating.items())
+            if case['category']=='exact':assert rating['exact']==(output['text'].strip()==case['expected'])
+        for category,models in summary['counts'].items():
+            for model,cnt in models.items():
+                rr=[x for x in resolved if x['model']==model and x['category']==category];assert len(rr)==cnt['n']==4
+                if category=='exact':assert sum(x['exact'] for x in rr)==cnt['exact']
+                elif category=='story':
+                    assert all(sum(x[k] for x in rr)==cnt[k] for k in ['topic','coherent','resolution','two_sentences'])
+                    assert sum(all(x[k] for k in ['topic','coherent','resolution','two_sentences']) for x in rr)==cnt['strict_completion']
+                else:
+                    assert sum(x['core'] for x in rr)==cnt['core'] and sum(x['clean'] is True for x in rr)==cnt['confirmed_clean'] and sum(x['clean'] is None for x in rr)==cnt['uncertain_clean']
+        latest['quality_v2']={'new_cases':24,'fresh_quality_outputs':48,'actual_streams':51,'reused_quality_outputs':0,'masked_rows':48,'mapping_commitment_verified':True,'counts':summary['counts'],'scope':'Recorded review arithmetic, not independent semantic re-rating or proof of complete blindness.'}
     return {'passed':True,'files_hashed':len(hashes),'representation_relationships':len(representations),
             'historical_public_protocol_pairs':len(protocols),'relative_markdown_links':links,
             'figure_source_relationships':figure_dependencies,

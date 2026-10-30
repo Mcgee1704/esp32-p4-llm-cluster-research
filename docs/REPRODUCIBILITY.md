@@ -161,3 +161,11 @@ The original generating/analyzing scripts retain private-asset and original-sour
 guards. Their historical commands need the pinned weights, toolchain and original
 recording environment; redacted current sources are different bytes. Never disable
 those guards to make archived output appear to be a fresh model/device run.
+
+## Prospective qualityV2 records
+
+The same read-only archive checker additionally verifies all51 actual qualityV2
+streams,48 paired review rows, the model-label mapping commitment and category
+counts. It reproduces recorded review arithmetic, not an independent semantic
+rating or proof that the author could not infer identities. No device, model
+weights, private authentication or review nonce file is needed.

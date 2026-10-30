@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1580" viewBox="0 0 1600 1580" role="img">
+<title>Broader quality V2: TinyBrainBot versus Supra2</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1580" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">Broader quality V2: TinyBrainBot versus Supra2</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">24 new English tasks ·48 fresh two-P4 answers · firmware0.9.0 / row INT4 / context256 /4+8 layers</text>
+<text x="48" y="150" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Separate criteria, four tasks per category — no pooled model score</text>
+<text x="48" y="215" fill="#193347" font-size="26" font-weight="bold" text-anchor="start">Basic facts</text>
+<text x="48" y="247" fill="#586c7d" font-size="18" font-weight="normal" text-anchor="start">First responsive core / confirmed clean</text>
+<text x="500" y="218" fill="#178476" font-size="21" font-weight="bold" text-anchor="start">TinyBrainBot</text>
+<rect x="690" y="197" width="550" height="24" rx="3" fill="#dfe8ed"/>
+<rect x="690" y="197" width="137.5" height="24" rx="3" fill="#b7cbd4"/>
+<rect x="690" y="197" width="0.0" height="24" rx="3" fill="#178476"/>
+<text x="1270" y="218" fill="#193347" font-size="20" font-weight="normal" text-anchor="start">1/4 · 0/4; 1 uncertain</text>
+<text x="500" y="269" fill="#7953a6" font-size="21" font-weight="bold" text-anchor="start">Supra2-100M</text>
+<rect x="690" y="248" width="550" height="24" rx="3" fill="#dfe8ed"/>
+<rect x="690" y="248" width="0.0" height="24" rx="3" fill="#b7cbd4"/>
+<rect x="690" y="248" width="0.0" height="24" rx="3" fill="#7953a6"/>
+<text x="1270" y="269" fill="#193347" font-size="20" font-weight="normal" text-anchor="start">0/4 · 0/4</text>
+<text x="48" y="353" fill="#193347" font-size="26" font-weight="bold" text-anchor="start">Arithmetic / reasoning</text>
+<text x="48" y="385" fill="#586c7d" font-size="18" font-weight="normal" text-anchor="start">First responsive core / confirmed clean</text>
+<text x="500" y="356" fill="#178476" font-size="21" font-weight="bold" text-anchor="start">TinyBrainBot</text>
+<rect x="690" y="335" width="550" height="24" rx="3" fill="#dfe8ed"/>
+<rect x="690" y="335" width="275.0" height="24" rx="3" fill="#b7cbd4"/>
+<rect x="690" y="335" width="137.5" height="24" rx="3" fill="#178476"/>
+<text x="1270" y="356" fill="#193347" font-size="20" font-weight="normal" text-anchor="start">2/4 · 1/4</text>
+<text x="500" y="407" fill="#7953a6" font-size="21" font-weight="bold" text-anchor="start">Supra2-100M</text>
+<rect x="690" y="386" width="550" height="24" rx="3" fill="#dfe8ed"/>
+<rect x="690" y="386" width="0.0" height="24" rx="3" fill="#b7cbd4"/>
+<rect x="690" y="386" width="0.0" height="24" rx="3" fill="#7953a6"/>
+<text x="1270" y="407" fill="#193347" font-size="20" font-weight="normal" text-anchor="start">0/4 · 0/4</text>
+<text x="48" y="491" fill="#193347" font-size="26" font-weight="bold" text-anchor="start">Literal output format</text>
+<text x="48" y="523" fill="#586c7d" font-size="18" font-weight="normal" text-anchor="start">Exact literal equality only</text>
+<text x="500" y="494" fill="#178476" font-size="21" font-weight="bold" text-anchor="start">TinyBrainBot</text>
+<rect x="690" y="473" width="550" height="24" rx="3" fill="#dfe8ed"/>
+<rect x="690" y="473" width="0.0" height="24" rx="3" fill="#b7cbd4"/>
+<rect x="690" y="473" width="0.0" height="24" rx="3" fill="#178476"/>
+<text x="1270" y="494" fill="#193347" font-size="20" font-weight="normal" text-anchor="start">0/4 · 0/4</text>
+<text x="500" y="545" fill="#7953a6" font-size="21" font-weight="bold" text-anchor="start">Supra2-100M</text>
+<rect x="690" y="524" width="550" height="24" rx="3" fill="#dfe8ed"/>
+<rect x="690" y="524" width="0.0" height="24" rx="3" fill="#b7cbd4"/>
+<rect x="690" y="524" width="0.0" height="24" rx="3" fill="#7953a6"/>
+<text x="1270" y="545" fill="#193347" font-size="20" font-weight="normal" text-anchor="start">0/4 · 0/4</text>
+<text x="48" y="629" fill="#193347" font-size="26" font-weight="bold" text-anchor="start">Context / dialogue</text>
+<text x="48" y="661" fill="#586c7d" font-size="18" font-weight="normal" text-anchor="start">First responsive core / confirmed clean</text>
+<text x="500" y="632" fill="#178476" font-size="21" font-weight="bold" text-anchor="start">TinyBrainBot</text>
+<rect x="690" y="611" width="550" height="24" rx="3" fill="#dfe8ed"/>
+<rect x="690" y="611" width="275.0" height="24" rx="3" fill="#b7cbd4"/>
+<rect x="690" y="611" width="275.0" height="24" rx="3" fill="#178476"/>
+<text x="1270" y="632" fill="#193347" font-size="20" font-weight="normal" text-anchor="start">2/4 · 2/4</text>
+<text x="500" y="683" fill="#7953a6" font-size="21" font-weight="bold" text-anchor="start">Supra2-100M</text>
+<rect x="690" y="662" width="550" height="24" rx="3" fill="#dfe8ed"/>
+<rect x="690" y="662" width="0.0" height="24" rx="3" fill="#b7cbd4"/>
+<rect x="690" y="662" width="0.0" height="24" rx="3" fill="#7953a6"/>
+<text x="1270" y="683" fill="#193347" font-size="20" font-weight="normal" text-anchor="start">0/4 · 0/4; 1 uncertain</text>
+<text x="48" y="767" fill="#193347" font-size="26" font-weight="bold" text-anchor="start">Missing information</text>
+<text x="48" y="799" fill="#586c7d" font-size="18" font-weight="normal" text-anchor="start">First responsive core / confirmed clean</text>
+<text x="500" y="770" fill="#178476" font-size="21" font-weight="bold" text-anchor="start">TinyBrainBot</text>
+<rect x="690" y="749" width="550" height="24" rx="3" fill="#dfe8ed"/>
+<rect x="690" y="749" width="550.0" height="24" rx="3" fill="#b7cbd4"/>
+<rect x="690" y="749" width="275.0" height="24" rx="3" fill="#178476"/>
+<text x="1270" y="770" fill="#193347" font-size="20" font-weight="normal" text-anchor="start">4/4 · 2/4; 1 uncertain</text>
+<text x="500" y="821" fill="#7953a6" font-size="21" font-weight="bold" text-anchor="start">Supra2-100M</text>
+<rect x="690" y="800" width="550" height="24" rx="3" fill="#dfe8ed"/>
+<rect x="690" y="800" width="137.5" height="24" rx="3" fill="#b7cbd4"/>
+<rect x="690" y="800" width="0.0" height="24" rx="3" fill="#7953a6"/>
+<text x="1270" y="821" fill="#193347" font-size="20" font-weight="normal" text-anchor="start">1/4 · 0/4; 1 uncertain</text>
+<text x="48" y="905" fill="#193347" font-size="26" font-weight="bold" text-anchor="start">Short narratives</text>
+<text x="48" y="937" fill="#586c7d" font-size="18" font-weight="normal" text-anchor="start">Full topic / strict four-criterion completion</text>
+<text x="500" y="908" fill="#178476" font-size="21" font-weight="bold" text-anchor="start">TinyBrainBot</text>
+<rect x="690" y="887" width="550" height="24" rx="3" fill="#dfe8ed"/>
+<rect x="690" y="887" width="137.5" height="24" rx="3" fill="#b7cbd4"/>
+<rect x="690" y="887" width="0.0" height="24" rx="3" fill="#178476"/>
+<text x="1270" y="908" fill="#193347" font-size="20" font-weight="normal" text-anchor="start">1/4 · 0/4</text>
+<text x="500" y="959" fill="#7953a6" font-size="21" font-weight="bold" text-anchor="start">Supra2-100M</text>
+<rect x="690" y="938" width="550" height="24" rx="3" fill="#dfe8ed"/>
+<rect x="690" y="938" width="0.0" height="24" rx="3" fill="#b7cbd4"/>
+<rect x="690" y="938" width="0.0" height="24" rx="3" fill="#7953a6"/>
+<text x="1270" y="959" fill="#193347" font-size="20" font-weight="normal" text-anchor="start">0/4 · 0/4</text>
+<rect x="48" y="1090" width="732" height="310" rx="14" fill="white"/>
+<text x="72" y="1134" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">Missing-information controls</text>
+<text x="72" y="1174" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Correct core / confirmed clean</text>
+<text x="72" y="1222" fill="#193347" font-size="23" font-weight="bold" text-anchor="start">Not provided</text>
+<text x="330" y="1222" fill="#178476" font-size="20" font-weight="bold" text-anchor="start">TinyBrainBot</text>
+<text x="330" y="1257" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">2/2 · 1/2</text>
+<text x="570" y="1222" fill="#7953a6" font-size="20" font-weight="bold" text-anchor="start">Supra2-100M</text>
+<text x="570" y="1257" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">0/2 · 0/2</text>
+<text x="72" y="1313" fill="#193347" font-size="23" font-weight="bold" text-anchor="start">Answer supplied</text>
+<text x="330" y="1313" fill="#178476" font-size="20" font-weight="bold" text-anchor="start">TinyBrainBot</text>
+<text x="330" y="1348" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">2/2 · 1/2</text>
+<text x="570" y="1313" fill="#7953a6" font-size="20" font-weight="bold" text-anchor="start">Supra2-100M</text>
+<text x="570" y="1348" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">1/2 · 0/2</text>
+<rect x="804" y="1090" width="748" height="310" rx="14" fill="white"/>
+<text x="828" y="1134" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">Story criteria</text>
+<text x="1290" y="1134" fill="#178476" font-size="20" font-weight="bold" text-anchor="end">Tiny</text>
+<text x="1470" y="1134" fill="#7953a6" font-size="20" font-weight="bold" text-anchor="end">Supra</text>
+<text x="828" y="1184" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Requested topic</text>
+<text x="1290" y="1184" fill="#178476" font-size="24" font-weight="bold" text-anchor="end">1/4</text>
+<text x="1470" y="1184" fill="#7953a6" font-size="24" font-weight="bold" text-anchor="end">0/4</text>
+<text x="828" y="1235" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">No material contradiction</text>
+<text x="1290" y="1235" fill="#178476" font-size="24" font-weight="bold" text-anchor="end">2/4</text>
+<text x="1470" y="1235" fill="#7953a6" font-size="24" font-weight="bold" text-anchor="end">3/4</text>
+<text x="828" y="1286" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Visible resolution</text>
+<text x="1290" y="1286" fill="#178476" font-size="24" font-weight="bold" text-anchor="end">2/4</text>
+<text x="1470" y="1286" fill="#7953a6" font-size="24" font-weight="bold" text-anchor="end">0/4</text>
+<text x="828" y="1337" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Exactly two sentences</text>
+<text x="1290" y="1337" fill="#178476" font-size="24" font-weight="bold" text-anchor="end">1/4</text>
+<text x="1470" y="1337" fill="#7953a6" font-size="24" font-weight="bold" text-anchor="end">0/4</text>
+<text x="48" y="1451" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Label masking reduces model-name cues; same author remains the reviewer. No independent or complete-blinding claim.</text>
+<text x="48" y="1495" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Caps:16 tokens for short tasks,48 for stories. Visible capped responses only; unknown cleanliness stays uncertain.</text>
+<text x="48" y="1539" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Familiar constructed tasks may overlap pretraining. n=4/category (2 per uncertainty control). No population ranking.</text>
+</svg>
