@@ -1,0 +1,7 @@
+{"bytes_hex":"20686973","token":600}
+{"bytes_hex":"20636172726f74","token":29580}
+{"bytes_hex":"2077697468","token":356}
+{"bytes_hex":"20686973","token":600}
+{"bytes_hex":"20667269656e64","token":4021}
+{"bytes_hex":"2e","token":18}
+{"done":true,"eos":true,"output_tokens":6,"elapsed_ms":32946.067,"ttft_ms":24139.72,"boards":2,"profile":{"master_compute_ms":12836.092,"stream_ms":5.798,"rpc_total_ms":20100.494,"rpc_open_ms":38.612,"rpc_write_ms":12.408,"rpc_wait_headers_ms":19795.738,"rpc_read_ms":253.058,"worker_compute_ms":19703.237,"rpc_calls":31,"connections":1,"worker_reports":31},"kernel":{"mode":"tile4","work_internal":true,"internal_work_allocated":19456,"matmul_ms":12405.761,"finish_ms":2968.844,"pause_ms":1091.267,"pause_calls":1112,"rows":788224,"owner_core_mask":2,"helper_core_mask":1,"helper_ms":11923.216,"helper_pause_ms":691.066,"helper_pause_calls":1145,"helper_rows":394112,"parallel_calls":819,"barrier_ms":79.677,"overlap_ms":11846.859},"prompt_tokens":23}

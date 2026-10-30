@@ -1,0 +1,38 @@
+{
+  "comparison": [
+    "TinyStories/SFT",
+    "TinyTalk-2 row INT8"
+  ],
+  "common_tasks": {
+    "SFT": [
+      0,
+      0,
+      0
+    ],
+    "TinyTalk-2": [
+      2,
+      1,
+      0
+    ]
+  },
+  "artifact_MB": [
+    15.836365,
+    21.380448
+  ],
+  "tinytalk_master_pair_seconds": 10.7275,
+  "tinytalk_cluster_pair_seconds": 5.607,
+  "paired_throughput_factor": 1.9151948508078063,
+  "limitations": [
+    "Small exploratory unblinded review; different prompt wrappers",
+    "No matched SFT timing baseline in this comparison",
+    "Story tasks differ"
+  ],
+  "source_sha256": {
+    "docs/research/data/quality-v1-2026-10-29/summary.json": "cb52bf7a705c007201c7c77d7645e5e4069368acc4dacc66ac9f7c3e0dabc9fd",
+    "docs/research/data/textmodel-sft-2026-10-29/export.json": "3c6fc40d65c1b64150f3807916571d6571bd3eee3407ec04fa8dca0a44e7a547",
+    "docs/research/data/tinytalk2-host-2026-10-29/manual-review.json": "fd3860435ffad852a0b35edc09bcb374426ba26d81ed88e5f2a84afa789a51d0",
+    "docs/research/data/gptneo-p4-2026-10-29/export.json": "3c4e16897d7b58b7b0e151bee3dd60a002f8e257725b503edd456448b75fad27",
+    "docs/research/data/gptneo-p4-2026-10-29/completed-study/summary.json": "02c0ae229a041b3d83b914d118621f5e7b1f1464b55896456e999f09807f111e",
+    "docs/research/data/gptneo-p4-2026-10-29/failed-allocation-measured.json": "238029bcfc2487e7c51f6d48ec95170c362d81e3f43715defb38560b91734dde"
+  }
+}

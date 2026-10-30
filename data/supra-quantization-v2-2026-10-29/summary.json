@@ -1,0 +1,89 @@
+{
+  "scope": "Offline host only. Selected candidate rejected before C implementation or any P4 write.",
+  "validation": {
+    "row": {
+      "positions": 201,
+      "mean_kl_nats": 0.35712890878690995,
+      "top1_agreement": 0.6119402985074627
+    },
+    "s32": {
+      "positions": 201,
+      "mean_kl_nats": 0.11692365962168275,
+      "top1_agreement": 0.7114427860696517
+    },
+    "a64": {
+      "positions": 201,
+      "mean_kl_nats": 0.10848028796139383,
+      "top1_agreement": 0.7313432835820896
+    },
+    "gptq": {
+      "positions": 201,
+      "mean_kl_nats": 0.08270082254303816,
+      "top1_agreement": 0.7810945273631841
+    }
+  },
+  "gptq_kl_reduction_percent_vs_row": 76.84286527686737,
+  "gptq_top1_increase_percentage_points": 16.91542288557214,
+  "screen_counts": {
+    "f16": {
+      "fact": 4,
+      "exact": 0
+    },
+    "row": {
+      "fact": 9,
+      "exact": 0
+    },
+    "gptq": {
+      "fact": 4,
+      "exact": 0
+    }
+  },
+  "manual_first_claim_counts": {
+    "f16": 5,
+    "row": 9,
+    "gptq": 4
+  },
+  "device_admitted": false,
+  "device_gate": "Not evaluated; earlier frozen quality gate failed.",
+  "quantization_metadata_bits_per_matrix_weight_excluding_descriptors": {
+    "tied_embedding_symmetric_group32": 4.5,
+    "transformer_affine_group64": 4.375
+  },
+  "hypothetical_layout_budgets": {
+    "s32": {
+      "proposed_coordinator_raw_bytes": 29217236,
+      "proposed_worker_raw_bytes": 28365952,
+      "proposed_full_raw_bytes": 57582932,
+      "estimated_residual_using_prior_poststudy_free_psram": {
+        "coordinator": 1303108,
+        "worker": 700576
+      }
+    },
+    "a64": {
+      "proposed_coordinator_raw_bytes": 28824020,
+      "proposed_worker_raw_bytes": 27579520,
+      "proposed_full_raw_bytes": 56403284,
+      "estimated_residual_using_prior_poststudy_free_psram": {
+        "coordinator": 1696324,
+        "worker": 1487008
+      }
+    },
+    "gptq": {
+      "proposed_coordinator_raw_bytes": 28824020,
+      "proposed_worker_raw_bytes": 27579520,
+      "proposed_full_raw_bytes": 56403284,
+      "estimated_residual_using_prior_poststudy_free_psram": {
+        "coordinator": 1696324,
+        "worker": 1487008
+      }
+    }
+  },
+  "budget_limits": "Byte arithmetic for proposed 128-byte header + 128-byte metadata + 16-byte matrix descriptors; not actual P4 artifacts. Residual estimates subtract artifact growth from prior measured poststudy free PSRAM and omit any new kernel/runtime overhead or fragmentation. No compression, C allocation or device admission proof.",
+  "input_sha256": {
+    "docs/research/data/supra-quantization-v2-2026-10-29/quality-summary.json": "948d1cfd9170e63ffabff3401f36a73e3d868291ada97e3dd2f389ecc40aac09",
+    "docs/research/data/supra-quantization-v2-2026-10-29/candidates.json": "029ed04682f58644ec619fe73d3ea019b8701c21b689cac6f80b863943b02ce4",
+    "docs/research/data/supra100-2026-10-29/device-memory.json": "a5de6c02bf59d038686b55558bdc79fe22c04093ffcf4d9c218e80935124a5f0",
+    "docs/research/data/supra100-2026-10-29/model-artifacts.json": "62fc47c164585c6b49d5a0366c60f9779568d146a2a5f3e838993cfcb23ac0ca",
+    "tools/summarize_quantization_v2.py": "52bd46f9b2f6f577ad4138df3e7cebe89b8919efd1771f372fd346104c16d9a8"
+  }
+}

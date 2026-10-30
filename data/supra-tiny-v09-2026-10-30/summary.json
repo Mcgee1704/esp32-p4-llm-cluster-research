@@ -1,0 +1,228 @@
+{
+  "timing": {
+    "B1": {
+      "paired_blocks": 3,
+      "matched_capped_outputs": true,
+      "models": {
+        "tinybrainbot": {
+          "prompt_tokens": 4,
+          "output_tokens": [
+            16,
+            16,
+            16
+          ],
+          "eos": [
+            false,
+            false,
+            false
+          ],
+          "total_seconds": [
+            32.967331,
+            32.732891,
+            32.894535000000005
+          ],
+          "total_median_seconds": 32.894535000000005,
+          "total_range_seconds": [
+            32.732891,
+            32.967331
+          ],
+          "ttft_median_seconds": 5.8348819999999995,
+          "decode_proxy_median_tokens_per_s": 0.5571973478594929
+        },
+        "supra": {
+          "prompt_tokens": 4,
+          "output_tokens": [
+            16,
+            16,
+            16
+          ],
+          "eos": [
+            false,
+            false,
+            false
+          ],
+          "total_seconds": [
+            33.198434,
+            33.186908,
+            33.187949
+          ],
+          "total_median_seconds": 33.187949,
+          "total_range_seconds": [
+            33.186908,
+            33.198434
+          ],
+          "ttft_median_seconds": 6.027774,
+          "decode_proxy_median_tokens_per_s": 0.5522792102775479
+        }
+      },
+      "supra_over_tiny_total_median": 1.0089198403321402,
+      "scope": "Same raw prompt bytes and cap; different vocabularies/output texts and potentially different input-token counts. Deployed-system latency, not isolated arithmetic."
+    },
+    "B2": {
+      "paired_blocks": 3,
+      "matched_capped_outputs": true,
+      "models": {
+        "tinybrainbot": {
+          "prompt_tokens": 6,
+          "output_tokens": [
+            16,
+            16,
+            16
+          ],
+          "eos": [
+            false,
+            false,
+            false
+          ],
+          "total_seconds": [
+            35.668299,
+            35.725923,
+            35.693947
+          ],
+          "total_median_seconds": 35.693947,
+          "total_range_seconds": [
+            35.668299,
+            35.725923
+          ],
+          "ttft_median_seconds": 8.721992,
+          "decode_proxy_median_tokens_per_s": 0.5563288939276627
+        },
+        "supra": {
+          "prompt_tokens": 6,
+          "output_tokens": [
+            16,
+            16,
+            16
+          ],
+          "eos": [
+            false,
+            false,
+            false
+          ],
+          "total_seconds": [
+            35.931805999999995,
+            35.987359,
+            35.921658
+          ],
+          "total_median_seconds": 35.931805999999995,
+          "total_range_seconds": [
+            35.921658,
+            35.987359
+          ],
+          "ttft_median_seconds": 8.746623,
+          "decode_proxy_median_tokens_per_s": 0.5516498338688137
+        }
+      },
+      "supra_over_tiny_total_median": 1.007317823531109,
+      "scope": "Same raw prompt bytes and cap; different vocabularies/output texts and potentially different input-token counts. Deployed-system latency, not isolated arithmetic."
+    }
+  },
+  "quality_counts": {
+    "tinybrainbot": {
+      "facts": {
+        "n": 6,
+        "first_correct": 3,
+        "confirmed_clean": 3,
+        "uncertain_clean": 0
+      },
+      "grounded": {
+        "n": 2,
+        "first_correct": 2,
+        "confirmed_clean": 2,
+        "uncertain_clean": 0
+      },
+      "exact": {
+        "n": 2,
+        "correct": 0
+      },
+      "story": {
+        "n": 2,
+        "topic": 0,
+        "coherent": 2,
+        "resolution": 0
+      }
+    },
+    "supra": {
+      "facts": {
+        "n": 6,
+        "first_correct": 3,
+        "confirmed_clean": 2,
+        "uncertain_clean": 0
+      },
+      "grounded": {
+        "n": 2,
+        "first_correct": 1,
+        "confirmed_clean": 0,
+        "uncertain_clean": 1
+      },
+      "exact": {
+        "n": 2,
+        "correct": 0
+      },
+      "story": {
+        "n": 2,
+        "topic": 0,
+        "coherent": 2,
+        "resolution": 0
+      }
+    }
+  },
+  "quality_basis": "Inherited existing unblinded judgments after exact response equality; not newly scored independent observations. Tiny physical quality reused explicitly.",
+  "fresh_streams": 27,
+  "fresh_quality_streams": 12,
+  "reused_quality_streams": 12,
+  "inherited_quality_counts_reproduced": true,
+  "historical_comparison": {
+    "B1": {
+      "tinybrainbot": {
+        "historical0.7.0_seconds": 51.191699,
+        "fresh0.9.0_seconds": 32.894535000000005,
+        "descriptive_time_reduction_percent": 35.74244332074229,
+        "scope": "Across studies and fixed phase orders; not a new same-session causal control."
+      },
+      "supra": {
+        "historical0.7.0_seconds": 51.412125,
+        "fresh0.9.0_seconds": 33.187949,
+        "descriptive_time_reduction_percent": 35.44723350765992,
+        "scope": "Across studies and fixed phase orders; not a new same-session causal control."
+      }
+    },
+    "B2": {
+      "tinybrainbot": {
+        "historical0.7.0_seconds": 55.439542,
+        "fresh0.9.0_seconds": 35.693947,
+        "descriptive_time_reduction_percent": 35.616446831396985,
+        "scope": "Across studies and fixed phase orders; not a new same-session causal control."
+      },
+      "supra": {
+        "historical0.7.0_seconds": 55.677356,
+        "fresh0.9.0_seconds": 35.931805999999995,
+        "descriptive_time_reduction_percent": 35.46423792106796,
+        "scope": "Across studies and fixed phase orders; not a new same-session causal control."
+      }
+    }
+  },
+  "execution_span_medians_seconds": {
+    "B1": {
+      "tinybrainbot": {
+        "master_compute_seconds": 15.415948,
+        "worker_compute_seconds": 17.163677
+      },
+      "supra": {
+        "master_compute_seconds": 15.562203,
+        "worker_compute_seconds": 17.181635999999997
+      }
+    },
+    "B2": {
+      "tinybrainbot": {
+        "master_compute_seconds": 16.333876,
+        "worker_compute_seconds": 18.978955000000003
+      },
+      "supra": {
+        "master_compute_seconds": 16.486108,
+        "worker_compute_seconds": 19.013522000000002
+      }
+    }
+  },
+  "restored_tinybrainbot": true
+}

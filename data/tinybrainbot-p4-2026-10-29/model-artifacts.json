@@ -1,0 +1,30 @@
+{
+  "full": {
+    "bytes": 52236536,
+    "sha256": "f336465c60ca79b7d7a37e6adcdebb26b832b3d54a9f8616a80c50558ca40f99",
+    "artifact_id": "cde9fe5847dddcc082b79f0d404ce051ffb2adb1d27591617ccbb60193019a8e",
+    "model_id": "0a0ab7c4fd5cc1cea3f77f77c104ce0684ccdc37db1149aa78a9bdb742a716f3",
+    "weights_bytes": 50573440,
+    "tokenizer_bytes": 1662968
+  },
+  "coordinator": {
+    "bytes": 26800376,
+    "sha256": "fa2bcbda9f46d8a78c281f47c43920a313f358b08e5e624e0b0fa0ba2625418c",
+    "artifact_id": "38136812292fd230edd00524291a2cef2d04ce559771ac13b0587437a96da0af",
+    "model_id": "0a0ab7c4fd5cc1cea3f77f77c104ce0684ccdc37db1149aa78a9bdb742a716f3",
+    "weights_bytes": 25137280,
+    "tokenizer_bytes": 1662968,
+    "compressed_bytes": 20608129,
+    "compressed_sha256": "e61a25a97214a7e59f37b1199f1e384bf30c3302c1c0897e6d6d4303eca82b3c"
+  },
+  "worker": {
+    "bytes": 25436416,
+    "sha256": "246513aa3a0fcb80f556867bbd7bf27a9bbdb43bd8dcb6a22d847118442f0e14",
+    "artifact_id": "2bd715106a39083fd418f9876b7af2a54e1a2159c57f8d2311ad9c5673f45268",
+    "model_id": "0a0ab7c4fd5cc1cea3f77f77c104ce0684ccdc37db1149aa78a9bdb742a716f3",
+    "weights_bytes": 25436288,
+    "tokenizer_bytes": 0,
+    "compressed_bytes": 20097432,
+    "compressed_sha256": "f950b8a8a944de7b1bfbc4cd6c65492b9a4c8c2496c946f166111a8aa8bab917"
+  }
+}

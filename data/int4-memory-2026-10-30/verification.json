@@ -1,0 +1,14 @@
+{
+  "firmware_build": "ESP-IDF5.5.4, rev1, successful",
+  "private_image_sha256": "945b8dbab2f8783076c8ea7cee5361aba3b43d4a13de8adfc55439d5c1c3142d",
+  "source_commit_before_device": "d089d48",
+  "unit_tests": 93,
+  "test_log_sha256": "f9994fcccb77702afdf5da6d11e55cc9f3b92da14868bf5fe42e86deadf59a98",
+  "configured_CPU_MHz": 360,
+  "configured_PSRAM_MHz": 200,
+  "configured_L2_bytes": 131072,
+  "clocks": "Configured, not physically measured",
+  "public_binaries_included": false,
+  "online_upload": false,
+  "native_scope": "Diagnostic functions compiled with warnings as errors and checked independently; existing production native DLL left unchanged."
+}

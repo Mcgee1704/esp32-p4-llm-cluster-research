@@ -1,0 +1,49 @@
+# Statische Prüfung: ESP32s3-LLM-Cluster
+
+Gelesen am 29.10.2026. Quelle:
+https://github.com/Low-Zi-Hong/ESP32s3-LLM-Cluster
+
+Geprüfter Stand: `5822029b7132894d5c982041c42fda93c5b7f5d5`.
+Ausgewählte Textdateien samt MIT-Lizenz und Herkunftsliste liegen lokal unter
+`.local/research/upstream-5822029b7132/`. Kein vollständiger Checkout, kein
+Build, keine Ausführung und keine Prüfung auf eigener Hardware.
+
+## Befunde mit Folgen für unseren Versuch
+
+| Befund | Nachweis im geprüften Stand | Konsequenz |
+| --- | --- | --- |
+| Ein Master und sechs Worker, vier Schichten pro Worker | `README.md`, `node_board/main/main.cpp` | Eine direkte Übernahme ist kein Zwei-Board-Versuch. |
+| Eigene Quantisierung nur teilweise trainiert; Autor berichtet zufällige Tokens | `workflow.md`, Abschnitt `qat_158.py` | Bereits trainiertes kleines Modell als erste Referenz vorschlagen. Keine verlässliche Sprachqualität des veröffentlichten Ablaufs unterstellen. |
+| Der Master wartet je Token auf die Schichtkette | `master_board/main/main.cpp`, `node_board/main/main.cpp` | Kein belegter Geschwindigkeitsgewinn pro Anfrage allein durch mehr Boards. |
+| Xtensa-Assembler direkt Teil des Builds | `node_board/main/bitlinear_forward.S`, `node_board/main/CMakeLists.txt` | P4/RISC-V benötigt einen anderen Kern; portable C-Referenz zuerst. |
+| Modellabmessungen und Dateilayout im Code festgelegt | `node_board/main/qwen_attention.cpp` | Anderes Modell ist kein bloßer Dateiaustausch. Architektur und Runtime müssen zusammenpassen. |
+| SPI mit 10 MHz und 4096-Byte-Rahmen | `master_board/main/spi_bus.cpp`, `spi_bus.h` | Ethernet-Vergleich braucht reale Messung. Ideale SPI-Serialisierung: 3,2768 ms/Rahmen, ohne Software- und Wartezeit. |
+| Laufzeitkontext 512, KV als FP32 | `node_board/main/qwen_attention.cpp` | Modellkonfiguration mit größerer maximaler Position ist keine nutzbare MCU-Kontextlänge. |
+| Vorhandene TTFT-Zeitgrenze liegt vor finalem Norm-/Ausgabekopf | `master_board/main/main.cpp` | Eigene TTFT bis tatsächlich verfügbarem ersten Token messen. |
+
+Dateien sind über den festen Commit erreichbar, beispielsweise:
+https://github.com/Low-Zi-Hong/ESP32s3-LLM-Cluster/blob/5822029b7132894d5c982041c42fda93c5b7f5d5/workflow.md
+
+## Statisches Speicherbudget
+
+Rechnung aus Dimensionen und Packlayout in `qwen_attention.cpp` und
+`python_tools/pack_model_bin.py`. Maschinenlesbare Werte:
+[static-budget.json](static-budget.json). Keine Messwerte.
+
+- Eine Schicht: 3.735.580 Bytes einschließlich gepackter linearer Gewichte,
+  Normen, Skalen und Bias gemäß dem geprüften Layout.
+- 24 Schichten: 89.653.920 Bytes.
+- Gepackte INT4-Worttabelle: mindestens 14.336.000 Bytes ohne Skalen/Header.
+- Zusammen mindestens 103.989.920 Bytes, noch ohne Firmware und Tokenizer.
+- Zwei nominelle 32-MiB-Flashspeicher ergeben 67.108.864 Bytes brutto.
+- FP32-KV bei 512 Kontextpositionen: 524.288 Bytes je Schicht,
+  12.582.912 Bytes für 24 Schichten.
+
+Damit passt das geprüfte Modell nicht unverändert in den gemeinsamen internen
+Flash von zwei solchen Boards. PSRAM ist kein zusätzlicher Flash und verteilter
+Speicher kein automatisch zusammenhängender Adressraum. SD-Speicherung oder
+Streaming wären andere Versuchsvarianten mit eigenem Laufzeitbudget.
+
+Die Rechnung bewertet weder vollständige Modellqualität noch erreichbare
+Geschwindigkeit. Zahlen aus der Projektdokumentation sind Fremdangaben;
+eigene reproduzierbare Hardwaremessungen stehen aus.

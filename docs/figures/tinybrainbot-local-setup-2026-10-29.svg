@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1110" viewBox="0 0 1600 1110" role="img">
+<title>Host first: select, freeze, compare, then consider the port.</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1110" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">Host first: select, freeze, compare, then consider the port.</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">One new 200.20 MB F16 weight download | Existing Supra checkpoint and NumPy/tokenizers reused | No cloud inference</text>
+<rect x="48" y="150" width="484" height="180" rx="14" fill="white"/>
+<text x="68" y="194" fill="#2777a2" font-size="24" font-weight="bold" text-anchor="start">PINNED SOURCES</text>
+<text x="68" y="242" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Supra2 100.68M · already local</text>
+<text x="68" y="286" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">TinyBrainBot 100.09M · SHA verified</text>
+<rect x="558" y="150" width="484" height="180" rx="14" fill="white"/>
+<text x="578" y="194" fill="#7653a8" font-size="24" font-weight="bold" text-anchor="start">NATIVE INPUTS</text>
+<text x="578" y="242" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Same questions; exact author templates</text>
+<text x="578" y="286" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Metaspace vs ByteLevel tokenizers</text>
+<rect x="1068" y="150" width="484" height="180" rx="14" fill="white"/>
+<text x="1088" y="194" fill="#168476" font-size="24" font-weight="bold" text-anchor="start">LOCAL EXECUTION</text>
+<text x="1088" y="242" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">F16 / FP32 + same row INT4</text>
+<text x="1088" y="286" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">30 cases × four conditions = 120</text>
+<path d="M532 240 L558 240" stroke="#3378ad" stroke-width="4" fill="none"/>
+<path d="M545 232 L558 240 L545 248" stroke="#3378ad" stroke-width="4" fill="none"/>
+<path d="M1042 240 L1068 240" stroke="#3378ad" stroke-width="4" fill="none"/>
+<path d="M1055 232 L1068 240 L1055 248" stroke="#3378ad" stroke-width="4" fill="none"/>
+<rect x="48" y="380" width="1504" height="168" rx="14" fill="white"/>
+<text x="72" y="424" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Protocol committed before generation: 825a413</text>
+<text x="72" y="466" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Manual core answer and complete visible correctness separated; exact replies checked literally.</text>
+<text x="72" y="506" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">No prompt tuning, no model fine-tuning, no second checkpoint download to search for favorable outputs.</text>
+<path d="M1310 330 L1310 380" stroke="#168476" stroke-width="4" fill="none"/>
+<path d="M1302 367 L1310 380 L1318 367" stroke="#168476" stroke-width="4" fill="none"/>
+<rect x="48" y="590" width="1504" height="130" rx="14" fill="#dcebe6"/>
+<text x="72" y="635" fill="#176b58" font-size="28" font-weight="bold" text-anchor="start">NEXT BOUNDARY: actual P4 tokenizer and allocation validation</text>
+<text x="72" y="676" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Llama/INT4 C math works on host. Metaspace + precompiled normalization is not supported by current firmware.</text>
+<rect x="48" y="760" width="735" height="212" rx="14" fill="white"/>
+<text x="72" y="802" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">PROPOSED P4 COORDINATOR</text>
+<text x="72" y="842" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">Estimated PSRAM 30.16 / 32 MiB</text>
+<rect x="72" y="865" width="600" height="23" rx="0" fill="#e4ebf0"/>
+<rect x="72" y="865" width="565.5258178710938" height="23" rx="0" fill="#168476"/>
+<text x="72" y="929" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Headroom 1.84 MiB; not an allocation measurement.</text>
+<rect x="803" y="760" width="749" height="212" rx="14" fill="white"/>
+<text x="827" y="802" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">PROPOSED P4 WORKER</text>
+<text x="827" y="842" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">Estimated PSRAM 30.32 / 32 MiB</text>
+<rect x="827" y="865" width="600" height="23" rx="0" fill="#e4ebf0"/>
+<rect x="827" y="865" width="568.5836791992188" height="23" rx="0" fill="#168476"/>
+<text x="827" y="929" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Headroom 1.68 MiB; not an allocation measurement.</text>
+<text x="48" y="1022" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Assumptions: context 256, layers 4+8, FP32 KV, 2 MiB runtime reserve per role, 2 MiB tokenizer allowance on master.</text>
+<text x="48" y="1060" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">No new device reads, writes, speed result or compressed-flash proof. Existing cluster was left untouched.</text>
+</svg>

@@ -26,7 +26,7 @@
 #define WAIT_LIMIT_MS 180000
 typedef struct {
     char id[17],body[2049],target[16],error[192],kernel[8];
-    char *raw;size_t length;int tokens,received;
+    char *raw;size_t length;int tokens,received,boards;
     int64_t started_ms,finished_ms;
 } dispatch_job;
 typedef struct {char error[192];int healthy;int64_t retry_ms;} lane_state;
@@ -37,6 +37,8 @@ static SemaphoreHandle_t guard;
 static TaskHandle_t tasks[2];
 static char peer[16],model_id[65];
 static int configured,maintenance;
+static unsigned loaded_role,loaded_split,loaded_layers;
+static char loaded_id[65];
 static unsigned configuration_generation;
 static uint32_t boot_id;
 static const char *states[]={"free","queued","running","done","failed","cancelled"};
@@ -45,6 +47,18 @@ extern const unsigned char cluster_end[] asm("_binary_cluster_html_end");
 static int64_t now_ms(void){return esp_timer_get_time()/1000;}
 static void lock(void){xSemaphoreTake(guard,portMAX_DELAY);}
 static void unlock(void){xSemaphoreGive(guard);}
+void dispatcher_model_changed(const ts_state *state) {
+    if(guard)lock();
+    loaded_role=state?ts_role(state):0;loaded_split=state?ts_end_layer(state):0;loaded_layers=state?ts_config_get(state)->layers:0;
+    loaded_id[0]=0;if(state)for(int i=0;i<32;i++)sprintf(loaded_id+2*i,"%02x",ts_model_id(state)[i]);
+    if(guard){configured=0;configuration_generation++;unlock();}
+}
+int dispatcher_model_peer(char out[16]) {
+    if(!guard)return 0;
+    lock();int ok=configured&&loaded_role==1&&*peer&&!strcmp(loaded_id,model_id);
+    if(ok)snprintf(out,16,"%s",peer);
+    unlock();return ok;
+}
 static void wake(void){for(int i=0;i<2;i++)if(tasks[i])xTaskNotifyGive(tasks[i]);}
 static int active(void){int n=0;for(int i=0;i<DQ_CAPACITY;i++)n+=queue.entries[i].state==DQ_QUEUED||queue.entries[i].state==DQ_RUNNING;return n;}
 int dispatcher_maintenance_begin(void) {
@@ -87,7 +101,7 @@ static void expire_jobs(void) {
         snprintf(jobs[i].error,sizeof jobs[i].error,"Queue deadline exceeded; no available board");jobs[i].finished_ms=now_ms();
     }
 }
-typedef struct {char body[1536];size_t used;int overflow;} status_buffer;
+typedef struct {char body[2048];size_t used;int overflow;} status_buffer;
 static esp_err_t status_event(esp_http_client_event_t *event) {
     status_buffer *b=event->user_data;
     if(event->event_id==HTTP_EVENT_ON_CONNECTED){int one=1;setsockopt(esp_http_client_get_socket(event->client),IPPROTO_TCP,TCP_NODELAY,&one,sizeof one);}
@@ -97,7 +111,7 @@ static esp_err_t status_event(esp_http_client_event_t *event) {
     }
     return ESP_OK;
 }
-static int backend_status(const char *host,const char *expected,char found[65],char error[192]) {
+static int backend_status(const char *host,const char *expected,char found[65],char error[192],int role,int first,int end) {
     char url[80];snprintf(url,sizeof url,"http://%s/api/status",host);status_buffer buf={0};
     esp_http_client_config_t cfg={.url=url,.timeout_ms=2000,.disable_auto_redirect=true,.event_handler=status_event,.user_data=&buf};
     esp_http_client_handle_t c=esp_http_client_init(&cfg);
@@ -111,6 +125,11 @@ static int backend_status(const char *host,const char *expected,char found[65],c
         !cJSON_IsTrue(cJSON_GetObjectItem(j,"ota_pending"))&&cJSON_IsString(id)&&strlen(id->valuestring)==64&&
         cJSON_IsNumber(protocol)&&protocol->valueint==1;
     if(ok&&expected&&strcmp(id->valuestring,expected))ok=0;
+    cJSON *r=cJSON_GetObjectItem(j,"role"),*f=cJSON_GetObjectItem(j,"first_layer"),*e=cJSON_GetObjectItem(j,"end_layer");
+    int actual=cJSON_IsNumber(r)?r->valueint:0;
+    if(ok&&role>=0&&actual!=role)ok=0;
+    if(ok&&first>=0&&(!cJSON_IsNumber(f)||f->valueint!=first))ok=0;
+    if(ok&&end>=0&&(!cJSON_IsNumber(e)||e->valueint!=end))ok=0;
     if(ok){if(found)memcpy(found,id->valuestring,65);error[0]=0;}
     else snprintf(error,192,"Backend busy, model mismatch, pending boot or unsupported protocol");
     cJSON_Delete(j);return ok;
@@ -120,6 +139,8 @@ static esp_err_t cluster_get(httpd_req_t *r) {
     cJSON *j=cJSON_CreateObject();lock();expire_jobs();
     cJSON_AddStringToObject(j,"firmware",esp_app_get_description()->version);
     cJSON_AddBoolToObject(j,"configured",configured);cJSON_AddBoolToObject(j,"maintenance",maintenance);
+    cJSON_AddStringToObject(j,"mode",loaded_role==1?"sharded":loaded_role==2?"worker":"replicated");
+    cJSON_AddNumberToObject(j,"active_lanes",loaded_role==1?1:loaded_role==2?0:2);
     cJSON_AddStringToObject(j,"peer",peer);cJSON_AddStringToObject(j,"model_id",model_id);
     cJSON_AddNumberToObject(j,"capacity",DQ_CAPACITY);cJSON_AddNumberToObject(j,"waiting_limit_ms",WAIT_LIMIT_MS);
     int waiting=0,running=0;for(int i=0;i<DQ_CAPACITY;i++){waiting+=queue.entries[i].state==DQ_QUEUED;running+=queue.entries[i].state==DQ_RUNNING;}
@@ -141,8 +162,9 @@ static esp_err_t cluster_set(httpd_req_t *r) {
     }
     char proposed[16];snprintf(proposed,sizeof proposed,"%s",p->valuestring);cJSON_Delete(j);
     if(!dispatcher_maintenance_begin())return reply_error(r,"409 Conflict","Wait for or cancel active jobs before changing configuration");
-    char identity[65],reason[192];int ok=backend_status("127.0.0.1",NULL,identity,reason);
-    if(ok&&*proposed)ok=backend_status(proposed,identity,NULL,reason);
+    if(loaded_role==2||(loaded_role==1&&!*proposed)){dispatcher_maintenance_end();return reply_error(r,"409 Conflict","Coordinator requires layer worker; worker cannot dispatch");}
+    char identity[65],reason[192];int ok=backend_status("127.0.0.1",NULL,identity,reason,(int)loaded_role,-1,-1);
+    if(ok&&*proposed)ok=backend_status(proposed,identity,NULL,reason,loaded_role==1?2:0,loaded_role==1?(int)loaded_split:-1,loaded_role==1?(int)loaded_layers:-1);
     if(!ok){dispatcher_maintenance_end();return reply_error(r,"409 Conflict",reason);}
     nvs_handle_t nvs;esp_err_t e=nvs_open("dispatch",NVS_READWRITE,&nvs);
     if(e==ESP_OK){e=nvs_set_str(nvs,"peer",proposed);if(e==ESP_OK)e=nvs_set_str(nvs,"model",identity);if(e==ESP_OK)e=nvs_commit(nvs);nvs_close(nvs);}
@@ -163,16 +185,17 @@ static esp_err_t job_submit(httpd_req_t *r) {
     char selected_kernel[8]={0};if(kernel)snprintf(selected_kernel,sizeof selected_kernel,"%s",kernel->valuestring);
     cJSON *body=cJSON_CreateObject();cJSON_AddStringToObject(body,"prompt",prompt->valuestring);cJSON_AddNumberToObject(body,"tokens",tokens->valueint);
     if(kernel)cJSON_AddStringToObject(body,"kernel",selected_kernel);
-    int limit=tokens->valueint;cJSON_Delete(j);cJSON_AddStringToObject(body,"peer","");
+    int limit=tokens->valueint;cJSON_Delete(j);
     lock();expire_jobs();
     if(!configured||maintenance){unlock();cJSON_Delete(body);return reply_error(r,"503 Service Unavailable","Configure cluster first or wait for maintenance");}
+    cJSON_AddStringToObject(body,"peer",loaded_role==1?peer:"");
     cJSON_AddStringToObject(body,"expected_model_id",model_id);char *encoded=cJSON_PrintUnformatted(body);cJSON_Delete(body);
     if(!encoded||strlen(encoded)>=sizeof jobs[0].body){unlock();free(encoded);return reply_error(r,"400 Bad Request","Encoded request too long");}
     char *raw=heap_caps_calloc(1,RESULT_CAP+1,MALLOC_CAP_SPIRAM|MALLOC_CAP_8BIT);
     if(!raw){unlock();free(encoded);return reply_error(r,"503 Service Unavailable","Insufficient result memory");}
     int slot=dq_submit(&queue,now_ms());
     if(slot<0){unlock();free(raw);free(encoded);return reply_error(r,"429 Too Many Requests","Queue capacity reached; no job accepted");}
-    dispatch_job *job=&jobs[slot];free(job->raw);memset(job,0,sizeof *job);job->raw=raw;job->tokens=limit;
+    dispatch_job *job=&jobs[slot];free(job->raw);memset(job,0,sizeof *job);job->raw=raw;job->tokens=limit;job->boards=loaded_role==1?2:1;
     snprintf(job->id,sizeof job->id,"%08lx%08lx",(unsigned long)boot_id,(unsigned long)(uint32_t)queue.entries[slot].sequence);
     snprintf(job->kernel,sizeof job->kernel,"%s",selected_kernel);
     snprintf(job->body,sizeof job->body,"%s",encoded);free(encoded);
@@ -215,7 +238,7 @@ static int consume_line(int slot,char *line,int *done,char reason[192]) {
     } else if(cJSON_IsTrue(cJSON_GetObjectItem(j,"done"))) {
         cJSON *count=cJSON_GetObjectItem(j,"output_tokens"),*boards=cJSON_GetObjectItem(j,"boards"),*error=cJSON_GetObjectItem(j,"error");
         lock();int received=jobs[slot].received;unlock();
-        ok=!error&&cJSON_IsNumber(count)&&count->valueint==received&&cJSON_IsNumber(boards)&&boards->valueint==1;
+        ok=!error&&cJSON_IsNumber(count)&&count->valueint==received&&cJSON_IsNumber(boards)&&boards->valueint==jobs[slot].boards;
         if(ok&&jobs[slot].kernel[0]) {
             cJSON *mode=cJSON_GetObjectItem(cJSON_GetObjectItem(j,"kernel"),"mode");
             ok=cJSON_IsString(mode)&&!strcmp(mode->valuestring,jobs[slot].kernel);
@@ -259,10 +282,10 @@ static void lane_task(void *arg) {
         char host[16],identity[65],reason[192]={0};int waiting=0;
         lock();expire_jobs();for(int i=0;i<DQ_CAPACITY;i++)waiting+=queue.entries[i].state==DQ_QUEUED;
         unsigned generation=configuration_generation;
-        int eligible=configured&&!maintenance&&waiting&&(!lane||(*peer&&valid_peer(peer)))&&now_ms()>=lanes[lane].retry_ms;
+        int eligible=configured&&!maintenance&&loaded_role!=2&&(!lane||loaded_role!=1)&&waiting&&(!lane||(*peer&&valid_peer(peer)))&&now_ms()>=lanes[lane].retry_ms;
         snprintf(host,sizeof host,"%s",lane?peer:"127.0.0.1");memcpy(identity,model_id,65);unlock();
         if(!eligible)continue;
-        int healthy=backend_status(host,identity,NULL,reason);
+        int healthy=backend_status(host,identity,NULL,reason,(int)loaded_role,-1,-1);
         lock();if(generation!=configuration_generation){unlock();continue;}
         lanes[lane].healthy=healthy;snprintf(lanes[lane].error,sizeof lanes[lane].error,"%s",reason);
         if(!healthy){lanes[lane].retry_ms=now_ms()+3000;unlock();continue;}
@@ -283,6 +306,7 @@ void dispatcher_start(void) {
     nvs_handle_t nvs;if(nvs_open("dispatch",NVS_READONLY,&nvs)==ESP_OK){size_t a=sizeof peer,b=sizeof model_id;
         configured=nvs_get_str(nvs,"peer",peer,&a)==ESP_OK&&nvs_get_str(nvs,"model",model_id,&b)==ESP_OK&&strlen(model_id)==64;
         nvs_close(nvs);}
+    if(strcmp(model_id,loaded_id)||loaded_role==2||(loaded_role==1&&!*peer))configured=0;
     httpd_config_t cfg=HTTPD_DEFAULT_CONFIG();cfg.server_port=8081;cfg.ctrl_port=32769;cfg.stack_size=8192;
     cfg.max_open_sockets=10;cfg.max_uri_handlers=8;cfg.lru_purge_enable=true;cfg.uri_match_fn=httpd_uri_match_wildcard;cfg.open_fn=socket_open;
     httpd_handle_t server;ESP_ERROR_CHECK(httpd_start(&server,&cfg));

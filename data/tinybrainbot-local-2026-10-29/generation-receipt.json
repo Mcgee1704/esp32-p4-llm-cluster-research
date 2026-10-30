@@ -1,0 +1,16 @@
+{
+  "protocol_sha256": "504ffb1e13c148d3960ca95f19a9363e408521ee2c247af6528fa7d7f6541006",
+  "code_sha256": {
+    "tools/tinybrainbot_study.py": "58ca1c70881fd5eed3a87c02d5f7f37b81d13dc47c89e2216ea0f3eb6b2d621b",
+    "tools/pack_supra.py": "612d5e74ac401507ea241ec6d33ad9d795e120c57a55e9a40262e1e1668a2680",
+    "tools/supra_reference.py": "fa0ba665dec3725b779715a83501ed4a047bc07faade2c42c1791c1fde1b25a0"
+  },
+  "complete_generations": 120,
+  "answer_sha256": {
+    "supra-f16": "18bf5caa7203876500fa8c90344f75858d1e0e7e28de07ce1a89f9a9084b0fe7",
+    "supra-int4": "f1b0fda1158aaa9c597bcb2900b37c808a311d1c8c3c748ef3d777c47d3544fc",
+    "tinybrainbot-f16": "27593d9d780f0896f68192ff4ef68aa29e72e450770d486c4d6f1e911c46dbbd",
+    "tinybrainbot-int4": "aa4cce5d0741ebd5595ab363d006cc783f7cc6b0cd47512ad560884606f77302"
+  },
+  "scope": "Offline NumPy source-layout inference; no P4 writes or new tokenizer port"
+}

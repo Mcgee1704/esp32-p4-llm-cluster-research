@@ -1,0 +1,494 @@
+{
+  "conditions": [
+    "supra-f16",
+    "supra-int4",
+    "tinybrainbot-f16",
+    "tinybrainbot-int4"
+  ],
+  "scope": "Unblinded author review of all 120 complete visible capped continuations. No independent rater. Judgments follow the frozen rubric; parameters/prompts and primary endpoints are unchanged.",
+  "first_meaning": "First directly responsive core answer/identity, not any occurrence of an expected term and not complete-answer truth. A correct identity can have a false mechanism; these are separated by clean.",
+  "clean_meaning": "Correct answer without visible false claims, unsupported contextual inventions, evasion or material task drift. Unsolicited question/prompt echo is task drift; redundant on-topic declarative statements alone are tolerated. Null marks unresolved truncated claims and is excluded from confirmed-clean counts.",
+  "rows": [
+    {
+      "id": "T01",
+      "first": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "clean": [
+        true,
+        null,
+        false,
+        false
+      ],
+      "note": "Both Supra variants identify sheep. Row adds a breed-ranking fragment cut at Shet; clean status unresolved. Tiny source says woolen cow; Tiny INT4 never names the animal."
+    },
+    {
+      "id": "T02",
+      "first": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "clean": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "note": "Only Supra F16 answers day. Supra INT4 describes a neutral state; Tiny gives dark or sun."
+    },
+    {
+      "id": "T03",
+      "first": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "clean": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "note": "Supra F16 initially gives Jupiter then also says Saturn is largest. Row gives Ceres as a gas giant. Both Tiny variants give Jupiter without contradiction."
+    },
+    {
+      "id": "T04",
+      "first": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "clean": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "note": "All identify the Moon. Supra F16 invents icy/400km/largest-moon properties; row frames it as a satellite of the Sun rather than explaining Earth's moon. Tiny gives a short correct identification."
+    },
+    {
+      "id": "T05",
+      "first": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "clean": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "note": "Supra F16 first commands an unconditional immediate right turn before stopping, so a later stop keyword is insufficient. Row evades. Tiny F16 wait for green is an acceptable normal-red-light paraphrase; Tiny INT4 discusses rules without answering the action."
+    },
+    {
+      "id": "T06",
+      "first": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "clean": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "note": "No variant gives three wheels: Supra F16 says two/one; row discusses length; Tiny says one/four."
+    },
+    {
+      "id": "T07",
+      "first": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "clean": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "note": "None gives eight spider legs. Source Supra says two; row invents large leg counts; both Tiny variants say four."
+    },
+    {
+      "id": "T08",
+      "first": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "clean": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "note": "Supra F16 initially gives four sides but then derives 24. Row is nonsensical about a hypotenuse. Both Tiny variants give four sides cleanly."
+    },
+    {
+      "id": "T09",
+      "first": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "clean": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "note": "Only Tiny answers sixty seconds. Supra gives an irrelevant walking calculation or one minute."
+    },
+    {
+      "id": "T10",
+      "first": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "clean": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "note": "Tiny answers 24 hours. Supra gives 1200 hours or 245 minutes."
+    },
+    {
+      "id": "T11",
+      "first": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "clean": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "note": "Tiny gives 100 Celsius then echoes/questions the task instead of ending; count correct initial fact but task drift prevents clean. Supra F16 confuses 0/212 Celsius/Fahrenheit; row echoes and says yes."
+    },
+    {
+      "id": "T12",
+      "first": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "clean": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "note": "Supra F16 emits an extremely large number, not twelve. The other three answer twelve months."
+    },
+    {
+      "id": "T13",
+      "first": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "clean": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "note": "Supra F16 and both Tiny variants answer Berlin. Supra row says Goettingen."
+    },
+    {
+      "id": "T14",
+      "first": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "clean": [
+        false,
+        null,
+        true,
+        true
+      ],
+      "note": "All identify yen. Supra F16 invents yen-chik; row appends an incomplete numerical value/rate without a unit, so clean status unresolved. Both Tiny variants stay correct within the visible text."
+    },
+    {
+      "id": "T15",
+      "first": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "clean": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "note": "Only Supra F16 answers Earth. Row does not identify a planet; Tiny source/INT4 say Mercury/Mars."
+    },
+    {
+      "id": "T16",
+      "first": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "clean": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "note": "The first three identify the heart. Supra F16 wrongly calls the body's vascular network coronary arteries; row invents CMC. Tiny F16 stays correct; Tiny INT4 discusses kidneys instead."
+    },
+    {
+      "id": "T17",
+      "first": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "clean": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "note": "Supra F16 gives carbon dioxide but then calls photosynthesis respiration. Row's first answer is 2,720, followed by a mixed-gas claim; a later CO2 term is not a correct first answer. Tiny answers carbon dioxide."
+    },
+    {
+      "id": "T18",
+      "first": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "clean": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "note": "Supra describes nectar rather than answering the food identity. Both Tiny variants identify honey, but INT4 falsely says bees gather honey from flowers and invents Melipede. Only the source answer is clean."
+    },
+    {
+      "id": "T19",
+      "first": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "clean": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "note": "Supra F16 answers face generically rather than nose. The other variants identify nose without a clear visible contradiction."
+    },
+    {
+      "id": "T20",
+      "first": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "clean": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "note": "Smaller is accepted as the row baseline's first small-related answer, although later large-number comparisons contradict it. Supra/Tiny F16 give small. Tiny INT4 says large is the opposite of large."
+    },
+    {
+      "id": "A01",
+      "first": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "clean": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "note": "Every variant adds words beyond exact lowercase violet."
+    },
+    {
+      "id": "A02",
+      "first": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "clean": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "note": "No exact gentle rain response. Outputs describe words, repeat an acknowledgment, or discuss painting."
+    },
+    {
+      "id": "A03",
+      "first": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "clean": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "note": "No exact copper response; source Tiny adds The answer is, row Tiny drifts into a personal monologue."
+    },
+    {
+      "id": "A04",
+      "first": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "clean": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "note": "Both Tiny outputs contain the requested phrase but add The answer is. Neither Supra response is exact."
+    },
+    {
+      "id": "G01",
+      "first": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "clean": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "note": "All retrieve drawer. Supra F16 invents that it has been there a long time; the others echo questions/instructions instead of a clean answer."
+    },
+    {
+      "id": "G02",
+      "first": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "clean": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "note": "All initially identify green. Repetition in Supra INT4 stays on the supplied fact; Tiny INT4 immediately contradicts green with not green."
+    },
+    {
+      "id": "G03",
+      "first": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "clean": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "note": "Every model fails two minus one. Tiny F16's repeated given phrase one coin triggers the supporting screen, but its actual final answer is two. Do not count copied input as the requested result."
+    },
+    {
+      "id": "G04",
+      "first": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "clean": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "note": "All retrieve Tuesday. Supra repetition is declarative and consistent; both Tiny variants echo an unrequested question, so clean task response fails."
+    },
+    {
+      "id": "K01",
+      "first": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "clean": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "note": "Known bicycle anchor: Supra F16 initially says two then derives four; row gives fractional wheels. Both Tiny variants wrongly say four. Excluded from new-fact counts."
+    },
+    {
+      "id": "K02",
+      "first": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "clean": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "note": "Known exact-blue anchor fails in every condition. Tiny says Noted/Got it, Supra emits emojis or a spelling discussion. Excluded from new endpoints."
+    }
+  ],
+  "sensitivity": "Uncertain Supra INT4 clean cases T01/T14 are reported separately. Accepting its T05 stop keyword, rejecting Tiny's wait-for-green paraphrase, rejecting the Tiny INT4 honey identity because of its false mechanism, or rejecting Supra's smaller paraphrase changes individual counts but does not reverse the factual comparison. Neither model is a reliable assistant."
+}

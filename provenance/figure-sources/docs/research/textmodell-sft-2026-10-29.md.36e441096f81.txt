@@ -1,0 +1,140 @@
+# Anderes Textmodell: TinyStories SFT auf beiden P4
+
+29.10.2026. Auftrag: kompatiblen trainierten Kandidaten auswählen, Budget
+prüfen, lokal laden und messen. Firmware/Rechenkern bleiben 0.4.0/tile4.
+
+## Auswahl und Quellen
+
+Gewählt wurde **0rn0/llama2-15m-tinystories-sft**, festgelegte Revision
+`4d69f1c13019afcf5c50b621c73cb9c92e01bb4e`. Laut [Modellkarte](https://huggingface.co/0rn0/llama2-15m-tinystories-sft/tree/4d69f1c13019afcf5c50b621c73cb9c92e01bb4e)
+MIT-lizenziert und für englische Geschichten mit angeleitetem positivem oder
+traurigem Ende trainiert. Es ist ein anderer trainierter Stand derselben
+Architektur und Größe, **kein größeres Modell**. Auch die Vortrainingsbasis
+unterscheidet sich von Karpathys Modell: dies isoliert nicht den SFT-Effekt.
+
+Die größere offizielle TinyStories-Stufe hat ungefähr 42M Parameter und passt
+in INT8 nicht in unsere 24-MiB-Modellpartition ([Originalfamilie](https://github.com/karpathy/llama2.c#models)).
+Geprüfte 19M-Instruct-/TinyTalk-Alternativen verwenden GPT-Neo und benötigen
+einen anderen Rechenkern/Tokenizer. Deshalb fiel die Auswahl für diesen Versuch
+auf den kompatiblen, gleich großen SFT-Stand. Details in selection.json.
+
+## Import und Budget vor dem ersten Geräteupdate
+
+Nur öffentliche Modelldateien heruntergeladen. Keine Projekt-, Geräte- oder
+Betriebsdaten hochgeladen und keine entfernte Inferenz genutzt. Gewichte und
+Tokenizer gegen die veröffentlichten LFS-SHA-256-Prüfsummen derselben Revision
+geprüft. Keine Pickle-Datei geladen und kein fremder Python-Code ausgeführt;
+Upstream-Quelltext wurde nur zur Architekturprüfung gelesen.
+
+56 BF16-Tensoren aus Safetensors streng auf Namen, Shapes, Grenzen, Endlichkeit
+und gekoppelte Worttabelle geprüft. Lokal nach FP32-Legacy und anschließend
+mit dem vorhandenen Exporter nach P4LM/INT8 konvertiert. RoPE, RMS-Norm, SwiGLU,
+Heads und Ausgabekopplung entsprechen dem bestehenden Rechenkern. Der Tokenizer
+war bis auf die Darstellung der BOS-/EOS-Sondertokens bereits identisch;
+die Zeilenumbruch-Konvention des llama2.c-Exports wurde übernommen. Danach
+stimmt der gesamte exportierte Tokenizer bytegenau mit der geprüften Baseline
+überein (SHA-256 `50a52ef822ee9e83de5ce9d0be0a025a773d019437f58b5ff9dcafb063ece361`).
+
+P4LM-Größe **15.836.365 Bytes**, Gewichtsdaten 15.402.368, Tokenizer 433.869,
+KV bei Kontext 256: 3.538.944 Bytes. Genau dieselben Dimensionen wie bisher:
+dim 288, FFN 768, sechs Schichten, sechs Heads/KV-Heads, Vokabular 32.000.
+Damit dieselbe Speicherbilanz; keine neue Quantisierung oder Firmwareänderung.
+Neuer Modell-ID-Hash:
+`5273bac5d1937595d92e1528a21ad7ac619e5fde8d2bfbb0aca04866bf10e07f`.
+Artefakt-SHA-256:
+`a1aa4c95d23be513adee776fc2bbb835fce2e5ab88ddd04461da3c69d35495cd`.
+
+Drei Importertests bestanden (BF16-Werte, defekte/ungültige Tensoren,
+abgeschnittenes Protobuf). Unabhängiger NumPy-Forward direkt aus den erneut
+row-quantisierten BF16-Quelltensoren gegen portablen C-Kern an vier Positionen:
+maximale absolute Logitabweichung **0,00002909**, bei Toleranz 0,002; Argmax
+jeweils identisch. Das prüft vier volle Logitvektoren, keine pauschale
+Sprachqualitätsgleichheit zwischen BF16 und INT8.
+
+## Kontrollierter Ablauf auf echter Hardware
+
+Zuerst Baseline vollständig geprüft. Danach Master vorübergehend nur lokal
+konfiguriert; Board 2 über LAN auf SFT aktualisiert und mit Host-Referenz geprüft.
+Erst dann Master aktualisiert und Peer mit neuer Modellkennung gespeichert.
+Originalmodell/Schlüssel und vollständige Gerätesicherungen bleiben erhalten.
+Die Hilfssoftware versucht bei einem Fehler während des Wechsels beide Modelle
+und die Dispatcherkennung zurückzusetzen. Fehlerwiederherstellung wurde nicht
+absichtlich ausgelöst; im Versuch trat kein Fehler ein.
+
+Zwei feste Prompts im vom Autor dokumentierten Format:
+
+```text
+Write a story about: a little girl and her dog
+With: happy ending
+
+### Story:
+```
+
+Zweiter Fall: `a boy who lost his favorite toy`, `sad ending`. Je Modell zwei
+Direktrunden auf Board 2 mit beiden Prompts und je 24 Tokens, zwei längere
+Direktläufe bis 96 Tokens sowie zwei Clusterpakete mit beiden 24-Token-Aufträgen.
+Greedy-Decodierung in allen Fällen. 20 reale Inferenzaufträge insgesamt,
+alle Tokenfolgen zur **jeweiligen** Host-Referenz exakt gleich. Zwischen
+verschiedenen Modellen ist keine Tokenidentität zu erwarten.
+
+| Messung | Karpathy-Baseline | Neuer SFT-Stand |
+| --- | ---: | ---: |
+| Direkte Antwort, Median aus vier Läufen | 9,498 s | 9,504 s |
+| Zeit bis erstes Token, Median | 3,115 s | 3,107 s |
+| Zwei-Board-Paket, zwei Läufe | 10,006 / 9,832 s | 9,999 / 9,824 s |
+| Paketmedian | 9,919 s | 9,912 s |
+| Tatsächliche Tokens der längeren Fälle | 96 / 96 | 96 / 77 |
+
+Das Tempo ist praktisch gleich; die kleine Stichprobe rechtfertigt keinen
+Geschwindigkeitsgewinn. Nicht interleavt: Baseline zuerst, SFT danach, um
+zusätzliche Flashwechsel zu vermeiden. Keine Randomisierung oder Signifikanz-
+behauptung. Längere Texte haben verschiedene Ausgabelängen und sind daher
+kein direkter Laufzeitvergleich. Andere Promptlängen erklären den Unterschied
+zu früheren 7,5-s-Paketen mit kurzen Eingaben.
+
+## Textbeobachtung und aktueller Stand
+
+Die Baseline erzeugte bei diesen Anweisungen überwiegend Dialoganfänge. Der
+SFT-Stand begann mit zusammenhängender Erzählung. Beim traurigen Fall endet
+die Geschichte nach 77 Tokens selbstständig mit dem Verlust des Spielzeugs.
+Der positive Fall wurde bei 96 Tokens abgeschnitten; ein positives Ende ist
+damit nicht nachgewiesen. Zwei Beispiele sind keine allgemeine Qualitätsabnahme,
+kein Nachweis eines deutschen Assistenten und kein Beleg für allgemeine
+Instruktionsbefolgung. Vollständige Texte in host-references.json.
+
+Beide Boards melden jetzt SFT bereit, Firmware weiter 0.4.0, OTA bestätigt,
+Peer mit neuer Modell-ID gespeichert, Warteschlange ohne aktive Arbeit.
+Die Modellneuladung samt Helfer-Task-Abbau wurde damit real geprüft. Ein
+Kaltstart nach diesem speziellen Modellwechsel wurde noch nicht ausgelöst.
+Die vorherigen Simulatorwerte und Referenz-Benchmarks gehören weiterhin zur
+alten Modell-ID; auf dem SFT-Stand sind sie nicht unverändert validiert.
+
+## Reproduktion, Daten und Rückweg
+
+- [Auswahl](data/textmodel-sft-2026-10-29/selection.json),
+  [Downloads/Hashes](data/textmodel-sft-2026-10-29/sources.json),
+  [LFS-Prüfung](data/textmodel-sft-2026-10-29/remote-integrity.json)
+- [Export](data/textmodel-sft-2026-10-29/export.json),
+  [NumPy-Prüfung](data/textmodel-sft-2026-10-29/numpy-reference.json)
+- [Vorab festgelegter Versuchsablauf](data/textmodel-sft-2026-10-29/protocol.json),
+  [Texte und Tokenreferenzen](data/textmodel-sft-2026-10-29/host-references.json),
+  [Messwerte](data/textmodel-sft-2026-10-29/results.json),
+  [Zusammenfassung](data/textmodel-sft-2026-10-29/summary.json)
+- [Finaler Gerätestand](data/textmodel-sft-2026-10-29/final-state.json),
+  [Prüfsummen](data/textmodel-sft-2026-10-29/sha256-manifest.json)
+
+Konvertierung: `tools/import_sft_checkpoint.py`, danach vorhandener
+`tools/pack_model.py`. Referenz: `tools/check_sft_reference.py`.
+`tools/textmodel_trial.py` erwartet zu Beginn die ursprüngliche Baseline auf
+beiden Boards und wechselt dann auf SFT. Vor einer Wiederholung zuerst bewusst
+die Baseline wiederherstellen; das Werkzeug überschreibt keine beliebige
+unbekannte Ausgangskonfiguration.
+
+Rückweg ohne Firmwarewechsel: bei leerer Warteschlange auf beiden Geräten
+mit `tools/lan_client.py <IP> model --file .local/models/stories15M.p4lm`
+das erhaltene Originalmodell laden. Danach
+`tools/dispatch_client.py node-1 configure --peer node-2`
+für die passende Modell-ID. Für jede CLI die bisherige lokale Python-Umgebung
+verwenden. Aktueller neuer Export unter
+`.local/models/llama2-15m-sft-4d69f1c13019/stories15M-sft.p4lm`.
+Modelldateien und Schlüssel bleiben außerhalb von Git. Journal und Commit lokal.

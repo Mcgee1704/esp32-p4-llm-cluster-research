@@ -1,0 +1,110 @@
+[
+  {
+    "path": "data/gptneo-p4-2026-10-29/completed-study/protocol.json",
+    "historical_sha256": "609896f460f657b165500ab060e4c554f685881d05d9cceed533892f2530044f",
+    "public_sha256": "417f8d2600d27b037b58e9f3c8db8ebbc71327706a98d0c25813272ff2bc56e8",
+    "legacy_marker_present": true
+  },
+  {
+    "path": "data/gptneo-p4-2026-10-29/final-study/protocol.json",
+    "historical_sha256": "66b74083b7424b7f0d63fc05d28a31353f5addb7945b5a2924367aa4603a4a09",
+    "public_sha256": "22b0278a567399cff80f5e0e2e19a78f82714454d29882be133c2229089b816c",
+    "legacy_marker_present": true
+  },
+  {
+    "path": "data/gptneo-p4-2026-10-29/protocol.json",
+    "historical_sha256": "fc3207ce03f0366957baff306e488a239dfc08ba68b98401c25ae1c419cd7146",
+    "public_sha256": "b247027eccfd30245b63a852e523fd565102fc2785202570a0e5ab6ad1618f10",
+    "legacy_marker_present": true
+  },
+  {
+    "path": "data/int4-memory-2026-10-30/protocol.json",
+    "historical_sha256": "c9b4e3df2a6b3c8fe610652f77b7a97b3b2ced2b89d9199eb3e013a5266bb0f2",
+    "public_sha256": "22d00b4ab88b488ddd14eaf8c674007bac9f424c901fb844abc663172b9ba546",
+    "legacy_marker_present": false
+  },
+  {
+    "path": "data/int4-pair-2026-10-30/protocol.json",
+    "historical_sha256": "8b2dd1e6d77da80b809a31fb1807184969eec772cd292317d97b133789d6b186",
+    "public_sha256": "0437d7b21884c58ee02bcf17a9837c360e9fe6c1f20cf156f2e20dfeef3a87ce",
+    "legacy_marker_present": false
+  },
+  {
+    "path": "data/matched-models-2026-10-29/hardware/protocol.json",
+    "historical_sha256": "faba645a6ebca8b3ed861f56ec752656596354f3eb73802a937a2f13992326e9",
+    "public_sha256": "fb9343057a478ebde76a7a9346abf979f1952a2ce5fad7e1f9a2ac9ab8f48c1e",
+    "legacy_marker_present": false
+  },
+  {
+    "path": "data/matched-models-2026-10-29/protocol.json",
+    "historical_sha256": "962cb70f6e60233e4da991cb819ac6d84670303e6e4855488b220ab855921869",
+    "public_sha256": "5a33348ae5e9619a25fdf6bc9c266355f455a32e9d880727c1efd2ded1ef48d7",
+    "legacy_marker_present": true
+  },
+  {
+    "path": "data/matched-p4-2026-10-30/protocol.json",
+    "historical_sha256": "5b2649f66f7f14ebfda1eae3c389a497c1c7dee997c0cd113b0cdb8daf17514e",
+    "public_sha256": "1a8269efb423a80b0cd1ffaf4dcb4662939bf5be8107fe481cf8ddd09a407637",
+    "legacy_marker_present": true
+  },
+  {
+    "path": "data/quality-v1-2026-10-29/protocol.json",
+    "historical_sha256": "46d7e80750ba200c8f1c23bc7dcdc434e1b95b660f466b02736b5b36c1206346",
+    "public_sha256": "46d7e80750ba200c8f1c23bc7dcdc434e1b95b660f466b02736b5b36c1206346",
+    "legacy_marker_present": false
+  },
+  {
+    "path": "data/supra-quantization-v2-2026-10-29/protocol.json",
+    "historical_sha256": "17ae0060d770bc82c3b793e1c6b2f310566f57a1f62d63f2d1eb57760a549c5e",
+    "public_sha256": "17ae0060d770bc82c3b793e1c6b2f310566f57a1f62d63f2d1eb57760a549c5e",
+    "legacy_marker_present": false
+  },
+  {
+    "path": "data/supra-tiny-v09-2026-10-30/protocol.json",
+    "historical_sha256": "ff0300a463ea72025947e1a76dfcb83069338943832e187ec65bda21b26abd5d",
+    "public_sha256": "009baf5c18a181514fb3fc48c71fafb5b45a47da4fce73b992e3575c04fff232",
+    "legacy_marker_present": true
+  },
+  {
+    "path": "data/supra100-2026-10-29/protocol.json",
+    "historical_sha256": "90458e77ead8e25ddee3b25a6e5daca3246946476c5da66d63edfe418e36887a",
+    "public_sha256": "fc508d32d1ba13098e0dd46460d3cface5bd0fcfb276a0f8a4e88ce1f6e87df1",
+    "legacy_marker_present": false
+  },
+  {
+    "path": "data/supra100-group64-2026-10-29/protocol.json",
+    "historical_sha256": "9bbe324a6d6e14cbfabb356a8953d81c61ef94b041651385c2798e4247e26c02",
+    "public_sha256": "a37fc992129cd9a2e2ba7ef849beb6d2a8463ffc34774725b1ccd1f464983746",
+    "legacy_marker_present": false
+  },
+  {
+    "path": "data/supra50-2026-10-29/protocol.json",
+    "historical_sha256": "cc19849b9c3c6eafb22ace7cff4ea5b4c07978518a0a1bb701632b6426b30018",
+    "public_sha256": "a9bd10348c538394b12bdb9f093fbbeb0bc6047f4b39d57848753252b83220e6",
+    "legacy_marker_present": false
+  },
+  {
+    "path": "data/textmodel-sft-2026-10-29/protocol.json",
+    "historical_sha256": "05ebb5ca5cc9f2f762c361fe214c9548c195ce8dae9370d42da216ae6bf3fc99",
+    "public_sha256": "cd778a911ace38977a3908400c28d6843f9b567dba68b5b1ded1a855dc554e9c",
+    "legacy_marker_present": false
+  },
+  {
+    "path": "data/tinybrainbot-local-2026-10-29/protocol.json",
+    "historical_sha256": "504ffb1e13c148d3960ca95f19a9363e408521ee2c247af6528fa7d7f6541006",
+    "public_sha256": "504ffb1e13c148d3960ca95f19a9363e408521ee2c247af6528fa7d7f6541006",
+    "legacy_marker_present": false
+  },
+  {
+    "path": "data/tinybrainbot-p4-2026-10-29/protocol.json",
+    "historical_sha256": "2d2c84a576e166636d82c976ae45bd63533c40b7046aa63888cf618d4a699738",
+    "public_sha256": "2d2c84a576e166636d82c976ae45bd63533c40b7046aa63888cf618d4a699738",
+    "legacy_marker_present": false
+  },
+  {
+    "path": "data/tinytalk2-host-2026-10-29/protocol.json",
+    "historical_sha256": "3626eed0d7e3eeb330e93268c753b8f1de2d2ea1d57ed7bc86ab385abacdd48c",
+    "public_sha256": "76ddad4912bc26767db444ca870727f84021357b9e131a67c41d808d075834da",
+    "legacy_marker_present": true
+  }
+]

@@ -25,6 +25,7 @@ class Native:
         l.ts_decode.argtypes=[C.c_void_p,C.c_int,C.c_int];l.ts_decode.restype=C.c_void_p
         l.ts_decode_length.argtypes=[C.c_void_p,C.c_int,C.c_int];l.ts_decode_length.restype=C.c_size_t
         l.ts_is_eos.argtypes=[C.c_void_p,C.c_int]
+        l.ts_decode_output.argtypes=[C.c_void_p,C.c_int,C.c_int,C.c_uint,C.POINTER(C.c_size_t)];l.ts_decode_output.restype=C.c_void_p
         self.state=l.ts_open(self.blob,len(self.raw))
         if not self.state:raise ValueError('Native model rejected')
 
@@ -52,7 +53,8 @@ class Native:
         for i in range(limit):
             token=int(np.argmax(logits))
             if self.lib.ts_is_eos(self.state,token):ended=True;break
-            result.append(token);pieces.append(self.piece(token))
+            length=C.c_size_t();pointer=self.lib.ts_decode_output(self.state,ids[-1] if not result else result[-1],token,i,C.byref(length))
+            result.append(token);pieces.append(C.string_at(pointer,length.value))
             if i+1<limit:logits=self.forward(token,len(ids)+i)
         return {'tokens':result,'text':b''.join(pieces).decode('utf-8','replace'),'eos':ended,'prompt_tokens':ids}
 

@@ -1,0 +1,13 @@
+{
+  "title": "supra-quantization-v2-protocol",
+  "date": "2026-10-29",
+  "width": 1600,
+  "height": 1160,
+  "source_sha256": {
+    "docs/research/data/supra-quantization-v2-2026-10-29/protocol.json": "17ae0060d770bc82c3b793e1c6b2f310566f57a1f62d63f2d1eb57760a549c5e",
+    "docs/research/data/supra-quantization-v2-2026-10-29/selection.json": "31a0342f743061078ea246fa32415c0254eeb136d610b9a7713912d8046ee7fc",
+    "docs/research/data/supra-quantization-v2-2026-10-29/quality-summary.json": "948d1cfd9170e63ffabff3401f36a73e3d868291ada97e3dd2f389ecc40aac09",
+    "tools/plot_supra_quantization.py": "6e01bb60ff727f8f5b423972557901f358a91e9a3b4a08d8f94a4db6e15c6a86"
+  },
+  "notes": "Actual frozen study flow and failed admission gate. Existing P4 layout shown as unchanged context, not as a new hardware trial. The three data uses are separate; no pretraining holdout claim."
+}

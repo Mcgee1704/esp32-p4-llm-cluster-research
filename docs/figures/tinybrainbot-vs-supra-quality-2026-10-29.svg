@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1280" viewBox="0 0 1600 1280" role="img">
+<title>TinyBrainBot answers more of these facts correctly.</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1280" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">TinyBrainBot answers more of these facts correctly.</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Local host comparison | 20 new facts + 4 exact + 4 grounded + 2 known anchors | Greedy, cap 48, context 256</text>
+<rect x="48" y="140" width="735" height="440" rx="14" fill="white"/>
+<text x="72" y="184" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">First responsive factual answer</text>
+<text x="72" y="218" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Correct core answer / 20; later errors may follow</text>
+<text x="72" y="263" fill="#2777a2" font-size="21" font-weight="bold" text-anchor="start">Supra2 · F16 source</text>
+<rect x="72" y="276" width="520" height="22" rx="0" fill="#e4ebf0"/>
+<rect x="72" y="276" width="286.0" height="22" rx="0" fill="#2777a2"/>
+<text x="614" y="297" fill="#2777a2" font-size="24" font-weight="bold" text-anchor="start">11/20</text>
+<text x="72" y="339" fill="#168476" font-size="21" font-weight="bold" text-anchor="start">TinyBrainBot · F16 source</text>
+<rect x="72" y="352" width="520" height="22" rx="0" fill="#e4ebf0"/>
+<rect x="72" y="352" width="390.0" height="22" rx="0" fill="#168476"/>
+<text x="614" y="373" fill="#168476" font-size="24" font-weight="bold" text-anchor="start">15/20</text>
+<text x="72" y="415" fill="#2777a2" font-size="21" font-weight="bold" text-anchor="start">Supra2 · row INT4</text>
+<rect x="72" y="428" width="520" height="22" rx="0" fill="#e4ebf0"/>
+<rect x="72" y="428" width="182.0" height="22" rx="0" fill="#2777a2"/>
+<text x="614" y="449" fill="#2777a2" font-size="24" font-weight="bold" text-anchor="start">7/20</text>
+<text x="72" y="491" fill="#168476" font-size="21" font-weight="bold" text-anchor="start">TinyBrainBot · row INT4</text>
+<rect x="72" y="504" width="520" height="22" rx="0" fill="#e4ebf0"/>
+<rect x="72" y="504" width="312.0" height="22" rx="0" fill="#168476"/>
+<text x="614" y="525" fill="#168476" font-size="24" font-weight="bold" text-anchor="start">12/20</text>
+<rect x="803" y="140" width="749" height="440" rx="14" fill="white"/>
+<text x="827" y="184" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">Clean visible factual response</text>
+<text x="827" y="218" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Confirmed / 20; no false claims or material task drift</text>
+<text x="827" y="263" fill="#2777a2" font-size="21" font-weight="bold" text-anchor="start">Supra2 · F16 source</text>
+<rect x="827" y="276" width="520" height="22" rx="0" fill="#e4ebf0"/>
+<rect x="827" y="276" width="130.0" height="22" rx="0" fill="#2777a2"/>
+<text x="1369" y="297" fill="#2777a2" font-size="24" font-weight="bold" text-anchor="start">5/20</text>
+<text x="827" y="339" fill="#168476" font-size="21" font-weight="bold" text-anchor="start">TinyBrainBot · F16 source</text>
+<rect x="827" y="352" width="520" height="22" rx="0" fill="#e4ebf0"/>
+<rect x="827" y="352" width="364.0" height="22" rx="0" fill="#168476"/>
+<text x="1369" y="373" fill="#168476" font-size="24" font-weight="bold" text-anchor="start">14/20</text>
+<text x="827" y="415" fill="#2777a2" font-size="21" font-weight="bold" text-anchor="start">Supra2 · row INT4</text>
+<rect x="827" y="428" width="520" height="22" rx="0" fill="#e4ebf0"/>
+<rect x="827" y="428" width="52.0" height="22" rx="0" fill="#2777a2"/>
+<text x="1369" y="449" fill="#2777a2" font-size="24" font-weight="bold" text-anchor="start">2/20</text>
+<text x="827" y="491" fill="#168476" font-size="21" font-weight="bold" text-anchor="start">TinyBrainBot · row INT4</text>
+<rect x="827" y="504" width="520" height="22" rx="0" fill="#e4ebf0"/>
+<rect x="827" y="504" width="260.0" height="22" rx="0" fill="#168476"/>
+<text x="1369" y="525" fill="#168476" font-size="24" font-weight="bold" text-anchor="start">10/20</text>
+<text x="827" y="559" fill="#586c7d" font-size="18" font-weight="normal" text-anchor="start">Supra INT4 also has two unclear capped claims, not counted.</text>
+<rect x="48" y="605" width="1504" height="270" rx="14" fill="white"/>
+<text x="72" y="648" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Keep the other endpoints visible</text>
+<text x="72" y="686" fill="#586c7d" font-size="20" font-weight="bold" text-anchor="start">Condition</text>
+<text x="610" y="686" fill="#586c7d" font-size="20" font-weight="bold" text-anchor="start">Exact reply / 4</text>
+<text x="875" y="686" fill="#586c7d" font-size="20" font-weight="bold" text-anchor="start">Grounded first / clean</text>
+<text x="1210" y="686" fill="#586c7d" font-size="20" font-weight="bold" text-anchor="start">Reached EOS / 30</text>
+<text x="72" y="727" fill="#2777a2" font-size="22" font-weight="bold" text-anchor="start">Supra2 · F16 source</text>
+<text x="660" y="727" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">0</text>
+<text x="955" y="727" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">3 / 2</text>
+<text x="1295" y="727" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">14</text>
+<text x="72" y="766" fill="#168476" font-size="22" font-weight="bold" text-anchor="start">TinyBrainBot · F16 source</text>
+<text x="660" y="766" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">0</text>
+<text x="955" y="766" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">3 / 1</text>
+<text x="1295" y="766" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">29</text>
+<text x="72" y="805" fill="#2777a2" font-size="22" font-weight="bold" text-anchor="start">Supra2 · row INT4</text>
+<text x="660" y="805" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">0</text>
+<text x="955" y="805" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">3 / 2</text>
+<text x="1295" y="805" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">6</text>
+<text x="72" y="844" fill="#168476" font-size="22" font-weight="bold" text-anchor="start">TinyBrainBot · row INT4</text>
+<text x="660" y="844" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">0</text>
+<text x="955" y="844" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">3 / 0</text>
+<text x="1295" y="844" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">27</text>
+<rect x="48" y="900" width="1504" height="200" rx="14" fill="#f3e6d7"/>
+<text x="72" y="944" fill="#905529" font-size="28" font-weight="bold" text-anchor="start">Promising for further porting. Still unreliable.</text>
+<text x="72" y="984" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">Tiny INT4: humans live on Mars; spiders and bicycles have four legs/wheels.</text>
+<text x="72" y="1024" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">No exact reply passes. Both models fail the two-coins-minus-one task.</text>
+<text x="72" y="1064" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Candidate source → INT4: 15 → 12 correct first facts; quantization still loses useful behavior.</text>
+<text x="48" y="1150" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Unblinded manual review, one fixed small sample; source weights F16, compute FP32. No population accuracy claim.</text>
+<text x="48" y="1186" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Same user content, native author templates; different tokenizers mean equal token caps are not equal word budgets.</text>
+<text x="48" y="1222" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">No P4 model/firmware upload. Host C weights/shards checked with a fake diagnostic tokenizer; real port remains open.</text>
+</svg>

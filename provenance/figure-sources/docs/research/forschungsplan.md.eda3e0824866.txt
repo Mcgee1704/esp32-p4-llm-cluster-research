@@ -1,0 +1,111 @@
+# Forschung: Sprachmodelle auf einem wachsenden P4-Cluster
+
+Stand 29.10.2026. Forschungsentwurf, keine lauffähige Firmware oder Messung.
+
+## Ziel und festgelegter Aufbau
+
+Der Benutzer möchte untersuchen, was gemeinsam arbeitende Mikrocontroller bei
+lokaler Sprachmodell-Inferenz leisten. Auch ein negatives Skalierungsergebnis
+ist ein verwertbares Resultat. Zwei Waveshare P4/C6-Boards sind der Ausgangspunkt;
+vier PoE-Ports stehen bereit. Ethernet ist der geplante Rechenverkehr. Die
+dauerhafte USB-A-zu-C-Kette dient zunächst Einrichtung und Diagnose. Sie ist
+elektrisch noch nicht abgenommen und nicht als schneller Datentransport belegt.
+
+Neue passende Boards sollen später durch bloßes Anschließen aufgenommen werden,
+ohne Erweiterungsmodus oder Einrichtungsdialog. Für die erste Messreihe hat ein
+reproduzierbarer Inferenzkern Vorrang; das Aufnahmeziel bleibt bestehen.
+
+## Modellwahl
+
+Vorschlag: zuerst ein sehr kleines Funktionsmodell, anschließend ein bereits
+trainiertes Modell derselben Architektur als fester Vergleichsmaßstab.
+
+| Kandidat | Rolle | Speicherplanung und Grenze |
+| --- | --- | --- |
+| karpathy stories260K | Tokenisierung, Rechenweg, Übertragungsfehler prüfen | Sehr kleiner Funktionstest; Sprachqualität ist kein Abnahmekriterium. |
+| karpathy stories15M, INT8/Q8 | Erstes Modell für ein gegen zwei P4 | Grob 15 MB reine 8-Bit-Gewichte plus Skalen, Laufzeit, Tokenizer und KV-Cache. Tatsächlicher Export und Spitzenbedarf sind zu messen. |
+| karpathy stories42M, INT8/Q8 | Zweite Stufe: größere Modellkapazität | Grob 42 MB reine Gewichte. Aufteilung, Worttabelle und KV-Cache können einzelne Knoten überlasten; aggregierter Speicher allein genügt als Nachweis nicht. |
+| SmolLM2-135M-Instruct | Späterer Kandidat für Dialogversuche | Bei hypothetischen 4 Bit bereits rund 67,5 MB reine Gewichte. Zusätzlicher Speicherbedarf und eine passende Q4-Laufzeit machen dies nicht zum ersten Zwei-Board-Versuch. |
+
+MB meint hier dezimale MB; dies sind Größenordnungen aus Parameterzahl mal
+Bitbreite, keine fertigen Dateigrößen oder Zusage, dass ein Modell läuft.
+Die TinyStories-Modelle sind für englische Geschichten trainiert; daraus folgt
+keine Eignung als deutscher Alltagsassistent. SmolLM2 ist ebenfalls als Englisch
+gekennzeichnet. Modell und Laufzeit sind getrennte Komponenten.
+
+Die C-Referenz `llama2.c` bietet einen überschaubaren Ausgangspunkt, aber keine
+fertige P4-Firmware. `runq.c` entpackt die komplette Token-Worttabelle nach FP32:
+bei 32.000 Einträgen und 288 Dimensionen wären das 36.864.000 Bytes allein dafür.
+Für den Port soll nur die jeweils benötigte Zeile entpackt werden. Datei-/mmap-
+Zugriff, Allokation und Transport brauchen ebenfalls MCU-Anpassungen. Beim
+15M-Modell benötigt ein FP32-KV-Cache mit sechs Schichten, Dimension 288 und
+256 Kontextpositionen rechnerisch weitere 3.538.944 Bytes. Vor einer
+Hardwarezusage ist ein vollständiges Budget pro Knoten erforderlich.
+
+Quellen, gelesen am 29.10.2026:
+- https://github.com/karpathy/llama2.c (Modelltabelle, Export, C-Laufzeit)
+- https://github.com/karpathy/llama2.c/blob/master/runq.c (Worttabellen-Allokation)
+- https://huggingface.co/karpathy/tinyllamas (Modellfamilie, MIT)
+- https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct (Modellkarte, Apache-2.0)
+
+## Arbeitspakete und Prüfkriterien
+
+| Paket | Ziel und Schreibbereich | Abhängigkeit | Abnahme |
+| --- | --- | --- | --- |
+| 0: Quellen und Entwurf | `docs/research/`, lokaler Quellenausschnitt in `.local/research/` | Öffentliche Quellen lesen | Befund, Vermutung und Messung unterscheidbar; keine Uploads. |
+| 1: Lokale Referenz | Künftig `reference/`, `models/manifests/`, lokale Modellablage | Modellrevision, Lizenz, Exportformat und Tokenizer festlegen | Feste Testeingaben und referenzierte Ausgaben; Artefakt-Hashes; vollständiges Speicherbudget. |
+| 2: Ein P4 | Künftig `firmware/` und `benchmarks/` | Paket 1, tatsächliches Board prüfen | MCU-Rechnung gegen dieselbe quantisierte Referenz vergleichen; Fehlergrenzen vorher festlegen; echte Laufzeitmessung. |
+| 3: Zwei P4 über LAN | Transport und Schichtaufteilung im selben Firmwareprojekt | Paket 2 | Gleiche Gewichte, Tokenizer, Quantisierung und Kontext wie Ein-Board-Lauf; korrekte Schichtreihenfolge, reproduzierbare Ergebnisse, isolierte Transportzeiten. |
+| 4: Erweiterung | Größeres Modell, parallele Anfragen, danach automatische Aufnahme | Verifizierte Zwei-Board-Basis | Kapazität, Einzelanfrage-Latenz und Gesamtdurchsatz separat ausweisen; Neustart und Wiederaufnahme ohne Datenverlust. |
+
+Fortschritt vom 29.10.2026: Modellexport, portabler Inferenzkern, LAN-Worker und
+ESP-IDF-Firmware sind inzwischen implementiert. Als kleiner Funktionstest dient
+ein synthetisches Modell mit unabhängig berechneter Referenz; das echte 15M-
+Modell wurde anschließend auf dem Host geprüft. Die P4-Builds sind vorhanden,
+die praktische Hardwareabnahme aus Paketen 2–3 wurde anschließend mit zwei
+P4 Revision 1.3 durchgeführt. Solo- und Schichtinferenz sowie normale
+LAN-Updates funktionieren. Die [LAN-Ursachenanalyse](lan-optimierung-2026-10-29.md)
+senkte den Nachteil der Schichtaufteilung auf rund 0,94 %. Der anschließende
+[Anfrageparallelitätsversuch](parallelbetrieb-2026-10-29.md) liefert bei zwei
+unabhängigen Aufgaben rund 1,97× Durchsatz. Weitere offene Punkte und Grenzen:
+[Firmware-Prüfstand](../firmware-pruefstand.md).
+
+## Vergleichsmethode
+
+1. Feste Modellrevision, Export-Hash, Tokenizer, Kontextlänge, Prompt-Token-IDs,
+   Ausgabelänge und deterministische Decodierung protokollieren. Unterschiede
+   zwischen FP32 und INT8 separat von Verteilungsfehlern bewerten.
+2. Auf einem P4 messen; dann dasselbe Modell auf zwei P4 in Schichtgruppen
+   aufteilen. Gleich viele Schichten sind wegen Worttabelle und Ausgabekopf
+   nicht zwingend eine ausgeglichene Rechen- oder Speicherverteilung.
+3. Netzwerk-Rundlaufzeiten mit synthetischen Nutzlasten messen, bevor man
+   Wartezeiten dem Modell zuschreibt. Lokale monotone Uhren verwenden;
+   Zeitstempel verschiedener Boards nicht ohne Synchronisierung subtrahieren.
+4. TTFT vom vollständigen Auftragseingang bis zum ersten ausgegebenen Token
+   einschließlich Ausgabekopf messen. Prompt-Verarbeitung, folgende Tokens/s,
+   Rechnen, Warten, übertragene Bytes und Spitzen-RAM getrennt protokollieren.
+5. Warm-/Kaltstart und Wiederholungen trennen; Median und p95 berichten.
+   Logging gleich konfigurieren. Keine Energieeffizienz behaupten, solange
+   keine geeigneten Verbrauchsmessungen vorliegen.
+
+Bei einer einzelnen Anfrage läuft eine reine Schichtkette nacheinander.
+Mehr Boards bedeuten dabei nicht automatisch weniger Zeit pro Token.
+Mehrere unabhängige Anfragen könnten verschiedene Stufen gleichzeitig nutzen;
+dafür benötigt jede Anfrage ihren eigenen KV-Zustand. Als Vergleich dient,
+sofern das Modell je Board passt, eine vollständige Modellkopie pro Board.
+Tensorparallelität wäre ein gesondertes späteres Experiment mit häufigerem
+Datenaustausch. Ein größeres Modell, das erst verteilt passt, ist ein
+Kapazitätserfolg und darf nicht als Geschwindigkeitsgewinn ausgegeben werden.
+
+## Anschluss an automatische Aufnahme und Austausch
+
+Ein Modellmanifest soll Dimensionen, Quantisierung, Hashes und Schichtbereiche
+beschreiben. Firmware und Modellpaket werden getrennt versioniert. Neue Boards
+erhöhen verfügbare Ressourcen; sie erzeugen keine zusätzlichen Modellschichten.
+Neuverteilung zunächst nur zwischen Anfragen, nicht während laufender Inferenz.
+Bekannte Boards werden beim Wiederanschließen nicht blind neu geflasht.
+
+Für das S3-Projekt wären ein nachvollziehbarer P4-Port, Messergebnisse und auch
+gescheiterte Ansätze nützlich. Berichte werden lokal vorbereitet. Es besteht
+keine Freigabe zum Senden, Pushen oder Veröffentlichen; die Benutzerregel für
+zielgenaue Online-Freigaben gilt unverändert.

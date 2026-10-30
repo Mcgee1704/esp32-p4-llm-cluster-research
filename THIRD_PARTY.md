@@ -83,3 +83,41 @@ newlib/picolibc notices are preserved alongside a conservative SDK-component
 notice superset. This does not relicense SDK/runtime materials as project MIT
 code, or claim that every listed component is linked. Original private deployment
 images and model weights are not distributed.
+
+Supra model-parallel research uses SupraLabs/Supra1.5-50M-Instruct-exp at
+f0566e6be9f1cd3530fe004ce4e56a5c4148bf73 and SupraLabs/Supra2-100M-Instruct at
+2c90ade6ab47b910f48d0157a3e4c421d6311ed5, both declaring Apache-2.0 in their
+pinned model cards. Weights, tokenizer assets and author cards remain local;
+only original inference/export code, hashes and experiment results are tracked.
+The 100M source is the author's F16 GGUF, with F32 source limitations recorded.
+GGUF metadata/layout is read as bounded data, never as executable code.
+The lossless flash loader calls tinfl_decompress from the ESP32-P4 ROM through
+ESP-IDF v5.5.4's miniz.h; no third-party decompressor source is copied into this
+repository. The pinned SDK retains the miniz upstream licence notice.
+
+Quantization V2 references the GPTQ paper (https://arxiv.org/abs/2210.17323)
+and the Apache-2.0 author implementation (https://github.com/IST-DASLab/gptq).
+The local NumPy static-grid quantizer is an independent implementation of the
+algorithmic idea, not an import or execution of upstream code. No upstream
+source, new dependency binaries or model weights are redistributed by V2.
+Its calibration, design differences and negative confirmation are documented
+in docs/research/supra-quantization-v2-2026-10-29.md.
+
+TinyBrainBot local research uses nkthebass/tinybrainbot-100m-v3-instruct at
+a8567bd7674f53b3fe5f42c8abaab35229a0e00e, declared Apache-2.0 in the author
+card. One pinned F16 Safetensors source and tokenizer/card data remain in ignored
+local storage. No weights, tokenizer assets or upstream model code are included
+in Git; only original evaluation code, generated results and provenance hashes.
+The local Rust tokenizers reference is reused; no new dependency is installed.
+The earlier local study used private fake-tokenizer math fixtures. The later
+SPBP port below uses genuine tokenizer data in private deployment artifacts.
+
+TinyBrainBot SPBP tokenizer port is an independent bounded C implementation
+following the pinned tokenizers0.22.1 Precompiled/Metaspace behavior and the
+spm_precompiled/SentencePiece Darts data format. Algorithm references and content
+hashes are recorded in data/tinybrainbot-p4-2026-10-29/.
+Apache-2.0 reference terms are retained in tinyllm/TOKENIZER-APACHE-2.0.txt.
+Unicode16 grapheme properties are derived from unicode-rs/unicode-segmentation
+v1.12.0 tables.rs under MIT; the notice is tinyllm/UNICODE-LICENSE.txt. The
+exporter stores the pinned model normalization table in the private tokenizer
+artifact, not in Git. No external Unicode/regex/Rust runtime is linked on P4.

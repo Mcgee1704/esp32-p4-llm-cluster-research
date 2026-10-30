@@ -1,0 +1,23 @@
+{
+  "scope": "Host C numerical IDs only, synthetic unsupported-for-real-text tokenizer; no P4 or actual tokenizer test",
+  "tokens": [
+    4,
+    257,
+    1024
+  ],
+  "kernel_modes": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "tolerance": 0.003,
+  "split": 4,
+  "source_code_sha256": {
+    "tools/tinybrainbot_study.py": "58ca1c70881fd5eed3a87c02d5f7f37b81d13dc47c89e2216ea0f3eb6b2d621b",
+    "tools/pack_supra.py": "612d5e74ac401507ea241ec6d33ad9d795e120c57a55e9a40262e1e1668a2680",
+    "tools/supra_reference.py": "fa0ba665dec3725b779715a83501ed4a047bc07faade2c42c1791c1fde1b25a0"
+  },
+  "script_sha256": "7226e112bb8b02cce699ac8090a220d280e0f21bbd3de3acaea40c1735aa0fb0"
+}

@@ -1,0 +1,13 @@
+{
+  "title": "tinybrainbot-vs-supra-quality",
+  "date": "2026-10-29",
+  "width": 1600,
+  "height": 1280,
+  "source_sha256": {
+    "docs/research/data/tinybrainbot-local-2026-10-29/summary.json": "69869dc695f003bd24eda782983434a57dfce56b962b212c633ea4ecdb9b3156",
+    "docs/research/data/tinybrainbot-local-2026-10-29/manual-review.json": "cfc9685065da60d5535c7241515d4648d1766ce5253fe32839bfbefa0d0e2e65",
+    "docs/research/data/tinybrainbot-local-2026-10-29/protocol.json": "504ffb1e13c148d3960ca95f19a9363e408521ee2c247af6528fa7d7f6541006",
+    "tools/tinybrainbot_results.py": "8718004e5c99ee385a005cd024d48a10921a076a16f6e616ddb63c48d5cdcfba"
+  },
+  "notes": "Small deterministic offline comparison, all 120 outputs retained. Manual review unblinded, no independent rater or confidence intervals. Clean count excludes two uncertain Supra INT4 claims. EOS is termination, not correctness. No new P4 result."
+}

@@ -1,0 +1,9 @@
+{
+  "source_sha256": {
+    "docs/research/data/int4-memory-2026-10-30/protocol.json": "c9b4e3df2a6b3c8fe610652f77b7a97b3b2ced2b89d9199eb3e013a5266bb0f2",
+    "docs/research/data/int4-memory-2026-10-30/runs.json": "df0de61f2b4ac2d1fb62b4091a4888794e95c4aa7c5c09f6738ddec425b3d183",
+    "docs/research/data/int4-memory-2026-10-30/summary.json": "beca735f610a6f3a9f694b04bb28a7b30c6c4c6190a9ead245b34259f5a15d3c",
+    "tools/analyze_int4_memory.py": "0dabf52a5e5ebebd2bef80da1d4fb6d7d5e0043d9cec91119f1f272ba6c00db8"
+  },
+  "scope": "Observed single-core diagnostic medians, no global hardware bandwidth or model speedup claim"
+}

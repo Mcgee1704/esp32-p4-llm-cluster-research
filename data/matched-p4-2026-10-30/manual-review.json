@@ -1,0 +1,178 @@
+{
+  "reviewer": "Same assistant, unblinded; not independent",
+  "protocol_sha256": "5b2649f66f7f14ebfda1eae3c389a497c1c7dee997c0cd113b0cdb8daf17514e",
+  "host_references_sha256": "7cc9d0be9071742294b44e2748beec6eea2dc615f46af7d3effdc14663bc2332",
+  "basis": "Semantic review of frozen native references; actual P4 byte equality must be verified before accepting this as device comparison evidence.",
+  "scoring_scope": "Visible text only. No unseen continuation assumed. Topic, no material contradiction and resolution are separate. No total quality score.",
+  "sensitivity_note": "G01 Tiny box accepted without explicit red because only one box is supplied. Strict explicit-colour scoring would reduce Tiny grounded first/clean from2/2 to1/2. This is a post-hoc sensitivity, not the frozen primary rule or a new inference.",
+  "rows": [
+    {
+      "model": "tinybrainbot",
+      "case": "F01",
+      "first": true,
+      "clean": true,
+      "note": "Correct triangle count, no additional false statement."
+    },
+    {
+      "model": "supra",
+      "case": "F01",
+      "first": false,
+      "clean": false,
+      "note": "Gives an unfinished equation instead of the requested number three; no correct responsive count is stated."
+    },
+    {
+      "model": "tinybrainbot",
+      "case": "F02",
+      "first": true,
+      "clean": true,
+      "note": "Correct seven-day answer, concise and consistent."
+    },
+    {
+      "model": "supra",
+      "case": "F02",
+      "first": true,
+      "clean": true,
+      "note": "Correct seven-day answer, concise and consistent."
+    },
+    {
+      "model": "tinybrainbot",
+      "case": "F03",
+      "first": true,
+      "clean": true,
+      "note": "Correct Paris answer, no added claim."
+    },
+    {
+      "model": "supra",
+      "case": "F03",
+      "first": true,
+      "clean": false,
+      "note": "Paris is correct, but the additional assertion that it is the largest city in the world is false. Population clause is capped; the already false claim is sufficient for failure."
+    },
+    {
+      "model": "tinybrainbot",
+      "case": "F04",
+      "first": false,
+      "clean": false,
+      "note": "No visible answer: one generated token decodes to an empty string, then EOS. Does not name autumn/fall."
+    },
+    {
+      "model": "supra",
+      "case": "F04",
+      "first": false,
+      "clean": false,
+      "note": "Does not identify autumn/fall. Describes a circular transitional period between the cycle and summer; no correct requested season is stated."
+    },
+    {
+      "model": "tinybrainbot",
+      "case": "F05",
+      "first": false,
+      "clean": false,
+      "note": "Calls frozen water a pond or a lake, rather than ice."
+    },
+    {
+      "model": "supra",
+      "case": "F05",
+      "first": false,
+      "clean": false,
+      "note": "Discusses the term frozen water and aquatic engineering; never supplies the requested name ice. Capped, off-task response."
+    },
+    {
+      "model": "tinybrainbot",
+      "case": "F06",
+      "first": false,
+      "clean": false,
+      "note": "Incorrectly names sight for ears instead of hearing."
+    },
+    {
+      "model": "supra",
+      "case": "F06",
+      "first": true,
+      "clean": true,
+      "note": "Names hearing and describes perceiving sounds correctly. Final relative clause is capped after we; visible claims remain consistent and no material ambiguity about the named sense is introduced. This is not a complete-sentence-format pass."
+    },
+    {
+      "model": "tinybrainbot",
+      "case": "I01",
+      "exact": false,
+      "note": "Says the answer is no; does not emit marble."
+    },
+    {
+      "model": "supra",
+      "case": "I01",
+      "exact": false,
+      "note": "Produces an explanatory/repetitive response instead of the exact required text."
+    },
+    {
+      "model": "tinybrainbot",
+      "case": "I02",
+      "exact": false,
+      "note": "Produces an explanatory/repetitive response instead of the exact required text."
+    },
+    {
+      "model": "supra",
+      "case": "I02",
+      "exact": false,
+      "note": "Produces an explanatory/repetitive response instead of the exact required text."
+    },
+    {
+      "model": "tinybrainbot",
+      "case": "G01",
+      "first": true,
+      "clean": true,
+      "note": "Generous contextual reading: in the box identifies the only box given. Red is omitted; ticket box adds an unsupported descriptor but is read as the given ticket-containing box, not a contradictory second location. Repetitive but no established false claim. Requiring the explicit colour would fail this case; see sensitivity note."
+    },
+    {
+      "model": "supra",
+      "case": "G01",
+      "first": true,
+      "clean": null,
+      "note": "Explicitly gives the red box twice. Third repetition ends in the ticket is in, before specifying a location; capped unfinished location is ambiguous. First answer correct, full cleanliness uncertain."
+    },
+    {
+      "model": "tinybrainbot",
+      "case": "G02",
+      "first": true,
+      "clean": true,
+      "note": "Restates the given initial three pencils, then explicitly computes 3-1=2. Read as premise followed by remaining amount; no material contradiction under that contextual reading."
+    },
+    {
+      "model": "supra",
+      "case": "G02",
+      "first": false,
+      "clean": false,
+      "note": "Only repeats that Max has three pencils. No subtraction or correct remaining amount two is provided."
+    },
+    {
+      "model": "tinybrainbot",
+      "case": "S01",
+      "topic": false,
+      "coherent": true,
+      "resolution": false,
+      "note": "Duck and lost frog are mentioned, and help is intended, but no help returning the frog to its pond occurs. Friends and fear can coexist; no necessary material contradiction in the visible fragment. Capped before a resolution."
+    },
+    {
+      "model": "supra",
+      "case": "S01",
+      "topic": false,
+      "coherent": true,
+      "resolution": false,
+      "note": "Only a countryside/weather setting, no duck/frog/help/return. Repeated damp earth is weak style, not a material contradiction. No resolution at the cap."
+    },
+    {
+      "model": "tinybrainbot",
+      "case": "S02",
+      "topic": false,
+      "coherent": true,
+      "resolution": false,
+      "note": "Off-topic child/village/family setup, no torn paper boat, repair or floating. Tautological same-name reference is weak and underspecified, but no established incompatible facts. No resolution at the cap."
+    },
+    {
+      "model": "supra",
+      "case": "S02",
+      "topic": false,
+      "coherent": true,
+      "resolution": false,
+      "note": "Off-topic first-person pond scene, no child/paper boat/repair/floating. Sunny day, sunset and shade are not necessarily incompatible. No requested plot or resolution before the cap."
+    }
+  ]
+}

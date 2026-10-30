@@ -1,0 +1,51 @@
+{
+  "repository": "SupraLabs/Supra1.5-50M-Instruct-exp",
+  "revision": "f0566e6be9f1cd3530fe004ce4e56a5c4148bf73",
+  "files": [
+    {
+      "file": "config.json",
+      "url": "https://huggingface.co/SupraLabs/Supra1.5-50M-Instruct-exp/resolve/f0566e6be9f1cd3530fe004ce4e56a5c4148bf73/config.json",
+      "sha256": "bd15d6f7b411546d1d9e7ceecbb16a0bc9da5502c2c6df38b28e3e2e741c4fcf",
+      "bytes": 760,
+      "git_blob": "19534480c2698178b6fcfa6ab2b4184a47a90fb6"
+    },
+    {
+      "file": "tokenizer.json",
+      "url": "https://huggingface.co/SupraLabs/Supra1.5-50M-Instruct-exp/resolve/f0566e6be9f1cd3530fe004ce4e56a5c4148bf73/tokenizer.json",
+      "sha256": "78674e4a6e1ed782c30f506420976a25ee52018212ea90e368b7a1e806982b08",
+      "bytes": 2268112,
+      "git_blob": "583204a84bb4393cce7d877749df8afa045f59ae"
+    },
+    {
+      "file": "tokenizer_config.json",
+      "url": "https://huggingface.co/SupraLabs/Supra1.5-50M-Instruct-exp/resolve/f0566e6be9f1cd3530fe004ce4e56a5c4148bf73/tokenizer_config.json",
+      "sha256": "5bf51dd6931a1eb181ab89bd3cc8a6e04bcd82d2ceb23271c5c3c0dc77f2ff6c",
+      "bytes": 283,
+      "git_blob": "a037324221f0e335e64d1ee12d839d12b1933c2a"
+    },
+    {
+      "file": "generation_config.json",
+      "url": "https://huggingface.co/SupraLabs/Supra1.5-50M-Instruct-exp/resolve/f0566e6be9f1cd3530fe004ce4e56a5c4148bf73/generation_config.json",
+      "sha256": "f804ea8970c1b53dca43b9e197aff7f37ee1e4065a5234ed55471cec2c50b0f8",
+      "bytes": 131,
+      "git_blob": "bf28bcca20f65dfdae2aa21928f66a6277eb9d86"
+    },
+    {
+      "file": "README.md",
+      "url": "https://huggingface.co/SupraLabs/Supra1.5-50M-Instruct-exp/resolve/f0566e6be9f1cd3530fe004ce4e56a5c4148bf73/README.md",
+      "sha256": "9e5e0970c14d02da57098bebe6abf5cd80c4b63efe1b383686afdbb3765673f2",
+      "bytes": 7275,
+      "git_blob": "a0963b99e6f6b7fdf76abcc9a28aeae1f4e378d0"
+    }
+  ],
+  "weights": {
+    "rfilename": "model.safetensors",
+    "blobId": "a8ea01d898b9fd992b52b01eae5973adcf007c62",
+    "size": 103584616,
+    "lfs": {
+      "sha256": "5201168326dff0dce0be429b56c6bc352789e56bdcf8296b071b41fd895d3672",
+      "size": 103584616,
+      "pointerSize": 134
+    }
+  }
+}

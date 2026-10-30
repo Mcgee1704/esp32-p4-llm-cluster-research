@@ -1,0 +1,42 @@
+[
+  {
+    "version": "0.6.0",
+    "source_ref": "f05ddc4",
+    "source_only": true,
+    "public_binary_built": false,
+    "public_redacted_bytes_hardware_tested": false,
+    "private_original_research_evidence": "data/supra50-2026-10-29"
+  },
+  {
+    "version": "0.6.1",
+    "source_ref": "4bb0969",
+    "source_only": true,
+    "public_binary_built": false,
+    "public_redacted_bytes_hardware_tested": false,
+    "private_original_research_evidence": "data/supra100-2026-10-29"
+  },
+  {
+    "version": "0.7.0",
+    "source_ref": "852b5c8",
+    "source_only": true,
+    "public_binary_built": false,
+    "public_redacted_bytes_hardware_tested": false,
+    "private_original_research_evidence": "data/tinybrainbot-p4-2026-10-29"
+  },
+  {
+    "version": "0.8.0",
+    "source_ref": "2e2f6aa",
+    "source_only": true,
+    "public_binary_built": false,
+    "public_redacted_bytes_hardware_tested": false,
+    "private_original_research_evidence": "data/int4-memory-2026-10-30"
+  },
+  {
+    "version": "0.9.0",
+    "source_ref": "721fc0b",
+    "source_only": true,
+    "public_binary_built": false,
+    "public_redacted_bytes_hardware_tested": false,
+    "private_original_research_evidence": "data/int4-pair-2026-10-30"
+  }
+]

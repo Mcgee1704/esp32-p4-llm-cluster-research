@@ -1,0 +1,119 @@
+{
+  "source": "SupraLabs/Supra1.5-50M-Instruct-exp",
+  "context": 256,
+  "generation": "greedy, no sampling, full vocabulary, EOS from metadata",
+  "prompt_policy": "exact shared prefixes; no inferred chat template or implicit BOS",
+  "cases": [
+    {
+      "id": "S1",
+      "category": "story",
+      "prompt": "Once upon a time, a rabbit named Pip had a carrot. His friend Fox was hungry. Pip decided to share",
+      "limit": 32
+    },
+    {
+      "id": "S2",
+      "category": "story",
+      "prompt": "Mia had a broken kite. She wanted to fly it again. She took some string and",
+      "limit": 32
+    },
+    {
+      "id": "S3",
+      "category": "story",
+      "prompt": "Lily could not find her cat, Luna. She looked in the garden. Then she heard",
+      "limit": 32
+    },
+    {
+      "id": "S4",
+      "category": "story",
+      "prompt": "Ben built a sandcastle by the sea. A big wave came and washed it away. Ben felt",
+      "limit": 32
+    },
+    {
+      "id": "Q1",
+      "category": "question",
+      "prompt": "User: What sound does a cow make? Answer in one short sentence.\nBot:",
+      "limit": 32
+    },
+    {
+      "id": "Q2",
+      "category": "question",
+      "prompt": "User: What color is a ripe banana? Answer in one short sentence.\nBot:",
+      "limit": 32
+    },
+    {
+      "id": "Q3",
+      "category": "question",
+      "prompt": "User: How many wheels does a bicycle usually have? Answer in one short sentence.\nBot:",
+      "limit": 32
+    },
+    {
+      "id": "Q4",
+      "category": "question",
+      "prompt": "User: What is a baby dog called?\nBot:",
+      "limit": 32
+    },
+    {
+      "id": "Q5",
+      "category": "question",
+      "prompt": "User: What is the opposite of hot?\nBot:",
+      "limit": 32
+    },
+    {
+      "id": "Q6",
+      "category": "question",
+      "prompt": "User: How many legs does a cat have?\nBot:",
+      "limit": 32
+    },
+    {
+      "id": "I1",
+      "category": "instruction",
+      "prompt": "User: Reply with exactly this word: blue\nBot:",
+      "limit": 32
+    },
+    {
+      "id": "I2",
+      "category": "instruction",
+      "prompt": "User: Write exactly three words: red green blue\nBot:",
+      "limit": 32
+    },
+    {
+      "id": "I3",
+      "category": "instruction",
+      "prompt": "User: Write one short sentence about rain. Do not mention animals.\nBot:",
+      "limit": 32
+    },
+    {
+      "id": "C2",
+      "category": "memory",
+      "prompt": "User: My cat is called Luna.\nBot: Luna is a nice name.<|endoftext|>\nUser: What is my cat's name?\nBot:",
+      "limit": 32
+    },
+    {
+      "id": "U1",
+      "category": "unknown",
+      "prompt": "User: What is the serial number of the board on my desk?\nBot:",
+      "limit": 32
+    },
+    {
+      "id": "D1",
+      "category": "language-boundary",
+      "prompt": "User: Welche Farbe hat eine reife Banane?\nBot:",
+      "limit": 32
+    }
+  ],
+  "quantization": "symmetric row INT4, ties-to-even, -7..7, float32 scales",
+  "logit_tolerance": 0.003,
+  "numerical_tokens": [
+    0,
+    300,
+    42,
+    17,
+    1000,
+    2,
+    7,
+    9
+  ],
+  "timing_case": "S2",
+  "timing_limit": 16,
+  "timing_repeats": 3
+}

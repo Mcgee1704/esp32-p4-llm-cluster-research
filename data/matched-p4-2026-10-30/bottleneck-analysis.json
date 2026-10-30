@@ -1,0 +1,210 @@
+{
+  "classification": "Post-hoc descriptive profile analysis; no new hardware experiment",
+  "groups": {
+    "tinybrainbot-B1": {
+      "total_ms": 51191.699,
+      "coordinator_execution_ms": 24033.189,
+      "worker_execution_ms": 26681.342,
+      "outside_execution_ms": 477.1680000000015,
+      "rpc_outside_worker_ms": 456.91899999999805,
+      "execution_percent": 99.06788012642441,
+      "conditional_zero_residual_factor": 1.0094089009715972,
+      "coordinator_output_head_ms": 10670.063
+    },
+    "tinybrainbot-B2": {
+      "total_ms": 55439.542,
+      "coordinator_execution_ms": 25446.952,
+      "worker_execution_ms": 29506.534,
+      "outside_execution_ms": 489.50100000000384,
+      "rpc_outside_worker_ms": 469.1830000000009,
+      "execution_percent": 99.11705439413622,
+      "conditional_zero_residual_factor": 1.0089081098228845,
+      "coordinator_output_head_ms": 10671.165
+    },
+    "supra-B1": {
+      "total_ms": 51412.125,
+      "coordinator_execution_ms": 24251.713,
+      "worker_execution_ms": 26670.295,
+      "outside_execution_ms": 495.7910000000011,
+      "rpc_outside_worker_ms": 475.7560000000012,
+      "execution_percent": 99.0356535544874,
+      "conditional_zero_residual_factor": 1.0097373664019094,
+      "coordinator_output_head_ms": 10858.245
+    },
+    "supra-B2": {
+      "total_ms": 55677.356,
+      "coordinator_execution_ms": 25658.676,
+      "worker_execution_ms": 29497.248,
+      "outside_execution_ms": 512.780999999999,
+      "rpc_outside_worker_ms": 492.5159999999996,
+      "execution_percent": 99.07901337843701,
+      "conditional_zero_residual_factor": 1.009295476308845,
+      "coordinator_output_head_ms": 10857.19
+    }
+  },
+  "runs": [
+    {
+      "model": "tinybrainbot",
+      "case": "B1",
+      "block": 1,
+      "total_ms": 51206.838,
+      "coordinator_execution_ms": 24027.875,
+      "worker_execution_ms": 26678.09,
+      "outside_execution_ms": 500.87300000000323,
+      "rpc_outside_worker_ms": 480.72299999999814,
+      "execution_percent": 99.0218630566488,
+      "conditional_zero_residual_factor": 1.0098779897000285,
+      "coordinator_output_head_ms": 10668.548
+    },
+    {
+      "model": "tinybrainbot",
+      "case": "B2",
+      "block": 1,
+      "total_ms": 55439.542,
+      "coordinator_execution_ms": 25447.474,
+      "worker_execution_ms": 29502.567,
+      "outside_execution_ms": 489.50100000000384,
+      "rpc_outside_worker_ms": 469.1830000000009,
+      "execution_percent": 99.11705439413622,
+      "conditional_zero_residual_factor": 1.0089081098228845,
+      "coordinator_output_head_ms": 10671.165
+    },
+    {
+      "model": "supra",
+      "case": "B1",
+      "block": 1,
+      "total_ms": 51463.065,
+      "coordinator_execution_ms": 24251.713,
+      "worker_execution_ms": 26672.465,
+      "outside_execution_ms": 538.8870000000024,
+      "rpc_outside_worker_ms": 518.9860000000008,
+      "execution_percent": 98.95286648783937,
+      "conditional_zero_residual_factor": 1.010582144300886,
+      "coordinator_output_head_ms": 10858.245
+    },
+    {
+      "model": "supra",
+      "case": "B2",
+      "block": 1,
+      "total_ms": 55677.356,
+      "coordinator_execution_ms": 25667.327,
+      "worker_execution_ms": 29497.248,
+      "outside_execution_ms": 512.780999999999,
+      "rpc_outside_worker_ms": 492.5159999999996,
+      "execution_percent": 99.07901337843701,
+      "conditional_zero_residual_factor": 1.009295476308845,
+      "coordinator_output_head_ms": 10858.594
+    },
+    {
+      "model": "supra",
+      "case": "B2",
+      "block": 2,
+      "total_ms": 55683.941,
+      "coordinator_execution_ms": 25655.373,
+      "worker_execution_ms": 29487.125,
+      "outside_execution_ms": 541.4429999999993,
+      "rpc_outside_worker_ms": 521.2989999999991,
+      "execution_percent": 99.02764964139301,
+      "conditional_zero_residual_factor": 1.009818978458321,
+      "coordinator_output_head_ms": 10856.597
+    },
+    {
+      "model": "supra",
+      "case": "B1",
+      "block": 2,
+      "total_ms": 51412.125,
+      "coordinator_execution_ms": 24246.039,
+      "worker_execution_ms": 26670.295,
+      "outside_execution_ms": 495.7910000000011,
+      "rpc_outside_worker_ms": 475.7560000000012,
+      "execution_percent": 99.0356535544874,
+      "conditional_zero_residual_factor": 1.0097373664019094,
+      "coordinator_output_head_ms": 10856.041
+    },
+    {
+      "model": "tinybrainbot",
+      "case": "B2",
+      "block": 2,
+      "total_ms": 55443.253,
+      "coordinator_execution_ms": 25446.952,
+      "worker_execution_ms": 29506.534,
+      "outside_execution_ms": 489.7669999999962,
+      "rpc_outside_worker_ms": 469.4310000000005,
+      "execution_percent": 99.11663372277238,
+      "conditional_zero_residual_factor": 1.0089123918362521,
+      "coordinator_output_head_ms": 10671.87
+    },
+    {
+      "model": "tinybrainbot",
+      "case": "B1",
+      "block": 2,
+      "total_ms": 51191.699,
+      "coordinator_execution_ms": 24033.189,
+      "worker_execution_ms": 26681.342,
+      "outside_execution_ms": 477.1680000000015,
+      "rpc_outside_worker_ms": 456.91899999999805,
+      "execution_percent": 99.06788012642441,
+      "conditional_zero_residual_factor": 1.0094089009715972,
+      "coordinator_output_head_ms": 10672.428
+    },
+    {
+      "model": "tinybrainbot",
+      "case": "B1",
+      "block": 3,
+      "total_ms": 51191.275,
+      "coordinator_execution_ms": 24035.674,
+      "worker_execution_ms": 26681.44,
+      "outside_execution_ms": 474.1610000000037,
+      "rpc_outside_worker_ms": 453.95300000000134,
+      "execution_percent": 99.07374645386348,
+      "conditional_zero_residual_factor": 1.0093491321292454,
+      "coordinator_output_head_ms": 10670.063
+    },
+    {
+      "model": "tinybrainbot",
+      "case": "B2",
+      "block": 3,
+      "total_ms": 55301.819,
+      "coordinator_execution_ms": 25441.693,
+      "worker_execution_ms": 29517.451,
+      "outside_execution_ms": 342.6750000000029,
+      "rpc_outside_worker_ms": 322.3289999999979,
+      "execution_percent": 99.38035492105604,
+      "conditional_zero_residual_factor": 1.00623508619421,
+      "coordinator_output_head_ms": 10668.294
+    },
+    {
+      "model": "supra",
+      "case": "B1",
+      "block": 3,
+      "total_ms": 51186.745,
+      "coordinator_execution_ms": 24256.284,
+      "worker_execution_ms": 26661.615,
+      "outside_execution_ms": 268.84600000000137,
+      "rpc_outside_worker_ms": 248.85699999999997,
+      "execution_percent": 99.47477418226144,
+      "conditional_zero_residual_factor": 1.0052799900482932,
+      "coordinator_output_head_ms": 10859.6
+    },
+    {
+      "model": "supra",
+      "case": "B2",
+      "block": 3,
+      "total_ms": 55412.878,
+      "coordinator_execution_ms": 25658.676,
+      "worker_execution_ms": 29505.917,
+      "outside_execution_ms": 248.28499999999622,
+      "rpc_outside_worker_ms": 228.02899999999863,
+      "execution_percent": 99.55193628455827,
+      "conditional_zero_residual_factor": 1.0045008036223524,
+      "coordinator_output_head_ms": 10857.19
+    }
+  ],
+  "source_sha256": {
+    "protocol.json": "5b2649f66f7f14ebfda1eae3c389a497c1c7dee997c0cd113b0cdb8daf17514e",
+    "timing-runs.json": "2597b778207698ce2e4ba2c4ba360307a9f465c687fd76ad4e06c86cf298b089",
+    "timing-summary.json": "bde0c4be71951a1792bfb96e6226ac6a66b5b779eb53d9968b55b83d6923e2b4"
+  },
+  "semantics": "Execution spans include arithmetic, memory stalls, scheduled pauses and synchronization. RPC total includes worker execution. Residual is not a packet-measured network duration.",
+  "bound": "Zero-residual factor holds execution spans fixed and unrealistically removes ALL remaining time. It is a conditional accounting bound, not an attainable LAN prediction."
+}

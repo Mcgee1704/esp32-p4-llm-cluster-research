@@ -1,0 +1,206 @@
+{
+  "tokens": 749,
+  "matrices": {
+    "model.layers.0.self_attn.q_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.0.self_attn.o_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.0.mlp.gate_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.0.mlp.down_proj.weight": [
+      749,
+      2048
+    ],
+    "model.layers.1.self_attn.q_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.1.self_attn.o_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.1.mlp.gate_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.1.mlp.down_proj.weight": [
+      749,
+      2048
+    ],
+    "model.layers.2.self_attn.q_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.2.self_attn.o_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.2.mlp.gate_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.2.mlp.down_proj.weight": [
+      749,
+      2048
+    ],
+    "model.layers.3.self_attn.q_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.3.self_attn.o_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.3.mlp.gate_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.3.mlp.down_proj.weight": [
+      749,
+      2048
+    ],
+    "model.layers.4.self_attn.q_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.4.self_attn.o_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.4.mlp.gate_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.4.mlp.down_proj.weight": [
+      749,
+      2048
+    ],
+    "model.layers.5.self_attn.q_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.5.self_attn.o_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.5.mlp.gate_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.5.mlp.down_proj.weight": [
+      749,
+      2048
+    ],
+    "model.layers.6.self_attn.q_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.6.self_attn.o_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.6.mlp.gate_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.6.mlp.down_proj.weight": [
+      749,
+      2048
+    ],
+    "model.layers.7.self_attn.q_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.7.self_attn.o_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.7.mlp.gate_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.7.mlp.down_proj.weight": [
+      749,
+      2048
+    ],
+    "model.layers.8.self_attn.q_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.8.self_attn.o_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.8.mlp.gate_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.8.mlp.down_proj.weight": [
+      749,
+      2048
+    ],
+    "model.layers.9.self_attn.q_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.9.self_attn.o_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.9.mlp.gate_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.9.mlp.down_proj.weight": [
+      749,
+      2048
+    ],
+    "model.layers.10.self_attn.q_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.10.self_attn.o_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.10.mlp.gate_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.10.mlp.down_proj.weight": [
+      749,
+      2048
+    ],
+    "model.layers.11.self_attn.q_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.11.self_attn.o_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.11.mlp.gate_proj.weight": [
+      749,
+      768
+    ],
+    "model.layers.11.mlp.down_proj.weight": [
+      749,
+      2048
+    ]
+  },
+  "activation_sha256": "8113ecd5023d4775cf04371c62b931cd965fae6a540d49a70a248974c07ad003",
+  "seconds": 25.375,
+  "code_sha256": {
+    "tools/quantization_v2.py": "65837dc288b25b839a2e4254f7bd97b073940c312bbc59076940c1b41b988295",
+    "tools/supra_quantization_study.py": "926051d20c3264714dd452c19923d26f9e26ce887b8e5bf8a9ba77557d62dd43",
+    "tools/supra_reference.py": "fa0ba665dec3725b779715a83501ed4a047bc07faade2c42c1791c1fde1b25a0",
+    "tools/pack_supra.py": "612d5e74ac401507ea241ec6d33ad9d795e120c57a55e9a40262e1e1668a2680"
+  },
+  "scope": "Source-F16/FP32 inputs; shared QKV and gate/up groups; output embedding not GPTQ optimized"
+}

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1210" viewBox="0 0 1600 1210" role="img">
+<title>More parameters fit. Useful quality still needs work.</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1210" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">More parameters fit. Useful quality still needs work.</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Two real P4s | Greedy row-INT4 | Story S2, 16 output tokens | Three descriptive timing repetitions</text>
+<rect x="48" y="137" width="1504" height="468" rx="14" fill="white"/>
+<text x="72" y="181" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Wall-time decomposition · median run</text>
+<text x="72" y="235" fill="#247ca3" font-size="25" font-weight="bold" text-anchor="start">Supra 51.79M</text>
+<text x="400" y="235" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">20 prompt tokens · 43.18 s total · 0.677 decode tok/s</text>
+<rect x="72" y="255" width="257.0143384209472" height="38" rx="0" fill="#247ca3"/>
+<rect x="329.0143384209472" y="255" width="326.88569901513813" height="38" rx="0" fill="#278375"/>
+<rect x="655.9000374360853" y="255" width="7.414802358747259" height="38" rx="0" fill="#b78437"/>
+<text x="72" y="325" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Range 43.161–43.200 s; three runs, fixed model order</text>
+<text x="72" y="380" fill="#8557a6" font-size="25" font-weight="bold" text-anchor="start">Supra 100.68M</text>
+<text x="400" y="380" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">20 prompt tokens · 85.44 s total · 0.354 decode tok/s</text>
+<rect x="72" y="400" width="486.90714418286" height="38" rx="0" fill="#8557a6"/>
+<rect x="558.9071441828601" y="400" width="674.2968251798017" height="38" rx="0" fill="#278375"/>
+<rect x="1233.2039693626616" y="400" width="8.79603063733827" height="38" rx="0" fill="#b78437"/>
+<text x="72" y="470" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Range 85.191–85.468 s; three runs, fixed model order</text>
+<rect x="72" y="545" width="22" height="18" rx="0" fill="#247ca3"/>
+<text x="105" y="562" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">coordinator compute</text>
+<rect x="475" y="545" width="22" height="18" rx="0" fill="#278375"/>
+<text x="508" y="562" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">worker compute</text>
+<rect x="840" y="545" width="22" height="18" rx="0" fill="#b78437"/>
+<text x="873" y="562" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">remaining wall time</text>
+<rect x="48" y="635" width="735" height="375" rx="14" fill="white"/>
+<text x="72" y="678" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">Free PSRAM after study</text>
+<text x="72" y="711" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">32 MiB per board; result buffers remain allocated</text>
+<text x="72" y="752" fill="#247ca3" font-size="20" font-weight="normal" text-anchor="start">Supra 51.79M coordinator</text>
+<rect x="445" y="735" width="250" height="19" rx="0" fill="#e4ebf0"/>
+<rect x="445" y="735" width="117.40127205848694" height="19" rx="0" fill="#247ca3"/>
+<text x="710" y="752" fill="#193347" font-size="19" font-weight="normal" text-anchor="start">15.03</text>
+<text x="72" y="795" fill="#247ca3" font-size="20" font-weight="normal" text-anchor="start">Supra 51.79M worker</text>
+<rect x="445" y="778" width="250" height="19" rx="0" fill="#e4ebf0"/>
+<rect x="445" y="778" width="128.6776065826416" height="19" rx="0" fill="#247ca3"/>
+<text x="710" y="795" fill="#193347" font-size="19" font-weight="normal" text-anchor="start">16.47</text>
+<text x="72" y="860" fill="#8557a6" font-size="20" font-weight="normal" text-anchor="start">Supra 100.68M coordinator</text>
+<rect x="445" y="843" width="250" height="19" rx="0" fill="#e4ebf0"/>
+<rect x="445" y="843" width="31.34933114051819" height="19" rx="0" fill="#8557a6"/>
+<text x="710" y="860" fill="#193347" font-size="19" font-weight="normal" text-anchor="start">4.01</text>
+<text x="72" y="903" fill="#8557a6" font-size="20" font-weight="normal" text-anchor="start">Supra 100.68M worker</text>
+<rect x="445" y="886" width="250" height="19" rx="0" fill="#e4ebf0"/>
+<rect x="445" y="886" width="27.01592445373535" height="19" rx="0" fill="#8557a6"/>
+<text x="710" y="903" fill="#193347" font-size="19" font-weight="normal" text-anchor="start">3.46</text>
+<text x="72" y="981" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Values are MiB. Flash compression saves no runtime RAM.</text>
+<rect x="813" y="635" width="739" height="375" rx="14" fill="white"/>
+<text x="837" y="678" fill="#193347" font-size="26" font-weight="bold" text-anchor="start">Quantization can erase a correct answer</text>
+<text x="837" y="719" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">100M · exact author ChatML bicycle question</text>
+<text x="837" y="766" fill="#8557a6" font-size="22" font-weight="bold" text-anchor="start">Host: F16 source / FP32 compute:</text>
+<text x="837" y="805" fill="#193347" font-size="25" font-weight="normal" text-anchor="start">“A standard bicycle has 2 wheels…”</text>
+<text x="837" y="854" fill="#b78437" font-size="22" font-weight="bold" text-anchor="start">Row-INT4 / both real P4s:</text>
+<text x="837" y="893" fill="#193347" font-size="25" font-weight="normal" text-anchor="start">“around 2.5-3.5 wheels…”</text>
+<text x="837" y="944" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">P4 INT4 matches its quantized host reference.</text>
+<text x="837" y="981" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Larger-model execution ≠ reliable factual answers.</text>
+<text x="48" y="1064" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Latency includes prefill. Decode rate excludes prefill using first-token time; final bookkeeping remains included.</text>
+<text x="48" y="1101" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Tokenizers differ; S2 uses 20 prompt tokens in both. No single-P4 speedup baseline or global quality ranking.</text>
+<text x="48" y="1138" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Primary 50M timing: firmware 0.6.0; 100M: 0.6.1. Lossless-loading control confirms identical 50M output.</text>
+</svg>

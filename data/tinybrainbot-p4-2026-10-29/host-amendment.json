@@ -1,0 +1,162 @@
+{
+  "original_protocol_sha256": "2d2c84a576e166636d82c976ae45bd63533c40b7046aa63888cf618d4a699738",
+  "reason": "GCC requires unambiguous indentation; native context test incorrectly jumped from2 to255, corrected to sequential0..255. No weights, prompts or expected answers changed.",
+  "final_code_sha256": {
+    "tools/pack_spm.py": "3ade065c43ae0beabbd82c2df5c014ad2317b4a6c735740ca7630f509c984f14",
+    "tools/tinybrainbot_port.py": "cf1519670440caa68d305e6b9b21ed16d0a14334b8955735ff8107aeb548fe83",
+    "tools/data/unicode-grapheme-16.json": "0bc924302d709caf7907002160e62745955b6874e8f6dd9abb7f69a5b49738b5",
+    "firmware/components/tinyllm/sp_tokenizer.c": "9e0c1812564a7343a642f1a125032d230c36a6b243bd7fde88459e4dc7e4a86a",
+    "firmware/components/tinyllm/tinyllm.c": "0a7b804db30731128653afd9d920f6db79276e6a4eab7756ee908f5681c3b872",
+    "firmware/main/service.c": "e438de2f23161b2a5f70712b306d4a17dba31750d43a33de819e0c9ab2d7b9b5"
+  },
+  "native_code_and_data_sections_identical": true,
+  "before_sections": {
+    ".text": {
+      "geometry": [
+        157990,
+        4096,
+        158208,
+        1024
+      ],
+      "flags": 1610612768,
+      "sha256": "3956da7c6571088296066bf1f76f3b9de0779957baa2c0aa7d3135b1012edf13"
+    },
+    ".rdata": {
+      "geometry": [
+        20820,
+        163840,
+        20992,
+        159232
+      ],
+      "flags": 1073741888,
+      "sha256": "fbadba28dbab75c7add4b683a11758fe009cc5dc36c2118ebbc1a0161a5f1112"
+    },
+    ".buildid": {
+      "geometry": [
+        64,
+        188416,
+        512,
+        180224
+      ],
+      "flags": 1073741888,
+      "sha256": "576ef966e30f4fee4a83d07a93a20f06ed0946d78b40f03ad1a42735f876a020"
+    },
+    ".data": {
+      "geometry": [
+        4480,
+        192512,
+        512,
+        180736
+      ],
+      "flags": 3221225536,
+      "sha256": "3abb2195ff9170d52ecf02e2227e08711bfeb6beeb43af011222d8bb0290fb0c"
+    },
+    ".pdata": {
+      "geometry": [
+        2928,
+        200704,
+        3072,
+        181248
+      ],
+      "flags": 1073741888,
+      "sha256": "c37dd8d72bf0eb7f8f1161ec10237fcd9a814416a5282aa422a1030ad727e51b"
+    },
+    ".tls": {
+      "geometry": [
+        16,
+        204800,
+        512,
+        184320
+      ],
+      "flags": 3221225536,
+      "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+    },
+    ".reloc": {
+      "geometry": [
+        112,
+        208896,
+        512,
+        184832
+      ],
+      "flags": 1107296320,
+      "sha256": "8bafb1445d537759466d2bff7a58aa40bbfc358a35f3263d6c3197085b094401"
+    }
+  },
+  "after_sections": {
+    ".text": {
+      "geometry": [
+        157990,
+        4096,
+        158208,
+        1024
+      ],
+      "flags": 1610612768,
+      "sha256": "3956da7c6571088296066bf1f76f3b9de0779957baa2c0aa7d3135b1012edf13"
+    },
+    ".rdata": {
+      "geometry": [
+        20820,
+        163840,
+        20992,
+        159232
+      ],
+      "flags": 1073741888,
+      "sha256": "fbadba28dbab75c7add4b683a11758fe009cc5dc36c2118ebbc1a0161a5f1112"
+    },
+    ".buildid": {
+      "geometry": [
+        64,
+        188416,
+        512,
+        180224
+      ],
+      "flags": 1073741888,
+      "sha256": "de110c15f2bb0f600d59343443c5ee996ea6ec7f2910ed4e2ad82e1f6dd6d1c9"
+    },
+    ".data": {
+      "geometry": [
+        4480,
+        192512,
+        512,
+        180736
+      ],
+      "flags": 3221225536,
+      "sha256": "3abb2195ff9170d52ecf02e2227e08711bfeb6beeb43af011222d8bb0290fb0c"
+    },
+    ".pdata": {
+      "geometry": [
+        2928,
+        200704,
+        3072,
+        181248
+      ],
+      "flags": 1073741888,
+      "sha256": "c37dd8d72bf0eb7f8f1161ec10237fcd9a814416a5282aa422a1030ad727e51b"
+    },
+    ".tls": {
+      "geometry": [
+        16,
+        204800,
+        512,
+        184320
+      ],
+      "flags": 3221225536,
+      "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+    },
+    ".reloc": {
+      "geometry": [
+        112,
+        208896,
+        512,
+        184832
+      ],
+      "flags": 1107296320,
+      "sha256": "8bafb1445d537759466d2bff7a58aa40bbfc358a35f3263d6c3197085b094401"
+    }
+  },
+  "prior_native_sha256": "3762d26539b3a47130f46d527f158482357f1624a385cb82e3f94769f4a9a549",
+  "current_native_sha256": "4093a292d68c4bd393b447e75d9984f29a42e471f23c5bb4c69914797aec8efd",
+  "difference_excluded": ".buildid only; non-executable metadata. All code/data/unwind/relocation sections and their layouts match.",
+  "retained_generations_sha256": "0c7ec3ba5161ec03d6d06fa3203c6724b0a2ce1a97b466a89e0ce2e8fb1c4203",
+  "source_correction_patch_sha256": "ec8b13f347be6882cdb5299b41afb64c5e62bdc9c7ad0ebe5d5e871a28368ec1"
+}

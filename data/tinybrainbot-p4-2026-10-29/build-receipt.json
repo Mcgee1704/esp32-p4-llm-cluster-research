@@ -1,0 +1,33 @@
+{
+  "version": "0.7.0",
+  "idf": "v5.5.4",
+  "target": "esp32p4",
+  "revision_profile": "rev1; min revision1.0, known boards1.3",
+  "compiler": "riscv32-esp-elf esp-14.2.0_20260121",
+  "config_nonsecret": {
+    "ESP_DEFAULT_CPU_FREQ_MHZ": "360",
+    "SPIRAM_SPEED": "200",
+    "FREERTOS_HZ": "1000",
+    "ESP_REV_MIN_FULL": "100",
+    "ESPTOOLPY_FLASHSIZE": "\"32MB\""
+  },
+  "clocks": "Configured, not physically measured; unchanged from prior experiment.",
+  "image_bytes": 806800,
+  "private_image_sha256": "c867d87215cbee256fcf35213b8c539e4ed5d950e3beb2e063d36394e1bd6141",
+  "image_publication": "Not included: contains private LAN auth. Source only remains eligible for separately prepared keyless publication.",
+  "native_dll_sha256": "4093a292d68c4bd393b447e75d9984f29a42e471f23c5bb4c69914797aec8efd",
+  "source_sha256": {
+    "tools/pack_spm.py": "3ade065c43ae0beabbd82c2df5c014ad2317b4a6c735740ca7630f509c984f14",
+    "tools/tinybrainbot_port.py": "cf1519670440caa68d305e6b9b21ed16d0a14334b8955735ff8107aeb548fe83",
+    "tools/data/unicode-grapheme-16.json": "0bc924302d709caf7907002160e62745955b6874e8f6dd9abb7f69a5b49738b5",
+    "firmware/components/tinyllm/sp_tokenizer.c": "9e0c1812564a7343a642f1a125032d230c36a6b243bd7fde88459e4dc7e4a86a",
+    "firmware/components/tinyllm/tinyllm.c": "0a7b804db30731128653afd9d920f6db79276e6a4eab7756ee908f5681c3b872",
+    "firmware/main/service.c": "e438de2f23161b2a5f70712b306d4a17dba31750d43a33de819e0c9ab2d7b9b5"
+  },
+  "build_command": "tools/build.ps1 -Revision rev1",
+  "test_command": "python -m unittest discover -s tests -v",
+  "tests_passed": 81,
+  "test_log_sha256": "ba68921267bf6109aaae2053c9cfea9407dd78b92554ee80ffa234ac78c18194",
+  "network": "Only authenticated RFC1918 device writes, explicitly requested by user; no external project upload.",
+  "review": "Author self-review; no independent agent. Native/firmware compiler checks retained; no warning suppression."
+}

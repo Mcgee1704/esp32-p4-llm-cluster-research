@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1550" viewBox="0 0 1600 1550" role="img">
+<title>Supra2 and TinyBrainBot: the same optimized INT4 kernel</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1550" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">Supra2 and TinyBrainBot: the same optimized INT4 kernel</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Two real P4s | firmware0.9.0 | tile4 byte-pair | context256 | 4+8 layers | 30 October 2026</text>
+<text x="48" y="153" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Fresh speed measurements: same raw prefix, 16 output tokens, n=3/model</text>
+<rect x="48" y="182" width="732" height="352" rx="14" fill="white"/>
+<text x="72" y="224" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">B1 · Once upon a time</text>
+<text x="72" y="289" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">TinyBrainBot</text>
+<rect x="268" y="266" width="298.13065001694366" height="29" rx="3" fill="#178476"/>
+<path d="M564.6656336915468 280 L566.7904167167505 280" stroke="#193347" stroke-width="3" fill="none"/>
+<text x="754" y="289" fill="#193347" font-size="23" font-weight="normal" text-anchor="end">32.895 s</text>
+<text x="72" y="371" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Supra2-100M</text>
+<rect x="268" y="348" width="300.789927813212" height="29" rx="3" fill="#7953a6"/>
+<path d="M568.7804929935173 362 L568.8849557522124 362" stroke="#193347" stroke-width="3" fill="none"/>
+<text x="754" y="371" fill="#193347" font-size="23" font-weight="normal" text-anchor="end">33.188 s</text>
+<text x="72" y="453" fill="#193347" font-size="23" font-weight="bold" text-anchor="start">Index-matched Supra/Tiny time ratio: 1.0089</text>
+<text x="72" y="493" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="start">Observed min–max; fixed model order; no significance test.</text>
+<rect x="820" y="182" width="732" height="352" rx="14" fill="white"/>
+<text x="844" y="224" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">B2 · One day, a little girl</text>
+<text x="844" y="289" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">TinyBrainBot</text>
+<rect x="1040" y="266" width="298.4317816630227" height="29" rx="3" fill="#178476"/>
+<path d="M1338.2173425499682 280 L1338.6991282428353 280" stroke="#193347" stroke-width="3" fill="none"/>
+<text x="1526" y="289" fill="#193347" font-size="23" font-weight="normal" text-anchor="end">35.694 s</text>
+<text x="844" y="371" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Supra2-100M</text>
+<rect x="1040" y="348" width="300.4204853822999" height="29" rx="3" fill="#7953a6"/>
+<path d="M1340.335639463738 362 L1340.8849557522124 362" stroke="#193347" stroke-width="3" fill="none"/>
+<text x="1526" y="371" fill="#193347" font-size="23" font-weight="normal" text-anchor="end">35.932 s</text>
+<text x="844" y="453" fill="#193347" font-size="23" font-weight="bold" text-anchor="start">Index-matched Supra/Tiny time ratio: 1.0073</text>
+<text x="844" y="493" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="start">Observed min–max; fixed model order; no significance test.</text>
+<text x="48" y="590" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">Historical 0.7.0 versus fresh0.9.0 — separate studies, not a fresh control</text>
+<text x="48" y="635" fill="#193347" font-size="22" font-weight="bold" text-anchor="start">Model / prefix</text>
+<text x="665" y="635" fill="#193347" font-size="22" font-weight="bold" text-anchor="start">Historical seconds</text>
+<text x="1120" y="635" fill="#193347" font-size="22" font-weight="bold" text-anchor="start">Fresh seconds</text>
+<text x="48" y="681" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">TinyBrainBot / B1</text>
+<text x="665" y="681" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">51.192</text>
+<text x="1120" y="681" fill="#178476" font-size="24" font-weight="bold" text-anchor="start">32.895</text>
+<text x="48" y="728" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">TinyBrainBot / B2</text>
+<text x="665" y="728" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">55.440</text>
+<text x="1120" y="728" fill="#178476" font-size="24" font-weight="bold" text-anchor="start">35.694</text>
+<text x="48" y="775" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Supra2-100M / B1</text>
+<text x="665" y="775" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">51.412</text>
+<text x="1120" y="775" fill="#7953a6" font-size="24" font-weight="bold" text-anchor="start">33.188</text>
+<text x="48" y="822" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Supra2-100M / B2</text>
+<text x="665" y="822" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">55.677</text>
+<text x="1120" y="822" fill="#7953a6" font-size="24" font-weight="bold" text-anchor="start">35.932</text>
+<text x="48" y="919" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Retained quality judgments on exactly matching responses</text>
+<text x="48" y="959" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Tiny:12 reused actual0.9.0 cases. Supra:12 fresh cases. Same unblinded author; no new quality score.</text>
+<text x="48" y="1008" fill="#193347" font-size="22" font-weight="bold" text-anchor="start">Criterion</text>
+<text x="1000" y="1008" fill="#178476" font-size="22" font-weight="bold" text-anchor="start">Tiny</text>
+<text x="1270" y="1008" fill="#7953a6" font-size="22" font-weight="bold" text-anchor="start">Supra</text>
+<text x="48" y="1053" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">First factual answer</text>
+<text x="1030" y="1053" fill="#178476" font-size="24" font-weight="bold" text-anchor="middle">3/6</text>
+<text x="1300" y="1053" fill="#7953a6" font-size="24" font-weight="bold" text-anchor="middle">3/6</text>
+<text x="48" y="1097" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Confirmed clean factual response</text>
+<text x="1030" y="1097" fill="#178476" font-size="24" font-weight="bold" text-anchor="middle">3/6</text>
+<text x="1300" y="1097" fill="#7953a6" font-size="24" font-weight="bold" text-anchor="middle">2/6</text>
+<text x="48" y="1141" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Exact requested output</text>
+<text x="1030" y="1141" fill="#178476" font-size="24" font-weight="bold" text-anchor="middle">0/2</text>
+<text x="1300" y="1141" fill="#7953a6" font-size="24" font-weight="bold" text-anchor="middle">0/2</text>
+<text x="48" y="1185" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Given facts: first answer</text>
+<text x="1030" y="1185" fill="#178476" font-size="24" font-weight="bold" text-anchor="middle">2/2</text>
+<text x="1300" y="1185" fill="#7953a6" font-size="24" font-weight="bold" text-anchor="middle">1/2</text>
+<text x="48" y="1229" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Given facts: clean response</text>
+<text x="1030" y="1229" fill="#178476" font-size="24" font-weight="bold" text-anchor="middle">2/2</text>
+<text x="1300" y="1229" fill="#7953a6" font-size="24" font-weight="bold" text-anchor="middle">0/2</text>
+<text x="48" y="1273" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Full requested story topic</text>
+<text x="1030" y="1273" fill="#178476" font-size="24" font-weight="bold" text-anchor="middle">0/2</text>
+<text x="1300" y="1273" fill="#7953a6" font-size="24" font-weight="bold" text-anchor="middle">0/2</text>
+<text x="48" y="1317" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Visible story resolution</text>
+<text x="1030" y="1317" fill="#178476" font-size="24" font-weight="bold" text-anchor="middle">0/2</text>
+<text x="1300" y="1317" fill="#7953a6" font-size="24" font-weight="bold" text-anchor="middle">0/2</text>
+<text x="48" y="1410" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Tiny grounded G01 uses a generous box criterion; strict explicit-red scoring reduces its count by one.</text>
+<text x="48" y="1452" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Supra has one additional uncertain grounded-clean judgment. No pooled score or general model ranking.</text>
+<text x="48" y="1505" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Same speed-prefix token counts4/6; model token IDs and generated words differ. Tiny restored, queue empty.</text>
+</svg>

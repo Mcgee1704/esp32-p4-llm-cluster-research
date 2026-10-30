@@ -14,6 +14,17 @@ images and have not been flashed or tested on physical hardware.
 | 0.4.0 | Four-row tile4 and internal vectors | [source](../firmware-versions/0.4.0/source/firmware/CMakeLists.txt) | [P4 revision 1.x](../firmware-versions/0.4.0/rev1/manifest.json) |
 | 0.5.5 | GPT-Neo, GPT-2 BPE, cold model loading, LAN restart checks | [source](../firmware-versions/0.5.5/source/firmware/CMakeLists.txt) | [P4 revision 1.x](../firmware-versions/0.5.5/rev1/manifest.json), [revision 3.x](../firmware-versions/0.5.5/rev3/manifest.json) |
 
+Version7 adds complete **source-only** snapshots for
+[0.6.0](../firmware-versions/0.6.0/source/firmware/CMakeLists.txt),
+[0.6.1](../firmware-versions/0.6.1/source/firmware/CMakeLists.txt) and
+[0.7.0](../firmware-versions/0.7.0/source/firmware/CMakeLists.txt).
+They cover full-vocabulary INT4 shards, lossless flash loading and the real
+Metaspace tokenizer. [Source-addition metadata](../firmware-versions/source-additions.json)
+identifies their original revisions. These redacted public source trees have
+no new ESP build or device claim; only the private original builds were measured.
+There are still five keyless binary bundles ending at0.5.5; no new deployment
+binary is included. At the historical v7 checkpoint, top-level source was0.7.0; v8 uses0.9.0.
+
 Each target folder provides `p4_tinystories.bin`, `bootloader.bin`,
 `partition-table.bin`, `ota_data_initial.bin`, the exact flash offsets/settings
 in `manifest.json`, and extended esptool image reports. These are app/boot
@@ -64,3 +75,12 @@ ESP-IDF and compiler-runtime notices are preserved under
 That is a conservative component-licence superset, not a statement that every
 listed SDK component is linked. Original project contributions and third-party
 materials retain the terms described in `LICENSE` and `THIRD_PARTY.md`.
+
+## Source-only additions in v8
+
+[0.8.0](../firmware-versions/0.8.0/source/firmware/CMakeLists.txt) records the
+bounded INT4/memory microbench. [0.9.0](../firmware-versions/0.9.0/source/firmware/CMakeLists.txt)
+records the production INT4 byte-pair kernel. Top-level source is0.9.0.
+Private originals were built/tested on the P4s; these redacted public source
+representations have no new ESP binary or physical acceptance. Do not substitute
+private tested-image hashes for nonexistent public0.8/0.9 binary hashes.

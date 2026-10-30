@@ -1,0 +1,34 @@
+{
+  "checks_passed": true,
+  "protocol_commit": "825a413",
+  "complete_generations_checked": 120,
+  "source_and_companion_hashes_verified": true,
+  "all_native_prompts_token_ids_and_decoded_text_verified": true,
+  "baseline_prefixes": [
+    {
+      "condition": "supra-f16",
+      "case": "K01",
+      "matched_prior_tokens": 24
+    },
+    {
+      "condition": "supra-f16",
+      "case": "K02",
+      "matched_prior_tokens": 24
+    },
+    {
+      "condition": "supra-int4",
+      "case": "K01",
+      "matched_prior_tokens": 24
+    },
+    {
+      "condition": "supra-int4",
+      "case": "K02",
+      "matched_prior_tokens": 24
+    }
+  ],
+  "math_control_scope": "Host C numerical IDs only, synthetic unsupported-for-real-text tokenizer; no P4 or actual tokenizer test",
+  "scope": "Offline audit, not a new generation or P4 test",
+  "manual_summary_and_html_checked": true,
+  "figure_source_hashes_match": true,
+  "audit_script_sha256": "e35cef3eb9c0a09d1869a9b9c32975aa5e9d31de50d24871b56cd0cdef73ff42"
+}

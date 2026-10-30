@@ -1,0 +1,48 @@
+{
+  "scope": "Host numerical validation; not P4 hardware",
+  "tokenizer_probes": 960,
+  "vocabulary_pieces": 32768,
+  "logit_positions": 8,
+  "logits_per_position": 32768,
+  "max_absolute_logit_error": 0.000308990478515625,
+  "all_argmax_equal": true,
+  "full_shard_logits_bit_identical": true,
+  "complete_generations": 23,
+  "artifacts": {
+    "full": {
+      "bytes": 51752964,
+      "sha256": "b1c9257480fac2a6cc18076c24b7484158fb31d237acba0ba12952ed6f14e2af",
+      "artifact_id": "9ac8f43d2e7421ffbdbf460cfd8533d1332484ee5bd18616434efac8f15d129f",
+      "model_id": "1e84bed3091324dca22294f002d6babbc7ca5db8728dac58a5e241bc4ef5008c",
+      "weights_bytes": 50877568,
+      "tokenizer_bytes": 875268
+    },
+    "coordinator": {
+      "bytes": 26312708,
+      "sha256": "642f3f4cb4efbba2336fbcdc962ff21645e43de444a7b5425ea8f11deb3aab5d",
+      "artifact_id": "d74edf72a36861277c841836c7e97199e7748579a5395a3662f6ef08a186c2a8",
+      "model_id": "1e84bed3091324dca22294f002d6babbc7ca5db8728dac58a5e241bc4ef5008c",
+      "weights_bytes": 25437312,
+      "tokenizer_bytes": 875268,
+      "compressed_bytes": 19757583,
+      "compressed_sha256": "729ed81ccbc85de682bd493fc418381472ee181e5e39b44932e4e7f13c7e336f"
+    },
+    "worker": {
+      "bytes": 25440512,
+      "sha256": "5dcfe0757f1049592bfba89bfb9e7be6cf96d7fb70770a857424793a8a2a596f",
+      "artifact_id": "746b13e7779d45ec8021bd4a73234323588af02175ba02698a4207fe40545abd",
+      "model_id": "1e84bed3091324dca22294f002d6babbc7ca5db8728dac58a5e241bc4ef5008c",
+      "weights_bytes": 25440384,
+      "tokenizer_bytes": 0,
+      "compressed_bytes": 20074249,
+      "compressed_sha256": "4861e87c252c36429d1633ff939f321d0544d3aa7f7c8a31b0a59e4e0e133fa3"
+    }
+  },
+  "source_sha256": {
+    "tools/pack_supra.py": "045354e42323392bdf560bda490e53099701d068bd3245825bb466f5b207890d",
+    "tools/supra_reference.py": "3b166260c5c594e8440f67b3cd14bc524a6d94406d8530c1bfb5d5bfb1e49370",
+    "tools/check_supra_native.py": "02da277167f7e3b74ad9ec9cca07e892713dc0068c761e6588d40f79dfc1cb90",
+    "firmware/components/tinyllm/tinyllm.c": "018954514f4b9a443afb275ee8a65766aac01e9d9065543e494cada6942d4fcd",
+    "firmware/components/tinyllm/gpt2_tokenizer.c": "1ae5d2d58cf5c20949b5ce5307f3856be178c7802a950f58d80d7df9a27bddf2"
+  }
+}

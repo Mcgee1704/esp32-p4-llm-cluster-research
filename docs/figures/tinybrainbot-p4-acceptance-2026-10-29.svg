@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1170" viewBox="0 0 1600 1170" role="img">
+<title>TinyBrainBot fits; the real tokenizer preserves the reference</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1170" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">TinyBrainBot fits; the real tokenizer preserves the reference</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Two ESP32-P4s | Technical acceptance, not a new model-quality ranking | 29 October 2026</text>
+<rect x="48" y="135" width="735" height="360" rx="14" fill="white"/>
+<text x="72" y="181" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Compressed flash occupancy</text>
+<text x="72" y="218" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">24 MiB model partition per board</text>
+<text x="72" y="266" fill="#286b9b" font-size="22" font-weight="bold" text-anchor="start">Coordinator</text>
+<rect x="72" y="282" width="540" height="24" rx="6" fill="#e4ebf0"/>
+<rect x="72" y="282" width="442.20247507095337" height="24" rx="6" fill="#286b9b"/>
+<text x="642" y="304" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">20.61 MB</text>
+<text x="72" y="371" fill="#168476" font-size="22" font-weight="bold" text-anchor="start">Worker</text>
+<rect x="72" y="387" width="540" height="24" rx="6" fill="#e4ebf0"/>
+<rect x="72" y="387" width="431.2441062927246" height="24" rx="6" fill="#168476"/>
+<text x="642" y="409" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">20.10 MB</text>
+<text x="72" y="471" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Expanded: 26.80 MB coordinator / 25.44 MB worker</text>
+<rect x="803" y="135" width="749" height="360" rx="14" fill="white"/>
+<text x="827" y="181" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Observed residual PSRAM</text>
+<text x="827" y="218" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Cold model load; free bytes, decimal MB</text>
+<text x="827" y="270" fill="#286b9b" font-size="23" font-weight="bold" text-anchor="start">Coordinator</text>
+<text x="1465" y="270" fill="#193347" font-size="29" font-weight="bold" text-anchor="end">4.021 MB</text>
+<text x="827" y="307" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Boot low-water: 4.021 MB</text>
+<text x="827" y="370" fill="#168476" font-size="23" font-weight="bold" text-anchor="start">Worker</text>
+<text x="1465" y="370" fill="#193347" font-size="29" font-weight="bold" text-anchor="end">3.626 MB</text>
+<text x="827" y="407" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Boot low-water: 3.626 MB</text>
+<text x="827" y="471" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Both exceed the fixed 0.524 MB admission floor.</text>
+<rect x="48" y="520" width="1504" height="263" rx="14" fill="white"/>
+<text x="72" y="566" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Different evidence boundaries</text>
+<text x="72" y="612" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">HOST: 30/30 complete prior INT4 answers unchanged; 5,031 input probes; 64,000 piece decodes.</text>
+<text x="72" y="654" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">P4: 10/10 new-model complete streams offline rechecked; 3 timing receipts pass trial assertions.</text>
+<text x="72" y="696" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">UPDATE: two old-Supra compatibility controls; TinyBrainBot same-image LAN OTA + cold-load control.</text>
+<text x="72" y="741" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">STRESS: 1,024-byte input rejected HTTP400; boot/model preserved. Count258 comes from host/reference.</text>
+<rect x="48" y="806" width="1504" height="224" rx="14" fill="#dce9f2"/>
+<text x="72" y="850" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Fixed T13 latency: 16 prompt tokens, 3 output tokens, EOS</text>
+<text x="72" y="899" fill="#286b9b" font-size="27" font-weight="bold" text-anchor="start">Median 43.191 s | Observed 43.110-43.198 s | n = 3</text>
+<text x="72" y="946" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">Includes prompt processing, communication and stop detection. No controlled speedup baseline.</text>
+<text x="72" y="992" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Variable output lengths prevent a fair cross-model ranking from these acceptance-case durations.</text>
+<text x="48" y="1080" fill="#193347" font-size="23" font-weight="bold" text-anchor="start">Exact agreement also preserves wrong answers: e.g. bicycle = four wheels. Correct transport is not factual accuracy.</text>
+<text x="48" y="1130" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Small prespecified device subset; host logit checks are not device full-logit checks. No energy or general assistant claim.</text>
+</svg>

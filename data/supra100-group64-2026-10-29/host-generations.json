@@ -1,0 +1,94 @@
+[
+  {
+    "case": "N2",
+    "tokens": [
+      481,
+      2631,
+      16806,
+      534,
+      249,
+      45,
+      46,
+      13112,
+      40,
+      317,
+      501,
+      380,
+      515,
+      21104,
+      574,
+      42
+    ],
+    "eos": false,
+    "text": "The standard bicycle has 12 wheels, and they are all interchangeable."
+  },
+  {
+    "case": "N4",
+    "tokens": [
+      481,
+      5762,
+      312,
+      2757,
+      338,
+      3335,
+      42,
+      730,
+      338,
+      286,
+      1284,
+      28771,
+      40,
+      377,
+      2757,
+      338
+    ],
+    "eos": false,
+    "text": "The opposite of hot is cold. This is a common misconception, as hot is"
+  },
+  {
+    "case": "N6",
+    "tokens": [
+      20277,
+      338,
+      290,
+      2594,
+      312,
+      290,
+      4248,
+      42,
+      642,
+      338,
+      290,
+      2594,
+      312,
+      290,
+      4248,
+      42
+    ],
+    "eos": false,
+    "text": "Blue is the color of the ocean. It is the color of the ocean."
+  },
+  {
+    "case": "N7",
+    "tokens": [
+      1676,
+      290,
+      18906,
+      13118,
+      290,
+      32451,
+      40,
+      290,
+      18906,
+      460,
+      3035,
+      6124,
+      2922,
+      315,
+      6424,
+      42
+    ],
+    "eos": false,
+    "text": "As the rabbit approached the carrot, the rabbit's eyes widened in concentration."
+  }
+]

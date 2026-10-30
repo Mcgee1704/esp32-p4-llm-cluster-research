@@ -1,0 +1,51 @@
+{
+  "HF_header_sha256": "41e1b8a052db11af325d949ac135c4feb302a83a229f1cab3921510414d79da7",
+  "download_bytes": 66048,
+  "checks": [
+    {
+      "tensor": "model.layers.0.self_attn.q_proj.weight",
+      "row": 1,
+      "columns": 32,
+      "source_range_bytes": [
+        122707920,
+        122708047
+      ],
+      "F32_to_F16_values_equal": true,
+      "range_sha256": "a727c0352e218ae0564409cc8a4b2f6db28659da9099cf746938bc58af63f5bb"
+    },
+    {
+      "tensor": "model.layers.0.self_attn.k_proj.weight",
+      "row": 1,
+      "columns": 32,
+      "source_range_bytes": [
+        119561936,
+        119562063
+      ],
+      "F32_to_F16_values_equal": true,
+      "range_sha256": "1438b0ef2fdf4d4dbd492091b39878ee77b0bc60a0b85432366f8561ba0f487d"
+    },
+    {
+      "tensor": "model.layers.11.self_attn.q_proj.weight",
+      "row": 1,
+      "columns": 32,
+      "source_range_bytes": [
+        198225360,
+        198225487
+      ],
+      "F32_to_F16_values_equal": true,
+      "range_sha256": "3936b20f35132f7b7ad4ffb7f1c89296477a7cbef99db8e3a55032d2387d5ff3"
+    },
+    {
+      "tensor": "model.layers.11.self_attn.k_proj.weight",
+      "row": 1,
+      "columns": 32,
+      "source_range_bytes": [
+        195079376,
+        195079503
+      ],
+      "F32_to_F16_values_equal": true,
+      "range_sha256": "2aa6987157aee5eb526bc172ac22418abf9d3e94336f3ac93b9ddeb4ca49629e"
+    }
+  ],
+  "scope": "Four selected Q/K rows; not full FP32 tensor equivalence. F16 GGUF whole file verified separately."
+}

@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-30",
+  "title": "matched-p4-comparison",
+  "width": 1600,
+  "height": 1370,
+  "source_sha256": {
+    "docs/research/data/matched-p4-2026-10-30/protocol.json": "5b2649f66f7f14ebfda1eae3c389a497c1c7dee997c0cd113b0cdb8daf17514e",
+    "docs/research/data/matched-p4-2026-10-30/summary.json": "5780b6d11edf4ee3c010f51361834fd202d2b5d22d8164c4c2743e5b9d8327b5",
+    "docs/research/data/matched-p4-2026-10-30/manual-review.json": "8f4fdb85b5c7bc8479690dea859a9a177a4fd0dbc669de3b664d84dae5682374",
+    "docs/research/data/matched-p4-2026-10-30/timing-runs.json": "2597b778207698ce2e4ba2c4ba360307a9f465c687fd76ad4e06c86cf298b089",
+    "tools/plot_p4_compare.py": "2598da92c3e75876c9291a40e15ef944a6b64ec5361616bb62effa475819cdad",
+    "tools/p4_compare_results.py": "781e6bec9dbc15dc828c62ff89df40e766b436f00d9e5ea2b20f15bfbc931034"
+  },
+  "notes": "Real two-P4 records, same firmware/kernel/quantization. Same unblinded author, small fixed quality sample. Timing n=3 paired blocks; observed ranges, no confidence interval, energy or general ranking claim. Different model vocabularies/content retained."
+}

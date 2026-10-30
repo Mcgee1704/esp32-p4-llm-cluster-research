@@ -1,0 +1,1935 @@
+{
+  "date": "2026-10-29",
+  "scope": "Offline NumPy source-layout inference; no P4 writes or new tokenizer port",
+  "candidate": {
+    "repository": "nkthebass/tinybrainbot-100m-v3-instruct",
+    "revision": "a8567bd7674f53b3fe5f42c8abaab35229a0e00e",
+    "weight_file": "model.safetensors",
+    "weight_bytes": 200197496,
+    "weight_sha256": "24e663ce03dbbd0820601341e210b40524b4fa15f9940079351eaaf48236ac62",
+    "files": [
+      {
+        "file": "config.json",
+        "bytes": 526,
+        "sha256": "c609f874d250f84c251ce5de4f9679256c6d4eef8d546f1c6f8773817aa00780"
+      },
+      {
+        "file": "README.md",
+        "bytes": 3196,
+        "sha256": "104b056eb970ac17f2a95e85784bfd70873cbe23ea2f59174f96dd76dcfb7a76"
+      },
+      {
+        "file": "tokenizer.json",
+        "bytes": 3458516,
+        "sha256": "ca34282192509e9814db74d5f8352aed0b1468264f6286cced6e190db27a34ce"
+      },
+      {
+        "file": "tokenizer_config.json",
+        "bytes": 449,
+        "sha256": "41652f568a32b4fe82485384e2dc5982ef6ffacad22896cc9e1820d86bf47fb6"
+      }
+    ]
+  },
+  "candidate_parameters": 100092672,
+  "baseline": {
+    "repository": "SupraLabs/Supra2-100M-Instruct",
+    "revision": "2c90ade6ab47b910f48d0157a3e4c421d6311ed5",
+    "source_file": "Supra2-100M-SFT-F16.gguf",
+    "sha256": "f88228c3dcc13b5ee2333cbb6fc2416de908e5b8adabd39bf9ee4378f28451eb"
+  },
+  "conditions": [
+    "supra-f16",
+    "supra-int4",
+    "tinybrainbot-f16",
+    "tinybrainbot-int4"
+  ],
+  "cases": [
+    {
+      "id": "T01",
+      "user": "Which farm animal is commonly kept for its wool? Answer briefly.",
+      "answers": [
+        "sheep"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nWhich farm animal is commonly kept for its wool? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            11930,
+            2712,
+            3002,
+            338,
+            4133,
+            4303,
+            358,
+            684,
+            14078,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> Which farm animal is commonly kept for its wool? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            4551,
+            7309,
+            5021,
+            329,
+            7548,
+            3493,
+            347,
+            709,
+            23007,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "T02",
+      "user": "What is the opposite of night? Answer briefly.",
+      "answers": [
+        "day",
+        "daytime"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nWhat is the opposite of night? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            1557,
+            338,
+            290,
+            5762,
+            312,
+            2373,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> What is the opposite of night? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            922,
+            329,
+            276,
+            5588,
+            304,
+            1583,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "T03",
+      "user": "What is the largest planet in our solar system? Answer briefly.",
+      "answers": [
+        "Jupiter"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nWhat is the largest planet in our solar system? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            1557,
+            338,
+            290,
+            3286,
+            3448,
+            315,
+            736,
+            3391,
+            839,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> What is the largest planet in our solar system? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            922,
+            329,
+            276,
+            4997,
+            4815,
+            305,
+            783,
+            7459,
+            972,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "T04",
+      "user": "What is Earth's natural satellite called? Answer briefly.",
+      "answers": [
+        "Moon"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nWhat is Earth's natural satellite called? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            1557,
+            338,
+            2173,
+            460,
+            1781,
+            6483,
+            1209,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> What is Earth's natural satellite called? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            922,
+            329,
+            3585,
+            31925,
+            31906,
+            3186,
+            11697,
+            1368,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "T05",
+      "user": "What should a driver normally do at a red traffic light? Answer briefly.",
+      "answers": [
+        "stop"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nWhat should a driver normally do at a red traffic light? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            1557,
+            821,
+            286,
+            6942,
+            5300,
+            506,
+            419,
+            286,
+            2134,
+            5350,
+            1326,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> What should a driver normally do at a red traffic light? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            922,
+            712,
+            272,
+            4839,
+            5749,
+            415,
+            385,
+            272,
+            2058,
+            5470,
+            1550,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "T06",
+      "user": "How many wheels does a standard tricycle have? Answer briefly.",
+      "answers": [
+        "three",
+        "3"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nHow many wheels does a standard tricycle have? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            1816,
+            774,
+            13112,
+            919,
+            286,
+            2631,
+            8823,
+            13259,
+            451,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> How many wheels does a standard tricycle have? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            912,
+            830,
+            11114,
+            692,
+            272,
+            2712,
+            473,
+            5791,
+            2448,
+            405,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "T07",
+      "user": "How many legs does a typical spider have? Answer briefly.",
+      "answers": [
+        "eight",
+        "8"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nHow many legs does a typical spider have? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            1816,
+            774,
+            5903,
+            919,
+            286,
+            5069,
+            14019,
+            451,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> How many legs does a typical spider have? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            912,
+            830,
+            5726,
+            692,
+            272,
+            5607,
+            19722,
+            405,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "T08",
+      "user": "How many sides does a square have? Answer briefly.",
+      "answers": [
+        "four",
+        "4"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nHow many sides does a square have? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            1816,
+            774,
+            5203,
+            919,
+            286,
+            4534,
+            451,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> How many sides does a square have? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            912,
+            830,
+            4741,
+            692,
+            272,
+            5524,
+            405,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "T09",
+      "user": "How many seconds are in one minute? Answer briefly.",
+      "answers": [
+        "sixty",
+        "60"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nHow many seconds are in one minute? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            1816,
+            774,
+            5851,
+            380,
+            315,
+            560,
+            6060,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> How many seconds are in one minute? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            912,
+            830,
+            4188,
+            382,
+            305,
+            515,
+            4585,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "T10",
+      "user": "How many hours are in one day? Answer briefly.",
+      "answers": [
+        "twenty-four",
+        "twenty four",
+        "24"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nHow many hours are in one day? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            1816,
+            774,
+            2286,
+            380,
+            315,
+            560,
+            1083,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> How many hours are in one day? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            912,
+            830,
+            2148,
+            382,
+            305,
+            515,
+            1069,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "T11",
+      "user": "At sea level, at what temperature does pure water boil in degrees Celsius? Answer briefly.",
+      "answers": [
+        "one hundred",
+        "100"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nAt sea level, at what temperature does pure water boil in degrees Celsius? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            3212,
+            2965,
+            1118,
+            40,
+            419,
+            679,
+            2784,
+            919,
+            5483,
+            887,
+            14726,
+            315,
+            4407,
+            18566,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> At sea level, at what temperature does pure water boil in degrees Celsius? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            1236,
+            5016,
+            1342,
+            31921,
+            385,
+            546,
+            4868,
+            692,
+            4835,
+            1477,
+            15618,
+            305,
+            6458,
+            355,
+            1474,
+            3782,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "T12",
+      "user": "How many months are in a year? Answer briefly.",
+      "answers": [
+        "twelve",
+        "12"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nHow many months are in a year? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            1816,
+            774,
+            2175,
+            380,
+            315,
+            286,
+            639,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> How many months are in a year? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            912,
+            830,
+            2015,
+            382,
+            305,
+            272,
+            644,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "T13",
+      "user": "What is the capital of Germany? Answer briefly.",
+      "answers": [
+        "Berlin"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nWhat is the capital of Germany? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            1557,
+            338,
+            290,
+            3420,
+            312,
+            4095,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> What is the capital of Germany? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            922,
+            329,
+            276,
+            3385,
+            304,
+            4700,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "T14",
+      "user": "What is the currency of Japan? Answer briefly.",
+      "answers": [
+        "yen"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nWhat is the currency of Japan? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            1557,
+            338,
+            290,
+            8857,
+            312,
+            2581,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> What is the currency of Japan? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            922,
+            329,
+            276,
+            8509,
+            304,
+            2843,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "T15",
+      "user": "On which planet do humans live? Answer briefly.",
+      "answers": [
+        "Earth"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nOn which planet do humans live? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            2728,
+            535,
+            3448,
+            506,
+            3134,
+            1926,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> On which planet do humans live? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            1412,
+            574,
+            4815,
+            415,
+            4623,
+            1859,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "T16",
+      "user": "Which organ pumps blood around the human body? Answer briefly.",
+      "answers": [
+        "heart"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nWhich organ pumps blood around the human body? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            11930,
+            1263,
+            14293,
+            1411,
+            1108,
+            290,
+            1249,
+            1240,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> Which organ pumps blood around the human body? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            4551,
+            1948,
+            20975,
+            2478,
+            979,
+            276,
+            1693,
+            1686,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "T17",
+      "user": "Which gas do plants absorb from the air during photosynthesis? Answer briefly.",
+      "answers": [
+        "carbon dioxide",
+        "CO2",
+        "CO\u2082"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nWhich gas do plants absorb from the air during photosynthesis? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            11930,
+            2283,
+            506,
+            2213,
+            9663,
+            441,
+            290,
+            1347,
+            1076,
+            20705,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> Which gas do plants absorb from the air during photosynthesis? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            4551,
+            2839,
+            415,
+            5208,
+            13815,
+            453,
+            276,
+            1665,
+            1385,
+            6140,
+            27224,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "T18",
+      "user": "What sweet food do honeybees make? Answer briefly.",
+      "answers": [
+        "honey"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nWhat sweet food do honeybees make? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            1557,
+            5476,
+            1134,
+            506,
+            8222,
+            26625,
+            837,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> What sweet food do honeybees make? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            922,
+            4378,
+            1719,
+            415,
+            10021,
+            1088,
+            290,
+            726,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "T19",
+      "user": "Which part of the face do people primarily use to smell? Answer briefly.",
+      "answers": [
+        "nose"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nWhich part of the face do people primarily use to smell? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            11930,
+            621,
+            312,
+            290,
+            2418,
+            506,
+            667,
+            5194,
+            713,
+            316,
+            7531,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> Which part of the face do people primarily use to smell? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            4551,
+            652,
+            304,
+            276,
+            1658,
+            415,
+            618,
+            7365,
+            701,
+            297,
+            5433,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "T20",
+      "user": "What is the opposite of large? Answer briefly.",
+      "answers": [
+        "small"
+      ],
+      "category": "facts",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nWhat is the opposite of large? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            1557,
+            338,
+            290,
+            5762,
+            312,
+            1227,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> What is the opposite of large? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            922,
+            329,
+            276,
+            5588,
+            304,
+            1518,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "A01",
+      "user": "Reply with exactly this lowercase word and nothing else: violet",
+      "exact": "violet",
+      "category": "exact",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nReply with exactly this lowercase word and nothing else: violet<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            7459,
+            336,
+            381,
+            3672,
+            463,
+            2136,
+            10075,
+            2076,
+            317,
+            2654,
+            2494,
+            54,
+            31750,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> Reply with exactly this lowercase word and nothing else: violet <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            6959,
+            364,
+            2326,
+            400,
+            2752,
+            8136,
+            1284,
+            306,
+            1549,
+            1524,
+            31937,
+            431,
+            17048,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "A02",
+      "user": "Reply with exactly these two lowercase words and nothing else: gentle rain",
+      "exact": "gentle rain",
+      "category": "exact",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nReply with exactly these two lowercase words and nothing else: gentle rain<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            7459,
+            336,
+            381,
+            3672,
+            710,
+            775,
+            2136,
+            10075,
+            1886,
+            317,
+            2654,
+            2494,
+            54,
+            9593,
+            3757,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> Reply with exactly these two lowercase words and nothing else: gentle rain <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            6959,
+            364,
+            2326,
+            793,
+            759,
+            2752,
+            8136,
+            1923,
+            306,
+            1549,
+            1524,
+            31937,
+            7956,
+            5267,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "A03",
+      "user": "Reply with exactly this lowercase word and nothing else: copper",
+      "exact": "copper",
+      "category": "exact",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nReply with exactly this lowercase word and nothing else: copper<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            7459,
+            336,
+            381,
+            3672,
+            463,
+            2136,
+            10075,
+            2076,
+            317,
+            2654,
+            2494,
+            54,
+            8252,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> Reply with exactly this lowercase word and nothing else: copper <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            6959,
+            364,
+            2326,
+            400,
+            2752,
+            8136,
+            1284,
+            306,
+            1549,
+            1524,
+            31937,
+            13840,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "A04",
+      "user": "Reply with exactly these three lowercase words and nothing else: map leaf stone",
+      "exact": "map leaf stone",
+      "category": "exact",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nReply with exactly these three lowercase words and nothing else: map leaf stone<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            7459,
+            336,
+            381,
+            3672,
+            710,
+            1179,
+            2136,
+            10075,
+            1886,
+            317,
+            2654,
+            2494,
+            54,
+            3824,
+            6916,
+            5478,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> Reply with exactly these three lowercase words and nothing else: map leaf stone <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            6959,
+            364,
+            2326,
+            793,
+            1253,
+            2752,
+            8136,
+            1923,
+            306,
+            1549,
+            1524,
+            31937,
+            4147,
+            12028,
+            6962,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "G01",
+      "user": "The key is in the drawer. Where is the key? Answer briefly.",
+      "answers": [
+        "drawer"
+      ],
+      "category": "grounded",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nThe key is in the drawer. Where is the key? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            481,
+            1988,
+            338,
+            315,
+            290,
+            2947,
+            292,
+            42,
+            6096,
+            338,
+            290,
+            1988,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> The key is in the drawer. Where is the key? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            363,
+            1815,
+            329,
+            305,
+            276,
+            25114,
+            31920,
+            3749,
+            329,
+            276,
+            1815,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "G02",
+      "user": "Sam has a green bag. What color is Sam's bag? Answer briefly.",
+      "answers": [
+        "green"
+      ],
+      "category": "grounded",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nSam has a green bag. What color is Sam's bag? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            19707,
+            534,
+            286,
+            2456,
+            6602,
+            42,
+            1577,
+            2594,
+            338,
+            4898,
+            460,
+            6602,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> Sam has a green bag. What color is Sam's bag? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            2862,
+            504,
+            272,
+            3517,
+            4936,
+            31920,
+            922,
+            3339,
+            329,
+            2862,
+            31925,
+            31906,
+            4936,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "G03",
+      "user": "Ada has two coins and gives one coin to Bo. How many coins does Ada have left? Answer briefly.",
+      "answers": [
+        "one",
+        "1"
+      ],
+      "category": "grounded",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nAda has two coins and gives one coin to Bo. How many coins does Ada have left? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            4517,
+            93,
+            534,
+            775,
+            12000,
+            317,
+            3345,
+            560,
+            11746,
+            316,
+            3664,
+            42,
+            1141,
+            774,
+            12000,
+            919,
+            1449,
+            93,
+            451,
+            1706,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> Ada has two coins and gives one coin to Bo. How many coins does Ada have left? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            29547,
+            504,
+            759,
+            14681,
+            306,
+            2957,
+            515,
+            13459,
+            297,
+            3127,
+            31920,
+            912,
+            830,
+            14681,
+            692,
+            29547,
+            405,
+            1326,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "G04",
+      "user": "Read this note: The meeting is on Tuesday. On which day is the meeting? Answer briefly.",
+      "answers": [
+        "Tuesday"
+      ],
+      "category": "grounded",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nRead this note: The meeting is on Tuesday. On which day is the meeting? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            5808,
+            463,
+            3962,
+            54,
+            390,
+            4065,
+            338,
+            355,
+            8497,
+            42,
+            1778,
+            535,
+            1083,
+            338,
+            290,
+            4065,
+            59,
+            11366,
+            12041,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> Read this note: The meeting is on Tuesday. On which day is the meeting? Answer briefly. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            3586,
+            400,
+            3298,
+            31937,
+            363,
+            4262,
+            329,
+            336,
+            5010,
+            31920,
+            1412,
+            574,
+            1069,
+            329,
+            276,
+            4262,
+            31957,
+            1842,
+            10709,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "K01",
+      "user": "How many wheels does a standard bicycle have?",
+      "answers": [
+        "two",
+        "2"
+      ],
+      "prior_case": "N2; already observed in Supra research",
+      "category": "known",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nHow many wheels does a standard bicycle have?<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            1816,
+            774,
+            13112,
+            919,
+            286,
+            2631,
+            16806,
+            451,
+            59,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> How many wheels does a standard bicycle have? <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            912,
+            830,
+            11114,
+            692,
+            272,
+            2712,
+            20747,
+            405,
+            31957,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "id": "K02",
+      "user": "Reply with exactly one word: blue.",
+      "exact": "blue",
+      "prior_case": "N6; already observed in Supra research",
+      "category": "known",
+      "formats": {
+        "supra": {
+          "text": "<|im_start|>user\nReply with exactly one word: blue.<|im_end|>\n<|im_start|>assistant\n",
+          "tokens": [
+            5,
+            12374,
+            227,
+            7459,
+            336,
+            381,
+            3672,
+            560,
+            2076,
+            54,
+            3826,
+            42,
+            6,
+            227,
+            5,
+            593,
+            8422,
+            227
+          ]
+        },
+        "tinybrainbot": {
+          "text": " <|user|> Reply with exactly one word: blue. <|end|> <|assistant|>",
+          "tokens": [
+            31899,
+            4,
+            6959,
+            364,
+            2326,
+            515,
+            1284,
+            31937,
+            3683,
+            31920,
+            31899,
+            7,
+            31899,
+            5
+          ]
+        }
+      }
+    }
+  ],
+  "context": 256,
+  "output_cap": 48,
+  "sampling": "greedy, no sampling or repetition penalties",
+  "precision": "Author F16 weights promoted to FP32; same source-layout FP32 computation for both models; not original F32 equivalence",
+  "int4": "Same symmetric per-row nearest INT4, ties-to-even, -7..7, FP32 scale, all matrix weights including tied table; FP32 norms/KV",
+  "stop_ids": {
+    "supra": [
+      2,
+      6
+    ],
+    "tinybrainbot": [
+      7
+    ]
+  },
+  "template_policy": "Exact author tokenizer configuration, no default system, no implicit BOS; TinyBrainBot uses spaces, not card newline example.",
+  "input_sha256": "cc81bb23f2b73496e19edb636a61c4b84a9f790cea7c0cc7edb9e66b6a689e09",
+  "code_sha256": {
+    "tools/tinybrainbot_study.py": "58ca1c70881fd5eed3a87c02d5f7f37b81d13dc47c89e2216ea0f3eb6b2d621b",
+    "tools/pack_supra.py": "612d5e74ac401507ea241ec6d33ad9d795e120c57a55e9a40262e1e1668a2680",
+    "tools/supra_reference.py": "fa0ba665dec3725b779715a83501ed4a047bc07faade2c42c1791c1fde1b25a0"
+  },
+  "primary": "Unblinded manual first directly responsive factual claim on 20 new facts, with separate clean-within-visible-cap count requiring no visible factual contradiction, evasion, role leakage or material irrelevant drift. Expected terms are examples, not mandatory phrasing.",
+  "other_endpoints": "4 exact case-sensitive stripped replies; 4 grounded answers using only the stated facts. Supporting first-sentence term screen is not a semantic judge. 2 known anchors excluded from primary counts.",
+  "decision_rule": "Promising if TinyBrainBot beats Supra in both F16 and row-INT4 first-fact counts and does not reduce clean-fact counts. No P4 adoption implied; tokenizer/native port and allocation still required.",
+  "limits": "One deterministic cap48 run per case, small synthetic English tasks, author review not blinded or independent. Fresh relative to our prior experiments, not claimed unseen in pretraining. Native templates/tokenizers differ; same token cap is not equal word/byte budget.",
+  "estimated_memory": {
+    "coordinator": {
+      "weights_header_bytes": 25137408,
+      "tokenizer_allowance": 2097152,
+      "kv_bytes": 2097152,
+      "work_attention_logits_allowance": 197632,
+      "runtime_allowance": 2097152,
+      "estimated_total_psram_bytes": 31626496,
+      "estimated_headroom_bytes": 1927936,
+      "within_physical_psram": true
+    },
+    "worker": {
+      "weights_header_bytes": 25436416,
+      "tokenizer_allowance": 0,
+      "kv_bytes": 4194304,
+      "work_attention_logits_allowance": 69632,
+      "runtime_allowance": 2097152,
+      "estimated_total_psram_bytes": 31797504,
+      "estimated_headroom_bytes": 1756928,
+      "within_physical_psram": true
+    }
+  },
+  "memory_limit": "Proposed row-INT4 layout with 2MiB tokenizer allowance on coordinator and 2MiB runtime reserve per role. Conditional, not measured allocation or compressed-flash proof."
+}

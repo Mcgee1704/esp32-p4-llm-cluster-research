@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1160" viewBox="0 0 1600 1160" role="img">
+<title>INT4 computation and memory: measured separately</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1160" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">INT4 computation and memory: measured separately</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Two real P4s | diagnostic0.8.0 → restored0.7.0 | single core1 | five measured repetitions after warmup</text>
+<text x="48" y="175" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">Read internal24KiB</text>
+<rect x="465" y="153" width="27.90833333333333" height="23" rx="3" fill="#247da4"/>
+<text x="1505" y="172" fill="#193347" font-size="21" font-weight="normal" text-anchor="end">2.955 ms</text>
+<rect x="465" y="183" width="27.54" height="23" rx="3" fill="#178576"/>
+<text x="1505" y="202" fill="#193347" font-size="21" font-weight="normal" text-anchor="end">2.916 ms</text>
+<text x="48" y="264" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">Read PSRAM24KiB</text>
+<rect x="465" y="242" width="29.35333333333333" height="23" rx="3" fill="#247da4"/>
+<text x="1505" y="261" fill="#193347" font-size="21" font-weight="normal" text-anchor="end">3.108 ms</text>
+<rect x="465" y="272" width="29.003888888888895" height="23" rx="3" fill="#178576"/>
+<text x="1505" y="291" fill="#193347" font-size="21" font-weight="normal" text-anchor="end">3.071 ms</text>
+<text x="48" y="353" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">Read PSRAM1MiB</text>
+<rect x="465" y="331" width="760.598888888889" height="23" rx="3" fill="#247da4"/>
+<text x="1505" y="350" fill="#193347" font-size="21" font-weight="normal" text-anchor="end">80.534 ms</text>
+<rect x="465" y="361" width="760.598888888889" height="23" rx="3" fill="#178576"/>
+<text x="1505" y="380" fill="#193347" font-size="21" font-weight="normal" text-anchor="end">80.534 ms</text>
+<text x="48" y="442" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">Unpack internal</text>
+<rect x="465" y="420" width="385.9755555555556" height="23" rx="3" fill="#247da4"/>
+<text x="1505" y="439" fill="#193347" font-size="21" font-weight="normal" text-anchor="end">40.868 ms</text>
+<rect x="465" y="450" width="389.67777777777775" height="23" rx="3" fill="#178576"/>
+<text x="1505" y="469" fill="#193347" font-size="21" font-weight="normal" text-anchor="end">41.260 ms</text>
+<text x="48" y="531" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">Unpack streaming PSRAM</text>
+<rect x="465" y="509" width="453.5127777777777" height="23" rx="3" fill="#247da4"/>
+<text x="1505" y="528" fill="#193347" font-size="21" font-weight="normal" text-anchor="end">48.019 ms</text>
+<rect x="465" y="539" width="456.99777777777774" height="23" rx="3" fill="#178576"/>
+<text x="1505" y="558" fill="#193347" font-size="21" font-weight="normal" text-anchor="end">48.388 ms</text>
+<text x="48" y="620" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">Matrix internal</text>
+<rect x="465" y="598" width="643.6011111111112" height="23" rx="3" fill="#247da4"/>
+<text x="1505" y="617" fill="#193347" font-size="21" font-weight="normal" text-anchor="end">68.146 ms</text>
+<rect x="465" y="628" width="644.3377777777779" height="23" rx="3" fill="#178576"/>
+<text x="1505" y="647" fill="#193347" font-size="21" font-weight="normal" text-anchor="end">68.224 ms</text>
+<text x="48" y="709" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">Matrix small PSRAM</text>
+<rect x="465" y="687" width="645.4427777777777" height="23" rx="3" fill="#247da4"/>
+<text x="1505" y="706" fill="#193347" font-size="21" font-weight="normal" text-anchor="end">68.341 ms</text>
+<rect x="465" y="717" width="645.896111111111" height="23" rx="3" fill="#178576"/>
+<text x="1505" y="736" fill="#193347" font-size="21" font-weight="normal" text-anchor="end">68.389 ms</text>
+<text x="48" y="798" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">Matrix streaming PSRAM</text>
+<rect x="465" y="776" width="711.1477777777777" height="23" rx="3" fill="#247da4"/>
+<text x="1505" y="795" fill="#193347" font-size="21" font-weight="normal" text-anchor="end">75.298 ms</text>
+<rect x="465" y="806" width="710.8172222222223" height="23" rx="3" fill="#178576"/>
+<text x="1505" y="825" fill="#193347" font-size="21" font-weight="normal" text-anchor="end">75.263 ms</text>
+<rect x="48" y="925" width="1504" height="145" rx="14" fill="#dce9f2"/>
+<text x="72" y="966" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">Blue: coordinator. Green: worker. Each workload matches its independent reference on both boards.</text>
+<text x="72" y="1008" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">Matrix streaming penalty ~10–11% here; single-core synthetic data, not an end-to-end model speedup.</text>
+<text x="72" y="1047" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Different loops measure different workloads. Do not subtract read time to claim pure arithmetic or bus bandwidth.</text>
+<text x="48" y="1120" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Read1MiB batch:8 scans; all other batches:42 calls. Timed spans exclude explicit yields. Compare within each workload.</text>
+</svg>

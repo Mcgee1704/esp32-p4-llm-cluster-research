@@ -1,0 +1,85 @@
+{
+  "selection_before_generation": true,
+  "candidates": [
+    {
+      "repository": "nkthebass/tinybrainbot-100m-v3-instruct",
+      "revision": "a8567bd7674f53b3fe5f42c8abaab35229a0e00e",
+      "parameters": 100092672,
+      "ideal_4bit_matrix_payload_bytes": 50036736,
+      "decision": "selected",
+      "reason": "Matching Llama math/width/GQA and tied table, within proposed two-P4 row-INT4 memory budget. Author reports a direct Supra comparison; local quality unverified at selection.",
+      "source_url": "https://huggingface.co/nkthebass/tinybrainbot-100m-v3-instruct/tree/a8567bd7674f53b3fe5f42c8abaab35229a0e00e"
+    },
+    {
+      "repository": "Mxode/NanoLM-70M-Instruct-v1",
+      "revision": "62b7e506921618399c249374fea25820da5dd7e3",
+      "parameters": 70793280,
+      "ideal_4bit_matrix_payload_bytes": 35389440,
+      "decision": "not downloaded",
+      "reason": "Smaller Llama alternative; no claim it is worse. One selected download limits traffic; no post-hoc search across model outputs.",
+      "source_url": "https://huggingface.co/Mxode/NanoLM-70M-Instruct-v1/tree/62b7e506921618399c249374fea25820da5dd7e3"
+    },
+    {
+      "repository": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "parameters": 134515008,
+      "ideal_4bit_matrix_payload_bytes": 67239936,
+      "decision": "rejected for current layout",
+      "reason": "Packed 4-bit matrices alone exceed combined physical 64MiB before scales, norms, tokenizer, KV or runtime. Lower-bit quantization/offloading would be a separate architecture experiment.",
+      "source_url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/tree/12fd25f77366fa6b3b4b768ec3050bf629380bac"
+    }
+  ],
+  "additional_public_sources": [
+    {
+      "url": "https://huggingface.co/codefuse-ai/F2LLM-v2-80M",
+      "reason": "Embedding model, not a generative assistant; no weights fetched."
+    },
+    {
+      "url": "https://huggingface.co/mossez-systems/Mossez-100M-Instruct",
+      "reason": "Compatible-size research alternative; author openly reports weak instruction/factual behavior. Not downloaded or independently compared."
+    }
+  ],
+  "author_claim_limit": "TinyBrainBot card reports beating Supra2 on 6/7 multiple-choice benchmarks; not independently reproduced and not a substitute for our generation study.",
+  "weight_download": {
+    "files": 1,
+    "bytes": 200197496,
+    "precision": "F16",
+    "sha256": "24e663ce03dbbd0820601341e210b40524b4fa15f9940079351eaaf48236ac62"
+  },
+  "tokenizer_port": {
+    "current_C_support": false,
+    "required": "BPE Metaspace; precompiled normalization, trailing-strip and space replacement; normalized added tokens; context-sensitive Metaspace decoder; explicit EOS7 stop.",
+    "compact_storage_estimate_parts": {
+      "vocabulary_utf8_plus_u32_lengths": 373681,
+      "integer_merges_16_bytes_each": 1030384,
+      "precompiled_normalizer_bytes": 240007,
+      "extra_metadata_allowance": 8192
+    },
+    "compact_storage_estimate_total": 1652264,
+    "coordinator_allowance": 2097152,
+    "scope": "Storage arithmetic for a proposed compact representation. No C implementation, validated parser, allocation, latency or equivalence proof."
+  },
+  "estimated_memory": {
+    "coordinator": {
+      "weights_header_bytes": 25137408,
+      "tokenizer_allowance": 2097152,
+      "kv_bytes": 2097152,
+      "work_attention_logits_allowance": 197632,
+      "runtime_allowance": 2097152,
+      "estimated_total_psram_bytes": 31626496,
+      "estimated_headroom_bytes": 1927936,
+      "within_physical_psram": true
+    },
+    "worker": {
+      "weights_header_bytes": 25436416,
+      "tokenizer_allowance": 0,
+      "kv_bytes": 4194304,
+      "work_attention_logits_allowance": 69632,
+      "runtime_allowance": 2097152,
+      "estimated_total_psram_bytes": 31797504,
+      "estimated_headroom_bytes": 1756928,
+      "within_physical_psram": true
+    }
+  },
+  "devices": "No reads or writes required for this host-only study. Existing deployment from e3018d9 retained."
+}

@@ -1,0 +1,7 @@
+{
+  "input_bytes": 1024,
+  "reference_token_count": 258,
+  "native_host_token_count": 258,
+  "exact_ids_equal": true,
+  "scope": "Host evidence only. Device HTTP400 does not expose its encoded token count; the trial rejection receipt count is this expected/reference value."
+}

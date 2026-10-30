@@ -1,0 +1,9 @@
+{
+  "private_firmware_sha256": "1ce3a4ce1b8dfb5275ec57074f9e97d4322fe1405b384e83a46ae65f7b758467",
+  "bytes": 809520,
+  "sources": {
+    "firmware/components/tinyllm/tinyllm.c": "d8136aadd9bb641cc4ff1368875f70290c885210c83db89dacbbde5c4608090e",
+    "firmware/components/tinyllm/int4_dot.h": "ff3d3566f68b4a6b424c149bb1b8ed165a24103e3615a931dbb9f0f29d8ca62b",
+    "firmware/CMakeLists.txt": "bb8fa2f8ee5d10321e99644be01c6087eb02afc3af571848ebf8101f39ffa343"
+  }
+}

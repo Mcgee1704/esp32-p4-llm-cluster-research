@@ -1,0 +1,23 @@
+{
+  "winner": "gptq",
+  "admitted": [
+    "s32",
+    "a64",
+    "gptq"
+  ],
+  "rule": "Lowest mean full-vocabulary KL; >=10% below row, top1 no more than 5 percentage points below row; QA unused",
+  "validation_sha256": {
+    "f16": "a37a7f98c9842a03756396ab6817203d4e7be16aac4c51f496da5c50396eca57",
+    "row": "eec6e5117ba9bf3628013722c8e028604165610fd91fec3ac2ffa8640d158709",
+    "s32": "620635a43d0fc72d055bdebfa6c1b2595eed7a27c4c0dc703fabf90a0e631d02",
+    "a64": "ea7ad93e26491cfc0d562b22eb538967a319e7d9762832f5e581b43a33568c30",
+    "gptq": "c267aba787c24c12c1c5e93c0c36f4ffab35dc17e95c4e7f7049c02c98fb3682"
+  },
+  "protocol_sha256": "17ae0060d770bc82c3b793e1c6b2f310566f57a1f62d63f2d1eb57760a549c5e",
+  "code_sha256": {
+    "tools/quantization_v2.py": "65837dc288b25b839a2e4254f7bd97b073940c312bbc59076940c1b41b988295",
+    "tools/supra_quantization_study.py": "926051d20c3264714dd452c19923d26f9e26ce887b8e5bf8a9ba77557d62dd43",
+    "tools/supra_reference.py": "fa0ba665dec3725b779715a83501ed4a047bc07faade2c42c1791c1fde1b25a0",
+    "tools/pack_supra.py": "612d5e74ac401507ea241ec6d33ad9d795e120c57a55e9a40262e1e1668a2680"
+  }
+}

@@ -1,0 +1,141 @@
+--- before/firmware/components/tinyllm/sp_tokenizer.c
++++ after/firmware/components/tinyllm/sp_tokenizer.c
+@@ -22,7 +22,8 @@
+ };
+ static uint32_t u32(const uint8_t *p){uint32_t n;memcpy(&n,p,4);return n;}
+ static int utf8(const uint8_t *p,size_t n,unsigned *code){
+-    if(!n)return -1;unsigned c=p[0];int w;
++    if(!n)return -1;
++    unsigned c=p[0];int w;
+     if(c<128){*code=c;return 1;}
+     if(c>=0xc2&&c<=0xdf){w=2;c&=31;}else if(c>=0xe0&&c<=0xef){w=3;c&=15;}else if(c>=0xf0&&c<=0xf4){w=4;c&=7;}else return -1;
+     if(n<(size_t)w)return -1;
+@@ -73,7 +74,8 @@
+     unsigned last=0;
+     for(unsigned i=0;i<chars;i++){
+         unsigned cp=u32(t->chars+8*i),id=u32(t->chars+8*i+4),actual;size_t n;const uint8_t *p=sp_piece(t,(int)id,&n);
+-        if(!p||(i&&cp<=last)||utf8(p,n,&actual)!=(int)n||cp!=actual)goto bad;last=cp;
++        if(!p||(i&&cp<=last)||utf8(p,n,&actual)!=(int)n||cp!=actual)goto bad;
++        last=cp;
+     }
+     if(t->rewrites[t->rewrite_size-1]||!valid(t->rewrites,t->rewrite_size))goto bad;
+     unsigned root=u32(t->trie);if((root&0x800001ff)||dart_offset(root)>=t->trie_count)goto bad;
+@@ -87,7 +89,8 @@
+     last=0;
+     for(unsigned i=0;i<ranges;i++){
+         const uint8_t *r=t->ranges+12*i;unsigned lo=u32(r),hi=u32(r+4),flags=u32(r+8);
+-        if(lo>hi||hi>0x10ffff||!flags||flags>255||(flags&31)>15||(i&&lo<=last))goto bad;last=hi;
++        if(lo>hi||hi>0x10ffff||!flags||flags>255||(flags&31)>15||(i&&lo<=last))goto bad;
++        last=hi;
+     }
+     return t;
+ bad:free(t);return NULL;
+@@ -133,7 +136,8 @@
+         if(p){if(len>cap-used)goto bad;memcpy(tmp+used,p,len);used+=len;}
+         else for(size_t j=0;j<g;){unsigned cp;int w=utf8(text+at+j,g-j,&cp);if(w<0)goto bad;
+             p=transform(t,text+at+j,(size_t)w,&len);if(!p){p=text+at+j;len=(size_t)w;}
+-            if(len>cap-used)goto bad;memcpy(tmp+used,p,len);used+=len;j+=(size_t)w;}
++            if(len>cap-used)goto bad;
++            memcpy(tmp+used,p,len);used+=len;j+=(size_t)w;}
+         at+=g;PAUSE(at);
+     }
+     for(size_t j=0;j<used;){unsigned cp;int w=utf8(tmp+j,used-j,&cp);if(w<0)goto bad;j+=(size_t)w;if(!(properties(t,cp)&128))last_nonwhite=j;}
+@@ -145,7 +149,8 @@
+ bad:free(tmp);return -1;
+ }
+ int sp_normalize(const sp_tokenizer *t,const char *text,void *out,size_t cap){
+-    if(!t||!text||!out||!cap)return -1;size_t n=strlen(text);if(n>4096||!valid((const uint8_t*)text,n))return -1;
++    if(!t||!text||!out||!cap)return -1;
++    size_t n=strlen(text);if(n>4096||!valid((const uint8_t*)text,n))return -1;
+     return normalize_span(t,(const uint8_t*)text,n,out,cap);
+ }
+ static int char_id(const sp_tokenizer *t,unsigned cp){
+@@ -160,7 +165,8 @@
+     unsigned rounds=0;
+     for(;;){int best=-1,rank=0x7fffffff,result=-1;
+         for(int i=0;i<n-1;i++){int id,r=merge(t,scratch[i],scratch[i+1],&id);if(r>=0&&r<rank){rank=r;best=i;result=id;}}
+-        if(best<0)break;scratch[best]=result;memmove(scratch+best+1,scratch+best+2,(size_t)(n-best-2)*4);n--;PAUSE_BPE(++rounds);
++        if(best<0)break;
++        scratch[best]=result;memmove(scratch+best+1,scratch+best+2,(size_t)(n-best-2)*4);n--;PAUSE_BPE(++rounds);
+     }if(n>cap)return -1;memcpy(out,scratch,(size_t)n*4);return n;
+ }
+ static int encode_part(const sp_tokenizer *t,const uint8_t *p,size_t n,int first,int *scratch,int *out,int cap){
+@@ -180,7 +186,8 @@
+     }return best;
+ }
+ int sp_encode(const sp_tokenizer *t,const char *text,int *out,int cap){
+-    if(!t||!text||!out||cap<1)return -1;size_t n=strlen(text);if(n>4096||!valid((const uint8_t*)text,n))return -1;if(!n)return 0;
++    if(!t||!text||!out||cap<1)return -1;
++    size_t n=strlen(text);if(n>4096||!valid((const uint8_t*)text,n))return -1;if(!n)return 0;
+     size_t bound=n*32+16;if(bound>65536)bound=65536;uint8_t *norm=BUF(bound);int *scratch=BUF((bound+1)*4);
+     if(!norm||!scratch){free(norm);free(scratch);return -1;}
+     size_t at=0;int total=0;
+--- before/tools/tinybrainbot_port.py
++++ after/tools/tinybrainbot_port.py
+@@ -55,7 +55,6 @@
+ 
+ 
+ def tokenizer_checks(native,protocol):
+-    from test_spm_tokenizer import SPMTokenizer
+     # Standalone parser pointers are bound here; no unittest lifecycle is used.
+     lib=native.lib;lib.sp_open.argtypes=[C.c_void_p,C.c_size_t,C.c_uint,C.c_uint];lib.sp_open.restype=C.c_void_p
+     lib.sp_close.argtypes=[C.c_void_p];lib.sp_encode.argtypes=[C.c_void_p,C.c_char_p,C.POINTER(C.c_int),C.c_int]
+@@ -86,19 +85,29 @@
+     finally:lib.sp_close(state)
+ 
+ 
+-def host():
++def host(resume=False):
+     import sys
+     sys.path.insert(0,str(ROOT/'tests'))
+-    p=read(OUT/'protocol.json');assert p['code_sha256']==sources()
++    p=read(OUT/'protocol.json')
++    if resume:
++        amendment=read(OUT/'host-amendment.json')
++        assert amendment['original_protocol_sha256']==sha(OUT/'protocol.json') and amendment['final_code_sha256']==sources()
++        assert amendment['native_code_and_data_sections_identical'] and amendment['current_native_sha256']==sha(ROOT/'.local/build/tinyllm.dll')
++    else:assert p['code_sha256']==sources()
+     full=Native(PRIVATE/'tinybrainbot-full.p4qs')
+     try:
+         report=tokenizer_checks(full,p);tok=tokenizers()['tinybrainbot'];original={x['id']:x for x in read(PRIOR/'answers-tinybrainbot-int4.json')};rows=[]
++        retained={r['case']:r for r in read(OUT/'host-generations.json')} if resume else {}
++        if resume:assert len(retained)==30 and sha(OUT/'host-generations.json')==amendment['retained_generations_sha256']
+         for case in p['cases']:
+-            assert full.encode(case['prompt'])==case['tokens'];result=full.generate(case['prompt'],48);before=original[case['id']]
++            assert full.encode(case['prompt'])==case['tokens'];result=retained[case['id']] if resume else full.generate(case['prompt'],48);before=original[case['id']]
+             assert result['tokens']==before['tokens'] and result['text']==before['text'] and result['eos']==before['eos'],('Complete generation differs',case['id'],result)
+-            rows.append({'case':case['id'],**result});write(OUT/'host-generations.json',rows);print('native',case['id'],'matched',flush=True)
+-        hardware={c['id']:full.generate(c['prompt'],p['hardware_cap']) for c in p['cases'] if c['id'] in p['hardware_cases']+p['dispatch_cases']}
+-        hardware['U01']=full.generate(p['unicode_prompt'],16);write(OUT/'hardware-references.json',hardware)
++            rows.append({'case':case['id'],**result})
++            if not resume:write(OUT/'host-generations.json',rows)
++            print('native',case['id'],'matched' if not resume else 'retained binary-equivalent proof',flush=True)
++        if not resume:
++            hardware={c['id']:full.generate(c['prompt'],p['hardware_cap']) for c in p['cases'] if c['id'] in p['hardware_cases']+p['dispatch_cases']}
++            hardware['U01']=full.generate(p['unicode_prompt'],16);write(OUT/'hardware-references.json',hardware)
+         master=Native(PRIVATE/'tinybrainbot-coordinator.p4qs');worker=Native(PRIVATE/'tinybrainbot-worker.p4qs')
+         try:
+             c,t=load_candidate();lib=full.lib;lib.ts_set_kernel.argtypes=[C.c_void_p,C.c_int];lib.ts_x.argtypes=[C.c_void_p];lib.ts_x.restype=C.POINTER(C.c_float);base=[];errors=[]
+@@ -114,10 +123,14 @@
+                     C.memmove(lib.ts_x(worker.state),lib.ts_x(master.state),c['hidden_size']*4);assert lib.ts_layers(worker.state,4,12,pos)==0
+                     C.memmove(lib.ts_x(master.state),lib.ts_x(worker.state),c['hidden_size']*4)
+                     np.testing.assert_array_equal(a,np.ctypeslib.as_array(lib.ts_finish(master.state),(32000,)))
+-            assert lib.ts_embed(master.state,4)==0 and lib.ts_layers(master.state,0,4,255)==0
++            lib.ts_reset(master.state);lib.ts_reset(worker.state)
++            for pos in range(256):
++                assert lib.ts_embed(master.state,4)==0 and lib.ts_layers(master.state,0,4,pos)==0
++                C.memmove(lib.ts_x(worker.state),lib.ts_x(master.state),c['hidden_size']*4)
++                assert lib.ts_layers(worker.state,4,12,pos)==0
+             assert lib.ts_layers(master.state,0,4,256)==-1 and lib.ts_layers(worker.state,4,12,256)==-1
+             assert lib.ts_embed(worker.state,4)==-1
+-            report.update(complete_generations=30,all_tokens_text_eos_equal=True,full_shard_kernel_logits_identical=True,max_absolute_logit_error=max(errors),context_boundary_checked=True)
++            report.update(complete_generations=30,all_tokens_text_eos_equal=True,full_shard_kernel_logits_identical=True,max_absolute_logit_error=max(errors),context_boundary_checked=True,sequential_KV_positions_per_role=256)
+         finally:master.close();worker.close()
+         report.update(code_sha256=sources(),native_dll_sha256=sha(ROOT/'.local/build/tinyllm.dll'),scope='Real tokenizer and actual weights on host; not a P4 result')
+         write(OUT/'host-report.json',report);print('Host acceptance complete',json.dumps(report),flush=True)
+@@ -125,4 +138,4 @@
+ 
+ 
+ if __name__=='__main__':
+-    p=argparse.ArgumentParser();p.add_argument('stage',choices=['prepare','host']);a=p.parse_args();{'prepare':prepare,'host':host}[a.stage]()
++    p=argparse.ArgumentParser();p.add_argument('stage',choices=['prepare','host','host-resume']);a=p.parse_args();{'prepare':prepare,'host':host,'host-resume':lambda:host(True)}[a.stage]()

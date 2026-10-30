@@ -1,7 +1,9 @@
+#include "int4_dot.h"
 /* Portable scalar Llama inference. Algorithm reference: karpathy/llama2.c (MIT).
  * New P4LM parser, per-row INT8 layout and layer-range API; see THIRD_PARTY.md. */
 #include "tinyllm.h"
 #include "gpt2_tokenizer.h"
+#include "sp_tokenizer.h"
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
@@ -19,8 +21,8 @@
 #define ALLOC(n) calloc(1,(n))
 #define YIELD() ((void)0)
 #endif
-typedef struct { const float *scale; const int8_t *q; int rows,cols; } matrix;
-typedef struct { const float *na,*nf,*ba,*bf,*bo,*b1,*b2; matrix q,k,v,o,w1,w2,w3; } layer;
+typedef struct { const float *scale; const int8_t *q; int rows,cols,bits; } matrix;
+typedef struct { const float *na,*nf,*ba,*bf,*bo,*b1,*b2,*qn,*kn; matrix q,k,v,o,w1,w2,w3; } layer;
 typedef struct { const char *text; int id; } token_index;
 typedef struct {
     float *out; const matrix *m; const float *x; int first,end,mode;
@@ -39,7 +41,7 @@ struct ts_state {
     parallel_context *parallel;
 #endif
     ts_config c; const uint8_t *blob; matrix emb,positions; layer layer[32]; const float *norm,*norm_bias;
-    int neo; unsigned window,eos;gpt2_tokenizer *bpe;char decoded[513];
+    int neo,sharded; unsigned role,first,end,architecture,extra_eos; float epsilon,theta; unsigned window,eos;gpt2_tokenizer *bpe;sp_tokenizer *spm;char decoded[513];
     float *x,*xb,*xb2,*hb,*hb2,*q,*att,*logits,*kc,*vc;
     float *work_psram[6],*work_internal;
     char **tokens; float *scores; token_index *sorted; char *strings;
@@ -55,12 +57,13 @@ static const void *take(const uint8_t **p,const uint8_t *end,size_t n) {
     if(n>(size_t)(end-*p)) return NULL;
     const void *r=*p; *p+=n; return r;
 }
-static int read_matrix(matrix *m,const uint8_t **p,const uint8_t *end,int r,int c) {
-    m->rows=r; m->cols=c;
+static int read_matrix_bits(matrix *m,const uint8_t **p,const uint8_t *end,int r,int c,int bits) {
+    m->rows=r; m->cols=c;m->bits=bits;
     m->scale=take(p,end,(size_t)r*4); if(!m->scale) return -1;
     for(int i=0;i<r;i++) if(!isfinite(m->scale[i])||m->scale[i]<=0) return -1;
-    m->q=take(p,end,(size_t)r*c); return m->q?0:-1;
+    m->q=take(p,end,(size_t)r*c*bits/8); return m->q?0:-1;
 }
+static int read_matrix(matrix *m,const uint8_t **p,const uint8_t *end,int r,int c) { return read_matrix_bits(m,p,end,r,c,8); }
 static int token_cmp(const void *a,const void *b) {
     return strcmp(((const token_index*)a)->text,((const token_index*)b)->text);
 }
@@ -73,7 +76,8 @@ ts_state *ts_open(const void *blob,size_t bytes) {
     const uint8_t *b=blob;
     if(!b||((uintptr_t)b&3)||bytes<128) return NULL;
     int neo=!memcmp(b,"P4GN0001",8);
-    if(!neo&&memcmp(b,"P4LM0001",8))return NULL;
+    int qs=!memcmp(b,"P4QS0001",8);
+    if(!neo&&!qs&&memcmp(b,"P4LM0001",8))return NULL;
     ts_config c; memcpy(&c,b+8,sizeof c);
     if(!c.dim||c.dim>1024||c.dim%4||!c.hidden||c.hidden>4096||c.hidden%4||
        !c.layers||c.layers>32||!c.heads||c.heads>c.dim||!c.kv_heads||c.kv_heads>c.heads||
@@ -83,10 +87,41 @@ ts_state *ts_open(const void *blob,size_t bytes) {
     if(weights>bytes-128||toksize!=bytes-128-weights||weights%4||
        ts_crc32(b+128,bytes-128)!=u32(b+80)) return NULL;
     ts_state *s=calloc(1,sizeof *s); if(!s) return NULL;
-    s->kernel=TS_KERNEL_PACED; s->c=c; s->blob=b;s->neo=neo;
+    s->kernel=TS_KERNEL_PACED; s->c=c; s->blob=b;s->neo=neo;s->sharded=qs;
+    s->end=c.layers;s->epsilon=1e-5f;s->theta=10000.f;
     const uint8_t *p=b+128,*end=p+weights;
     int d=(int)c.dim,h=(int)c.hidden,kd=d*(int)c.kv_heads/(int)c.heads;
-    if(neo) {
+    if(qs) {
+        const uint8_t *meta=take(&p,end,128);if(!meta)goto fail;
+        s->role=u32(b+44);s->architecture=u32(meta+36);s->first=u32(meta+40);s->end=u32(meta+44);
+        s->eos=u32(meta+52);s->extra_eos=u32(meta+56);memcpy(&s->epsilon,meta+60,4);memcpy(&s->theta,meta+64,4);
+        if(u32(meta+32)!=1||!s->architecture||s->architecture>2||s->role>2||u32(meta+48)!=4||
+           s->first>=s->end||s->end>c.layers||s->eos>=c.vocab||
+           (s->extra_eos!=UINT32_MAX&&s->extra_eos>=c.vocab)||
+           !isfinite(s->epsilon)||s->epsilon<=0||s->epsilon>.01f||!isfinite(s->theta)||s->theta<100||s->theta>1e8f||
+           u32(meta+68)>1||u32(meta+72)<c.context||
+           (s->role==0&&(s->first||s->end!=c.layers))||
+           (s->role==1&&(s->first||s->end>=c.layers))||
+           (s->role==2&&(!s->first||s->end!=c.layers||toksize))||
+           (s->role!=2&&!toksize))goto fail;
+        for(int i=76;i<128;i++)if(meta[i])goto fail;
+        for(int i=84;i<128;i++)if(b[i])goto fail;
+        if(s->role!=2&&read_matrix_bits(&s->emb,&p,end,(int)c.vocab,d,4))goto fail;
+        for(unsigned i=s->first;i<s->end;i++) {
+            layer *l=&s->layer[i];l->na=read_vector(&p,end,c.dim);l->nf=read_vector(&p,end,c.dim);
+            if(!l->na||!l->nf||read_matrix_bits(&l->q,&p,end,d,d,4)||read_matrix_bits(&l->k,&p,end,kd,d,4)||
+               read_matrix_bits(&l->v,&p,end,kd,d,4)||read_matrix_bits(&l->o,&p,end,d,d,4)||
+               read_matrix_bits(&l->w1,&p,end,h,d,4)||read_matrix_bits(&l->w2,&p,end,d,h,4)||
+               read_matrix_bits(&l->w3,&p,end,h,d,4))goto fail;
+            if(s->architecture==2){l->qn=read_vector(&p,end,c.dim/c.heads);l->kn=read_vector(&p,end,c.dim/c.heads);if(!l->qn||!l->kn)goto fail;}
+        }
+        if(s->role!=2){s->norm=read_vector(&p,end,c.dim);if(!s->norm)goto fail;}
+        if(p!=end)goto fail;
+        if(s->role!=2){
+            if(toksize>=8&&!memcmp(end,"SPBP0001",8)){s->spm=sp_open(end,toksize,c.vocab,s->eos);if(!s->spm)goto fail;}
+            else{s->bpe=gpt2_open(end,toksize,c.vocab,s->eos);if(!s->bpe)goto fail;}
+        }
+    } else if(neo) {
         const uint8_t *meta=take(&p,end,12);if(!meta||c.kv_heads!=c.heads||u32(b+44))goto fail;
         unsigned positions=u32(meta);s->window=u32(meta+4);s->eos=u32(meta+8);
         if(positions<c.context||positions>2048||!s->window||s->window>2048||s->eos>=c.vocab)goto fail;
@@ -135,16 +170,16 @@ ts_state *ts_open(const void *blob,size_t bytes) {
     if(p!=end) goto fail;
     qsort(s->sorted,c.vocab,sizeof(token_index),token_cmp);
     }
-    if(!neo)for(unsigned i=1;i<c.vocab;i++) if(!strcmp(s->sorted[i-1].text,s->sorted[i].text)) goto fail;
+    if(!neo&&!qs)for(unsigned i=1;i<c.vocab;i++) if(!strcmp(s->sorted[i-1].text,s->sorted[i].text)) goto fail;
     for(int i=0;i<256;i++) s->byte_piece[i][0]=(char)i;
     s->x=ALLOC(c.dim*4); s->xb=ALLOC(c.dim*4); s->xb2=ALLOC(c.dim*4);
     s->hb=ALLOC(c.hidden*4); s->hb2=ALLOC(c.hidden*4); s->q=ALLOC(c.dim*4);
     s->work_psram[0]=s->x;s->work_psram[1]=s->xb;s->work_psram[2]=s->xb2;
     s->work_psram[3]=s->q;s->work_psram[4]=s->hb;s->work_psram[5]=s->hb2;
-    s->att=ALLOC(c.heads*c.context*4); s->logits=ALLOC(c.vocab*4);
-    size_t cache=(size_t)c.layers*c.context*(unsigned)kd*4;
+    s->att=ALLOC(c.heads*c.context*4); if(s->role!=2)s->logits=ALLOC(c.vocab*4);
+    size_t cache=(size_t)(s->end-s->first)*c.context*(unsigned)kd*4;
     s->kc=ALLOC(cache); s->vc=ALLOC(cache);
-    if(!s->x||!s->xb||!s->xb2||!s->hb||!s->hb2||!s->q||!s->att||!s->logits||!s->kc||!s->vc) goto fail;
+    if(!s->x||!s->xb||!s->xb2||!s->hb||!s->hb2||!s->q||!s->att||(s->role!=2&&!s->logits)||!s->kc||!s->vc) goto fail;
     if(ts_set_kernel(s,TS_KERNEL_DEFAULT))goto fail;
     return s;
 fail: ts_close(s); return NULL;
@@ -157,12 +192,18 @@ void ts_close(ts_state *s) {
     for(int i=0;i<6;i++)free(s->work_psram[i]);
     free(s->work_internal);
     free(s->att);free(s->logits);free(s->kc);free(s->vc);free(s->tokens);
-    free(s->scores);free(s->sorted);free(s->strings);gpt2_close(s->bpe);free(s);
+    free(s->scores);free(s->sorted);free(s->strings);gpt2_close(s->bpe);sp_close(s->spm);free(s);
 }
 const ts_config *ts_config_get(const ts_state *s) { return &s->c; }
-const uint8_t *ts_model_id(const ts_state *s) { return s->blob+48; }
-const char *ts_architecture(const ts_state *s){return s->neo?"gpt_neo":"llama";}
-int ts_is_eos(const ts_state *s,int token){return s->neo?(unsigned)token==s->eos:token==1||token==2;}
+const uint8_t *ts_model_id(const ts_state *s) { return s->sharded?s->blob+128:s->blob+48; }
+const uint8_t *ts_artifact_id(const ts_state *s){return s->blob+48;}
+unsigned ts_role(const ts_state *s){return s->role;}
+unsigned ts_first_layer(const ts_state *s){return s->first;}
+unsigned ts_end_layer(const ts_state *s){return s->end;}
+unsigned ts_quant_bits(const ts_state *s){return s->sharded?4:8;}
+const char *ts_architecture(const ts_state *s){return s->neo?"gpt_neo":s->architecture==2?"qwen3":"llama";}
+const char *ts_tokenizer_kind(const ts_state *s){return s->spm?"metaspace_bpe":s->bpe?"byte_bpe":s->role==2?"none":"legacy_vocab";}
+int ts_is_eos(const ts_state *s,int token){return s->sharded?((unsigned)token==s->eos||(unsigned)token==s->extra_eos):s->neo?(unsigned)token==s->eos:token==1||token==2;}
 static int64_t now_us(void) {
 #ifdef ESP_PLATFORM
     return esp_timer_get_time();
@@ -218,13 +259,13 @@ void ts_reset(ts_state *s) {
     memset(s->x,0,s->c.dim*4);
 }
 float *ts_x(ts_state *s) { return s->x; }
-static void rms(float *out,const float *x,const float *w,int n) {
+static void rms(float *out,const float *x,const float *w,int n,float epsilon) {
     float sum=0; for(int i=0;i<n;i++) sum+=x[i]*x[i];
-    float inv=1.0f/sqrtf(sum/n+1e-5f);
+    float inv=1.0f/sqrtf(sum/n+epsilon);
     for(int i=0;i<n;i++) out[i]=w[i]*(x[i]*inv);
 }
 static void norm(ts_state *s,float *out,const float *x,const float *w,const float *bias,int n) {
-    if(!s->neo){rms(out,x,w,n);return;}
+    if(!s->neo){rms(out,x,w,n,s->epsilon);return;}
     float mean=0;for(int i=0;i<n;i++)mean+=x[i];mean/=n;
     float variance=0;for(int i=0;i<n;i++){float z=x[i]-mean;variance+=z*z;}
     float inv=1.0f/sqrtf(variance/n+1e-5f);
@@ -232,21 +273,31 @@ static void norm(ts_state *s,float *out,const float *x,const float *w,const floa
 }
 /* Each row keeps exactly the scalar summation order. Only complete rows move
  * to the helper; inputs are immutable until its completion semaphore arrives. */
+static int quant_at(const int8_t *p,int j,int bits) {
+    if(bits==8)return p[j];
+    int v=((const uint8_t*)p)[j/2]>>((j&1)*4);v&=15;return v<8?v:v-16;
+}
 static void calculate_rows(row_work *w) {
     const matrix *m=w->m;w->started=now_us();
     for(int i=w->first;i<w->end;) {
         if(w->mode==TS_KERNEL_TILE4&&i+3<w->end) {
-            const int8_t *q0=m->q+(size_t)i*m->cols,*q1=q0+m->cols,*q2=q1+m->cols,*q3=q2+m->cols;
+            size_t stride=(size_t)m->cols*m->bits/8;
+            const int8_t *q0=m->q+(size_t)i*stride,*q1=q0+stride,*q2=q1+stride,*q3=q2+stride;
             float a=0,b=0,c=0,d=0;
-            for(int j=0;j<m->cols;j++) {
+            if(m->bits==4) {
+                float sums[4];
+                ts_int4_dot4(sums,(const uint8_t*)q0,(const uint8_t*)q1,
+                             (const uint8_t*)q2,(const uint8_t*)q3,w->x,m->cols);
+                a=sums[0];b=sums[1];c=sums[2];d=sums[3];
+            } else for(int j=0;j<m->cols;j++) {
                 float x=w->x[j];
                 a+=(float)q0[j]*x;b+=(float)q1[j]*x;c+=(float)q2[j]*x;d+=(float)q3[j]*x;
             }
             w->out[i]=a*m->scale[i];w->out[i+1]=b*m->scale[i+1];
             w->out[i+2]=c*m->scale[i+2];w->out[i+3]=d*m->scale[i+3];i+=4;
         } else {
-            float sum=0;const int8_t *q=m->q+(size_t)i*m->cols;
-            for(int j=0;j<m->cols;j++)sum+=(float)q[j]*w->x[j];
+            float sum=0;const int8_t *q=m->q+(size_t)i*m->cols*m->bits/8;
+            for(int j=0;j<m->cols;j++)sum+=(float)quant_at(q,j,m->bits)*w->x[j];
             w->out[i]=sum*m->scale[i];i++;
         }
 #ifdef ESP_PLATFORM
@@ -327,13 +378,13 @@ static void matmul(ts_state *s,float *out,const matrix *m,const float *x) {
     s->profile.matmul_us+=now_us()-started;s->profile.rows+=m->rows;
 }
 int ts_embed(ts_state *s,int token) {
-    if(token<0||(unsigned)token>=s->c.vocab) return -1;
-    const int8_t *q=s->emb.q+(size_t)token*s->c.dim;
-    for(unsigned j=0;j<s->c.dim;j++) s->x[j]=q[j]*s->emb.scale[token];
+    if(s->role==2||token<0||(unsigned)token>=s->c.vocab) return -1;
+    const int8_t *q=s->emb.q+(size_t)token*s->c.dim*s->emb.bits/8;
+    for(unsigned j=0;j<s->c.dim;j++) s->x[j]=quant_at(q,(int)j,s->emb.bits)*s->emb.scale[token];
     return 0;
 }
 int ts_layers(ts_state *s,int first,int end,int pos) {
-    if(first<0||end<=first||(unsigned)end>s->c.layers||pos<0||
+    if(first<0||(unsigned)first<s->first||end<=first||(unsigned)end>s->end||pos<0||
        (unsigned)pos>=s->c.context||pos!=s->next_position) return -1;
     int d=s->c.dim,h=s->c.hidden,heads=s->c.heads,hs=d/heads;
     int kd=d*(int)s->c.kv_heads/heads,group=heads/(int)s->c.kv_heads;
@@ -343,12 +394,16 @@ int ts_layers(ts_state *s,int first,int end,int pos) {
         for(int i=0;i<d;i++)s->x[i]+=(float)q[i]*scale;
     }
     for(int n=first;n<end;n++) {
-        const layer *l=&s->layer[n]; size_t off=(size_t)n*s->c.context*kd;
+        const layer *l=&s->layer[n]; size_t off=(size_t)(n-(int)s->first)*s->c.context*kd;
         float *k=s->kc+off+(size_t)pos*kd,*v=s->vc+off+(size_t)pos*kd;
         norm(s,s->xb,s->x,l->na,l->ba,d);
         matmul(s,s->q,&l->q,s->xb); matmul(s,k,&l->k,s->xb); matmul(s,v,&l->v,s->xb);
+        if(s->architecture==2) {
+            for(int i=0;i<d;i+=hs)rms(s->q+i,s->q+i,l->qn,hs,s->epsilon);
+            for(int i=0;i<kd;i+=hs)rms(k+i,k+i,l->kn,hs,s->epsilon);
+        }
         if(!s->neo)for(int i=0;i<d;i+=2) {
-            float angle=pos/powf(10000.0f,(float)(i%hs)/hs),c=cosf(angle),sn=sinf(angle);
+            float angle=pos/powf(s->theta,(float)(i%hs)/hs),c=cosf(angle),sn=sinf(angle);
             float a=s->q[i],b=s->q[i+1]; s->q[i]=a*c-b*sn; s->q[i+1]=a*sn+b*c;
             if(i<kd) { a=k[i];b=k[i+1];k[i]=a*c-b*sn;k[i+1]=a*sn+b*c; }
         }
@@ -382,6 +437,7 @@ int ts_layers(ts_state *s,int first,int end,int pos) {
     s->next_position++;return 0;
 }
 float *ts_finish(ts_state *s) {
+    if(s->role==2)return NULL;
     int64_t started=now_us();
     norm(s,s->xb,s->x,s->norm,s->norm_bias,s->c.dim);matmul(s,s->logits,&s->emb,s->xb);
     s->profile.finish_us+=now_us()-started;return s->logits;
@@ -395,7 +451,9 @@ static int lookup(ts_state *s,const char *str) {
     return r?r->id:-1;
 }
 int ts_encode(ts_state *s,const char *text,int *tokens,int cap) {
-    if(s->neo)return gpt2_encode(s->bpe,text,tokens,cap);
+    if(s->spm)return sp_encode(s->spm,text,tokens,cap);
+    if(s->role==2)return -1;
+    if(s->bpe)return gpt2_encode(s->bpe,text,tokens,cap);
     if(!text||!tokens||cap<1) return -1;
     int n=0;tokens[n++]=1;
     if(*text) { int prefix=lookup(s," ");if(prefix<0||n>=cap)return -1;tokens[n++]=prefix; }
@@ -424,12 +482,19 @@ int ts_encode(ts_state *s,const char *text,int *tokens,int cap) {
 }
 const char *ts_decode(ts_state *s,int prev,int token) {
     if(token<0||(unsigned)token>=s->c.vocab)return "";
-    if(s->neo){size_t n;const uint8_t *p=gpt2_piece(s->bpe,token,&n);memcpy(s->decoded,p,n);s->decoded[n]=0;return s->decoded;}
+    if(s->spm){size_t n;const uint8_t *p=sp_piece(s->spm,token,&n);memcpy(s->decoded,p,n);s->decoded[n]=0;return s->decoded;}
+    if(s->bpe){size_t n;const uint8_t *p=gpt2_piece(s->bpe,token,&n);memcpy(s->decoded,p,n);s->decoded[n]=0;return s->decoded;}
+    if(s->role==2)return "";
     const char *p=s->tokens[token];if(prev==1&&*p==' ')p++;
     unsigned byte; if(strlen(p)==6&&sscanf(p,"<0x%2X>",&byte)==1&&byte<256)return s->byte_piece[byte];
     return p;
 }
 size_t ts_decode_length(ts_state *s,int prev,int token) {
-    if(s->neo){size_t n;gpt2_piece(s->bpe,token,&n);return n;}
+    if(s->spm){size_t n;sp_piece(s->spm,token,&n);return n;}
+    if(s->bpe){size_t n;gpt2_piece(s->bpe,token,&n);return n;}
     return strlen(ts_decode(s,prev,token));
+}
+const char *ts_decode_output(ts_state *s,int previous,int token,unsigned index,size_t *length){
+    if(s->spm){int n=sp_decode(s->spm,token,index,s->decoded,512);if(n<0){*length=0;return "";}s->decoded[n]=0;*length=(size_t)n;return s->decoded;}
+    const char *p=ts_decode(s,previous,token);*length=ts_decode_length(s,previous,token);return p;
 }

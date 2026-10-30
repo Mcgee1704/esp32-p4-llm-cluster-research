@@ -1,0 +1,45 @@
+{
+  "target": "esp32p4, hardware revision 1.x",
+  "esp_idf": "v5.5.4",
+  "shared_build_configuration": {
+    "CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ": 360,
+    "CONFIG_SPIRAM_SPEED": 200,
+    "CONFIG_FREERTOS_HZ": 1000,
+    "CONFIG_ESP_REV_MIN_FULL": 100,
+    "CONFIG_FREERTOS_UNICORE": false,
+    "CONFIG_PM_ENABLE": false
+  },
+  "configuration_scope": "Configured defaults; clocks, temperature and power were not externally measured",
+  "python": "3.12.14",
+  "numpy": "2.2.6",
+  "zlib": "1.3.2",
+  "unit_tests": {
+    "count": 61,
+    "passed": 61,
+    "includes": "all five INT4 kernel modes; complete local KV context; corrupt envelope and role/range rejection; primary and secondary chat EOS; pinned source/companion admission"
+  },
+  "firmware_images": {
+    "0.6.0": {
+      "bytes": 797568,
+      "sha256": "c2a3d082cd1419825a4916acd2acdebb9e9bc05d443c92fd6ce532da5b3ebe23",
+      "distribution": "private deployment image retained locally"
+    },
+    "0.6.1": {
+      "bytes": 799776,
+      "sha256": "f7cc70a2c71631b415d870004a26e3e86134855abd85e491a1f708ba693c1c9d",
+      "distribution": "private deployment image retained locally"
+    }
+  },
+  "primary_runs": {
+    "supra50": {
+      "firmware": "0.6.0",
+      "source_commit": "f05ddc4",
+      "trial_script_sha256": "0c34b9b3ad3080752c5d243b43c1a1a19d2adce3eccba868fc4c5a6ec0b6571e"
+    },
+    "supra100": {
+      "firmware": "0.6.1",
+      "source_commit": "4bb0969",
+      "trial_script_sha256": "cd16abdeb69ce0a8f938afae45f08ae44646a5c26053e5947896743da97f90b7"
+    }
+  }
+}

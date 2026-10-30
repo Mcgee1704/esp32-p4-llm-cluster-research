@@ -1,0 +1,102 @@
+# Nächste Stufe: ein anderes Textmodell
+
+Neuster Stand: [GPT-Neo und GPT-2-Tokenizer sind auf beiden P4 umgesetzt und
+TinyTalk-2 real geprüft](gptneo-p4-2026-10-29.md). Firmware 0.5.5, Modellupdates
+mit automatischem Neustart, unabhängige Aufträge mit rund 1,92-fachem Durchsatz.
+Die folgenden Abschnitte dokumentieren die vorausgehenden Auswahlstufen.
+
+Aktueller Nachtrag: [TinyTalk-2 wurde als nächster GPT-Neo-Portkandidat lokal
+geprüft](tinytalk2-host-2026-10-29.md). 28 Hostausgaben, Speicherbilanz und
+numerische Prüfungen liegen vor; das Modell läuft noch nicht auf dem P4.
+Ein konkreter negativer INT8-Befund bleibt Teil der Forschung.
+
+Nachtrag: Auswahl, Download, Konvertierung und Hardwareversuch sind inzwischen
+[abgeschlossen](textmodell-sft-2026-10-29.md). Aktuell läuft ein gleich großer
+SFT-Stand auf beiden Boards. Die folgende Bilanz dokumentiert den vorherigen
+Auswahlstand; ein größeres Modell ist weiterhin ein eigener Versuch.
+
+Lokaler Befund vom 29.10.2026. Die Geschwindigkeitsbasis und eine prospektive
+Prüfung des Zeitmodells liegen vor. Ein anderes vortrainiertes Textmodell ist
+als nächster Forschungsversuch sinnvoll. Eine passende zweite Modelldatei liegt
+lokal noch nicht vor; es wurde kein Modell heruntergeladen, ersetzt oder trainiert.
+
+## Tatsächliche Grenze des jetzigen Aufbaus
+
+Die Firmware lädt auf **jedem** P4 das vollständige P4LM-Artefakt in PSRAM.
+Auch die bestehende Schicht-RPC verteilt bisher nur Rechenarbeit; die Modell-
+Allokation bleibt vollständig. Drei Boards würden das Größenlimit daher noch
+nicht automatisch erhöhen. Modellpartition: 24 MiB = 25.165.824 Bytes,
+PSRAM je Board: 32 MiB = 33.554.432 Bytes. Eine SD-Karte vergrößert Speicherplatz,
+aber nicht den internen Arbeitsspeicher und den aktuellen Loader.
+
+Die neue statische Bilanz folgt Exporter und Laufzeitallokationen. Sie trifft
+die tatsächliche Größe des bestehenden Exports exakt: **15.836.365 Bytes**,
+davon 15.402.368 Gewichtsdaten und 433.869 Tokenizerbytes plus 128-Byte-Header.
+KV-Cache bei Kontext 256: 3.538.944 Bytes. Außerdem erfasst: FP32-Arbeitsvektoren,
+Attention, Logits, Tokenizerkopien und die zusätzliche interne Vektorbank.
+
+| Konfiguration | P4LM-Artefakt | PSRAM inkl. angenommener 2-MiB-Reserve |
+| --- | ---: | ---: |
+| Vorhandenes 15M, Kontext 256 | 15.836.365 B | 22.595.226 B |
+| Dasselbe, hypothetisch Kontext 128 | 15.836.365 B | 20.822.682 B |
+| Dasselbe, hypothetisch Kontext 512 | 15.836.365 B | 26.140.314 B |
+| Hypothetisch 12 statt 6 Schichten, sonst gleiche Form | 21.893.581 B | 32.191.386 B |
+
+Die 2-MiB-Reserve ist eine Planungsannahme für Betrieb/Dispatcher, keine Messung
+aller Peaks. Allokatorausrichtung, interne Strukturen/Stacks und Netzwerkspitzen
+brauchen beim echten Kandidaten zusätzlich Prüfung. Die interne Vektorbank
+belegt beim jetzigen Modell 10.752 Bytes internen RAM. Sie ist nicht in PSRAM
+enthalten; die Vergleichsbank dort wird mitgerechnet.
+
+Die hypothetische Zwölf-Schichten-Form zeigt rechnerischen Spielraum bereits
+mit den vorhandenen Geräten. Dafür existiert hier **kein trainierter Checkpoint**.
+Zusätzliche oder duplizierte Schichten wären kein belastbares neues Sprachmodell.
+Kontextänderungen sind ebenfalls nur Budgetrechnungen, keine bereits erzeugten
+Artefakte oder Zusage zur Sprachqualität jenseits des Trainingskontexts.
+
+## Kompatibilität vor Modellgröße
+
+Die jetzige Laufzeit erwartet das implementierte Llama/TinyStories-Schema mit
+gekoppelter Worttabelle/Ausgabematrix, passendem alten Tokenizerformat und INT8-
+Export. RoPE-Basis 10.000, RMS-Epsilon 1e-5 sowie EOS-IDs 1/2 sind im Rechenweg
+festgelegt. Grenzen: Dimension bis 1024, FFN bis 4096, bis 32 Schichten und
+Kontext bis 1024; weitere Teilbarkeits-/Head-Prüfungen im Parser gelten ebenso.
+Ein Modell gleicher Dateigröße ist deshalb nicht automatisch kompatibel.
+
+Die lokal vorhandene Qwen2-Referenzkonfiguration ist kein direkt ladbarer
+Kandidat: FFN 4864 über der Grenze, RoPE-Basis 1.000.000, RMS-Epsilon 1e-6 und
+Specialtoken-ID 31997. Sie würde einen eigenen Architektur-/Tokenizer-Port
+benötigen. Die alte lokale Referenz ist auch keine geprüfte aktuelle Modellwahl.
+
+## Empfohlener nächster Modellversuch
+
+Zuerst einen echten vortrainierten Kandidaten derselben unterstützten
+Architekturfamilie auswählen. Dimensionen, Lizenz, Gewichte und Tokenizer prüfen;
+P4LM-Größe und Speicherbudget **vor** dem Flashen berechnen. Größer als das
+jetzige Modell ist möglich, wenn das gesamte Artefakt und alle Laufzeitpuffer
+je Board passen. Sprachqualität und Geschwindigkeit mit festen Eingaben prüfen.
+TinyStories ist englische Textfortsetzung und kein bereits geprüfter deutscher
+Dialogassistent; größer allein garantiert diese Fähigkeiten ebenfalls nicht.
+
+Falls der gewünschte Kandidat das Budget überschreitet: zwischen echtem
+Modell-Sharding (Loader, Speicher und KV pro Rolle aufteilen) und einem neuen
+Q4-Rechenkern entscheiden. Q4 würde eine neue Quantisierungs-/Genauigkeitsprüfung
+benötigen; die Tokenidentität aus V3 darf darauf nicht übertragen werden. Diese
+beiden Änderungen nicht gleichzeitig mit einem Modellwechsel bewerten.
+
+Die jetzige Empfehlung lautet: **erst einen kompatiblen trainierten Kandidaten
+und dessen Budget festlegen**, dann laden und messen. Ein drittes Board ist
+für diesen nächsten Versuch keine Voraussetzung. Auswahl/Download des konkreten
+Kandidaten bleibt der nächste abgegrenzte Arbeitsschritt.
+
+Werkzeug: `tools/model_memory_budget.py`, Standardbibliothek, lokale Metadaten.
+Ein neuer Test vergleicht Artefakt-/Gewichts-/KV-Größe mit dem echten Export
+und prüft die lineare KV-Zunahme bei größerem Kontext. Keine neue Hardware-
+Ladefreigabe aus rein statischen Zahlen ableiten.
+
+
+Qualitätsnachtrag: Die [Zehn-Aufgaben-Prüfung](textqualitaet-v1-2026-10-29.md)
+zeigt Grenzen beider Geschichtenmodelle bei Fragen und allgemeinen Anweisungen.
+Für eine spätere Assistentenfunktion sollte die nächste Auswahl deshalb ein
+allgemeineres Instruktions-Trainingsziel verlangen; größere Parameterzahl allein
+ist kein ausreichendes Auswahlkriterium. SFT bleibt für Geschichtenexperimente aktiv.

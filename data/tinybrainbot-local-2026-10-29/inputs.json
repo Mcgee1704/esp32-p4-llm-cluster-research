@@ -1,0 +1,225 @@
+{
+  "facts": [
+    {
+      "id": "T01",
+      "user": "Which farm animal is commonly kept for its wool? Answer briefly.",
+      "answers": [
+        "sheep"
+      ]
+    },
+    {
+      "id": "T02",
+      "user": "What is the opposite of night? Answer briefly.",
+      "answers": [
+        "day",
+        "daytime"
+      ]
+    },
+    {
+      "id": "T03",
+      "user": "What is the largest planet in our solar system? Answer briefly.",
+      "answers": [
+        "Jupiter"
+      ]
+    },
+    {
+      "id": "T04",
+      "user": "What is Earth's natural satellite called? Answer briefly.",
+      "answers": [
+        "Moon"
+      ]
+    },
+    {
+      "id": "T05",
+      "user": "What should a driver normally do at a red traffic light? Answer briefly.",
+      "answers": [
+        "stop"
+      ]
+    },
+    {
+      "id": "T06",
+      "user": "How many wheels does a standard tricycle have? Answer briefly.",
+      "answers": [
+        "three",
+        "3"
+      ]
+    },
+    {
+      "id": "T07",
+      "user": "How many legs does a typical spider have? Answer briefly.",
+      "answers": [
+        "eight",
+        "8"
+      ]
+    },
+    {
+      "id": "T08",
+      "user": "How many sides does a square have? Answer briefly.",
+      "answers": [
+        "four",
+        "4"
+      ]
+    },
+    {
+      "id": "T09",
+      "user": "How many seconds are in one minute? Answer briefly.",
+      "answers": [
+        "sixty",
+        "60"
+      ]
+    },
+    {
+      "id": "T10",
+      "user": "How many hours are in one day? Answer briefly.",
+      "answers": [
+        "twenty-four",
+        "twenty four",
+        "24"
+      ]
+    },
+    {
+      "id": "T11",
+      "user": "At sea level, at what temperature does pure water boil in degrees Celsius? Answer briefly.",
+      "answers": [
+        "one hundred",
+        "100"
+      ]
+    },
+    {
+      "id": "T12",
+      "user": "How many months are in a year? Answer briefly.",
+      "answers": [
+        "twelve",
+        "12"
+      ]
+    },
+    {
+      "id": "T13",
+      "user": "What is the capital of Germany? Answer briefly.",
+      "answers": [
+        "Berlin"
+      ]
+    },
+    {
+      "id": "T14",
+      "user": "What is the currency of Japan? Answer briefly.",
+      "answers": [
+        "yen"
+      ]
+    },
+    {
+      "id": "T15",
+      "user": "On which planet do humans live? Answer briefly.",
+      "answers": [
+        "Earth"
+      ]
+    },
+    {
+      "id": "T16",
+      "user": "Which organ pumps blood around the human body? Answer briefly.",
+      "answers": [
+        "heart"
+      ]
+    },
+    {
+      "id": "T17",
+      "user": "Which gas do plants absorb from the air during photosynthesis? Answer briefly.",
+      "answers": [
+        "carbon dioxide",
+        "CO2",
+        "CO\u2082"
+      ]
+    },
+    {
+      "id": "T18",
+      "user": "What sweet food do honeybees make? Answer briefly.",
+      "answers": [
+        "honey"
+      ]
+    },
+    {
+      "id": "T19",
+      "user": "Which part of the face do people primarily use to smell? Answer briefly.",
+      "answers": [
+        "nose"
+      ]
+    },
+    {
+      "id": "T20",
+      "user": "What is the opposite of large? Answer briefly.",
+      "answers": [
+        "small"
+      ]
+    }
+  ],
+  "exact": [
+    {
+      "id": "A01",
+      "user": "Reply with exactly this lowercase word and nothing else: violet",
+      "exact": "violet"
+    },
+    {
+      "id": "A02",
+      "user": "Reply with exactly these two lowercase words and nothing else: gentle rain",
+      "exact": "gentle rain"
+    },
+    {
+      "id": "A03",
+      "user": "Reply with exactly this lowercase word and nothing else: copper",
+      "exact": "copper"
+    },
+    {
+      "id": "A04",
+      "user": "Reply with exactly these three lowercase words and nothing else: map leaf stone",
+      "exact": "map leaf stone"
+    }
+  ],
+  "grounded": [
+    {
+      "id": "G01",
+      "user": "The key is in the drawer. Where is the key? Answer briefly.",
+      "answers": [
+        "drawer"
+      ]
+    },
+    {
+      "id": "G02",
+      "user": "Sam has a green bag. What color is Sam's bag? Answer briefly.",
+      "answers": [
+        "green"
+      ]
+    },
+    {
+      "id": "G03",
+      "user": "Ada has two coins and gives one coin to Bo. How many coins does Ada have left? Answer briefly.",
+      "answers": [
+        "one",
+        "1"
+      ]
+    },
+    {
+      "id": "G04",
+      "user": "Read this note: The meeting is on Tuesday. On which day is the meeting? Answer briefly.",
+      "answers": [
+        "Tuesday"
+      ]
+    }
+  ],
+  "known": [
+    {
+      "id": "K01",
+      "user": "How many wheels does a standard bicycle have?",
+      "answers": [
+        "two",
+        "2"
+      ],
+      "prior_case": "N2; already observed in Supra research"
+    },
+    {
+      "id": "K02",
+      "user": "Reply with exactly one word: blue.",
+      "exact": "blue",
+      "prior_case": "N6; already observed in Supra research"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "coordinator_expanded_bytes": 29216772,
+  "worker_expanded_bytes": 28365056,
+  "coordinator_KV_bytes": 2097152,
+  "worker_KV_bytes": 4194304,
+  "excludes": "Network, heap fragmentation, dispatcher buffers and runtime; no compressed flash artifact or C/device kernel exists for group64"
+}

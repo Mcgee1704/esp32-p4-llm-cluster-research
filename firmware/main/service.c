@@ -1,4 +1,5 @@
 #include "app.h"
+#include "model_storage.h"
 #include "esp_http_server.h"
 #include "esp_http_client.h"
 #include "esp_ota_ops.h"
@@ -33,7 +34,7 @@ static const char *key=CONFIG_CLUSTER_KEY;
 static int reboot_pending;
 static volatile int restart_phase,restart_create_result,restart_heap_ok;
 static TaskHandle_t restart_worker;
-extern size_t model_load_free_psram,model_load_largest_psram,model_load_requested;
+extern size_t model_load_free_psram,model_load_largest_psram,model_load_requested,model_load_stored;
 typedef struct {
     int64_t master_compute,stream,rpc_total,open,write,wait,read,worker_compute;
     unsigned calls,connections,worker_reports;
@@ -120,13 +121,16 @@ static esp_err_t status(httpd_req_t *r) {
     cJSON_AddNumberToObject(j,"restart_create_result",restart_create_result);
     cJSON_AddNumberToObject(j,"restart_heap_ok",restart_heap_ok);
     if(model)cJSON_AddStringToObject(j,"architecture",ts_architecture(model));
+    if(model)cJSON_AddStringToObject(j,"tokenizer",ts_tokenizer_kind(model));
     cJSON_AddStringToObject(j,"model_error",model_error);
     cJSON_AddBoolToObject(j,"worker_busy",rpc_active(worker));
     cJSON_AddNumberToObject(j,"free_psram",heap_caps_get_free_size(MALLOC_CAP_SPIRAM));
+    cJSON_AddNumberToObject(j,"min_free_psram",heap_caps_get_minimum_free_size(MALLOC_CAP_SPIRAM|MALLOC_CAP_8BIT));
     cJSON_AddNumberToObject(j,"largest_psram_block",heap_caps_get_largest_free_block(MALLOC_CAP_SPIRAM|MALLOC_CAP_8BIT));
     cJSON_AddNumberToObject(j,"model_load_free_psram",model_load_free_psram);
     cJSON_AddNumberToObject(j,"model_load_largest_psram",model_load_largest_psram);
     cJSON_AddNumberToObject(j,"model_load_requested",model_load_requested);
+    cJSON_AddNumberToObject(j,"model_stored_bytes",model_load_stored);
     cJSON_AddNumberToObject(j,"free_internal",heap_caps_get_free_size(MALLOC_CAP_INTERNAL|MALLOC_CAP_8BIT));
     cJSON_AddNumberToObject(j,"min_free_internal",heap_caps_get_minimum_free_size(MALLOC_CAP_INTERNAL|MALLOC_CAP_8BIT));
     cJSON_AddNumberToObject(j,"largest_internal",heap_caps_get_largest_free_block(MALLOC_CAP_INTERNAL|MALLOC_CAP_8BIT));
@@ -134,7 +138,11 @@ static esp_err_t status(httpd_req_t *r) {
     if(model){const ts_config *c=ts_config_get(model);cJSON_AddNumberToObject(j,"layers",c->layers);
         cJSON_AddNumberToObject(j,"context",c->context);cJSON_AddNumberToObject(j,"dim",c->dim);
         char sha[65];for(int i=0;i<32;i++)sprintf(sha+i*2,"%02x",ts_model_id(model)[i]);
-        cJSON_AddStringToObject(j,"model_id",sha);}
+        cJSON_AddStringToObject(j,"model_id",sha);
+        for(int i=0;i<32;i++)sprintf(sha+i*2,"%02x",ts_artifact_id(model)[i]);
+        cJSON_AddStringToObject(j,"artifact_id",sha);cJSON_AddNumberToObject(j,"role",ts_role(model));
+        cJSON_AddNumberToObject(j,"first_layer",ts_first_layer(model));cJSON_AddNumberToObject(j,"end_layer",ts_end_layer(model));
+        cJSON_AddNumberToObject(j,"quant_bits",ts_quant_bits(model));}
     esp_ota_img_states_t state;
     bool pending=esp_ota_get_state_partition(esp_ota_get_running_partition(),&state)==ESP_OK&&state==ESP_OTA_IMG_PENDING_VERIFY;
     cJSON_AddBoolToObject(j,"ota_pending",pending);
@@ -195,9 +203,11 @@ static esp_err_t line(httpd_req_t *r,cJSON *j) {
     if(e==ESP_OK)e=httpd_resp_send_chunk(r,"\n",1);
     return e;
 }
+#include "microbench.h"
 static esp_err_t generate(httpd_req_t *r) {
     if(!allowed(r)||!idle(r))return ESP_OK;
     if(!model)return error(r,"503 Service Unavailable",model_error);
+    if(ts_role(model)==2)return error(r,"409 Conflict","Layer worker cannot generate text; use coordinator");
     if(!r->content_len||r->content_len>2048)return error(r,"400 Bad Request","Request too long");
     char body[2049];if(receive(r,body,r->content_len))return ESP_FAIL;body[r->content_len]=0;
     int64_t start=esp_timer_get_time();
@@ -214,6 +224,11 @@ static esp_err_t generate(httpd_req_t *r) {
     if(!cJSON_IsString(prompt)||strlen(prompt->valuestring)>1024||
        !cJSON_IsNumber(limit)||limit->valuedouble<1||limit->valuedouble>128||limit->valuedouble!=limit->valueint||
        (peer&&!cJSON_IsString(peer))) {cJSON_Delete(j);return error(r,"400 Bad Request","Invalid prompt, peer or token limit");}
+    if(ts_role(model)==1&&(!peer||!*peer->valuestring)) {
+        char saved[16];if(!dispatcher_model_peer(saved)){cJSON_Delete(j);return error(r,"409 Conflict","Coordinator requires its configured layer worker");}
+        if(peer)cJSON_DeleteItemFromObjectCaseSensitive(j,"peer");
+        peer=cJSON_AddStringToObject(j,"peer",saved);
+    }
     cJSON *kernel=cJSON_GetObjectItemCaseSensitive(j,"kernel");
     int mode=TS_KERNEL_DEFAULT;
     if(kernel) {
@@ -226,7 +241,7 @@ static esp_err_t generate(httpd_req_t *r) {
     if(!tokens){cJSON_Delete(j);return error(r,"500 Internal Server Error","Out of memory");}
     int count=ts_encode(model,prompt->valuestring,tokens,(int)c->context+1026),steps=limit->valueint;
     if(count<1||count+steps-1>(int)c->context){free(tokens);cJSON_Delete(j);return error(r,"400 Bad Request","Prompt plus output exceeds model context");}
-    esp_http_client_handle_t client=NULL;rpc_header h={.magic=RPC_MAGIC,.command=1,.session=esp_random()|1u,.split=c->layers/2,.dim=c->dim};
+    esp_http_client_handle_t client=NULL;rpc_header h={.magic=RPC_MAGIC,.command=1,.session=esp_random()|1u,.split=ts_role(model)==1?ts_end_layer(model):c->layers/2,.dim=c->dim};
     memcpy(h.model,ts_model_id(model),32);
     if(peer&&*peer->valuestring) {
         struct in_addr ip;
@@ -261,7 +276,7 @@ static esp_err_t generate(httpd_req_t *r) {
             profile.master_compute+=esp_timer_get_time()-phase;
             if(!first)first=esp_timer_get_time();
             if(ts_is_eos(model,next)){ended=1;break;}
-            const char *piece=ts_decode(model,token,next);size_t length=ts_decode_length(model,token,next);char hex[1025];
+            size_t length;const char *piece=ts_decode_output(model,token,next,produced,&length);char hex[1025];
             for(size_t i=0;i<length;i++)sprintf(hex+i*2,"%02x",(unsigned char)piece[i]);
             hex[length*2]=0;
             cJSON *item=cJSON_CreateObject();cJSON_AddStringToObject(item,"bytes_hex",hex);
@@ -330,7 +345,8 @@ static esp_err_t model_upload_inner(httpd_req_t *r) {
     if(!p||r->content_len<128||r->content_len>p->size)return error(r,"400 Bad Request","Invalid model length");
     uint8_t header[128];if(receive(r,header,sizeof header))return ESP_FAIL;
     uint32_t w,t;memcpy(&w,header+36,4);memcpy(&t,header+40,4);
-    if((memcmp(header,"P4LM0001",8)&&memcmp(header,"P4GN0001",8))||w>r->content_len-128||t!=r->content_len-128-w)return error(r,"400 Bad Request","Wrong model format");
+    if((memcmp(header,"P4LM0001",8)&&memcmp(header,"P4GN0001",8)&&memcmp(header,"P4QS0001",8)&&memcmp(header,"P4ZL0001",8))||w>r->content_len-128||t!=r->content_len-128-w)return error(r,"400 Bad Request","Wrong model format");
+    size_t expanded;if(!model_storage_header(header,r->content_len,&expanded))return error(r,"400 Bad Request","Invalid storage envelope");
     /* Invalidate on flash first; old in-RAM model is replaced only after upload.
      * Header is written last: power loss cannot mark a partial file as complete. */
     size_t erase=(r->content_len+4095)&~(size_t)4095;
@@ -343,12 +359,12 @@ static esp_err_t model_upload_inner(httpd_req_t *r) {
     mbedtls_sha256_finish(&hash,digest);mbedtls_sha256_free(&hash);
     if(memcmp(digest,header+48,32))return error(r,"400 Bad Request","Model hash mismatch; re-upload required");
     if(esp_partition_write(p,0,header,sizeof header)!=ESP_OK)return error(r,"500 Internal Server Error","Model commit failed");
-    if(!memcmp(header,"P4GN0001",8)) {
+    if(!memcmp(header,"P4GN0001",8)||!memcmp(header,"P4QS0001",8)||!memcmp(header,"P4ZL0001",8)) {
         /* A large replacement can exceed the live heap's largest block despite
          * sufficient total free PSRAM. Load the committed model before network
          * allocations on a fresh boot; retain maintenance until that reboot. */
         reboot_pending=1;
-        httpd_resp_sendstr(r,"GPT-Neo model verified and committed. Rebooting to load it.");
+        httpd_resp_sendstr(r,"Model verified and committed. Rebooting to load it.");
         schedule_restart();return ESP_OK;
     }
     model_load();if(!model)return error(r,"400 Bad Request",model_error);
@@ -389,6 +405,7 @@ void service_start(void) {
     const httpd_uri_t routes[]={
         {.uri="/",.method=HTTP_GET,.handler=index_page},
         {.uri="/api/status",.method=HTTP_GET,.handler=status},
+        {.uri="/api/microbench",.method=HTTP_POST,.handler=microbench},
         {.uri="/api/generate",.method=HTTP_POST,.handler=generate},
         {.uri="/api/rpc",.method=HTTP_POST,.handler=rpc_handler},
         {.uri="/api/model",.method=HTTP_POST,.handler=model_upload},

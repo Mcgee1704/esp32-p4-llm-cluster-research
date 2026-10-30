@@ -1,0 +1,74 @@
+# Prospektive Prüfung der Cluster-Simulation V1
+
+29.10.2026, Fortsetzung nach Commit `6f3d278`. Ziel: die eingefrorene Simulation
+an neuen Texten real prüfen und die nächste Textmodell-Stufe vorbereiten.
+Schreibbereich: Prüf-/Budgetwerkzeuge, ein Budgettest, lokale Artefakte,
+Forschungsunterlagen und Journal. Firmware und Modell blieben unverändert.
+
+## Vorhersage vor der realen Ausführung
+
+Drei neue englische Textanfänge, sechs Aufträge mit 16/8/24/32/8/24 neuen
+Tokens. Die lokalen Tokenizerzählungen ergeben 15, 21 und 40 Prompttokens;
+keine Vorab-Inferenz auf den Boards. Damit liegen die Merkmale innerhalb des
+bisher kalibrierten Größenbereichs, aber die Texte und Reihenfolge sind neu.
+
+Parametersatz V1 unverändert aus dem vorherigen Commit geladen. Vor **jedem
+Gerätezugriff** speicherte das Prüfprogramm sämtliche Eingaben, nominale
+Ankunftszeiten (20 ms Abstand), Kriterien und Vorhersagen für ein, zwei und
+drei Knoten. SHA-256 dieses Plans:
+`a4999ed6afafb0622ce0ec426ec5aa993cfde145c173bd93ed7d11a0692bba00`.
+Die lokale Modell-/Tokenizerdatei wurde ausschließlich für die Zählung geöffnet.
+Danach erst Statusprüfung und reale Ausführung: zunächst zwei Boards,
+anschließend nur der Master. Kein Anpassen der Parameter nach den Ergebnissen.
+Prüfkriterium vorher im Plan: maximal 10 % absoluter Paketzeitfehler.
+
+| Betriebsart | Vorab vorhergesagt | Real gemessen | Abweichung |
+| --- | ---: | ---: | ---: |
+| Zwei Boards | 27,583 s | 27,480 s | +0,38 % |
+| Nur Master | 53,615 s | 52,973 s | +1,21 % |
+
+Beide Prüfungen bestanden. Alle zwölf Aufträge vollständig fertig; alle
+angeforderten Ausgabelängen erreicht. Für jeden der sechs Fälle stimmen die
+vollständigen Tokenfolgen zwischen Ein- und Zwei-Board-Ausführung exakt überein.
+Damit war die vorher festgelegte Längenannahme diesmal erfüllt. Frühes EOS
+hätte das nominale Vorhersagemodell ungültig gemacht und wäre sichtbar berichtet
+worden, statt die Vorhersage unbemerkt zu ersetzen.
+
+Das Programm speichert zusätzlich eine klar als nachträglich bedingt bezeichnete
+Simulation mit echten Annahmezeiten/Ausgabelängen. Die obige Bewertung verwendet
+nur die vorher eingefrorenen Werte. Master/Worker unverändert Firmware 0.4.0,
+tile4, dasselbe Modell, Boot-IDs vor/nach gleich. Peer-Konfiguration nach der
+vorübergehenden lokalen Ausführung wiederhergestellt, alle Aufträge abgeschlossen.
+
+## Bedeutung für den dritten Knoten
+
+Die vorab eingefrorene Drei-Knoten-Rechnung für diesen neuen Auftragssatz
+beträgt 22,149 s. Sie ist noch ungemessen und ersetzt nicht das vorherige
+Szenario V1 (31,165 s für dessen anderen Auftragssatz). Gute Ergebnisse mit
+zwei Boards bestätigen weder den dritten Dispatcherplatz noch ausbleibende
+zusätzliche Netzwerk-/Masterlast.
+
+Eine neue Reihenfolge mit zwei zusammenhängenden Bursts, keine Randomisierung
+und nur eine Wiederholung pro Betriebsart. Keine statistische Fehlerschranke.
+Die Auswahl neuer Texte wurde nach Kenntnis der vorigen explorativen Prüfung
+getroffen; nur die konkreten jetzigen Ausführungen sind prospektiv vorhergesagt.
+Das Zeitmodell ist weiterhin nur für vergleichbare Längen/Modellversionen geprüft.
+
+## Artefakte und Wiederholung
+
+- [Unveränderter Plan mit Vorhersagen](data/prospective-v1-2026-10-29/frozen-plan.json)
+- [Vergleich und Statusnachweise](data/prospective-v1-2026-10-29/report.json)
+- [Reale Zwei-Board-Aufträge](data/prospective-v1-2026-10-29/cluster-jobs.json)
+- [Reale Ein-Board-Aufträge](data/prospective-v1-2026-10-29/local-jobs.json)
+- [Speicherbilanz](data/prospective-v1-2026-10-29/memory-budget.json)
+- [Prüfsummen](data/prospective-v1-2026-10-29/sha256-manifest.json)
+- [Konsequenzen für das nächste Textmodell](textmodell-naechste-stufe.md)
+
+```powershell
+& .local/tooling/idf-tools/python_env/idf5.5_py3.12_env/Scripts/python.exe tools/prospective_simulation_check.py node-1 node-2 .local/prospective-repeat
+```
+
+Benötigt ein frisches Verzeichnis, native lokale Bibliothek und vorhandene
+Modellartefakte. Keine parallelen Aufträge während des Vergleichs. Das Programm
+stellt die vorherige Peer-Konfiguration wieder her, sobald keine Arbeit mehr
+aktiv ist. Kein Modell-/Firmwareupload oder externer Datentransfer.

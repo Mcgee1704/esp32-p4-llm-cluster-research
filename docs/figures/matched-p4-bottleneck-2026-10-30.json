@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-30",
+  "title": "matched-p4-bottleneck",
+  "width": 1600,
+  "height": 1110,
+  "source_sha256": {
+    "docs/research/data/matched-p4-2026-10-30/bottleneck-analysis.json": "a27bbeaa9c2bdba8b2302dec40e0c7f819ec5edc6fc63fd73722a0e68ae92719",
+    "docs/research/data/matched-p4-2026-10-30/timing-runs.json": "2597b778207698ce2e4ba2c4ba360307a9f465c687fd76ad4e06c86cf298b089",
+    "tools/plot_p4_compare.py": "2598da92c3e75876c9291a40e15ef944a6b64ec5361616bb62effa475819cdad",
+    "tools/p4_compare_results.py": "781e6bec9dbc15dc828c62ff89df40e766b436f00d9e5ea2b20f15bfbc931034",
+    "tools/analyze_p4_bottleneck.py": "f2c123e9dbae74effc185127a70f0b48403c58e5a2d66ef404bd3f6a431edf9c"
+  },
+  "notes": "Real two-P4 records, same firmware/kernel/quantization. Same unblinded author, small fixed quality sample. Timing n=3 paired blocks; observed ranges, no confidence interval, energy or general ranking claim. Different model vocabularies/content retained."
+}

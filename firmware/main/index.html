@@ -5,12 +5,12 @@
 <p><a id="clusterLink">Open automatic job dispatcher</a></p>
 <section><label>LAN key <input id="key" type="password" autocomplete="off"></label><button id="refresh">Load status</button><pre id="status">Enter the key from your local installation package.</pre></section>
 <section><h2>Generate text</h2><label>Prompt <textarea id="prompt">Once upon a time</textarea></label>
-<label>Worker-IP <input id="peer" placeholder="Empty = this board only"></label>
+<label>Worker-IP <input id="peer" placeholder="Leer = gespeicherter Worker bei geteiltem Modell"></label>
 <label>New tokens <input id="tokens" type="number" min="1" max="128" value="32"></label>
 <button id="run">Start</button><pre id="output"></pre><pre id="metrics"></pre>
-<small>With a worker IP: first model half here, second half on the worker. Both need the same model and LAN key.</small></section>
-<section><h2>LAN updates</h2><p>Firmware updates write the inactive slot and reboot. A model upload replaces the current model file. Das Laden eines GPT-Neo-Modells startet das Board ebenfalls neu.</p>
-<label>Modell (.p4lm / .p4gn) <input id="model" type="file" accept=".p4lm,.p4gn"></label><button id="modelUpload">Load model</button>
+<small>Geteilte Modelle benötigen beide Boards. Eine leere Worker-IP verwendet dann die gespeicherte Adresse. Beide Modellteile müssen zusammenpassen.</small></section>
+<section><h2>LAN updates</h2><p>Firmware updates write the inactive slot and reboot. A model upload replaces the current model file. GPT-Neo und geteilte Modelle starten das Board nach dem Upload ebenfalls neu.</p>
+<label>Modell (.p4lm / .p4gn / .p4qs / .p4zl) <input id="model" type="file" accept=".p4lm,.p4gn,.p4qs,.p4zl"></label><button id="modelUpload">Load model</button>
 <label>Firmware (.bin, matching chip revision) <input id="firmware" type="file" accept=".bin"></label><button id="firmwareUpload">Update firmware</button><pre id="update"></pre></section>
 <script>
 const $=id=>document.getElementById(id);

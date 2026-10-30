@@ -1,0 +1,623 @@
+[
+  {
+    "case": "S1",
+    "source_precision_float32_compute": {
+      "tokens": [
+        290,
+        32451,
+        381,
+        290,
+        18906,
+        42,
+        227,
+        227,
+        76,
+        552,
+        423,
+        568,
+        8794,
+        354,
+        395,
+        2139
+      ],
+      "eos": false,
+      "text": " the carrot with the rabbit.\n\nPip was so excited that he took"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "S2",
+    "source_precision_float32_compute": {
+      "tokens": [
+        9912,
+        376,
+        316,
+        290,
+        494,
+        608,
+        42,
+        1793,
+        14062,
+        376,
+        1032,
+        42,
+        1793,
+        14062,
+        376,
+        1032
+      ],
+      "eos": false,
+      "text": " tied it to the kite. She flew it again. She flew it again"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "S3",
+    "source_precision_float32_compute": {
+      "tokens": [
+        290,
+        1951,
+        312,
+        286,
+        4994,
+        10897,
+        42,
+        1793,
+        3922,
+        592,
+        317,
+        3013,
+        286,
+        4994,
+        42,
+        1793
+      ],
+      "eos": false,
+      "text": " the sound of a bird singing. She looked up and saw a bird. She"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "S4",
+    "source_precision_float32_compute": {
+      "tokens": [
+        286,
+        20081,
+        315,
+        584,
+        6109,
+        42,
+        781,
+        423,
+        286,
+        572,
+        312,
+        584,
+        665,
+        40,
+        317,
+        395
+      ],
+      "eos": false,
+      "text": " a chill in his chest. He was a man of his time, and he"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "Q1",
+    "source_precision_float32_compute": {
+      "tokens": [
+        361,
+        8030,
+        1839,
+        286,
+        1951,
+        42,
+        227,
+        227,
+        17570,
+        54,
+        361,
+        8030,
+        1839,
+        286,
+        1951,
+        42
+      ],
+      "eos": false,
+      "text": " A cow makes a sound.\n\nAnswer: A cow makes a sound."
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "Q2",
+    "source_precision_float32_compute": {
+      "tokens": [
+        361,
+        21301,
+        19652,
+        42,
+        227,
+        25558,
+        54,
+        361,
+        21301,
+        19652,
+        42,
+        227,
+        25558,
+        54,
+        361,
+        21301
+      ],
+      "eos": false,
+      "text": " A ripe banana.\nBot: A ripe banana.\nBot: A ripe"
+    },
+    "int4_matches_C": true,
+    "same_as_source": true
+  },
+  {
+    "case": "Q3",
+    "source_precision_float32_compute": {
+      "tokens": [
+        249,
+        45,
+        46,
+        13112,
+        227,
+        227,
+        17570,
+        54,
+        249,
+        45,
+        46,
+        227,
+        227,
+        481,
+        16806,
+        338
+      ],
+      "eos": false,
+      "text": " 12 wheels\n\nAnswer: 12\n\nThe bicycle is"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "Q4",
+    "source_precision_float32_compute": {
+      "tokens": [
+        361,
+        3230,
+        2564,
+        1209,
+        529,
+        62,
+        414,
+        10904,
+        30,
+        227,
+        227,
+        62,
+        414,
+        10904,
+        338,
+        286
+      ],
+      "eos": false,
+      "text": " A baby dog called \"Babylon\"\n\nBabylon is a"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "Q5",
+    "source_precision_float32_compute": {
+      "tokens": [
+        361,
+        2757,
+        1847,
+        42,
+        227,
+        227,
+        854,
+        290,
+        4201,
+        312,
+        290,
+        2649,
+        6323,
+        40,
+        290,
+        5762
+      ],
+      "eos": false,
+      "text": " A hot thing.\n\nIn the context of the original sentence, the opposite"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "Q6",
+    "source_precision_float32_compute": {
+      "tokens": [
+        249,
+        45,
+        46,
+        5903,
+        227,
+        227,
+        481,
+        2321,
+        534,
+        249,
+        45,
+        46,
+        5903,
+        42,
+        227,
+        227
+      ],
+      "eos": false,
+      "text": " 12 legs\n\nThe cat has 12 legs.\n\n"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "I1",
+    "source_precision_float32_compute": {
+      "tokens": [
+        529,
+        69,
+        1876,
+        447,
+        1776,
+        349,
+        1054,
+        316,
+        337,
+        1236,
+        30,
+        227,
+        227,
+        69,
+        1876,
+        447
+      ],
+      "eos": false,
+      "text": " \"I'm not sure I want to be here\"\n\nI'm not"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "I2",
+    "source_precision_float32_compute": {
+      "tokens": [
+        3690,
+        2456,
+        3826,
+        227,
+        227,
+        38,
+        3690,
+        2456,
+        3826,
+        227,
+        38,
+        3690,
+        2456,
+        3826,
+        227,
+        38
+      ],
+      "eos": false,
+      "text": " Red green blue\n\n* Red green blue\n* Red green blue\n*"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "I3",
+    "source_precision_float32_compute": {
+      "tokens": [
+        12560,
+        338,
+        286,
+        1781,
+        7552,
+        354,
+        3864,
+        645,
+        290,
+        2173,
+        460,
+        4505,
+        338,
+        12287,
+        430,
+        290
+      ],
+      "eos": false,
+      "text": " Rain is a natural phenomenon that occurs when the Earth's atmosphere is heated by the"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "C2",
+    "source_precision_float32_compute": {
+      "tokens": [
+        469,
+        8165,
+        338,
+        734,
+        2321,
+        460,
+        1522,
+        42,
+        227,
+        18494,
+        54,
+        1577,
+        338,
+        511,
+        2321,
+        460
+      ],
+      "eos": false,
+      "text": " Luna is my cat's name.\nUser: What is your cat's"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "U1",
+    "source_precision_float32_compute": {
+      "tokens": [
+        390,
+        13970,
+        1164,
+        338,
+        249,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        42,
+        227
+      ],
+      "eos": false,
+      "text": " The serial number is 123456789.\n"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "D1",
+    "source_precision_float32_compute": {
+      "tokens": [
+        450,
+        288,
+        1072,
+        830,
+        12437,
+        1569,
+        42,
+        227,
+        227,
+        83,
+        372,
+        3936,
+        7984,
+        1448,
+        7710,
+        328
+      ],
+      "eos": false,
+      "text": " Ein Reife Banane.\n\nWelche Farbe hat e"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "N1",
+    "source_precision_float32_compute": {
+      "tokens": [
+        61,
+        21301,
+        19652,
+        338,
+        286,
+        1740,
+        312,
+        4282,
+        354,
+        338,
+        21301,
+        645,
+        376,
+        338,
+        3973,
+        21301
+      ],
+      "eos": false,
+      "text": "A ripe banana is a type of fruit that is ripe when it is fully ripe"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "N2",
+    "source_precision_float32_compute": {
+      "tokens": [
+        61,
+        2631,
+        16806,
+        534,
+        249,
+        46,
+        13112,
+        40,
+        249,
+        46,
+        16299,
+        40,
+        317,
+        249,
+        46,
+        13112
+      ],
+      "eos": false,
+      "text": "A standard bicycle has 2 wheels, 2 tires, and 2 wheels"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "N3",
+    "source_precision_float32_compute": {
+      "tokens": [
+        61,
+        3230,
+        2564,
+        338,
+        286,
+        8161,
+        312,
+        2564,
+        354,
+        11925,
+        315,
+        290,
+        1470,
+        1576,
+        317,
+        338
+      ],
+      "eos": false,
+      "text": "A baby dog is a breed of dog that originated in the United States and is"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "N4",
+    "source_precision_float32_compute": {
+      "tokens": [
+        481,
+        5762,
+        312,
+        2757,
+        338,
+        3335,
+        42,
+        545,
+        6181,
+        40,
+        290,
+        5762,
+        312,
+        286,
+        2757,
+        1680
+      ],
+      "eos": false,
+      "text": "The opposite of hot is cold. In physics, the opposite of a hot object"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "N5",
+    "source_precision_float32_compute": {
+      "tokens": [
+        61,
+        5069,
+        2321,
+        534,
+        1108,
+        249,
+        46,
+        44,
+        41,
+        46,
+        49,
+        5903,
+        40,
+        4977,
+        355,
+        512
+      ],
+      "eos": false,
+      "text": "A typical cat has around 20-25 legs, depending on their"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "N6",
+    "source_precision_float32_compute": {
+      "tokens": [
+        21521,
+        29,
+        20507,
+        263,
+        282,
+        20507,
+        263,
+        282,
+        20507,
+        263,
+        282,
+        20507,
+        263,
+        282,
+        20507,
+        263
+      ],
+      "eos": false,
+      "text": "Sure! \ud83c\udf1f \ud83c\udf1f \ud83c\udf1f \ud83c\udf1f \ufffd"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  },
+  {
+    "case": "N7",
+    "source_precision_float32_compute": {
+      "tokens": [
+        481,
+        18906,
+        423,
+        6366,
+        355,
+        290,
+        4780,
+        40,
+        5846,
+        290,
+        564,
+        19852,
+        42,
+        781,
+        423,
+        286
+      ],
+      "eos": false,
+      "text": "The rabbit was sitting on the grass, watching the other rabbits. He was a"
+    },
+    "int4_matches_C": true,
+    "same_as_source": false
+  }
+]

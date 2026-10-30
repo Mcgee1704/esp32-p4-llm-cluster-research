@@ -1,0 +1,65 @@
+{
+  "firmware": "0.7.0",
+  "firmware_bytes": 806800,
+  "firmware_sha256": "c867d87215cbee256fcf35213b8c539e4ed5d950e3beb2e063d36394e1bd6141",
+  "rollback_sha256": "f7cc70a2c71631b415d870004a26e3e86134855abd85e491a1f708ba693c1c9d",
+  "old_model_id": "1e84bed3091324dca22294f002d6babbc7ca5db8728dac58a5e241bc4ef5008c",
+  "new_model_id": "0a0ab7c4fd5cc1cea3f77f77c104ce0684ccdc37db1149aa78a9bdb742a716f3",
+  "old_control_prompt": "<|im_start|>user\nWhat is the capital of Germany? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+  "old_control": {
+    "tokens": [
+      481,
+      3420,
+      312,
+      4095,
+      338,
+      290,
+      3304,
+      312
+    ],
+    "text": "The capital of Germany is the City of",
+    "eos": false,
+    "prompt_tokens": [
+      5,
+      12374,
+      227,
+      1557,
+      338,
+      290,
+      3420,
+      312,
+      4095,
+      59,
+      11366,
+      12041,
+      42,
+      6,
+      227,
+      5,
+      593,
+      8422,
+      227
+    ]
+  },
+  "host_report_sha256": "e509d9dafac7a9a7d06bbae56426e69c398ffd42f75761048400ce1109b6519c",
+  "artifact_report_sha256": "6096ed437897ff915fa6b3d285eed67763e3d9a6a77a9cd41206640acfe8d8f0",
+  "trial_script_sha256": "29799037086a0ab00623b3648de2cf8d55b0bf46ba52c8c2ba4480e7c46c5891",
+  "steps": "Worker OTA with Supra; distributed old control; master OTA with Supra/control; worker then master genuine Tiny model; device cases/queue/timing/Unicode; long-input rejection; master same-image OTA/control.",
+  "long_input_case": {
+    "id": "L01",
+    "prompt": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "tokens": 1,
+    "expected_http": 400,
+    "reason": "258 input tokens exceed context256; encoder temporary allocation exercised before rejection"
+  },
+  "device_sequence": [
+    "T03",
+    "T06",
+    "T13",
+    "A01",
+    "G02",
+    "K01"
+  ],
+  "generation_cap": 16,
+  "timing_comparison": "None. Fixed T13 request, actual EOS lengths reported; no speedup baseline."
+}

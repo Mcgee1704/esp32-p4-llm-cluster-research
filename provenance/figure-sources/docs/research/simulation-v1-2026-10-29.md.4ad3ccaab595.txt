@@ -1,0 +1,104 @@
+# P4-Cluster: Simulationsmodell V1 vom 29.10.2026
+
+## Umfang und vor der Berechnung festgelegte Methode
+
+Fortsetzung nach Rechenkern V3, Ausgangscommit `2789505`. Schreibbereich:
+lokales Simulationsprogramm, drei Tests, Ergebnisartefakte, Bericht und Journal.
+Keine Firmware-/Geräteänderung und keine neuen Netzwerkaufträge. Grundlage sind
+zwölf bereits gemessene reale Aufträge mit Firmware 0.4.0 und Rechenkern tile4.
+
+Parameter werden ausschließlich aus sechs als Kalibrierung markierten Aufträgen
+bestimmt. Drei nichtnegative Koeffizienten modellieren die Backendzeit als
+`Konstante + a × (Prompttokens − 1) + b × Ausgabetokens`. Wegen nur zwei reinen
+Worker-Stichproben wird keine eigene Dreiparameterkurve je Rolle angepasst.
+Die Backendkurve ist gemeinsam; Weiterleitungsresiduum, erste Vergabeverzögerung
+und Lücke zwischen Aufträgen werden als Median je Zielrolle bestimmt.
+Das trennt Rollen begrenzt, bildet aber keine unterschiedliche Backendkurve ab.
+
+Eine Ereignissimulation vergibt FIFO an den frühesten verfügbaren Platz;
+bei Gleichstand kommt der Master zuerst. Neue Ankünfte werden berücksichtigt.
+Das Vergabemodell approximiert den Dispatcher, es führt dessen FreeRTOS-Code
+nicht aus. Anlauf-/Nachrückzeiten sind konstante Kalibrierungswerte; insbesondere
+bei langen Leerlaufperioden ist die reale Prüfphase damit nicht genau erfasst.
+
+Explorative Prüfkriterien im Programm: höchstens 10 % Paketzeitfehler und
+höchstens 15 % medianer absoluter Servicezeitfehler für die Zwei-Board-Fälle.
+Der angepasste Parametersatz und die Zwei-Board-Vorhersage werden gespeichert,
+bevor die Bewertung erfolgt; anschließend wird nicht nachangepasst.
+Die vorhandenen Validierungsdaten wurden zuvor bereits zur Bestandsaufnahme
+gesichtet. Deshalb ist dies eine **explorative Prüfung**, keine verblindete
+oder prospektive unabhängige Abnahme. Die sechs Validierungsfälle gehen nicht
+in die Parameterberechnung ein; ein Test prüft dies durch manipulierte Werte.
+
+## Parameter und Prüfung
+
+Die Anpassung ergibt 0 ms Konstante, 141,375 ms pro zusätzlichem Prompttoken
+und 269,193 ms pro Ausgabetoken. Kalibrierungs-RMSE der Backendzeit: 136,30 ms.
+Diese Koeffizienten gelten nur für den beobachteten Bereich: 5–70 Prompttokens,
+8–48 Ausgabetokens, ein Modell und derselbe Rechenkern. Attentionwachstum,
+Hardwaretemperatur, Ausfälle und Energieverbrauch sind nicht separat modelliert.
+
+Weiterleitungsmediane: Master 222,79 ms, Worker 215,51 ms. Erste Vergabe je
+Rolle 253 ms; Nachrücklücke Master 247 ms, Worker 203 ms. Diese Werte sind
+keine isolierten Ethernet-Latenzen. Ihre Rollenunterschiede beruhen auf wenigen
+Stichproben und dürfen nicht als feste Hardwareeigenschaften gelesen werden.
+
+| Prüfung | Gemessen | Simuliert | Zeitfehler |
+| --- | ---: | ---: | ---: |
+| Zwei Boards, reservierter gemischter Sechser-Burst | 42,545 s | 42,624 s | +0,19 % |
+| Ein Board, separates A/B-Paket mit je 24 Tokens | 15,235 s, Median aus vier Blöcken | 15,281 s | +0,30 % |
+
+Medianer absoluter Servicezeitfehler der sechs Validierungsaufträge: **0,79 %**.
+Die Servicebewertung verwendet das tatsächlich beobachtete Ziel; die Paketzeit
+stammt dagegen aus der freien simulierten Vergabe. Die Kriterien sind erfüllt.
+Die gute Übereinstimmung weniger verwandter Fälle ersetzt keine breitere
+Validierung mit neuen Prompts, Ankunftsmustern und Wiederholungen.
+Drei neue Tests bestanden: Handrechnung FIFO/Parallelität, Ankunftszeiten und
+Parameterunabhängigkeit von Validierungswerten. Die Firmware wurde nicht geändert.
+
+## Eingefrorenes Drei-Knoten-Szenario V1
+
+Für denselben gemischten Validierungs-Auftragssatz ergibt die Simulation
+**31,165 s mit drei gegenüber 42,624 s mit zwei Knoten**. Das entspricht
+**1,3677-fachem Durchsatz**, rund 37 % mehr, oder rund 27 % weniger Paketzeit.
+Dies ist eine bedingte Szenariorechnung, keine gemessene Drei-Board-Leistung.
+
+Der zusätzliche Worker übernimmt die Zeitkurve des vorhandenen Workers.
+Annahmen: dritter Dispatcherplatz wird implementiert, keine zusätzliche
+Konkurrenz am Master/Switch, vollständige Modellkopie je Board, bekannte
+Ausgabelängen. EOS wird nicht vorhergesagt. Die Reihenfolge gemischter Jobs
+führt zu ungleicher Auslastung; eine pauschale 1,5-fache Skalierung wird nicht
+angenommen. Ein größeres, über Boards verteiltes Modell wird nicht abgebildet.
+
+Sensitivität: Rechen-/Servicezeit nur des zusätzlichen Workers mit Faktoren
+0,8/1,0/1,2, Anlauf-/Nachrückzeiten mit 0/1/2 multipliziert. Die neun Szenarien
+reichen von **24,615 bis 37,762 s**. Das ist kein statistisches Konfidenzintervall
+und kein garantiertes Fehlerband. Mehr Master-/Netzwerkbelastung kann außerhalb
+dieser Annahmen liegen. Ein belastbares empirisches Fehlerband fehlt noch.
+
+Der Parametersatz und das Szenario sind als V1 eingefroren. Vor dem dritten
+Board sollten neue reale Zwei-Board-Lastfälle prospektiv vorhergesagt und
+geprüft werden. Wenn Board 3 vorhanden und der Dispatcher erweitert ist,
+denselben Auftragssatz mit derselben Firmware-/Modellbasis messen. V1 dabei
+unverändert gegen die echte Paketzeit, Ziele, Warte- und Servicezeiten prüfen;
+Verbesserungen erst als eigene V2 speichern.
+
+## Artefakte und Wiederholung
+
+- [Parametersatz V1](data/simulation-v1-2026-10-29/model-v1.json)
+- [Zwei-Board-Prüfung](data/simulation-v1-2026-10-29/validation.json)
+- [Ein-Board-Prüfung](data/simulation-v1-2026-10-29/one-node-check.json)
+- [Drei-Knoten-Szenario mit Sensitivität](data/simulation-v1-2026-10-29/three-node-scenario-v1.json)
+- [SHA-256-Manifest](data/simulation-v1-2026-10-29/sha256-manifest.json)
+- [Beschreibung der originalen Daten/Uhrdomänen](simulation-datenbasis.md)
+
+```powershell
+& [USER_HOME]/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe tools/simulate_cluster.py .local/simulation-repeat-v1
+```
+
+Nur Standardbibliothek, vorhandene lokale Messdaten, frisches Ausgabeverzeichnis.
+Der Lauf kommuniziert nicht mit Boards oder externen Diensten. Quell-/Datenhash,
+Firmware, Rechenkern und Modellkennung sind im Parametersatz gespeichert.
+Die V3-Nachweise gehören zu Commit `2789505`; neuere Journalstände sind keine
+Änderung dieser historischen Messungen. Alle Ergebnisse und der Abschlusscommit
+bleiben lokal. Der Rechner bleibt eingeschaltet.

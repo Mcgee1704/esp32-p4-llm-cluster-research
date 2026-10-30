@@ -1,0 +1,38 @@
+{
+  "coordinator": {
+    "firmware": "0.6.0",
+    "architecture": "llama",
+    "model_ready": true,
+    "model_id": "ae984137cf48bfbe65353518687fd628b32d1268136520493b8b903b5631fb71",
+    "artifact_id": "24f12592289d0c20ba7635fe832269b3c98226d6f14035e4a9ef37508d0dff57",
+    "role": 1,
+    "first_layer": 0,
+    "end_layer": 4,
+    "quant_bits": 4,
+    "free_psram": 15757332,
+    "largest_psram_block": 15728640,
+    "free_internal": 435791,
+    "min_free_internal": 412443,
+    "model_load_requested": 15169700,
+    "worker_busy": false,
+    "ota_pending": false
+  },
+  "worker": {
+    "firmware": "0.6.0",
+    "architecture": "llama",
+    "model_ready": true,
+    "model_id": "ae984137cf48bfbe65353518687fd628b32d1268136520493b8b903b5631fb71",
+    "artifact_id": "cdcbc3978c7cb2a768c4a50f6a80754d7e9b049a8ab1a38d55e2109352164a93",
+    "role": 2,
+    "first_layer": 4,
+    "end_layer": 12,
+    "quant_bits": 4,
+    "free_psram": 17270816,
+    "largest_psram_block": 16777216,
+    "free_internal": 438227,
+    "min_free_internal": 422315,
+    "model_load_requested": 11985152,
+    "worker_busy": false,
+    "ota_pending": false
+  }
+}

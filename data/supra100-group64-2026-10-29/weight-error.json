@@ -1,0 +1,8 @@
+{
+  "matrix_parameters": 100663296,
+  "weight_rmse": {
+    "row_int4": 0.007842395981744023,
+    "group64_int4": 0.005741727279557552
+  },
+  "scope": "Weight reconstruction only. Lower RMSE does not establish better generated answers."
+}

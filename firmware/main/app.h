@@ -6,6 +6,8 @@ void lan_start(void);
 void lan_stop(void);
 void service_start(void);
 void dispatcher_start(void);
+void dispatcher_model_changed(const ts_state *state);
+int dispatcher_model_peer(char out[16]);
 int dispatcher_maintenance_begin(void);
 void dispatcher_maintenance_end(void);
 void model_load(void);

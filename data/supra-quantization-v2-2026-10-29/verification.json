@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-29",
+  "python": "3.12.14",
+  "numpy": "2.2.6",
+  "openblas_threads": 1,
+  "command": "./tools/test.ps1",
+  "native_build": "Portable baseline C rebuilt with -O2 -Wall -Wextra -Werror -ffp-contract=off; no grouped C implementation.",
+  "tests_passed": 70,
+  "test_seconds": 3.532,
+  "test_log_sha256": "47d6501de2bd5ee2eccadd3170b8d6486423de0ae37195b43285124e1e9db1dd",
+  "native_dll_sha256": "b7b80bfc79f9c0e63ac51f44a01182e6f3b2535427fe3ed361268fb94653044e",
+  "build_script_sha256": "9616ad37821dfb6cd0145b238fe20abd8d16b871295a31ee483b3984083e4ccf",
+  "review": "Author self-review of methods, selection/data identities, decoding, gate, limits and report. No independent agent review; user forbids unrequested subagents.",
+  "figure_review": "Both SVG sources rendered to PNG and inspected visually; no clipping observed.",
+  "base_commit": "c265ceb",
+  "branch": "codex/supra-quantization-v2",
+  "external_transfer": false,
+  "device_writes": 0
+}

@@ -1,0 +1,34 @@
+# Public firmware archive preparation
+
+29 October 2026. User extension to the matched-model publication: include firmware
+versions. Four complete source trees are reconstructed from pinned local Git
+milestones: 0.2.0, 0.3.0, 0.4.0 and 0.5.5. Five new public diagnostic targets
+were compiled: all four for revision 1.x, plus 0.5.5 for revision 3.x.
+
+The 20 app/bootloader/partition/OTA-initialization BIN files are separate,
+empty-key builds, not the private images used in the hardware measurements.
+All five generated configurations have an empty key, enabled build-path/date
+hiding and matching chip-revision bounds. App/bootloader checksums were checked
+with esptool 4.12.0. Source inspection confirms the minimum-key-length guard in
+both service and dispatcher for every version; keyless images block protected
+LAN operations. They require a local build with a private key for cluster use.
+No public image was installed on the research boards; revision 3.x is compile-only.
+No claim of independent repeat-build byte equality is made.
+
+All binary files were scanned for the actual private key and private path/device
+markers; source-tree hashes were verified. SDK/compiler-runtime notices are
+preserved. The cumulative source suite passes 50 tests, including three new
+configuration/marker-admission tests. The matched experiment retains its original
+47-test record. No additional model or performance experiment is implied.
+
+Complete original source trees were not retained for every 0.1.x or 0.5.0-0.5.4
+intermediate diagnostic stage. Their available scientific data/source overlays
+remain documented; private images are excluded. Nothing is relabelled as a
+faithfully rebuilt intermediate version without evidence.
+
+The [catalog](data/firmware-publication-2026-10-29/catalog.json),
+[file hashes](data/firmware-publication-2026-10-29/package-sha256.json) and
+[checks](data/firmware-publication-2026-10-29/validation.json) identify the prepared
+archive. The English public guide is `publication/english/FIRMWARE_VERSIONS.md`.
+Build/package state remains local under `.local/public-firmware/`; verified
+artifacts enter only the prepared sanitized public Git snapshot. No push occurred.

@@ -1,0 +1,13 @@
+{
+  "title": "tinybrainbot-local-setup",
+  "date": "2026-10-29",
+  "width": 1600,
+  "height": 1110,
+  "source_sha256": {
+    "docs/research/data/tinybrainbot-local-2026-10-29/selection.json": "85f7c896a66db4a30d724d76ed797efa8b3f935bd91aeff0fff981e5468b3169",
+    "docs/research/data/tinybrainbot-local-2026-10-29/protocol.json": "504ffb1e13c148d3960ca95f19a9363e408521ee2c247af6528fa7d7f6541006",
+    "docs/research/data/tinybrainbot-local-2026-10-29/math-report.json": "e2bccdf9c33f7f07509575cd1840ec2742c8e1fd389dee573d8c128cedf8ee79",
+    "tools/tinybrainbot_results.py": "8718004e5c99ee385a005cd024d48a10921a076a16f6e616ddb63c48d5cdcfba"
+  },
+  "notes": "Actual offline workflow and a conditional future two-P4 memory estimate. No P4 execution or tokenizer implementation implied. Synthetic-tokenizer C diagnostic verifies numeric weights only."
+}

@@ -1,0 +1,75 @@
+{
+  "measurements": [
+    {
+      "mode": "read_internal_small",
+      "timed_us": 2906,
+      "calls": 42,
+      "logical_bytes": 1032192,
+      "uint_checksum": 35385344,
+      "float_checksum": 0
+    },
+    {
+      "mode": "read_psram_small",
+      "timed_us": 3089,
+      "calls": 42,
+      "logical_bytes": 1032192,
+      "uint_checksum": 35385344,
+      "float_checksum": 0
+    },
+    {
+      "mode": "read_psram_large",
+      "timed_us": 80540,
+      "calls": 8,
+      "logical_bytes": 8388608,
+      "uint_checksum": 3491758080,
+      "float_checksum": 0
+    },
+    {
+      "mode": "unpack_internal",
+      "timed_us": 41421,
+      "calls": 42,
+      "logical_bytes": 1032192,
+      "uint_checksum": 4293935104,
+      "float_checksum": 0
+    },
+    {
+      "mode": "unpack_psram_stream",
+      "timed_us": 48317,
+      "calls": 42,
+      "logical_bytes": 1032192,
+      "uint_checksum": 4293935104,
+      "float_checksum": 0
+    },
+    {
+      "mode": "matrix_internal",
+      "timed_us": 68195,
+      "calls": 42,
+      "logical_bytes": 1032192,
+      "uint_checksum": 0,
+      "float_checksum": 5208
+    },
+    {
+      "mode": "matrix_psram_small",
+      "timed_us": 68347,
+      "calls": 42,
+      "logical_bytes": 1032192,
+      "uint_checksum": 0,
+      "float_checksum": 5208
+    },
+    {
+      "mode": "matrix_psram_stream",
+      "timed_us": 75256,
+      "calls": 42,
+      "logical_bytes": 1032192,
+      "uint_checksum": 0,
+      "float_checksum": 5208
+    }
+  ],
+  "valid": true,
+  "run": 0,
+  "core": 1,
+  "matrix_reference": 124,
+  "scan_small_reference": 4091287552,
+  "scan_large_reference": 4194566144,
+  "unpack_reference": 4294942720
+}

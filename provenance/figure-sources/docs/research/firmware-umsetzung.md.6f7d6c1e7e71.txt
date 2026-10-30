@@ -1,0 +1,35 @@
+# Firmwarepaket ohne SD-Karte
+
+Auftrag 29.10.2026: TinyStories zunächst auf einem P4, danach auf zwei P4;
+spätere Bedienung und Updates ausschließlich über LAN. Nachfolgende Ergänzung:
+Der Master erhält eine 16-GB-SD-Karte. Die erste Firmware benötigt sie noch
+nicht; SD-Archiv und Messprotokolle sind ein späteres Paket.
+
+## Pakete
+
+1. `tools/`, `tests/`, `firmware/components/tinyllm/`: überprüfbarer INT8-Export,
+   portabler C-Inferenzkern und lokale Tests. Abnahme: Golden-Vergleich gegen
+   unabhängige NumPy-Rechnung sowie identische Ergebnisse bei Schichtaufteilung.
+2. `firmware/`: ESP-IDF 5.5.4, interner Modell-Flash, PSRAM, Ethernet/IP101,
+   lokale Weboberfläche, Firmware-OTA mit zwei App-Slots. Abnahme: echter
+   P4-Crossbuild, Partitionsbudget und Fehlerpfade; Gerätetest separat.
+3. Ethernet-Worker mit Modellidentität und Sitzungsprüfung: gleiche Firmware
+   für Solo und Zweierbetrieb. Abnahme: Host-Transporttest und P4-Build;
+   tatsächlicher LAN-/Hardwareversuch steht ohne angeschlossene Boards aus.
+
+Werkzeuge und heruntergeladene öffentliche Quellen bleiben unter `.local/`.
+Kein Flashen, kein Push und keine externe Übertragung von Projektinhalten.
+Der C6 wird für diese Ethernet-Firmware nicht benötigt.
+
+## Grenzen der ersten Fassung
+
+Die erste Installation geschieht später einmalig über USB. Danach erfolgen
+Bedienung sowie Firmware- und Modellübertragung lokal über LAN. Automatisches
+Flashen fabrikneuer Nachbarboards über USB ist ein eigener späterer Schritt.
+Die dauerhafte USB-/PoE-Versorgung bleibt unabhängig davon ungeprüft.
+
+Ein Modellbereich spart Speicher gegenüber zwei Modellkopien. Ein abgebrochenes
+Modellupdate darf deshalb die Inferenz sperren, die LAN-Verwaltung muss aber
+weiterlaufen und einen erneuten Upload ermöglichen. Firmware-Updates verwenden
+hingegen zwei Slots mit Bootprüfung und Rollback. Firmware-Rollback kann keine
+überschriebene Modelldatei wiederherstellen.

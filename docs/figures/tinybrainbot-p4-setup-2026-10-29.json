@@ -1,0 +1,14 @@
+{
+  "title": "tinybrainbot-p4-setup",
+  "date": "2026-10-29",
+  "width": 1600,
+  "height": 1050,
+  "source_sha256": {
+    "docs/research/data/tinybrainbot-p4-2026-10-29/model-artifacts.json": "6096ed437897ff915fa6b3d285eed67763e3d9a6a77a9cd41206640acfe8d8f0",
+    "docs/research/data/tinybrainbot-p4-2026-10-29/final.json": "709d51ee1a9d5aeb0fc7a8b3511a6e91132f57c37c56c49f7aa57a29cb044e5e",
+    "docs/research/data/tinybrainbot-p4-2026-10-29/protocol.json": "2d2c84a576e166636d82c976ae45bd63533c40b7046aa63888cf618d4a699738",
+    "docs/research/data/tinybrainbot-p4-2026-10-29/build-receipt.json": "5bca49be9b551e2a01e3578a370b3ba753c2c40f4792f75e2de0beab98608778",
+    "tools/plot_tinybrainbot_p4.py": "5313baa2d8fca8b4460dda742eea41c831b1a0f88ceaf27168f9d1f1db6e72ca"
+  },
+  "notes": "Local English figure. Real two-P4 acceptance; latency is descriptive, n=3, no confidence interval or controlled speedup. Host equivalence is not answer correctness. Configured clocks are not physical measurements."
+}

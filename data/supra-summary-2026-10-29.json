@@ -1,0 +1,28 @@
+{
+  "supra50": {
+    "decomposition": "components from median-wall-time run",
+    "elapsed_seconds": 43.181967,
+    "range_seconds": [
+      43.16108800000001,
+      43.199766000000004
+    ],
+    "master_compute_seconds": 18.768994,
+    "worker_compute_seconds": 23.871492,
+    "remaining_seconds": 0.541481000000001,
+    "prompt_tokens": 20,
+    "decode_tokens_per_second": 0.6773467388983208
+  },
+  "supra100": {
+    "decomposition": "components from median-wall-time run",
+    "elapsed_seconds": 85.441626,
+    "range_seconds": [
+      85.19091800000001,
+      85.467758
+    ],
+    "master_compute_seconds": 35.557383,
+    "worker_compute_seconds": 49.241895,
+    "remaining_seconds": 0.6423479999999984,
+    "prompt_tokens": 20,
+    "decode_tokens_per_second": 0.3537711819315944
+  }
+}

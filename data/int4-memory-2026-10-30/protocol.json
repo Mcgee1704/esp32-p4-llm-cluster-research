@@ -1,0 +1,26 @@
+{
+  "scope": "Single core1 synthetic microbench on both real P4s; separate workloads, not additive causal decomposition of inference.",
+  "firmware": "0.8.0 diagnostic then restore0.7.0; genuine TinyBrainBot model unchanged",
+  "runs": 6,
+  "first_run": "warmup excluded",
+  "order": "rotated eight modes per run; coordinator then worker on even runs, reversed odd",
+  "small_bytes": 24576,
+  "psram_bytes": 1048576,
+  "matrix": "64 rows x768 columns INT4 tile4; float x internal; scale1; sum-order retained per row;42 calls",
+  "memory": "volatile uint32 sequential sum;8 full scans for1MiB;42 small scans",
+  "unpack": "signed nibble integer sum without multiplication;42 tiles",
+  "limitations": [
+    "Internal/PSRAM small may be cache-resident;1MiB traversal is streaming footprint, not proven cold cache",
+    "Logical bytes/s is kernel throughput, not physical bus bandwidth",
+    "Single core isolates placement effects; does not measure dual-core inference directly",
+    "Synthetic repeat256 data and vector are not model distribution; compiler may optimize constant shifts",
+    "Time sums bounded chunks and excludes explicit yields; scheduler interruptions inside chunks remain",
+    "No subtraction of scan time from matmul to claim pure arithmetic time"
+  ],
+  "restore": "worker then coordinator to private0.7.0, same Tiny roles; distributed four-token control and idle check",
+  "source_sha256": {
+    "firmware/main/microbench.h": "c291be9b82613e9b7ce44540c908d7740293ff9964c25122316a18ef2560ba9b",
+    "firmware/main/service.c": "7de21be4c16ba247eb0886d1afb33adb3b38b6d5059648b72971fff52732fa74",
+    "firmware/CMakeLists.txt": "feb2e77f1c332e6f6d71e6efec2a1db191f0eed21673d6cee0aea063fed623fb"
+  }
+}

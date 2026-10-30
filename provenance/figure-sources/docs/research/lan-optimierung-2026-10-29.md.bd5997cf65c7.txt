@@ -1,0 +1,248 @@
+# Warum zwei P4 langsamer sind: LAN-Untersuchung
+
+## Fragestellung und Versuchsplan
+
+Ausgangsbefund: Mit TinyStories-15M, Prompt `Once upon a time` und 24 neuen
+Tokens benötigt ein P4 im Median 20,895 s, das Paar 33,982 s (+62,63 %).
+Alle Token-IDs stimmen überein. Gesucht wird die Ursache der zusätzlichen
+Latenz und eine überprüfbare Verringerung durch Änderungen am LAN-Transport.
+
+Unverändert bleiben Boards, Modell, Quantisierung, Takt, Prompt, Tokenzahl,
+Greedy-Auswahl und Aufteilung der sechs Schichten in 3+3. Die erste Fassung
+verarbeitet die Schichten derselben Anfrage nacheinander; allein durch diese
+Aufteilung ist keine gleichzeitige Berechnung dieser abhängigen Schichten möglich.
+
+Hypothesen vor der Änderung:
+
+1. Wiederholter Verbindungsaufbau erzeugt wesentlichen Mehraufwand.
+2. Kleine getrennte TCP-Schreibvorgänge verursachen Wartezeiten, etwa durch
+   das Zusammenspiel von Nagle und verzögerten TCP-Bestätigungen.
+3. Die Rechenzeit auf dem Worker oder der Versand des Textstroms erklärt
+   einen relevanten Teil des Unterschieds.
+
+Vorgehen: zuerst Diagnosefirmware ohne Transportänderung, danach jeweils
+eine Transportänderung und derselbe Vergleich. Messinstrumentierung bleibt
+zwischen diesen Schritten identisch. Frühere 0.1.0-Messungen dienen als
+historischer Bezug, die instrumentierte unveränderte Variante als Kontrolle.
+
+## Messdefinitionen
+
+- `master_compute_ms`: Embedding, lokale Schichten, Ausgabekopf und Argmax;
+  Zeitintervalle auf dem Master, einschließlich möglicher Task-Unterbrechungen.
+- `worker_compute_ms`: Summe der im Worker gemessenen Dispatcher-Aufrufe;
+  enthält auch Sitzungsbeginn/-ende und Cache-Reset. Zeit als HTTP-Header.
+- `rpc_total_ms`: gesamte Dauer aller RPCs auf dem Master.
+- `rpc_open_ms`: Öffnen der Verbindung und Senden der HTTP-Header, gemäß
+  tatsächlichem ESP-IDF-Aufruf; keine reine TCP-Handshake-Zeit.
+- `rpc_write_ms`: Schreiben des RPC-Rumpfs.
+- `rpc_wait_headers_ms`: Warten bis zum Empfang der Antwortheader. Enthält
+  Worker-Rechenzeit und Transport-/Scheduling-Verzögerungen.
+- `rpc_read_ms`: Lesen und Prüfen des Antwortkörpers.
+- `stream_ms`: Senden der Text-Token an den anfragenden Rechner.
+- `connections`: tatsächlich gemeldete neue Client-Verbindungen.
+- `worker_reports` und `rpc_calls`: Kontrolle der Vollständigkeit der Messwerte.
+
+`rpc_total_ms - worker_compute_ms` ist ein Maß für den RPC-Overhead, keine
+reine Leitungslaufzeit. Er enthält HTTP-Verarbeitung, Scheduling, Kopien,
+Senden/Empfangen und TCP-Wartezeiten. Die Uhren der Boards werden nicht
+synchronisiert; addiert werden lokal gemessene Dauern, keine Uhrzeitdifferenzen.
+Eine kausale Zuordnung zu konkreten TCP-Paketen erfordert einen Paketmitschnitt.
+
+## Erste Transportprobe vor Firmwareänderung
+
+Vom Windows-Rechner an Board 2 wurden je fünf Sitzungen mit BEGIN und END,
+also zehn kleine RPCs ohne Modellschichten, gesendet. Jede Antwort wurde
+vollständig gelesen und auf identischen Header geprüft.
+
+| Variante | Median je Anfrage |
+| --- | ---: |
+| Neue Verbindung pro RPC | 55,382 ms |
+| Eine Verbindung wiederverwenden | 46,989 ms |
+
+Das zeigt eine Verzögerung bereits ohne Schichtrechnung. Es erklärt nicht
+allein die P4-zu-P4-Latenz: Windows hat einen anderen TCP-Stack; BEGIN setzt
+zudem den KV-Cache zurück. Diese Probe ist ein Anhaltspunkt, kein Beweis für
+Nagle/Delayed ACK oder für den Anteil am Gesamtergebnis.
+
+Lokaler Rohdatensatz: `.local/transport-probe-before.json`.
+Originalfirmware und Quellstand: `.local/lan-optimization/baseline/`.
+
+## Prüfverfahren
+
+`tools/benchmark_lan.py` speichert jede NDJSON-Rohantwort einschließlich
+Token-IDs vor der Auswertung. Es prüft Tokenzahl, Modus, Fehlermeldungen,
+identische Tokenfolge, vollständige Messheader sowie nach Abschluss gleiche
+Modellkennungen und freigegebene Worker. Die Option `--require-reuse` fordert
+genau eine neue Verbindung pro Paarlauf. Ergebnisse bleiben lokal.
+
+Der erste Test gegen Firmware 0.1.0 scheiterte erwartungsgemäß an fehlenden
+Profilwerten; das belegt die neue Diagnose-Anforderung vor ihrer Implementierung.
+
+## Ergebnisse der kontrollierten Änderungen
+
+Je Firmware drei Solo- und drei Paarläufe, immer Solo/Paar im Wechsel.
+Alle 18 Läufe erzeugen exakt dieselben 24 Token-IDs, auch im Vergleich zum
+historischen 0.1.0-Lauf. Die folgenden Werte sind Mediane der jeweils drei
+Läufe; Spannweiten und Einzelwerte stehen in den verlinkten Daten.
+
+| Firmware / Änderung | Solo | Paar | Erstes Token, Paar | RPC-Overhead, Paar | Neue Verbindungen |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 0.1.1: nur Messinstrumentierung, alter Transport | 20,895 s | 33,986 s | 4,739 s | 13.082,353 ms | 30 |
+| 0.1.2: zusätzlich TCP_NODELAY auf beiden RPC-Sockets | 20,896 s | 21,485 s | 2,336 s | 565,262 ms | 30 |
+| 0.1.3: zusätzlich Verbindung bis Sitzungsende wiederverwenden | 20,895 s | 21,092 s | 2,097 s | 186,020 ms | 1 |
+
+Der RPC-Overhead wurde **pro Lauf** als Differenz berechnet und anschließend
+der Median gebildet. Er ist nicht die Differenz zweier separat gebildeter
+Mediane. Die Profilkomponenten sind ebenfalls separat aggregiert; ihre Mediane
+müssen sich deshalb nicht exakt zum Median der Gesamtzeit addieren.
+
+Spannweiten der Paar-Gesamtzeiten:
+
+- 0.1.1: 32,551–33,987 s.
+- 0.1.2: 21,298–21,485 s.
+- 0.1.3: 21,067–21,114 s.
+
+0.1.3 reduziert die Paar-Gesamtzeit gegenüber 0.1.1 um **37,94 %**, den
+RPC-Overhead um **98,58 %**. Gegenüber 0.1.2 beträgt der zusätzliche Rückgang
+der Gesamtzeit **1,83 %**. Der Nachteil gegenüber Solo fällt von **62,65 %**
+auf **0,94 %**. Das Paar ist in diesem Versuch weiterhin geringfügig langsamer.
+
+## Erklärung: was nachgewiesen ist
+
+**Die Modellrechnung wurde nicht wesentlich langsamer.** Im Kontrolllauf
+0.1.1 liegt die lokale Rechenzeit auf dem Master bei rund 16,468 s und die
+Worker-Rechenzeit bei 4,405 s. Zusammen entspricht das nahezu den 20,867 s
+reiner Solo-Rechenzeit. Der Tokenversand zum PC benötigt nur rund 22 ms.
+Damit erklären weder eine wesentlich teurere Modellrechnung noch der Versand
+des Ergebnisses die zusätzlichen rund 13 Sekunden.
+
+**Die Verbindungsöffnungen waren nicht der Hauptfaktor.** Trotz 30 neuen
+Verbindungen beträgt `rpc_open_ms` im Kontrolllauf nur rund 78 ms. Der Großteil
+der RPC-Zeit liegt im Warten auf Antwortheader. Dieses Warten enthält die
+4,405 s Worker-Rechnung, aber darüber hinaus viel Transportverzögerung.
+
+**Die TCP-Sendepolitik ist der dominante beeinflussbare Faktor.** In 0.1.2
+bleiben alle 30 Verbindungen, die Rechenaufteilung und das Antwortformat
+erhalten. Allein `TCP_NODELAY` auf den beiden RPC-Sockets entfernt den
+überwiegenden Mehraufwand. Die kontrollierte Änderung stützt die kausale
+Zuordnung zur TCP-Pufferung sehr deutlich. Die Wiederverwendung in 0.1.3
+reduziert danach den kleineren verbleibenden Aufwand weiter.
+
+## Erklärung des Mechanismus und verbleibende Unsicherheit
+
+Der lokal verwendete ESP-IDF-5.5.4-Code schreibt HTTP-Header und Nutzdaten
+in getrennten kleinen Schreibvorgängen. Ein RPC-Schritt enthält 64 Bytes
+Header und 288 FP32-Aktivierungen, also insgesamt 1.216 Bytes Nutzdaten pro
+Richtung. Das liegt unter der konfigurierten TCP-MSS von 1.440 Bytes.
+
+Ohne `TCP_NODELAY` kann Nagle weitere kleine Sendungen zurückhalten, solange
+vorherige Daten unbestätigt sind. Der Empfänger kann seinerseits die Bestätigung
+verzögern. Das erzeugt bei einem synchronen Anfrage-Antwort-Protokoll Wartezeiten,
+obwohl die zu übertragende Datenmenge klein ist. Der konfigurierte lwIP-TCP-Timer
+beträgt 250 ms; verzögerte Bestätigungen werden in `tcp_fasttmr()` behandelt.
+Die Summe mehrerer solcher Wartephasen über 30 RPCs passt zum gemessenen Effekt.
+
+Diese Mechanismuserklärung stützt sich auf Quellcode und kontrollierte
+Socket-Änderung. **Ein Paketmitschnitt wurde nicht durchgeführt.** Daher sind
+die exakte Anzahl verzögerter ACKs, die Aufteilung auf Anfrage/Antwort und
+die Ursache der höheren Ersttokenzeit in späteren Kontrollläufen nicht
+paketgenau bewiesen. Auch die Wirkung von NODELAY am Master und am Worker
+wurde nicht getrennt voneinander gemessen; geprüft wurde die gemeinsame
+RPC-Socket-Einstellung als ein Versuchsparameter.
+
+Lokal geprüfte Quellen des tatsächlich verwendeten SDK:
+
+- `components/esp_http_client/esp_http_client.c`: `esp_http_client_open`,
+  `esp_http_client_request_send`, `esp_http_client_prepare` und vollständiges Lesen.
+- `components/esp_http_server/src/httpd_txrx.c`: `httpd_resp_send` mit getrennten
+  Schreibvorgängen für Headerfelder und Antwortkörper.
+- `components/lwip/lwip/src/include/lwip/priv/tcp_priv.h`: `tcp_do_output_nagle`.
+- `components/lwip/lwip/src/core/tcp.c`: `tcp_fasttmr` und verzögerte ACKs.
+- `.local/build/rev1/sdkconfig`: `CONFIG_LWIP_TCP_MSS=1440`,
+  `CONFIG_LWIP_TCP_TMR_INTERVAL=250`.
+
+Die SDK-Pfade liegen unter `.local/tooling/esp-idf/`; das SDK wurde nicht geändert.
+
+## Warum zwei Boards danach noch nicht schneller sind
+
+Für dieselbe Anfrage folgen die Schichten weiter aufeinander. Board 2 kann
+seinen Teil erst berechnen, nachdem Board 1 die Aktivierung geschickt hat.
+Board 1 benötigt die Antwort, bevor es das nächste Token bestimmt. Die Summe
+der Rechenarbeit bleibt daher annähernd gleich, zusätzlich bleibt Transport.
+
+Außerdem bedeutet 3+3 Schichten keine gleichmäßige Arbeitsverteilung: Der Master
+übernimmt auch Embedding und Ausgabekopf. Gemessen wurden rund 16,46 s lokale
+Master-Rechnung gegenüber 4,42 s Worker-Rechnung. Wie viel davon allein auf den
+Ausgabekopf entfällt, wurde nicht separat instrumentiert.
+
+Diese Ergebnisse belegen funktionierende verteilte Inferenz mit stark
+reduzierter Kommunikationslatenz. Sie belegen weder einen Durchsatzgewinn bei
+mehreren Anfragen noch eine größere nutzbare Modellkapazität: Beide Geräte
+halten weiterhin das vollständige Modell und den vollständigen KV-Speicher.
+
+## Grenzen und nächste Untersuchungen
+
+Nur drei Wiederholungen pro Modus und Variante, ein Modell, ein Prompt und
+kurze Ausgabe; keine Konfidenzintervalle oder Signifikanzbehauptung. Die
+Varianten wurden in fester Reihenfolge getestet, nicht randomisiert oder im
+A-B-A-Rückwechsel. Hintergrundverkehr, Temperatur, Energiebedarf und ein
+isoliertes Testnetz wurden nicht kontrolliert beziehungsweise gemessen.
+
+Der stabile Solo-Vergleich und der sehr große NODELAY-Effekt stützen den
+Hauptbefund. Der deutlich kleinere Zusatzgewinn durch Verbindungswiederverwendung
+sollte mit längeren, randomisierten Läufen und weiteren Prompts bestätigt werden.
+Ein Paketmitschnitt würde die vermuteten ACK-Wartephasen direkt sichtbar machen.
+Pipeline-Verarbeitung mehrerer unabhängiger Anfragen ist eine separate
+Forschungsfrage; sie wurde hier nicht implementiert.
+
+## Umsetzung, Prüfung und Rückweg
+
+Beide realen Boards laufen jetzt mit **0.1.3**. Die Updates 0.1.1 bis 0.1.3
+wurden über LAN in den jeweils inaktiven OTA-Slot geschrieben. Nach Neustart
+meldeten beide das Modell bereit und `ota_pending: false`. Das bestätigt den
+normalen OTA-Updatepfad und die Selbstbestätigung, nicht den Rückfall bei einem
+abgebrochenen oder fehlerhaften Update. USB lieferte weiterhin Strom.
+
+Die Wiederverwendung erfolgt erst nach vollständigem Empfang und Headerprüfung.
+Bei Sitzungsende, nicht persistenter Serverantwort oder Fehler wird die
+Verbindung geschlossen. Fehlgeschlagene Rechenschritte werden nicht automatisch
+wiederholt, damit der positionsabhängige KV-Cache nicht doppelt fortgeschrieben wird.
+
+Prüfungen:
+
+- Neun portable Tests bestanden, einschließlich unabhängiger Logit-Referenz,
+  RPC-Sitzungsfolge und Replay-Abweisung.
+- ESP-IDF-Builds für Revision 1.x und 3.x erfolgreich; Image-Hashes und
+  Partitionen geprüft. Nur Revision 1.3 wurde auf realer Hardware betrieben.
+- Alle 18 Messläufe erfolgreich, alle Token-IDs mit 0.1.0 identisch.
+- Alle drei finalen Paarläufe: genau eine Verbindung, 30 RPCs und 30 Messheader,
+  RPC-Overhead jeweils unter dem vorab gesetzten Ziel von einer Sekunde.
+- Echte persistente Worker-Verbindung zusätzlich auf falschen Schlüssel,
+  falsches Modell, konkurrierende Sitzung, falsche Position und Replay geprüft.
+  Erwartete HTTP-Fehler 401/409, danach korrekter Schritt und END erfolgreich;
+  Worker anschließend wieder frei. Ein Kabelausfall wurde nicht simuliert.
+
+Die ursprünglichen vollständigen Flash-Sicherungen bleiben unverändert unter
+`.local/device-backups/board1-2026-10-29-rev1_3/` und `board2-2026-10-29-rev1_3/`.
+Die aufeinanderfolgenden App-Images liegen unter `.local/lan-optimization/`.
+Ein späterer Rückwechsel kann ein passendes gesichertes App-Image per LAN
+einspielen; das wurde nach diesem Vergleich nicht ausgeführt.
+
+## Daten und Reproduktion
+
+- [Einzelmessungen als CSV](data/lan-2026-10-29/runs.csv).
+- [Auswertung als JSON](data/lan-2026-10-29/summary.json).
+- [SHA256-Zuordnung der Rohantworten und Firmware-Images](data/lan-2026-10-29/sha256-manifest.json).
+- Unveränderte Rohantworten: `.local/lan-optimization/{instrumented-baseline,nodelay,nodelay-reuse}/`.
+- Fehlerpfad-Nachweis: `.local/lan-optimization/rpc-persistent-error-tests.json`.
+- Auswertecode: `tools/analyze_lan_benchmark.py`; Messcode: `tools/benchmark_lan.py`.
+
+Ein neuer Messlauf mit einem noch nicht vorhandenen Ausgabeverzeichnis:
+
+```powershell
+& .local/tooling/idf-tools/python_env/idf5.5_py3.12_env/Scripts/python.exe tools/benchmark_lan.py node-1 node-2 .local/lan-optimization/neuer-vergleich --repeats 3 --require-profile --require-reuse
+```
+
+Die Benutzerentscheidung, das Warum wissenschaftlich festzuhalten, ist mit
+Hypothesen, Messdefinitionen, kontrollierten Varianten, Rohdaten, Auswertung
+und ausdrücklich benannten Beweisgrenzen umgesetzt. Nichts wurde veröffentlicht.

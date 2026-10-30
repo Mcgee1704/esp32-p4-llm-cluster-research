@@ -1,0 +1,160 @@
+{
+  "boards": {
+    "coordinator": {
+      "read_internal_small": {
+        "n": 5,
+        "median_ms": 2.955,
+        "range_ms": [
+          2.954,
+          2.956
+        ],
+        "median_logical_MiB_per_s": 333.1218274111675
+      },
+      "read_psram_small": {
+        "n": 5,
+        "median_ms": 3.108,
+        "range_ms": [
+          3.104,
+          3.108
+        ],
+        "median_logical_MiB_per_s": 316.72297297297297
+      },
+      "read_psram_large": {
+        "n": 5,
+        "median_ms": 80.534,
+        "range_ms": [
+          80.469,
+          80.699
+        ],
+        "median_logical_MiB_per_s": 99.33692601882434
+      },
+      "unpack_internal": {
+        "n": 5,
+        "median_ms": 40.868,
+        "range_ms": [
+          40.862,
+          41.135
+        ],
+        "median_logical_MiB_per_s": 24.08669374571792
+      },
+      "unpack_psram_stream": {
+        "n": 5,
+        "median_ms": 48.019,
+        "range_ms": [
+          47.984,
+          48.173
+        ],
+        "median_logical_MiB_per_s": 20.499698036194008
+      },
+      "matrix_internal": {
+        "n": 5,
+        "median_ms": 68.146,
+        "range_ms": [
+          68.047,
+          68.215
+        ],
+        "median_logical_MiB_per_s": 14.4450884864849
+      },
+      "matrix_psram_small": {
+        "n": 5,
+        "median_ms": 68.341,
+        "range_ms": [
+          68.209,
+          68.374
+        ],
+        "median_logical_MiB_per_s": 14.403871760729285
+      },
+      "matrix_psram_stream": {
+        "n": 5,
+        "median_ms": 75.298,
+        "range_ms": [
+          75.071,
+          75.304
+        ],
+        "median_logical_MiB_per_s": 13.073056389279929
+      },
+      "matrix_stream_over_internal_ratio": 1.1049511343292342
+    },
+    "worker": {
+      "read_internal_small": {
+        "n": 5,
+        "median_ms": 2.916,
+        "range_ms": [
+          2.914,
+          2.935
+        ],
+        "median_logical_MiB_per_s": 337.57716049382714
+      },
+      "read_psram_small": {
+        "n": 5,
+        "median_ms": 3.071,
+        "range_ms": [
+          3.065,
+          3.073
+        ],
+        "median_logical_MiB_per_s": 320.5389124063823
+      },
+      "read_psram_large": {
+        "n": 5,
+        "median_ms": 80.534,
+        "range_ms": [
+          80.467,
+          80.726
+        ],
+        "median_logical_MiB_per_s": 99.33692601882434
+      },
+      "unpack_internal": {
+        "n": 5,
+        "median_ms": 41.26,
+        "range_ms": [
+          40.936,
+          41.352
+        ],
+        "median_logical_MiB_per_s": 23.85785264178381
+      },
+      "unpack_psram_stream": {
+        "n": 5,
+        "median_ms": 48.388,
+        "range_ms": [
+          48.178,
+          48.403
+        ],
+        "median_logical_MiB_per_s": 20.343370257088534
+      },
+      "matrix_internal": {
+        "n": 5,
+        "median_ms": 68.224,
+        "range_ms": [
+          68.164,
+          68.226
+        ],
+        "median_logical_MiB_per_s": 14.428573522514071
+      },
+      "matrix_psram_small": {
+        "n": 5,
+        "median_ms": 68.389,
+        "range_ms": [
+          68.322,
+          68.391
+        ],
+        "median_logical_MiB_per_s": 14.393762154732487
+      },
+      "matrix_psram_stream": {
+        "n": 5,
+        "median_ms": 75.263,
+        "range_ms": [
+          75.252,
+          75.299
+        ],
+        "median_logical_MiB_per_s": 13.07913583035489
+      },
+      "matrix_stream_over_internal_ratio": 1.1031748358348967
+    }
+  },
+  "primary_mode_samples": 80,
+  "warmup_mode_samples": 16,
+  "scope": "Synthetic single-core scratch kernels; separate workloads, not additive inference decomposition. Logical throughput is not physical bandwidth.",
+  "cache_L2_configured_bytes": 131072,
+  "configured_CPU_MHz": 360,
+  "configured_PSRAM_MHz": 200
+}

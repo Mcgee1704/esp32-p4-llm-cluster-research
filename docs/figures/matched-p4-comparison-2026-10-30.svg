@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1370" viewBox="0 0 1600 1370" role="img">
+<title>TinyBrainBot and Supra2: the same two P4s</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1370" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">TinyBrainBot and Supra2: the same two P4s</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Firmware 0.7.0 | row INT4 | context 256 | 4+8 layers | tile4 / both CPU cores per board | 30 October 2026</text>
+<rect x="48" y="135" width="735" height="365" rx="14" fill="white"/>
+<text x="72" y="178" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Six new factual questions</text>
+<text x="72" y="214" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">First responsive answer / confirmed clean visible response</text>
+<text x="72" y="260" fill="#178476" font-size="23" font-weight="bold" text-anchor="start">TinyBrainBot</text>
+<rect x="72" y="275" width="540" height="15" rx="5" fill="#e3ebef"/>
+<rect x="72" y="275" width="270.0" height="15" rx="5" fill="#adc6d0"/>
+<rect x="72" y="297" width="540" height="15" rx="5" fill="#e3ebef"/>
+<rect x="72" y="297" width="270.0" height="15" rx="5" fill="#178476"/>
+<text x="636" y="294" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">3/6 first</text>
+<text x="636" y="321" fill="#178476" font-size="22" font-weight="bold" text-anchor="start">3/6 clean</text>
+<text x="72" y="358" fill="#7953a6" font-size="23" font-weight="bold" text-anchor="start">Supra2-100M</text>
+<rect x="72" y="373" width="540" height="15" rx="5" fill="#e3ebef"/>
+<rect x="72" y="373" width="270.0" height="15" rx="5" fill="#adc6d0"/>
+<rect x="72" y="395" width="540" height="15" rx="5" fill="#e3ebef"/>
+<rect x="72" y="395" width="180.0" height="15" rx="5" fill="#7953a6"/>
+<text x="636" y="392" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">3/6 first</text>
+<text x="636" y="419" fill="#7953a6" font-size="22" font-weight="bold" text-anchor="start">2/6 clean</text>
+<text x="72" y="472" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">A correct first sentence can be followed by a false claim.</text>
+<rect x="803" y="135" width="749" height="365" rx="14" fill="white"/>
+<text x="827" y="178" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Keep the other criteria separate</text>
+<text x="1174" y="221" fill="#178476" font-size="21" font-weight="bold" text-anchor="start">Tiny</text>
+<text x="1375" y="221" fill="#7953a6" font-size="21" font-weight="bold" text-anchor="start">Supra</text>
+<text x="827" y="268" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Exact requested text</text>
+<text x="1192" y="268" fill="#178476" font-size="24" font-weight="bold" text-anchor="middle">0/2</text>
+<text x="1405" y="268" fill="#7953a6" font-size="24" font-weight="bold" text-anchor="middle">0/2</text>
+<text x="827" y="312" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Given facts: first answer</text>
+<text x="1192" y="312" fill="#178476" font-size="24" font-weight="bold" text-anchor="middle">2/2</text>
+<text x="1405" y="312" fill="#7953a6" font-size="24" font-weight="bold" text-anchor="middle">1/2</text>
+<text x="827" y="356" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Given facts: clean answer</text>
+<text x="1192" y="356" fill="#178476" font-size="24" font-weight="bold" text-anchor="middle">2/2</text>
+<text x="1405" y="356" fill="#7953a6" font-size="24" font-weight="bold" text-anchor="middle">0/2</text>
+<text x="827" y="400" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Full requested story topic</text>
+<text x="1192" y="400" fill="#178476" font-size="24" font-weight="bold" text-anchor="middle">0/2</text>
+<text x="1405" y="400" fill="#7953a6" font-size="24" font-weight="bold" text-anchor="middle">0/2</text>
+<text x="827" y="444" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Visible story resolution</text>
+<text x="1192" y="444" fill="#178476" font-size="24" font-weight="bold" text-anchor="middle">0/2</text>
+<text x="1405" y="444" fill="#7953a6" font-size="24" font-weight="bold" text-anchor="middle">0/2</text>
+<text x="827" y="478" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="start">Supra context: one additional cleanliness judgment uncertain.</text>
+<rect x="48" y="525" width="1504" height="160" rx="14" fill="#dce9f2"/>
+<text x="72" y="568" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">New facts: first-answer counts may tie while response defects differ.</text>
+<text x="72" y="609" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Tiny: frozen water = pond/lake; ears = sight; one blank answer. Supra: Paris plus a false largest-city claim.</text>
+<text x="72" y="650" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Context G01 is a generous Tiny pass without explicit red; strict colour scoring reduces its grounded total by one.</text>
+<text x="48" y="738" fill="#193347" font-size="29" font-weight="bold" text-anchor="start">Shared-prefix speed: equal input lengths and 16 capped output tokens</text>
+<rect x="48" y="765" width="732" height="355" rx="14" fill="white"/>
+<text x="70" y="806" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">B1 · Once upon a time</text>
+<text x="70" y="840" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Input tokens: 4 / 4 | three paired blocks</text>
+<text x="70" y="907" fill="#178476" font-size="21" font-weight="bold" text-anchor="start">TinyBrainBot</text>
+<rect x="218" y="887" width="313.1941379043227" height="27" rx="4" fill="#178476"/>
+<rect x="218" y="887" width="56.61667678712806" height="27" rx="4" fill="#b7cbd4"/>
+<path d="M531.1915438447961 900 L531.2867592891635 900" stroke="#193347" stroke-width="3" fill="none"/>
+<text x="754" y="908" fill="#193347" font-size="22" font-weight="normal" text-anchor="end">51.192 s</text>
+<text x="70" y="986" fill="#7953a6" font-size="21" font-weight="bold" text-anchor="start">Supra2-100M</text>
+<rect x="218" y="966" width="314.54271848262505" height="27" rx="4" fill="#7953a6"/>
+<rect x="218" y="966" width="56.517888392846785" height="27" rx="4" fill="#b7cbd4"/>
+<path d="M531.1638290107035 979 L532.8543727097067 979" stroke="#193347" stroke-width="3" fill="none"/>
+<text x="754" y="987" fill="#193347" font-size="22" font-weight="normal" text-anchor="end">51.412 s</text>
+<text x="70" y="1064" fill="#193347" font-size="22" font-weight="bold" text-anchor="start">Paired latency ratio Supra/Tiny: 1.004</text>
+<text x="70" y="1101" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="start">Pale: first decision. Colour: remaining interval + close.</text>
+<rect x="820" y="765" width="732" height="355" rx="14" fill="white"/>
+<text x="842" y="806" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">B2 · One day, a little girl</text>
+<text x="842" y="840" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Input tokens: 6 / 6 | three paired blocks</text>
+<text x="842" y="907" fill="#178476" font-size="21" font-weight="bold" text-anchor="start">TinyBrainBot</text>
+<rect x="990" y="887" width="339.18271715303865" height="27" rx="4" fill="#178476"/>
+<rect x="990" y="887" width="82.40957584740697" height="27" rx="4" fill="#b7cbd4"/>
+<path d="M1328.3401188979076 900 L1329.2054212919609 900" stroke="#193347" stroke-width="3" fill="none"/>
+<text x="1526" y="908" fill="#193347" font-size="22" font-weight="normal" text-anchor="end">55.440 s</text>
+<text x="842" y="986" fill="#7953a6" font-size="21" font-weight="bold" text-anchor="start">Supra2-100M</text>
+<rect x="990" y="966" width="340.6376786441894" height="27" rx="4" fill="#7953a6"/>
+<rect x="990" y="966" width="82.38624766586274" height="27" rx="4" fill="#b7cbd4"/>
+<path d="M1329.019585069982 979 L1330.677966101695 979" stroke="#193347" stroke-width="3" fill="none"/>
+<text x="1526" y="987" fill="#193347" font-size="22" font-weight="normal" text-anchor="end">55.677 s</text>
+<text x="842" y="1064" fill="#193347" font-size="22" font-weight="bold" text-anchor="start">Paired latency ratio Supra/Tiny: 1.004</text>
+<text x="842" y="1101" fill="#586c7d" font-size="19" font-weight="normal" text-anchor="start">Pale: first decision. Colour: remaining interval + close.</text>
+<text x="48" y="1168" fill="#193347" font-size="23" font-weight="bold" text-anchor="start">Same prompt bytes, same token counts; different token IDs and generated words. This compares deployed systems.</text>
+<text x="48" y="1211" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Three observed repeats per prefix/model; min-max whiskers are not confidence intervals. No thermal or energy data.</text>
+<text x="48" y="1254" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Quality-case durations include different EOS lengths: do not reinterpret their totals as equal-work speedups.</text>
+<text x="48" y="1303" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Small fixed set, same unblinded author. No general model ranking. All complete responses and notes are retained.</text>
+<text x="48" y="1348" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">No material contradiction is a separate story criterion; an off-topic setting can pass it without fulfilling the task.</text>
+</svg>

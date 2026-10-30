@@ -13,6 +13,7 @@ int rpc_dispatch(rpc_state *s,const void *request,size_t bytes,void *response,si
     rpc_header h;memcpy(&h,request,64);const ts_config *c=ts_config_get(s->model);
     if(h.magic!=RPC_MAGIC||h.status||!h.session||h.dim!=c->dim||h.bytes!=bytes-64||
        memcmp(h.model,ts_model_id(s->model),32)||!h.split||h.split>=c->layers)return -1;
+    if(ts_role(s->model)==1||(ts_role(s->model)==2&&h.split!=ts_first_layer(s->model)))return -1;
     if(h.command==1) {
         if(s->active||h.bytes||h.position)return -1;
         if(ts_set_kernel(s->model,TS_KERNEL_DEFAULT))return -1;

@@ -1,0 +1,208 @@
+# Textqualität V1: zehn neue Aufgaben für Baseline und SFT
+
+## Vorab festgelegtes Verfahren
+
+29.10.2026, Ausgangscommit `7503571`. Ziel: nach technisch erfolgreichem
+Modellwechsel Verständlichkeit, Aufgabenerfüllung, Wiederholungen und Beenden
+auf den realen Boards untersuchen. Schreibbereich: lokales Prüfprogramm,
+drei Indikatorentests, Ergebnisse, begründete Bewertung, Bericht und Journal.
+Firmware/Rechenkern bleiben 0.4.0/tile4. Der Abschluss stellt SFT auf beiden
+Boards wieder her und speichert die passende Peer-Modellkennung.
+
+Vor Host-Generierung und Gerätezugriff wurden zehn Eingaben, Limits, Reihenfolge,
+Modellkennungen und Rubrik in protocol.json gespeichert, SHA-256:
+`46d7e80750ba200c8f1c23bc7dcdc434e1b95b660f466b02736b5b36c1206346`.
+Vier Geschichten mit maximal 128 neuen Tokens, drei Fragen und drei
+Anweisungen mit maximal 32 Tokens. Greedy-Decodierung, ein Lauf pro Aufgabe
+und Modell. Gleiche Eingabe und gleiches Limit für beide Modelle.
+
+| Aufgabe | Thema / Anforderung | Kategorie |
+| --- | --- | --- |
+| S1 | Hase teilt Karotte mit hungrigem Freund, positives Ende | Geschichte |
+| S2 | Kind repariert kaputten Drachen, positives Ende | Geschichte |
+| S3 | Mädchen findet verlorene Katze nicht, trauriges Ende | Geschichte |
+| S4 | Sandburg eines Jungen wird vom Meer zerstört, trauriges Ende | Geschichte |
+| Q1 | Geräusch einer Kuh, ein kurzer Satz | Frage |
+| Q2 | Farbe einer reifen Banane, ein kurzer Satz | Frage |
+| Q3 | Übliche Radanzahl eines Fahrrads, ein kurzer Satz | Frage |
+| I1 | Genau das Wort blue | Anweisung |
+| I2 | Genau die Wörter red green blue | Anweisung |
+| I3 | Ein kurzer Satz über Regen, keine Tiere erwähnen | Anweisung |
+
+Die Geschichten verwenden das dokumentierte SFT-Format mit Thema, gewünschtem
+Ende und `### Story:`. Fragen und allgemeine Anweisungen werden als eigene
+Generaliserungsprobe außerhalb des primären SFT-Trainingsziels behandelt.
+Die Runde prüft Englisch; deutsche Sprachqualität wurde nicht geprüft.
+
+## Messung und Bewertung
+
+Zuerst SFT, danach temporär Baseline; feste Reihenfolge zur Begrenzung von
+Flashwechseln, keine Randomisierung der realen Modellreihenfolge. Einreichung
+über den Master in Blöcken zu sechs und vier Aufträgen. Die tatsächlich
+gewählten Zielboards, Wartezeiten, Inferenzzeiten und Tokenzahlen bleiben
+erhalten. Jede Ausgabe wird vollständig mit der jeweiligen portablen C-
+Hostreferenz verglichen. Identität verschiedener Modelle wird nicht verlangt.
+
+Automatische Indikatoren: erreichte Tokenobergrenze, daraus abgeleitetes EOS
+bei kürzerer Ausgabe, Wortzahl, wiederholte Vierwortfolge mindestens dreimal
+oder dreimal dasselbe Wort direkt hintereinander. Bei Fragen wird ein erwartetes
+Antwortsignal in den ersten 20 Wörtern erfasst; das allein beweist keine korrekte
+Antwort. I1/I2 vergleichen die vollständige Ausgabe nach Trimmen und Kleinschreibung.
+I3 ist nur eine Heuristik: ein Satz mit 3–15 Wörtern, rain/rains und keine
+Tiere aus der im Code festgelegten Liste. Manuelle Beurteilung ergänzt dies.
+
+Verständlichkeit: 0 leer/unverständlich, 1 verständlich mit deutlichen
+Widersprüchen/Wiederholungen, 2 zusammenhängendes verständliches Englisch.
+Geschichtenthema: 0 fehlt, 1 teilweise, 2 Thema/Handlung zentral erfüllt.
+Das gewünschte Ende wird nur bei einer mit EOS beendeten Ausgabe beurteilt;
+am Tokenlimit bleibt es nicht beurteilbar. EOS allein garantiert keinen
+sinnvollen inhaltlichen Abschluss. Fragen werden nach erster Antwort und
+Format, Anweisungen anhand der vollständigen Ausgabe beurteilt.
+
+Modellnamen werden pro Aufgabe deterministisch als A/B maskiert. Der gleiche
+Assistent bewertet die Texte und hält Bewertungen vor dem Öffnen der Zuordnung
+fest. Stil und vorherige Modellkenntnis können die Zuordnung trotzdem verraten:
+keine unabhängige oder vollständig verblindete Nutzerstudie. Zehn bewusst
+ausgewählte Aufgaben sind kein repräsentativer Sprachbenchmark.
+
+## Ergebnisse
+
+Alle **20 realen Ausgaben** stimmen vollständig mit der jeweiligen Host-
+Tokenreferenz überein. Beide Boards bearbeiteten Aufgaben. Anschließend wurden
+SFT-Gewichte und Peer-Modellkennung wiederhergestellt; Firmware unverändert,
+Modelle bereit, Boot-IDs vor/nach gleich und keine aktive Dispatcherarbeit.
+
+Die maskierte Bewertung wurde vor dem Öffnen der Zuordnung gespeichert,
+SHA-256 `6bb77bba58ecb7a2186841be628d7a09d9defb6cf17be5ec9600004ae129972c`.
+Das Zusammenführen prüft diesen Hash, den bewerteten Paardatensatz und die
+Übereinstimmung jedes Texts mit seinem tatsächlichen Modell. Alle Einzelnoten
+und Begründungen bleiben einsehbar; sie sind subjektive Assistentenurteile.
+
+| Beobachtung | Baseline | SFT |
+| --- | ---: | ---: |
+| Abgeschlossene Geschichten mit gewünschter Schlussstimmung | 0/4 | 2/4 (S2, S3) |
+| Geschichten am Limit, Ende nicht beurteilbar | 2/4 | 2/4 |
+| Nur Moral statt erzählter Geschichte | 2/4 (S1, S2) | 0/4 |
+| Korrekte erste Sachantwort, unabhängig vom Format | 1/3 (Q1) | 0/3 |
+| Fragen vollständig im verlangten Format erfüllt | 0/3 | 0/3 |
+| Allgemeine Anweisungen vollständig erfüllt | 0/3 | 0/3 |
+| Automatische Wiederholungsmarkierung | 1/10 (Q1) | 0/10 |
+| EOS vor dem Limit, alle Kategorien | 2/10 | 2/10 |
+| Tokenlimit erreicht, alle Kategorien | 8/10 | 8/10 |
+
+Die zwei Baseline-EOS-Fälle sind Moraltexte; die zwei SFT-EOS-Fälle sind
+Erzählungen. Daher bedeutet dieselbe Zahl an Endtokens nicht dieselbe
+inhaltliche Abschlussqualität. SFT erzeugte insgesamt 640 Tokens, die Baseline
+478. Gemittelte Gesamtlaufzeiten wären wegen der verschiedenen Längen kein
+fairer Geschwindigkeitsvergleich.
+
+### Einzelbefunde der Geschichten
+
+- S1: Baseline endet nach 11 Tokens mit einer Moral über Teilen. SFT schreibt
+  128 Tokens über Hase, Karotte und hungrigen Fuchs, zeigt das Teilen aber
+  noch nicht; zudem unstimmiger Bezug der Bitte, nicht gegessen zu werden.
+- S2: Baseline endet nach 19 Tokens mit allgemeiner Vorsichtsmoral. SFT
+  beendet nach 116 Tokens eine positive Drachengeschichte. Reparatur wird
+  behauptet, ohne einen kaputten Drachen oder nachvollziehbaren Reparaturvorgang
+  zu etablieren; deshalb nur teilweise Themenerfüllung.
+- S3: Baseline erzeugt 128 Tokens wiederholten Dialog mit wechselnden Mary-
+  Sprecherrollen. SFT endet nach 76 Tokens traurig. Dass die Katze ursprünglich
+  dem Mädchen gehört und verloren war, wird nicht klar; auch hier Thema nur
+  teilweise erfüllt.
+- S4: Beide bleiben bei 128 Tokens offen. Baseline wechselt zu einem Mädchen
+  und positiver Sandburg-Erzählung. SFT enthält Junge und Meer, aber die Mutter
+  fordert zunächst das Waschen der Burg. Die Zerstörung durch das Meer ist bis
+  zum Abbruch noch nicht gezeigt.
+
+Die zwei passenden SFT-Enden sind damit kein Nachweis vollständig erfüllter
+Geschichtenaufgaben. Beide Modelle zeigen logische oder inhaltliche Schwächen.
+Eine grammatisch verständliche Moral kann bei Verständlichkeit eine gute Note
+haben und zugleich die Geschichtenaufgabe verfehlen; es gibt deshalb keinen
+verdeckten Gesamtscore über alle Kriterien.
+
+### Fragen und Formatanweisungen
+
+Nur die Baseline beginnt bei Q1 korrekt mit dem Kuhgeräusch „moo“, fügt danach
+aber weitere, wiederholte Sätze hinzu. Kein Modell gibt bei Q2 „yellow“ als
+Antwort; bei Q3 antwortet keines korrekt „two“. Die Baseline erwähnt dort vier
+Räder. Beide verfehlen die Vorgabe einer einzigen kurzen, korrekten Antwort.
+
+I1/I2: Kein Modell liefert die verlangte vollständige Wortfolge; stattdessen
+folgen Geschichten oder die Vervollständigung von „blue“ zu „blueberries“.
+I3: Beide liefern mehrere Sätze statt eines kurzen Satzes. Das Wiederholungs-
+Flag ist nur eine festgelegte Schwelle: auch unterhalb davon stehen in den
+manuellen Notizen wiederholte Passagen. Null Flags bedeutet nicht fehlerfreie
+oder wiederholungsfreie Sprache.
+
+## Laufzeiten je Fall
+
+Zeiten sind Backend-Inferenzzeiten einschließlich Promptverarbeitung, ohne
+Master-Warteschlange. Unterschiedliche Zielrollen, Ausgabelängen und die feste
+Modellreihenfolge begrenzen die Interpretation. Die Rohdaten enthalten zusätzlich
+TTFT, Zielboard und Wartezeit; keine Beschleunigungsbehauptung aus dieser Runde.
+
+
+| Fall | Baseline: Tokens / Sekunden | SFT: Tokens / Sekunden |
+| --- | ---: | ---: |
+| S1 | 11 / 7.321 | 128 / 43.491 |
+| S2 | 19 / 8.643 | 116 / 37.052 |
+| S3 | 128 / 42.129 | 76 / 24.823 |
+| S4 | 128 / 40.918 | 128 / 42.500 |
+| Q1 | 32 / 10.540 | 32 / 10.278 |
+| Q2 | 32 / 10.542 | 32 / 10.538 |
+| Q3 | 32 / 11.386 | 32 / 11.407 |
+| I1 | 32 / 9.618 | 32 / 9.628 |
+| I2 | 32 / 9.610 | 32 / 9.623 |
+| I3 | 32 / 10.407 | 32 / 10.399 |
+
+## Entscheidung und Grenzen
+
+SFT bleibt für weitere **Geschichten-/Clusterforschung** auf den Boards.
+Es zeigt hier mehr erzählte Geschichten und zwei passende Abschlüsse als die
+Baseline, ist aber auch in diesem Bereich nicht verlässlich. Für allgemeine
+Fragen und Anweisungen hat die Runde keine belastbare Eignung gezeigt.
+Ein nächster Modellkandidat sollte daher nach Trainingsziel und nachgewiesener
+Instruktionsbefolgung ausgewählt werden, nicht allein nach Parameterzahl.
+Ein größerer TinyStories-Stand würde diese Generalisierung nicht automatisch lösen.
+
+Keine Aussage zur deutschen Sprache, zu sicherheitsrelevanten Anwendungen oder
+zu repräsentativer Gesamtqualität. Nur zehn bewusst ausgewählte Aufgaben,
+eine Wiederholung, ein eigener Assistent als Bewerter, mögliche Entmaskierung
+anhand des Stils. Modellkennungen, Greedy-Decodierung und Ausgabelimits gehören
+zum Befund. Die Rechenoptimierungen wurden hier nicht verändert. Die Firmware beendet bei
+Token-ID 1 oder 2, meldet die tatsächliche Stopp-ID jedoch nicht zurück.
+`eos_inferred` bezeichnet daher nur den aus der kürzeren Ausgabe abgeleiteten
+Engine-Stopp; ein spezifisches EOS-Token wurde nicht getrennt nachgewiesen.
+Die inhaltliche Abschlussbewertung erfolgt zusätzlich anhand des Texts.
+
+Drei neue Indikatorentests bestanden: Limit/EOS-Unterscheidung, strikte
+Vollausgabe und Wiederholungs-/Tiererwähnungsprüfung. Zusätzlich wurden alle
+20 tatsächlichen Ausgaben gegen ihre Hostreferenz und die eingefrorene Bewertung
+gegen ihre Hashes geprüft. Keine C-/Firmwareänderung, daher kein neuer Firmwarebuild.
+
+## Nachweise und Wiederholung
+
+- [Alle Texte nebeneinander, offline](data/quality-v1-2026-10-29/vergleich.html)
+- [Vorabprotokoll](data/quality-v1-2026-10-29/protocol.json)
+- [Maskierte Bewertung und Begründungen](data/quality-v1-2026-10-29/masked-review.json)
+- [Bewertung nach Modellzuordnung](data/quality-v1-2026-10-29/reviewed-results.json)
+- [Zusammenfassung](data/quality-v1-2026-10-29/summary.json)
+- [Hardware-Abschlusszustand](data/quality-v1-2026-10-29/final-state.json)
+- [SHA-256-Manifest](data/quality-v1-2026-10-29/sha256-manifest.json)
+
+Die ursprünglichen Jobantworten, Hostreferenzen, Zuordnung und Join-Provenienz
+liegen im selben Verzeichnis. HTML ist statisch und lädt keine externen Inhalte.
+
+```powershell
+& .local/tooling/idf-tools/python_env/idf5.5_py3.12_env/Scripts/python.exe tools/text_quality_trial.py .local/quality-repeat
+& .local/tooling/idf-tools/python_env/idf5.5_py3.12_env/Scripts/python.exe tools/summarize_text_quality.py .local/quality-repeat
+```
+
+Erster Befehl erwartet beide Boards mit dem aktuellen SFT-Modell und ein
+frisches Verzeichnis. Er wechselt vorübergehend zur Baseline und zurück.
+Keine parallele Nutzung während des Versuchs. Vor dem zweiten Befehl sind neue
+maskierte Bewertungen samt Hash festzuhalten; vorhandene Bewertungen gehören
+nur zu ihren konkreten Ausgaben. Bei einem Fehler mit aktiven Aufträgen wird
+kein Modell über laufende Arbeit geschrieben; nötige Wiederherstellung erst
+nach deren Abschluss. Quellen, Texte, Messungen, Journal und Commit bleiben
+lokal. Keine externen Dienste oder neuen Modelldownloads in dieser Runde.

@@ -1,0 +1,94 @@
+# Erster Vergleich: ein P4 und zwei P4 über LAN
+
+Historischer Ausgangsbefund mit Firmware 0.1.0. Die anschließende
+[Ursachenanalyse und LAN-Optimierung](lan-optimierung-2026-10-29.md) reduziert
+den Paar-Median auf 21,09 s; die ursprünglichen Messwerte bleiben hier erhalten.
+
+Am 29.10.2026 auf zwei echten Waveshare ESP32-P4-WIFI6-POE-ETH durchgeführt.
+Beide P4: Chiprevision 1.3, 360 MHz, 32 MiB Flash, 32 MiB PSRAM.
+USB-C versorgt jedes Board vom Rechner; Ethernet ohne PoE verbindet beide.
+
+## Aufbau
+
+- Master: Board 1, `node-1`.
+- Worker: Board 2, `node-2`.
+- Firmware 0.1.0, gleicher Build auf beiden Boards.
+- TinyStories-15M mit zeilenweise INT8-quantisierten Gewichten;
+  FP32-Aktivierungen und KV-Cache, Kontextlimit 256 Tokens.
+- Fester Prompt `Once upon a time`, jeweils 24 neue Tokens, Greedy-Auswahl.
+- Solo: alle sechs Schichten auf Board 1.
+- Paar: Schichten 0–2 auf Board 1, Schichten 3–5 auf Board 2;
+  Embedding und Ausgabekopf auf Board 1. Aktivierungen über LAN-RPC.
+- Drei Wiederholungen pro Modus in der Reihenfolge Solo/Paar/Solo/Paar/Solo/Paar.
+- Der Rechner stellt Anfragen und protokolliert; die Inferenz läuft auf den P4.
+
+## Messwerte
+
+Zeiten vom Master gemeldet, einschließlich Promptverarbeitung. Kein isolierter
+Decode-Durchsatz. Erstes Token umfasst ebenfalls die Promptverarbeitung.
+
+| Lauf | Solo gesamt | Paar gesamt | Solo erstes Token | Paar erstes Token |
+| --- | ---: | ---: | ---: | ---: |
+| 1 | 20.895,208 ms | 32.558,274 ms | 2.063,070 ms | 3.311,798 ms |
+| 2 | 20.895,399 ms | 33.999,968 ms | 2.063,256 ms | 4.752,503 ms |
+| 3 | 20.895,072 ms | 33.982,061 ms | 2.062,960 ms | 4.735,587 ms |
+| Median | **20.895,208 ms** | **33.982,061 ms** | **2.063,070 ms** | **4.735,587 ms** |
+
+Alle 24 Token-IDs stimmen in allen sechs Läufen exakt überein. Ausgabe:
+
+> , there was a little girl named Lily. She loved to play outside in the sunshine. One day,
+
+Nach allen Läufen melden beide Boards das Modell bereit, keinen belegten
+Worker und jeweils 12.892.852 Bytes freien PSRAM. Die Worker-Sitzungen wurden
+somit regulär freigegeben; die drei Paarläufe ließen sich ohne Reset wiederholen.
+
+## Was daraus folgt
+
+Die Verteilung der Schichten über zwei reale P4 funktioniert für diesen Test.
+Der Median der Gesamtlaufzeit ist im Paar **62,63 % länger** als allein.
+Diese Fassung bringt für eine einzelne Textgenerierung keinen Geschwindigkeitsgewinn.
+
+Die Schichten einer Anfrage laufen nacheinander. Der aktuelle Transport öffnet
+für jeden RPC eine HTTP-Verbindung und schließt sie anschließend. Netzwerk-,
+Verbindungs- und Rechenzeiten wurden noch nicht getrennt gemessen; die genaue
+Ursache des gesamten Mehraufwands lässt sich daher nicht allein diesen Daten
+zuordnen. Auch die höhere Ersttokenzeit in Lauf 2/3 ist noch nicht erklärt.
+
+Beide Boards halten derzeit das vollständige Modell und den vollständig
+dimensionierten KV-Cache im Speicher. Dieser Versuch belegt deshalb noch
+keinen Gewinn an nutzbarer Modellgröße. Dafür wären echte Modell-Shards und
+entsprechend verkleinerte Speicherbereiche nötig.
+
+Drei kurze Läufe mit einem Prompt sind ein erster Funktions- und Zeitvergleich,
+keine umfassende Benchmark- oder Modellqualitätsstudie. Noch nicht getestet:
+Worker-Ausfall während der Generierung, längere Kontexte, Energiebedarf und
+gleichzeitige unabhängige Anfragen.
+
+## Nächste sinnvolle Forschungsfragen
+
+1. Zeitanteile auf Master, Worker und Transport getrennt erfassen; die
+   Schwankung vor dem ersten Token lokalisieren.
+2. Eine dauerhafte Verbindung gegen den aktuellen RPC-Transport vergleichen.
+3. Durchsatz für zwei unabhängige Anfragen auf je einem Board messen.
+4. Echte Modellaufteilung vorbereiten und den Speicherbedarf je Board messen.
+
+Das sind nächste Experimente; sie wurden in diesem Test nicht implementiert.
+
+## Reproduzierbarkeit und lokale Nachweise
+
+Rohantworten mit Token-IDs und Abschlussmetriken, `runs.json` und `summary.json`
+liegen unter `.local/device-backups/two-board-2026-10-29/`.
+Der lokale Messhelfer ist `.local/benchmark_boards.py`; er prüft Tokenfolge,
+Tokenzahl, beide Betriebsarten, Fehlerstatus, Modellgleichheit und freie Worker.
+
+Beispiel für einen einzelnen Paarlauf vom Projektverzeichnis:
+
+```powershell
+& .local/tooling/idf-tools/python_env/idf5.5_py3.12_env/Scripts/python.exe tools/lan_client.py node-1 generate --peer node-2 --prompt 'Once upon a time' --tokens 24
+```
+
+In der Weboberfläche von Board 1 wird `node-2` als Worker eingetragen.
+Das leere Worker-Feld wählt Solo. Es gibt noch keine automatische Peer-Suche.
+Die IP-Adressen wurden per DHCP vergeben und können sich künftig ändern.
+
+Alle Nachweise bleiben lokal; es wurde nichts an das Referenzprojekt gesendet.

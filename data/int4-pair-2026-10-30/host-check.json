@@ -1,0 +1,33 @@
+{
+  "tests": 95,
+  "tests_passed": true,
+  "reference_generations": [
+    "F01",
+    "F02",
+    "F03",
+    "F04",
+    "F05",
+    "F06",
+    "I01",
+    "I02",
+    "G01",
+    "G02",
+    "S01",
+    "S02",
+    "B1",
+    "B2"
+  ],
+  "all_tokens_text_eos_prompt_ids_equal": true,
+  "full_vocabulary_logit_positions": 8,
+  "all_logits_bit_identical_to_scalar": true,
+  "vocabulary": 32000,
+  "archived_dll_preserved": true,
+  "archived_dll_sha256": "4093a292d68c4bd393b447e75d9984f29a42e471f23c5bb4c69914797aec8efd",
+  "candidate_dll_sha256": "6f0aaea96de0d104d6d45f27e010c40ab495f893be39e12103a82ab95b563c86",
+  "sources": {
+    "firmware/components/tinyllm/tinyllm.c": "d8136aadd9bb641cc4ff1368875f70290c885210c83db89dacbbde5c4608090e",
+    "firmware/components/tinyllm/int4_dot.h": "ff3d3566f68b4a6b424c149bb1b8ed165a24103e3615a931dbb9f0f29d8ca62b",
+    "tests/test_int4_pair.py": "217adfc344a52a14028fc21f802d2ee82a85860cb92c65cf1ce0ce8349a84dca",
+    "tools/check_int4_pair_native.py": "b4a294be7b860fc7753df03ce852beab2d17a6123f85fd6cff1cbdfde5ec6c5c"
+  }
+}

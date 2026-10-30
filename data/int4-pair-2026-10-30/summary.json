@@ -1,0 +1,134 @@
+{
+  "metrics": {
+    "baseline": {
+      "B1": {
+        "elapsed_ms": {
+          "median": 51184.253,
+          "range": [
+            51178.929,
+            51186.984
+          ]
+        },
+        "ttft_ms": {
+          "median": 9251.299,
+          "range": [
+            9237.354,
+            9251.576
+          ]
+        },
+        "master_compute_ms": {
+          "median": 24030.492,
+          "range": [
+            24028.355,
+            24037.791
+          ]
+        },
+        "worker_compute_ms": {
+          "median": 26683.821,
+          "range": [
+            26680.932,
+            26684.939
+          ]
+        }
+      },
+      "B2": {
+        "elapsed_ms": {
+          "median": 55422.124,
+          "range": [
+            55417.634,
+            55443.571
+          ]
+        },
+        "ttft_ms": {
+          "median": 13448.445,
+          "range": [
+            13441.95,
+            13465.866
+          ]
+        },
+        "master_compute_ms": {
+          "median": 25437.228,
+          "range": [
+            25435.067,
+            25445.681
+          ]
+        },
+        "worker_compute_ms": {
+          "median": 29502.462,
+          "range": [
+            29493.265,
+            29506.995
+          ]
+        }
+      }
+    },
+    "candidate": {
+      "B1": {
+        "elapsed_ms": {
+          "median": 32938.759,
+          "range": [
+            32936.57,
+            32956.312
+          ]
+        },
+        "ttft_ms": {
+          "median": 6029.852,
+          "range": [
+            5831.153,
+            6036.78
+          ]
+        },
+        "master_compute_ms": {
+          "median": 15411.05,
+          "range": [
+            15402.613,
+            15432.459
+          ]
+        },
+        "worker_compute_ms": {
+          "median": 17151.927,
+          "range": [
+            17149.603,
+            17153.886
+          ]
+        }
+      },
+      "B2": {
+        "elapsed_ms": {
+          "median": 35668.861,
+          "range": [
+            35667.293,
+            35744.876
+          ]
+        },
+        "ttft_ms": {
+          "median": 8716.398,
+          "range": [
+            8703.844,
+            8779.956
+          ]
+        },
+        "master_compute_ms": {
+          "median": 16339.192,
+          "range": [
+            16338.649,
+            16345.277
+          ]
+        },
+        "worker_compute_ms": {
+          "median": 18984.445,
+          "range": [
+            18967.877,
+            19012.751
+          ]
+        }
+      }
+    }
+  },
+  "paired_baseline_over_candidate": {
+    "B1": 1.5537600854968459,
+    "B2": 1.5536698522557253
+  },
+  "all_streams_reference_equal": 27,
+  "kept_candidate": true
+}

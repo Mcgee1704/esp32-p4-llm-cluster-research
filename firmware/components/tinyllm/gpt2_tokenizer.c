@@ -12,7 +12,7 @@
 #endif
 struct gpt2_tokenizer {
     const uint8_t *offsets,*strings,*merges,*ranges;
-    unsigned vocab,count,range_count,eos;int bytes[256];
+    unsigned vocab,count,range_count,eos,special_count,digits;const uint8_t *specials;int bytes[256];
 };
 static uint32_t u32(const uint8_t *p){uint32_t n;memcpy(&n,p,4);return n;}
 const uint8_t *gpt2_piece(const gpt2_tokenizer *t,int token,size_t *length) {
@@ -20,16 +20,22 @@ const uint8_t *gpt2_piece(const gpt2_tokenizer *t,int token,size_t *length) {
     unsigned a=u32(t->offsets+4*(unsigned)token),b=u32(t->offsets+4*((unsigned)token+1));
     *length=b-a;return t->strings+a;
 }
+static int is_special(const gpt2_tokenizer *t,unsigned id){if(!t->specials)return id==t->eos;for(unsigned i=0;i<t->special_count;i++)if(u32(t->specials+4*i)==id)return 1;return 0;}
 gpt2_tokenizer *gpt2_open(const uint8_t *b,size_t bytes,unsigned vocab,unsigned eos) {
-    if(!b||bytes<24||memcmp(b,"G2BP0001",8)||u32(b+8)!=vocab||vocab<259||vocab>65536||eos>=vocab)return NULL;
+    if(!b||bytes<24)return NULL;
+    int v2=!memcmp(b,"G2BP0002",8);
+    if((!v2&&memcmp(b,"G2BP0001",8))||u32(b+8)!=vocab||vocab<259||vocab>65536||eos>=vocab)return NULL;
     unsigned count=u32(b+12),strings=u32(b+16),ranges=u32(b+20);
     if(count>100000||strings>4*1024*1024||ranges>5000)return NULL;
-    size_t start=24+((size_t)vocab+1)*4;if(start>bytes||strings>bytes-start)return NULL;
+    unsigned flags=0,special_count=0;size_t header=24;
+    if(v2){if(bytes<32)return NULL;flags=u32(b+24);special_count=u32(b+28);if(flags>1||!special_count||special_count>64)return NULL;header=32+(size_t)special_count*4;}
+    size_t start=header+((size_t)vocab+1)*4;if(start>bytes||strings>bytes-start)return NULL;
     size_t merge_start=(start+strings+3)&~(size_t)3;
     if(merge_start>bytes||(size_t)count*16+(size_t)ranges*12!=bytes-merge_start)return NULL;
     gpt2_tokenizer *t=calloc(1,sizeof *t);if(!t)return NULL;
     t->vocab=vocab;t->count=count;t->range_count=ranges;t->eos=eos;
-    t->offsets=b+24;t->strings=b+start;t->merges=b+merge_start;t->ranges=t->merges+(size_t)count*16;
+    t->digits=flags;t->special_count=special_count;t->specials=v2?b+32:NULL;
+    t->offsets=b+header;t->strings=b+start;t->merges=b+merge_start;t->ranges=t->merges+(size_t)count*16;
     for(int i=0;i<256;i++)t->bytes[i]=-1;
     if(u32(t->offsets)||u32(t->offsets+(size_t)vocab*4)!=strings)goto bad;
     for(unsigned i=0;i<vocab;i++) {
@@ -40,13 +46,18 @@ gpt2_tokenizer *gpt2_open(const uint8_t *b,size_t bytes,unsigned vocab,unsigned 
     }
     for(int i=0;i<256;i++)if(t->bytes[i]<0)goto bad;
     size_t special_len;const uint8_t *special=gpt2_piece(t,(int)eos,&special_len);
-    if(special_len!=13||memcmp(special,"<|endoftext|>",13))goto bad;
+    if(!v2&&(special_len!=13||memcmp(special,"<|endoftext|>",13)))goto bad;
+    if(v2){if(!is_special(t,eos))goto bad;for(unsigned i=0;i<special_count;i++){
+        unsigned id=u32(t->specials+4*i);if(id>=vocab)goto bad;
+        size_t n;const uint8_t *p=gpt2_piece(t,(int)id,&n);if(!n||memchr(p,0,n))goto bad;
+        for(unsigned j=0;j<i;j++){size_t m;unsigned prev=u32(t->specials+4*j);const uint8_t *q=gpt2_piece(t,(int)prev,&m);if(id==prev||(n==m&&!memcmp(p,q,n)))goto bad;}
+    }}
     uint8_t *seen=calloc(count?count:1,1);if(!seen)goto bad;
     unsigned last_a=0,last_b=0;
     for(unsigned i=0;i<count;i++) {
         const uint8_t *r=t->merges+(size_t)i*16;
         unsigned a=u32(r),bb=u32(r+4),rank=u32(r+8),out=u32(r+12);
-        if(a>=vocab||bb>=vocab||out>=vocab||a==eos||bb==eos||out==eos||rank>=count||seen[rank]||
+        if(a>=vocab||bb>=vocab||out>=vocab||is_special(t,a)||is_special(t,bb)||is_special(t,out)||rank>=count||seen[rank]||
            (i&&(a<last_a||(a==last_a&&bb<=last_b)))){free(seen);goto bad;}
         seen[rank]=1;last_a=a;last_b=bb;
         size_t na,nb,no;const uint8_t *pa=gpt2_piece(t,(int)a,&na),*pb=gpt2_piece(t,(int)bb,&nb),*po=gpt2_piece(t,(int)out,&no);
@@ -123,8 +134,21 @@ int gpt2_encode(const gpt2_tokenizer *t,const char *text,int *tokens,int cap) {
     int *scratch=malloc(length*sizeof(int));if(!scratch)return -1;
     const uint8_t *p=(const uint8_t*)text,*end=p+length;int total=0;
     while(p<end) {
-        if(end-p>=13&&!memcmp(p,"<|endoftext|>",13)){if(total>=cap)goto bad;tokens[total++]=(int)t->eos;p+=13;continue;}
-        const char *found=strstr((const char*)p,"<|endoftext|>");const uint8_t *boundary=found?(const uint8_t*)found:end;
+        const uint8_t *boundary=end;unsigned matched=t->eos;size_t matched_length=0;
+        unsigned count=t->specials?t->special_count:1;
+        for(unsigned i=0;i<count;i++) {
+            unsigned id=t->specials?u32(t->specials+4*i):t->eos;size_t n;const uint8_t *sp=gpt2_piece(t,(int)id,&n);
+            for(const uint8_t *q=p;(size_t)(end-q)>=n;q++)if(!memcmp(q,sp,n)){
+                if(q<boundary||(q==boundary&&n>matched_length)){boundary=q;matched=id;matched_length=n;}break;
+            }
+        }
+        if(boundary==p){if(total>=cap)goto bad;tokens[total++]=(int)matched;p+=matched_length;continue;}
+        /* Digits runs before ByteLevel, so a following digit terminates the
+         * current segment even for ByteLevel trailing-whitespace lookahead. */
+        if(t->digits)for(const uint8_t *scan=p;scan<boundary;) {
+            unsigned code;int width=utf8(scan,boundary,&code);if(width<0)goto bad;
+            if(category(t,code)==2){boundary=scan==p?p+width:scan;break;}scan+=width;
+        }
         const uint8_t *q=piece_end(t,p,boundary);if(!q||q<=p)goto bad;
         int n=bpe(t,p,(size_t)(q-p),scratch,tokens+total,cap-total);if(n<0)goto bad;
         total+=n;p=q;

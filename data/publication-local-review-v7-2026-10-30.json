@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "files_hashed": 1177,
+  "representation_relationships": 1162,
+  "historical_public_protocol_pairs": 5,
+  "relative_markdown_links": 164,
+  "figure_source_relationships": 48,
+  "matched_quality_outputs": 64,
+  "matched_timing_packages": 32,
+  "tinybrainbot_quality_outputs": 120,
+  "tinybrainbot_timing_repetitions": 3,
+  "model_or_device_runs": 0,
+  "date": "2026-10-30",
+  "source_research_commit": "0b62aafb162b0f089ebd946bb8baccc953314079",
+  "prepared_local_path": ".local/publication/esp32-p4-llm-cluster-research-v7.3",
+  "snapshot_manifest_sha256": "85aa91a7f27b82989dc3704cef30f1012da297aaa468a471b66c37f172a60ee7",
+  "snapshot_git_tree_blobs_checked": 1178,
+  "source_and_fresh_clone_git_clean": true,
+  "private_unit_tests": 86,
+  "public_clone_unit_tests": 80,
+  "public_skipped_fixture_classes": 1,
+  "public_skip_scope": "SPMTokenizer class: pinned private tokenizer asset absent. Its six tests passed in the private86-test suite.",
+  "public_host_c_warnings_as_errors": true,
+  "public_compile_and_suite_gate": "v7.2 clean clone; all61 firmware/test/CLI source files compared byte-identical to finalv7.3. No unnecessary rebuild or test repeat.",
+  "public_summary_validation_cli_passed": true,
+  "derived_summary_counts_unchanged": true,
+  "derived_clone_outputs_changed": 4,
+  "public_esp_0_7_0_build_or_device_test": false,
+  "current_public_firmware_source": "0.7.0",
+  "keyless_public_bundles": 5,
+  "keyless_public_bin_components": 20,
+  "newest_keyless_public_binary_version": "0.5.5",
+  "retained_v6_checksums_verified": 883,
+  "v6_original_git_worktree_clean": true,
+  "source_only_firmware_versions_added": [
+    "0.6.0",
+    "0.6.1",
+    "0.7.0"
+  ],
+  "figure_pngs": 11,
+  "numeric_json_files_preserved_by_builder": 396,
+  "privacy_scan_passed": true,
+  "private_keys_or_deployment_images_included": false,
+  "online_upload_performed": false,
+  "doi_assigned": false,
+  "logs_sha256": {
+    "private_suite": "47290ba7fda7dc1b1f0542f093a13924685e98aa9a3abc8f765522137c6cd54b",
+    "public_suite": "63ad769a71d2a11e1b10b916be985bdd5221afc22b501067a6608b3923e04f47",
+    "public_matched_summary_validation": "c91123c1d534acaf9a50f54222b59cf667bc85cab18bb82a211b6705afc1bcd9",
+    "final_clean_clone_audit": "ce4edfcd5b2c1907ef17ba3041cc44b0e62af8f3c84c545f95e0f03f697a7b06"
+  },
+  "prior_candidate_corrections": [
+    "v7 coverage link accidentally treated a plan as an exported report; builder narrowed to exact report paths.",
+    "Offline link checker initially rejected valid directory links; accepts existing in-snapshot targets.",
+    "Figure source audit found one historical contextual report absent from public lineage; now included as attributed text with original/public hashes."
+  ],
+  "limits": [
+    "Archive/table reproduction only: no new model generations or hardware reruns during publication review.",
+    "Same unblinded author review, small fixed sets; no independent semantic review or general ranking.",
+    "Private device results, host tests and public redacted source/binary evidence remain separate."
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "host_native_checks_passed": true,
+  "scan_small": 4091287552,
+  "scan_large": 4194566144,
+  "unpack": 4294942720,
+  "matrix": 124.0,
+  "scope": "Independent Python arithmetic versus compiled diagnostic C; no host timing interpreted as P4 evidence.",
+  "script_sha256": "7b49243d70f53eca095a901ae3303713b4c0bdf95f45e486535ea73469fb7115",
+  "header_sha256": "c291be9b82613e9b7ce44540c908d7740293ff9964c25122316a18ef2560ba9b"
+}

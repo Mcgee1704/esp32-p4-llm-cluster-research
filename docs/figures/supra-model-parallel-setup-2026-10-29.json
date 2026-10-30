@@ -1,0 +1,11 @@
+{
+  "title": "supra-model-parallel-setup",
+  "date": "2026-10-29",
+  "width": 1600,
+  "height": 1130,
+  "source_sha256": {
+    "docs/research/data/supra50-2026-10-29/model-artifacts.json": "c45bdfca792e7b70cec2042d1b9a0334a9729293b679d18e800289a071e91b98",
+    "docs/research/data/supra100-2026-10-29/model-artifacts.json": "62fc47c164585c6b49d5a0366c60f9779568d146a2a5f3e838993cfcb23ac0ca"
+  },
+  "notes": "Static, English, local figure. No online resources. Descriptive medians/ranges and manual review, not confidence intervals or independent quality ratings."
+}

@@ -1,0 +1,44 @@
+{
+  "models": {
+    "tinybrainbot": {
+      "dimensions": {
+        "width": 768,
+        "ffn": 2048,
+        "layers": 12,
+        "query_heads": 12,
+        "kv_heads": 4,
+        "vocab": 32000,
+        "context": 256
+      },
+      "transformer_matrix_MACs_per_position": 75497472,
+      "output_head_MACs_per_decision": 24576000,
+      "matrix_MACs_per_decode_position": 100073472,
+      "benchmark_matrix_MACs": {
+        "B1": 1827667968,
+        "B2": 1978662912
+      }
+    },
+    "supra": {
+      "dimensions": {
+        "width": 768,
+        "ffn": 2048,
+        "layers": 12,
+        "query_heads": 12,
+        "kv_heads": 4,
+        "vocab": 32768,
+        "context": 256
+      },
+      "transformer_matrix_MACs_per_position": 75497472,
+      "output_head_MACs_per_decision": 25165824,
+      "matrix_MACs_per_decode_position": 100663296,
+      "benchmark_matrix_MACs": {
+        "B1": 1837105152,
+        "B2": 1988100096
+      }
+    }
+  },
+  "formula": "L*(2*d*d + 2*d*KVdim + 3*d*FFN) + vocab*d for a decode position; tied embedding/output table. Benchmark with no EOS: (input_tokens+15)*transformer +16*head.",
+  "exclusions": "Attention score/value products varying with position, norms including Supra Q/K norm, activations, RoPE, sampling, pauses, scheduler, communication and memory traffic.",
+  "scope": "Analytical matrix work only; not observed instructions, memory bandwidth, energy or a latency prediction. Model architectures are not isolated causal variables.",
+  "source_protocol_sha256": "5b2649f66f7f14ebfda1eae3c389a497c1c7dee997c0cd113b0cdb8daf17514e"
+}

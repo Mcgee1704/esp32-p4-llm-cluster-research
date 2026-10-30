@@ -1,0 +1,22 @@
+{
+  "kind": "Derived receipt type correction; no new answers or scoring",
+  "original_commit": "4fc84b1",
+  "original_receipt_sha256": "d946f3c649152c4f6d3c9f97033b0f08c89736311ff9b60919a7f4effec2b38a",
+  "corrected_receipt_sha256": "1dfd5793f4a77f889efdbfe4dba0a60251abed1de88b999b7af21c787cb49b66",
+  "old_value": "tinybrainbot-int4",
+  "new_value": 120,
+  "new_value_type": "integer",
+  "cause": "Condition loop reused the generation counter name; separate variables and strict schema guard added.",
+  "frozen_records_byte_identical": {
+    "protocol.json": "504ffb1e13c148d3960ca95f19a9363e408521ee2c247af6528fa7d7f6541006",
+    "inputs.json": "cc81bb23f2b73496e19edb636a61c4b84a9f790cea7c0cc7edb9e66b6a689e09",
+    "generation-receipt.json": "561a3ed85269ba52e5855f217b3c33e9703069ffd1fce835583da57982c8592b",
+    "answers-supra-f16.json": "18bf5caa7203876500fa8c90344f75858d1e0e7e28de07ce1a89f9a9084b0fe7",
+    "answers-supra-int4.json": "f1b0fda1158aaa9c597bcb2900b37c808a311d1c8c3c748ef3d777c47d3544fc",
+    "answers-tinybrainbot-f16.json": "27593d9d780f0896f68192ff4ef68aa29e72e450770d486c4d6f1e911c46dbbd",
+    "answers-tinybrainbot-int4.json": "aa4cce5d0741ebd5595ab363d006cc783f7cc6b0cd47512ad560884606f77302"
+  },
+  "full_offline_audit_rerun_passed": true,
+  "focused_schema_tests": 2,
+  "scope": "Local derived receipt only; no inference, device or publication"
+}

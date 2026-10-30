@@ -1,0 +1,54 @@
+{
+  "checks": [
+    {
+      "check": "status requires LAN key",
+      "expected_http": 401,
+      "observed_http": 401,
+      "response": "LAN key missing or invalid"
+    },
+    {
+      "check": "layer worker rejects text generation",
+      "expected_http": 409,
+      "observed_http": 409,
+      "response": "Layer worker cannot generate text; use coordinator"
+    },
+    {
+      "check": "worker rejects wrong layer split",
+      "expected_http": 409,
+      "observed_http": 409,
+      "response": "RPC model, session or position mismatch"
+    },
+    {
+      "check": "worker rejects wrong logical model",
+      "expected_http": 409,
+      "observed_http": 409,
+      "response": "RPC model, session or position mismatch"
+    },
+    {
+      "check": "coordinator rejects worker RPC role",
+      "expected_http": 409,
+      "observed_http": 409,
+      "response": "RPC model, session or position mismatch"
+    },
+    {
+      "check": "coordinator rejects removal of required worker",
+      "expected_http": 409,
+      "observed_http": 409,
+      "response": "Coordinator requires layer worker; worker cannot dispatch"
+    },
+    {
+      "check": "empty compressed model rejected before erase",
+      "expected_http": 400,
+      "observed_http": 400,
+      "response": "Invalid storage envelope"
+    },
+    {
+      "check": "oversize expansion rejected before erase",
+      "expected_http": 400,
+      "observed_http": 400,
+      "response": "Invalid storage envelope"
+    }
+  ],
+  "boots_models_artifacts_unchanged": true,
+  "cluster_configured_idle": true
+}

@@ -1,0 +1,137 @@
+{
+  "scope": "Post-hoc, unblinded author review of all 16 new factual questions and visible 24-token answers. Not a frozen endpoint, independent rater or replacement admission rule.",
+  "criterion": "Does the first relevant direct factual claim answer the question correctly? Additional visible errors are recorded separately; a correct first claim is not a fully correct answer.",
+  "correct_first_claim_ids": {
+    "f16": [
+      "F02",
+      "F06",
+      "F09",
+      "F11",
+      "F13"
+    ],
+    "row": [
+      "F02",
+      "F04",
+      "F05",
+      "F08",
+      "F09",
+      "F11",
+      "F12",
+      "F13",
+      "F16"
+    ],
+    "gptq": [
+      "F04",
+      "F09",
+      "F11",
+      "F13"
+    ]
+  },
+  "counts_of_16": {
+    "f16": 5,
+    "row": 9,
+    "gptq": 4
+  },
+  "admission_changed": false,
+  "notes": [
+    {
+      "id": "F01",
+      "note": "All variants call frozen water a liquid; none answers ice."
+    },
+    {
+      "id": "F02",
+      "note": "F16 and row mention feathers as a covering, though both continuations are awkward or repetitive. GPTQ discusses layers without identifying feathers."
+    },
+    {
+      "id": "F03",
+      "note": "None supplies kitten. Describing a small cat or inventing a breed/name does not answer the requested term."
+    },
+    {
+      "id": "F04",
+      "note": "Row and GPTQ give down. F16 discusses the word up without answering."
+    },
+    {
+      "id": "F05",
+      "note": "Row gives January. F16 is tautological; GPTQ says February, 2020."
+    },
+    {
+      "id": "F06",
+      "note": "F16 first says 3 sides correctly but then wrongly implies every triangle has equal sides. Its additional number two triggers the frozen numeric rejection. Row produces an unfinished equation; GPTQ says 8 sides."
+    },
+    {
+      "id": "F07",
+      "note": "All variants claim implausibly large hand counts; none gives the normal count two."
+    },
+    {
+      "id": "F08",
+      "note": "Only row gives 7 days. F16 says 24 hours and GPTQ 365 days."
+    },
+    {
+      "id": "F09",
+      "note": "All correctly classify the Sun as a star. The frozen forbidden-phrase rule falsely rejects F16/GPTQ because it cannot understand not a planet. Row's later description of the Sun as blue is a separate visible error."
+    },
+    {
+      "id": "F10",
+      "note": "F16/GPTQ repeat the question. Row gives 273.75 degrees Celsius, not the requested freezing point."
+    },
+    {
+      "id": "F11",
+      "note": "All give Paris. Row adds the false statement that Paris is the largest city in the world; a correct first sentence is not a wholly correct answer."
+    },
+    {
+      "id": "F12",
+      "note": "The frozen regex falsely accepts the indefinite article a in generic F16/GPTQ descriptions. Neither identifies the first letter; both also give wrong alphabet sizes. Only row explicitly identifies A."
+    },
+    {
+      "id": "F13",
+      "note": "All give H2O."
+    },
+    {
+      "id": "F14",
+      "note": "None gives the answer four. The strict frozen numeric rule could reject a valid restatement containing operands, but no such correct answer occurs here."
+    },
+    {
+      "id": "F15",
+      "note": "None gives pink."
+    },
+    {
+      "id": "F16",
+      "note": "Row identifies a dog's bark. F16/GPTQ provide generic sound descriptions without identifying barking."
+    }
+  ],
+  "other_cases": [
+    {
+      "id": "E01",
+      "note": "GPTQ outputs only Silver and stops, close in content but fails the prespecified case-sensitive lowercase exact response silver. No post-hoc case folding."
+    },
+    {
+      "id": "E02",
+      "note": "All fail the exact quiet river response. F16 lists altered words, row describes quiet, GPTQ proposes a revision with a different phrase."
+    },
+    {
+      "id": "E03",
+      "note": "F16/GPTQ echo an editing instruction rather than returning lantern. Row discusses an unrelated word."
+    },
+    {
+      "id": "E04",
+      "note": "All add explanations or list formatting instead of exactly paper stone cloud."
+    },
+    {
+      "id": "N2",
+      "note": "GPTQ recovers the initial 2 wheels claim but adds which is 2.75 meters. This is not a clean complete correction. Row still gives a fractional wheel count."
+    },
+    {
+      "id": "N4",
+      "note": "All initially say cold; GPTQ gives the shortest clean visible response."
+    },
+    {
+      "id": "N6",
+      "note": "All fail the exact blue instruction. GPTQ echoes an editing instruction; no success inferred from appearance of the word blue."
+    },
+    {
+      "id": "N7",
+      "note": "GPTQ restores a rabbit subject but not sharing a carrot within the cap. No claim of full story coherence or improved story quality."
+    }
+  ],
+  "interpretation": "The screen has false positives and false negatives. Manual first-claim review still finds 9 row vs 4 GPTQ, so the negative admission decision is unchanged. F16 source quality is itself poor; closer logits do not imply better factual answers. No population-level model ranking follows."
+}

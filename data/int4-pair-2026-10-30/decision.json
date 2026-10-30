@@ -1,0 +1,15 @@
+{
+  "keep_candidate": true,
+  "timing": {
+    "B1": {
+      "baseline_ms": 51184.253,
+      "candidate_ms": 32938.759
+    },
+    "B2": {
+      "baseline_ms": 55422.124,
+      "candidate_ms": 35668.861
+    }
+  },
+  "quality_regressions": 12,
+  "all_reference_equal": true
+}

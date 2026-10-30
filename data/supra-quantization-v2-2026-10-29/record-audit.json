@@ -1,0 +1,61 @@
+{
+  "scope": "Offline record and identity audit; not a new native/P4 execution",
+  "calibration_tokens": 749,
+  "validation_positions": 201,
+  "quantized_cache_files": 255,
+  "complete_generations_checked": 72,
+  "legacy_prefix_checks": [
+    {
+      "variant": "row",
+      "case": "N2",
+      "matched_tokens": 16
+    },
+    {
+      "variant": "f16",
+      "case": "N2",
+      "matched_tokens": 16
+    },
+    {
+      "variant": "row",
+      "case": "N4",
+      "matched_tokens": 16
+    },
+    {
+      "variant": "f16",
+      "case": "N4",
+      "matched_tokens": 16
+    },
+    {
+      "variant": "row",
+      "case": "N6",
+      "matched_tokens": 16
+    },
+    {
+      "variant": "f16",
+      "case": "N6",
+      "matched_tokens": 16
+    },
+    {
+      "variant": "row",
+      "case": "N7",
+      "matched_tokens": 16
+    },
+    {
+      "variant": "f16",
+      "case": "N7",
+      "matched_tokens": 16
+    }
+  ],
+  "winner": "gptq",
+  "quality_admitted": false,
+  "comparison_html_answers": 72,
+  "manual_counts_of_16": {
+    "f16": 5,
+    "row": 9,
+    "gptq": 4
+  },
+  "firmware_or_model_written": false,
+  "new_native_kernel_tested": false,
+  "checks_passed": true,
+  "audit_script_sha256": "7edb4e5c00a3d2093f02ee49df047ac0f5562fbcf9f222b61d29d5259f67c763"
+}

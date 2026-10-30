@@ -125,3 +125,39 @@ and portable path edits have now been compiled into the separately labelled
 keyless firmware builds; they have not been installed on the research boards.
 Device measurements describe the original private firmware. See
 `provenance/VALIDATION.json` for the publication checks.
+
+## Version7 offline smoke test and new inference runs
+
+From a fresh copy of this public snapshot, `python tools/verify_public_snapshot.py`
+checks package and historical/public checksum pairs, all authored report links,
+recalculates matched-model quality/throughput tables, the120-output TinyBrainBot
+quality totals and the three P4 latency records. It uses Python's standard
+library, requires no model weights or credentials and never contacts devices.
+`--output /local/path/result.json` saves its derived tables outside the snapshot.
+This reproduces stored tables, not new answers or hardware measurements.
+
+The older matched summary/validation scripts additionally import NumPy; use the
+pinned version in `DEPENDENCIES.json`. Fresh inference is a separate workflow:
+see `MATCHED_MODELS.md` for common `--run`/`--output` arguments. The TinyBrainBot
+historical source audit contains exact private hashes and cached-source guards;
+use the public snapshot checker for redacted archives. Do not bypass an inference
+source guard to treat translated source as the original measured program.
+
+[Version7 release notes](RELEASE_NOTES_V7.md) separate the0.7.0 source/device
+results from the older public keyless binaries. All public build changes would
+need new separately labelled build and device evidence before deployment.
+
+## Latest archived studies (v8)
+
+Run `python tools/verify_public_snapshot.py .` from the snapshot root with Python
+and its standard library only. It validates public/historical digests, all figure
+dependencies and links, earlier archived tables, current0.9.0 timing medians,
+27 new output streams,12 reused quality streams, the kernel before/after records
+and96 microbenchmark mode records. No model download, native DLL or device is used.
+This is recorded-data reproduction, not a repeat hardware experiment or a new
+semantic quality judgment. Optional output: `--output /your/local/audit.json`.
+
+The original generating/analyzing scripts retain private-asset and original-source
+guards. Their historical commands need the pinned weights, toolchain and original
+recording environment; redacted current sources are different bytes. Never disable
+those guards to make archived output appear to be a fresh model/device run.

@@ -1,0 +1,34 @@
+{
+  "scope": "Exploratory host-only follow-up selected after a row-INT4 bicycle regression; not part of the primary frozen study",
+  "cases": [
+    {
+      "id": "N2",
+      "category": "native-chat",
+      "prompt": "<|im_start|>user\nHow many wheels does a standard bicycle have?<|im_end|>\n<|im_start|>assistant\n",
+      "limit": 16
+    },
+    {
+      "id": "N4",
+      "category": "native-chat",
+      "prompt": "<|im_start|>user\nWhat is the opposite of hot?<|im_end|>\n<|im_start|>assistant\n",
+      "limit": 16
+    },
+    {
+      "id": "N6",
+      "category": "native-chat",
+      "prompt": "<|im_start|>user\nReply with exactly one word: blue.<|im_end|>\n<|im_start|>assistant\n",
+      "limit": 16
+    },
+    {
+      "id": "N7",
+      "category": "native-chat",
+      "prompt": "<|im_start|>user\nWrite one short story about a rabbit sharing a carrot.<|im_end|>\n<|im_start|>assistant\n",
+      "limit": 16
+    }
+  ],
+  "group_columns": 64,
+  "scale_precision": "FP32",
+  "context": 256,
+  "generation": "greedy, cap 16, source EOS 2/6",
+  "device_implementation": "Absent; hypothetical byte budget is not a P4 result"
+}

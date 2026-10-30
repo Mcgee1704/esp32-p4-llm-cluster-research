@@ -1,6 +1,6 @@
 # Research log and coverage
 
-The source research checkpoint is `efbd5ef466e2fac7ed7abb68eeabbaa3c5f025bf`. Original private Git history
+The source research checkpoint is `ccfca5771890a58f944e0c3dfa8e3683000436e3`. Original private Git history
 and personal commit metadata are not published. Original report filenames below
 are identifiers of local records, not additional public files. The English reports
 consolidate their scientific content; this is not a word-for-word translation.
@@ -21,23 +21,40 @@ consolidate their scientific content; this is not a word-for-word translation.
 | `docs/research/firmware-umsetzung.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
 | `docs/research/forschungsplan.md` | [PRIOR_WORK_AND_PLANS.md](PRIOR_WORK_AND_PLANS.md) |
 | `docs/research/gptneo-p4-2026-10-29.md` | [GPTNEO_P4.md](GPTNEO_P4.md) |
+| `docs/research/int4-memory-2026-10-30.md` | [int4-memory-2026-10-30.md](int4-memory-2026-10-30.md) |
+| `docs/research/int4-pair-2026-10-30.md` | [int4-pair-2026-10-30.md](int4-pair-2026-10-30.md) |
+| `docs/research/int4-pair-plan-2026-10-30.md` | [int4-pair-plan-2026-10-30.md](int4-pair-plan-2026-10-30.md) |
 | `docs/research/lan-optimierung-2026-10-29.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
 | `docs/research/matched-models-2026-10-29.md` | [MATCHED_MODELS.md](MATCHED_MODELS.md) |
+| `docs/research/matched-p4-2026-10-30.md` | [matched-p4-2026-10-30.md](matched-p4-2026-10-30.md) |
 | `docs/research/parallelbetrieb-2026-10-29.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
 | `docs/research/prospektive-pruefung-2026-10-29.md` | [SIMULATION.md](SIMULATION.md) |
+| `docs/research/publication-local-review-2026-10-30.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
 | `docs/research/rechenkern-v2-2026-10-29.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
 | `docs/research/rechenkern-v3-2026-10-29.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
 | `docs/research/simulation-datenbasis.md` | [SIMULATION.md](SIMULATION.md) |
 | `docs/research/simulation-v1-2026-10-29.md` | [SIMULATION.md](SIMULATION.md) |
+| `docs/research/supra-model-parallel-2026-10-29.md` | [supra-model-parallel-2026-10-29.md](supra-model-parallel-2026-10-29.md) |
+| `docs/research/supra-quantization-v2-2026-10-29.md` | [supra-quantization-v2-2026-10-29.md](supra-quantization-v2-2026-10-29.md) |
+| `docs/research/supra-shards-plan.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
+| `docs/research/supra-tiny-v09-2026-10-30.md` | [supra-tiny-v09-2026-10-30.md](supra-tiny-v09-2026-10-30.md) |
+| `docs/research/supra-tiny-v09-plan-2026-10-30.md` | [supra-tiny-v09-plan-2026-10-30.md](supra-tiny-v09-plan-2026-10-30.md) |
 | `docs/research/textmodell-naechste-stufe.md` | [MODELS_AND_QUALITY.md](MODELS_AND_QUALITY.md) |
 | `docs/research/textmodell-sft-2026-10-29.md` | [MODELS_AND_QUALITY.md](MODELS_AND_QUALITY.md) |
 | `docs/research/textqualitaet-v1-2026-10-29.md` | [MODELS_AND_QUALITY.md](MODELS_AND_QUALITY.md) |
+| `docs/research/tinybrainbot-local-2026-10-29.md` | [tinybrainbot-local-2026-10-29.md](tinybrainbot-local-2026-10-29.md) |
+| `docs/research/tinybrainbot-p4-2026-10-29.md` | [tinybrainbot-p4-2026-10-29.md](tinybrainbot-p4-2026-10-29.md) |
 | `docs/research/tinytalk2-host-2026-10-29.md` | [TINYTALK_HOST.md](TINYTALK_HOST.md) |
 | `docs/research/upstream-befunde.md` | [PRIOR_WORK_AND_PLANS.md](PRIOR_WORK_AND_PLANS.md) |
 | `docs/research/zweier-test-2026-10-29.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
 | `docs/superpowers/plans/2026-10-29-gptneo-p4.md` | [GPTNEO_P4.md](GPTNEO_P4.md) |
 | `docs/superpowers/plans/2026-10-29-matched-model-comparison.md` | [MATCHED_MODELS.md](MATCHED_MODELS.md) |
+| `docs/superpowers/plans/2026-10-29-public-reproducibility-audit-followup.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
+| `docs/superpowers/plans/2026-10-29-supra-quantization-v2.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
+| `docs/superpowers/plans/2026-10-29-tinybrainbot-local-quality.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
+| `docs/superpowers/plans/2026-10-29-tinybrainbot-p4-tokenizer.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
 | `docs/superpowers/plans/2026-10-29-tinytalk2-host.md` | [TINYTALK_HOST.md](TINYTALK_HOST.md) |
+| `docs/superpowers/plans/2026-10-30-tinybrainbot-supra-matched.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
 
 ## Scientific milestones
 
@@ -60,3 +77,12 @@ Future electrical qualification, factory onboarding, SD persistence, a physical
 third lane, larger-model capacity, broader quality evaluation and fault-injection
 remain separate work. Test claims describe their recorded scope, not blanket
 release approval. Numerical raw data is retained even for negative/unfavourable results.
+
+## Additions through firmware0.9.0
+
+The older future-work paragraph is historical; larger two-board models have
+since been measured. [The v8 evidence index](RESEARCH_INDEX.md) links all new
+matched-model, memory, production-kernel and comparison records. Generated plots
+and explicit source records preserve figure lineage. Snapshot assembly performs
+archive checks only and is not a new device experiment. Firmware0.8.0/0.9.0
+have complete source-only archives; keyless public BINs still end at0.5.5.

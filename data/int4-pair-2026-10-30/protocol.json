@@ -1,0 +1,7 @@
+{
+  "plan_sha256": "6ae5f0bd4786417a30a3b894572cd7c9f6054d229a4721b1dcbfe24c51f3a446",
+  "script_sha256": "148024cb1539a9454fe4bff0f1065029f605e035d8a8765805957ed5ce10e0df",
+  "prior_protocol_sha256": "5b2649f66f7f14ebfda1eae3c389a497c1c7dee997c0cd113b0cdb8daf17514e",
+  "prior_refs_sha256": "7cc9d0be9071742294b44e2748beec6eea2dc615f46af7d3effdc14663bc2332",
+  "design": "Baseline first, candidate second; W warmup and three repeats per B1/B2; 12 quality regression cases. See plan."
+}

@@ -1,0 +1,939 @@
+{
+  "date": "2026-10-30",
+  "base_commit": "e1d46847b217e229063ee2b491314ddaf645569b",
+  "firmware": "0.7.0",
+  "context": 256,
+  "kernel": "tile4",
+  "split": 4,
+  "quantization": "Existing symmetric row INT4; FP32 scales/norms/KV. No re-quantization.",
+  "cases": [
+    {
+      "id": "F01",
+      "category": "facts",
+      "user": "How many sides does a triangle have? Answer briefly.",
+      "expected": "three / 3",
+      "limit": 24
+    },
+    {
+      "id": "F02",
+      "category": "facts",
+      "user": "How many days are in a week? Answer briefly.",
+      "expected": "seven / 7",
+      "limit": 24
+    },
+    {
+      "id": "F03",
+      "category": "facts",
+      "user": "What is the capital of France? Answer briefly.",
+      "expected": "Paris",
+      "limit": 24
+    },
+    {
+      "id": "F04",
+      "category": "facts",
+      "user": "In the four-season cycle, which season comes after summer? Answer briefly.",
+      "expected": "autumn / fall",
+      "limit": 24
+    },
+    {
+      "id": "F05",
+      "category": "facts",
+      "user": "What do we call frozen water? Answer briefly.",
+      "expected": "ice",
+      "limit": 24
+    },
+    {
+      "id": "F06",
+      "category": "facts",
+      "user": "Which sense do we mainly use with our ears? Answer briefly.",
+      "expected": "hearing",
+      "limit": 24
+    },
+    {
+      "id": "I01",
+      "category": "exact",
+      "user": "Reply with exactly this lowercase word and nothing else: marble",
+      "expected": "marble",
+      "limit": 24
+    },
+    {
+      "id": "I02",
+      "category": "exact",
+      "user": "Reply with exactly these two lowercase words and nothing else: quiet river",
+      "expected": "quiet river",
+      "limit": 24
+    },
+    {
+      "id": "G01",
+      "category": "grounded",
+      "user": "Nora put the ticket in a red box. Where is Nora's ticket? Answer briefly.",
+      "expected": "in the red box",
+      "limit": 24
+    },
+    {
+      "id": "G02",
+      "category": "grounded",
+      "user": "Max has three pencils and gives one to Jo. How many pencils does Max have left? Answer briefly.",
+      "expected": "two / 2",
+      "limit": 24
+    },
+    {
+      "id": "S01",
+      "category": "story",
+      "user": "Write a short story about a duck helping a lost frog return to its pond.",
+      "topic": "duck; lost frog; help returning to pond",
+      "limit": 48
+    },
+    {
+      "id": "S02",
+      "category": "story",
+      "user": "Write a short story about a child who repairs a torn paper boat, then floats it on a pond.",
+      "topic": "child; torn paper boat; repair; floating on pond",
+      "limit": 48
+    }
+  ],
+  "benchmarks": [
+    {
+      "id": "B1",
+      "prompt": "Once upon a time",
+      "limit": 16
+    },
+    {
+      "id": "B2",
+      "prompt": "One day, a little girl",
+      "limit": 16
+    }
+  ],
+  "inputs": {
+    "tinybrainbot": {
+      "F01": {
+        "prompt": " <|user|> How many sides does a triangle have? Answer briefly. <|end|> <|assistant|>",
+        "tokens": [
+          31899,
+          4,
+          912,
+          830,
+          4741,
+          692,
+          272,
+          18251,
+          405,
+          31957,
+          1842,
+          10709,
+          31920,
+          31899,
+          7,
+          31899,
+          5
+        ]
+      },
+      "F02": {
+        "prompt": " <|user|> How many days are in a week? Answer briefly. <|end|> <|assistant|>",
+        "tokens": [
+          31899,
+          4,
+          912,
+          830,
+          1468,
+          382,
+          305,
+          272,
+          1714,
+          31957,
+          1842,
+          10709,
+          31920,
+          31899,
+          7,
+          31899,
+          5
+        ]
+      },
+      "F03": {
+        "prompt": " <|user|> What is the capital of France? Answer briefly. <|end|> <|assistant|>",
+        "tokens": [
+          31899,
+          4,
+          922,
+          329,
+          276,
+          3385,
+          304,
+          4792,
+          31957,
+          1842,
+          10709,
+          31920,
+          31899,
+          7,
+          31899,
+          5
+        ]
+      },
+      "F04": {
+        "prompt": " <|user|> In the four-season cycle, which season comes after summer? Answer briefly. <|end|> <|assistant|>",
+        "tokens": [
+          31899,
+          4,
+          558,
+          276,
+          1653,
+          31930,
+          10157,
+          6041,
+          31921,
+          574,
+          2480,
+          1807,
+          789,
+          4092,
+          31957,
+          1842,
+          10709,
+          31920,
+          31899,
+          7,
+          31899,
+          5
+        ]
+      },
+      "F05": {
+        "prompt": " <|user|> What do we call frozen water? Answer briefly. <|end|> <|assistant|>",
+        "tokens": [
+          31899,
+          4,
+          922,
+          415,
+          370,
+          859,
+          9885,
+          1477,
+          31957,
+          1842,
+          10709,
+          31920,
+          31899,
+          7,
+          31899,
+          5
+        ]
+      },
+      "F06": {
+        "prompt": " <|user|> Which sense do we mainly use with our ears? Answer briefly. <|end|> <|assistant|>",
+        "tokens": [
+          31899,
+          4,
+          4551,
+          1861,
+          415,
+          370,
+          6873,
+          701,
+          364,
+          783,
+          8262,
+          31957,
+          1842,
+          10709,
+          31920,
+          31899,
+          7,
+          31899,
+          5
+        ]
+      },
+      "I01": {
+        "prompt": " <|user|> Reply with exactly this lowercase word and nothing else: marble <|end|> <|assistant|>",
+        "tokens": [
+          31899,
+          4,
+          6959,
+          364,
+          2326,
+          400,
+          2752,
+          8136,
+          1284,
+          306,
+          1549,
+          1524,
+          31937,
+          26021,
+          31899,
+          7,
+          31899,
+          5
+        ]
+      },
+      "I02": {
+        "prompt": " <|user|> Reply with exactly these two lowercase words and nothing else: quiet river <|end|> <|assistant|>",
+        "tokens": [
+          31899,
+          4,
+          6959,
+          364,
+          2326,
+          793,
+          759,
+          2752,
+          8136,
+          1923,
+          306,
+          1549,
+          1524,
+          31937,
+          4431,
+          7530,
+          31899,
+          7,
+          31899,
+          5
+        ]
+      },
+      "G01": {
+        "prompt": " <|user|> Nora put the ticket in a red box. Where is Nora's ticket? Answer briefly. <|end|> <|assistant|>",
+        "tokens": [
+          31899,
+          4,
+          427,
+          5575,
+          1079,
+          276,
+          8480,
+          305,
+          272,
+          2058,
+          2529,
+          31920,
+          3749,
+          329,
+          427,
+          5575,
+          31925,
+          31906,
+          8480,
+          31957,
+          1842,
+          10709,
+          31920,
+          31899,
+          7,
+          31899,
+          5
+        ]
+      },
+      "G02": {
+        "prompt": " <|user|> Max has three pencils and gives one to Jo. How many pencils does Max have left? Answer briefly. <|end|> <|assistant|>",
+        "tokens": [
+          31899,
+          4,
+          6382,
+          504,
+          1253,
+          17589,
+          31906,
+          306,
+          2957,
+          515,
+          297,
+          2362,
+          31920,
+          912,
+          830,
+          17589,
+          31906,
+          692,
+          6382,
+          405,
+          1326,
+          31957,
+          1842,
+          10709,
+          31920,
+          31899,
+          7,
+          31899,
+          5
+        ]
+      },
+      "S01": {
+        "prompt": " <|user|> Write a short story about a duck helping a lost frog return to its pond. <|end|> <|assistant|>",
+        "tokens": [
+          31899,
+          4,
+          7316,
+          272,
+          1663,
+          1461,
+          517,
+          272,
+          11374,
+          5582,
+          272,
+          2286,
+          22871,
+          1480,
+          297,
+          709,
+          15427,
+          31920,
+          31899,
+          7,
+          31899,
+          5
+        ]
+      },
+      "S02": {
+        "prompt": " <|user|> Write a short story about a child who repairs a torn paper boat, then floats it on a pond. <|end|> <|assistant|>",
+        "tokens": [
+          31899,
+          4,
+          7316,
+          272,
+          1663,
+          1461,
+          517,
+          272,
+          1196,
+          534,
+          19936,
+          272,
+          10642,
+          2866,
+          7569,
+          31921,
+          683,
+          28995,
+          342,
+          336,
+          272,
+          15427,
+          31920,
+          31899,
+          7,
+          31899,
+          5
+        ]
+      },
+      "B1": {
+        "prompt": "Once upon a time",
+        "tokens": [
+          3317,
+          2675,
+          272,
+          603
+        ]
+      },
+      "B2": {
+        "prompt": "One day, a little girl",
+        "tokens": [
+          1522,
+          1069,
+          31921,
+          272,
+          1046,
+          1950
+        ]
+      }
+    },
+    "supra": {
+      "F01": {
+        "prompt": "<|im_start|>user\nHow many sides does a triangle have? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+        "tokens": [
+          5,
+          12374,
+          227,
+          1816,
+          774,
+          5203,
+          919,
+          286,
+          13437,
+          451,
+          59,
+          11366,
+          12041,
+          42,
+          6,
+          227,
+          5,
+          593,
+          8422,
+          227
+        ]
+      },
+      "F02": {
+        "prompt": "<|im_start|>user\nHow many days are in a week? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+        "tokens": [
+          5,
+          12374,
+          227,
+          1816,
+          774,
+          1657,
+          380,
+          315,
+          286,
+          1891,
+          59,
+          11366,
+          12041,
+          42,
+          6,
+          227,
+          5,
+          593,
+          8422,
+          227
+        ]
+      },
+      "F03": {
+        "prompt": "<|im_start|>user\nWhat is the capital of France? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+        "tokens": [
+          5,
+          12374,
+          227,
+          1557,
+          338,
+          290,
+          3420,
+          312,
+          4153,
+          59,
+          11366,
+          12041,
+          42,
+          6,
+          227,
+          5,
+          593,
+          8422,
+          227
+        ]
+      },
+      "F04": {
+        "prompt": "<|im_start|>user\nIn the four-season cycle, which season comes after summer? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+        "tokens": [
+          5,
+          12374,
+          227,
+          854,
+          290,
+          1601,
+          41,
+          17218,
+          4540,
+          40,
+          535,
+          3026,
+          2197,
+          893,
+          3383,
+          59,
+          11366,
+          12041,
+          42,
+          6,
+          227,
+          5,
+          593,
+          8422,
+          227
+        ]
+      },
+      "F05": {
+        "prompt": "<|im_start|>user\nWhat do we call frozen water? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+        "tokens": [
+          5,
+          12374,
+          227,
+          1557,
+          506,
+          403,
+          904,
+          10118,
+          887,
+          59,
+          11366,
+          12041,
+          42,
+          6,
+          227,
+          5,
+          593,
+          8422,
+          227
+        ]
+      },
+      "F06": {
+        "prompt": "<|im_start|>user\nWhich sense do we mainly use with our ears? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+        "tokens": [
+          5,
+          12374,
+          227,
+          11930,
+          2307,
+          506,
+          403,
+          5394,
+          713,
+          381,
+          736,
+          8505,
+          59,
+          11366,
+          12041,
+          42,
+          6,
+          227,
+          5,
+          593,
+          8422,
+          227
+        ]
+      },
+      "I01": {
+        "prompt": "<|im_start|>user\nReply with exactly this lowercase word and nothing else: marble<|im_end|>\n<|im_start|>assistant\n",
+        "tokens": [
+          5,
+          12374,
+          227,
+          7459,
+          336,
+          381,
+          3672,
+          463,
+          2136,
+          10075,
+          2076,
+          317,
+          2654,
+          2494,
+          54,
+          19048,
+          6,
+          227,
+          5,
+          593,
+          8422,
+          227
+        ]
+      },
+      "I02": {
+        "prompt": "<|im_start|>user\nReply with exactly these two lowercase words and nothing else: quiet river<|im_end|>\n<|im_start|>assistant\n",
+        "tokens": [
+          5,
+          12374,
+          227,
+          7459,
+          336,
+          381,
+          3672,
+          710,
+          775,
+          2136,
+          10075,
+          1886,
+          317,
+          2654,
+          2494,
+          54,
+          6750,
+          4132,
+          6,
+          227,
+          5,
+          593,
+          8422,
+          227
+        ]
+      },
+      "G01": {
+        "prompt": "<|im_start|>user\nNora put the ticket in a red box. Where is Nora's ticket? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+        "tokens": [
+          5,
+          12374,
+          227,
+          74,
+          6252,
+          1433,
+          290,
+          14651,
+          315,
+          286,
+          2134,
+          3435,
+          42,
+          6096,
+          338,
+          5528,
+          93,
+          460,
+          14651,
+          59,
+          11366,
+          12041,
+          42,
+          6,
+          227,
+          5,
+          593,
+          8422,
+          227
+        ]
+      },
+      "G02": {
+        "prompt": "<|im_start|>user\nMax has three pencils and gives one to Jo. How many pencils does Max have left? Answer briefly.<|im_end|>\n<|im_start|>assistant\n",
+        "tokens": [
+          5,
+          12374,
+          227,
+          18305,
+          534,
+          1179,
+          32694,
+          317,
+          3345,
+          560,
+          316,
+          7282,
+          42,
+          1141,
+          774,
+          32694,
+          919,
+          7805,
+          451,
+          1706,
+          59,
+          11366,
+          12041,
+          42,
+          6,
+          227,
+          5,
+          593,
+          8422,
+          227
+        ]
+      },
+      "S01": {
+        "prompt": "<|im_start|>user\nWrite a short story about a duck helping a lost frog return to its pond.<|im_end|>\n<|im_start|>assistant\n",
+        "tokens": [
+          5,
+          12374,
+          227,
+          16715,
+          286,
+          1692,
+          1883,
+          579,
+          286,
+          15872,
+          4986,
+          286,
+          2898,
+          10743,
+          2006,
+          316,
+          684,
+          10306,
+          42,
+          6,
+          227,
+          5,
+          593,
+          8422,
+          227
+        ]
+      },
+      "S02": {
+        "prompt": "<|im_start|>user\nWrite a short story about a child who repairs a torn paper boat, then floats it on a pond.<|im_end|>\n<|im_start|>assistant\n",
+        "tokens": [
+          5,
+          12374,
+          227,
+          16715,
+          286,
+          1692,
+          1883,
+          579,
+          286,
+          791,
+          578,
+          18557,
+          286,
+          9637,
+          2274,
+          7639,
+          40,
+          864,
+          6076,
+          1406,
+          376,
+          355,
+          286,
+          10306,
+          42,
+          6,
+          227,
+          5,
+          593,
+          8422,
+          227
+        ]
+      },
+      "B1": {
+        "prompt": "Once upon a time",
+        "tokens": [
+          6623,
+          2304,
+          286,
+          665
+        ]
+      },
+      "B2": {
+        "prompt": "One day, a little girl",
+        "tokens": [
+          2994,
+          1083,
+          40,
+          286,
+          1394,
+          3016
+        ]
+      }
+    }
+  },
+  "artifacts": {
+    "tinybrainbot": {
+      "full": {
+        "path": ".local/tinybrainbot-p4-2026-10-29/tinybrainbot-full.p4qs",
+        "bytes": 52236536,
+        "sha256": "f336465c60ca79b7d7a37e6adcdebb26b832b3d54a9f8616a80c50558ca40f99",
+        "model_id": "0a0ab7c4fd5cc1cea3f77f77c104ce0684ccdc37db1149aa78a9bdb742a716f3",
+        "artifact_id": "cde9fe5847dddcc082b79f0d404ce051ffb2adb1d27591617ccbb60193019a8e"
+      },
+      "coordinator": {
+        "path": ".local/tinybrainbot-p4-2026-10-29/tinybrainbot-coordinator.p4qs",
+        "bytes": 26800376,
+        "sha256": "fa2bcbda9f46d8a78c281f47c43920a313f358b08e5e624e0b0fa0ba2625418c",
+        "model_id": "0a0ab7c4fd5cc1cea3f77f77c104ce0684ccdc37db1149aa78a9bdb742a716f3",
+        "artifact_id": "38136812292fd230edd00524291a2cef2d04ce559771ac13b0587437a96da0af",
+        "stored_path": ".local/tinybrainbot-p4-2026-10-29/tinybrainbot-coordinator.p4zl",
+        "stored_bytes": 20608129,
+        "stored_sha256": "e61a25a97214a7e59f37b1199f1e384bf30c3302c1c0897e6d6d4303eca82b3c"
+      },
+      "worker": {
+        "path": ".local/tinybrainbot-p4-2026-10-29/tinybrainbot-worker.p4qs",
+        "bytes": 25436416,
+        "sha256": "246513aa3a0fcb80f556867bbd7bf27a9bbdb43bd8dcb6a22d847118442f0e14",
+        "model_id": "0a0ab7c4fd5cc1cea3f77f77c104ce0684ccdc37db1149aa78a9bdb742a716f3",
+        "artifact_id": "2bd715106a39083fd418f9876b7af2a54e1a2159c57f8d2311ad9c5673f45268",
+        "stored_path": ".local/tinybrainbot-p4-2026-10-29/tinybrainbot-worker.p4zl",
+        "stored_bytes": 20097432,
+        "stored_sha256": "f950b8a8a944de7b1bfbc4cd6c65492b9a4c8c2496c946f166111a8aa8bab917"
+      }
+    },
+    "supra": {
+      "full": {
+        "path": ".local/models/supra100-2c90ade6ab47/supra-full.p4qs",
+        "bytes": 51752964,
+        "sha256": "b1c9257480fac2a6cc18076c24b7484158fb31d237acba0ba12952ed6f14e2af",
+        "model_id": "1e84bed3091324dca22294f002d6babbc7ca5db8728dac58a5e241bc4ef5008c",
+        "artifact_id": "9ac8f43d2e7421ffbdbf460cfd8533d1332484ee5bd18616434efac8f15d129f"
+      },
+      "coordinator": {
+        "path": ".local/models/supra100-2c90ade6ab47/supra-coordinator.p4qs",
+        "bytes": 26312708,
+        "sha256": "642f3f4cb4efbba2336fbcdc962ff21645e43de444a7b5425ea8f11deb3aab5d",
+        "model_id": "1e84bed3091324dca22294f002d6babbc7ca5db8728dac58a5e241bc4ef5008c",
+        "artifact_id": "d74edf72a36861277c841836c7e97199e7748579a5395a3662f6ef08a186c2a8",
+        "stored_path": ".local/models/supra100-2c90ade6ab47/supra-coordinator.p4zl",
+        "stored_bytes": 19757583,
+        "stored_sha256": "729ed81ccbc85de682bd493fc418381472ee181e5e39b44932e4e7f13c7e336f"
+      },
+      "worker": {
+        "path": ".local/models/supra100-2c90ade6ab47/supra-worker.p4qs",
+        "bytes": 25440512,
+        "sha256": "5dcfe0757f1049592bfba89bfb9e7be6cf96d7fb70770a857424793a8a2a596f",
+        "model_id": "1e84bed3091324dca22294f002d6babbc7ca5db8728dac58a5e241bc4ef5008c",
+        "artifact_id": "746b13e7779d45ec8021bd4a73234323588af02175ba02698a4207fe40545abd",
+        "stored_path": ".local/models/supra100-2c90ade6ab47/supra-worker.p4zl",
+        "stored_bytes": 20074249,
+        "stored_sha256": "4861e87c252c36429d1633ff939f321d0544d3aa7f7c8a31b0a59e4e0e133fa3"
+      }
+    }
+  },
+  "source_sha256": {
+    "tools/compare_p4_models.py": "937e072b7bcc35cde0c711cf9be9e89dff9d05636e9f679cf79f9a91240142b3",
+    "tools/p4_compare_metrics.py": "e4cbec56581221f8abffb1f48e8bc74bbb2987f58c1d2840006f7e8142430235",
+    "tools/check_gptneo_native.py": "b69ad81b00c91c47b1a860be9b448f3a320442ef831e713565e39ac0d1cb13c1",
+    "tools/gptneo_p4_trial.py": "4848d919117b438064e0e828c9b264b73aa0e75cea0da75324d458548d19e5e2",
+    "tools/benchmark_kernel.py": "1472325b9f7a9e8e51b80b58249b31e94cc49ec64adc140016911f699fbe842c",
+    "tools/dispatch_client.py": "b3a8112738989b0ef38ad92c3a14de6da68d4bb47618621ecf0719c2a93f07c5",
+    "tools/lan_client.py": "e8c3916e07981040e9eb83eb326de64bbcffd9cd2c7873653c9026f785c2e0fd",
+    "tools/tinybrainbot_p4_trial.py": "29799037086a0ab00623b3648de2cf8d55b0bf46ba52c8c2ba4480e7c46c5891",
+    "firmware/components/tinyllm/tinyllm.c": "0a7b804db30731128653afd9d920f6db79276e6a4eab7756ee908f5681c3b872",
+    "firmware/components/tinyllm/sp_tokenizer.c": "9e0c1812564a7343a642f1a125032d230c36a6b243bd7fde88459e4dc7e4a86a",
+    "firmware/main/service.c": "e438de2f23161b2a5f70712b306d4a17dba31750d43a33de819e0c9ab2d7b9b5"
+  },
+  "native_dll_sha256": "4093a292d68c4bd393b447e75d9984f29a42e471f23c5bb4c69914797aec8efd",
+  "schedule": [
+    {
+      "model": "tinybrainbot",
+      "quality": true,
+      "blocks": [
+        1
+      ]
+    },
+    {
+      "model": "supra",
+      "quality": true,
+      "blocks": [
+        1,
+        2
+      ]
+    },
+    {
+      "model": "tinybrainbot",
+      "quality": false,
+      "blocks": [
+        2,
+        3
+      ]
+    },
+    {
+      "model": "supra",
+      "quality": false,
+      "blocks": [
+        3
+      ]
+    }
+  ],
+  "timing_order": "AB/BA/AB across paired blocks; prefixes B1/B2 except B2/B1 in block2; warm B1 cap4 each phase.",
+  "rubric": {
+    "first": "First responsive factual claim correct; unrelated introductory statements do not count as the requested answer.",
+    "clean": "Entire visible response has no false claim, material contradiction or material task drift; null if capped evidence is ambiguous.",
+    "exact": "Strip outer Unicode whitespace only, then exact case-sensitive equality; no punctuation or extra text.",
+    "story": "Full stated topic, no material contradiction, visible resolution each binary and separate; EOS is not a resolution.",
+    "review": "Same assistant, unblinded, not independent. No pooled total quality score or population ranking."
+  },
+  "speed_admission": "Paired latency ratio only if all six outputs for a prefix reach16 without EOS. Same bytes/cap do not equal same tokenizer IDs, output content or arithmetic.",
+  "decode_proxy": "(output_tokens-1)*1000/(elapsed_ms-ttft_ms), only non-EOS capped outputs; includes final RPC/stream bookkeeping.",
+  "boundaries": "Small exploratory fixed sample, familiar facts, possible training overlap; no energy/thermal/third-node measurements. No automatic inference retries.",
+  "restore": "Genuine TinyBrainBot roles, control B1 cap4, final sharded ready/idle. Restore in finally on any failure. No firmware/partition change.",
+  "model_sources": {
+    "tinybrainbot": {
+      "repository": "nkthebass/tinybrainbot-100m-v3-instruct",
+      "revision": "a8567bd7674f53b3fe5f42c8abaab35229a0e00e",
+      "parameters": 100092672
+    },
+    "supra": {
+      "repository": "SupraLabs/Supra2-100M-Instruct",
+      "revision": "2c90ade6ab47b910f48d0157a3e4c421d6311ed5",
+      "parameters": 100684032
+    }
+  }
+}

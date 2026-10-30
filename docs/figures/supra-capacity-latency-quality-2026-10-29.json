@@ -1,0 +1,17 @@
+{
+  "title": "supra-capacity-latency-quality",
+  "date": "2026-10-29",
+  "width": 1600,
+  "height": 1210,
+  "source_sha256": {
+    "docs/research/data/supra50-2026-10-29/timing.json": "b56d62c7471e53559f14b06eacb45e5c722187fdffbbe66594d188a1fa8aeff4",
+    "docs/research/data/supra50-2026-10-29/device-memory.json": "15074e9ce2b2f7e96beaf230e04cae5b2177c79779db545c14e1e1ce46baddc5",
+    "docs/research/data/supra50-2026-10-29/host-generations.json": "62b07dca1dae0b3161b0374e0ded24ecfeb074533483cb9297c97bffeafd7482",
+    "docs/research/data/supra50-2026-10-29/source-controls.json": "b777d0c0c3ac30f5326a20e2de0add64050ae8057b5dac58465567820a66e7fa",
+    "docs/research/data/supra100-2026-10-29/timing.json": "821b304cb21955dc79332ad9785b8a18007ebaf8291b5e944fef12c2a6b5f027",
+    "docs/research/data/supra100-2026-10-29/device-memory.json": "a5de6c02bf59d038686b55558bdc79fe22c04093ffcf4d9c218e80935124a5f0",
+    "docs/research/data/supra100-2026-10-29/host-generations.json": "00ff386f0daf17e7786b0873a35d447bb2ba4eb7610ea2ce865e2de5ebdddbe9",
+    "docs/research/data/supra100-2026-10-29/source-controls.json": "8755c06272e3b01cbc8018429dc12eae1b06168262d009aa8eb558062b9545f8"
+  },
+  "notes": "Static, English, local figure. No online resources. Descriptive medians/ranges and manual review, not confidence intervals or independent quality ratings."
+}

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200" role="img">
+<title>TinyBrainBot: production INT4 byte-pair kernel</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1200" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">TinyBrainBot: production INT4 byte-pair kernel</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Same two physical P4s | unchanged model / tokenizer / row INT4 | 4+8 layers | context 256 | 30 October 2026</text>
+<rect x="48" y="145" width="732" height="340" rx="14" fill="white"/>
+<text x="72" y="187" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">B1 · Once upon a time</text>
+<text x="72" y="250" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">baseline 0.7.0</text>
+<rect x="278" y="225" width="294.6271369425254" height="30" rx="3" fill="#3378ad"/>
+<path d="M572.5964908983781 240 L572.6428571428571 240" stroke="#193347" stroke-width="3" fill="none"/>
+<text x="748" y="250" fill="#193347" font-size="24" font-weight="normal" text-anchor="end">51.184 s</text>
+<text x="72" y="338" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">candidate 0.9.0</text>
+<rect x="278" y="313" width="189.60230324373086" height="30" rx="3" fill="#178476"/>
+<path d="M467.5897029073976 328 L467.70334193886924 328" stroke="#193347" stroke-width="3" fill="none"/>
+<text x="748" y="338" fill="#193347" font-size="24" font-weight="normal" text-anchor="end">32.939 s</text>
+<text x="72" y="417" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">Paired time factor: 1.554x</text>
+<text x="72" y="456" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">16 output tokens; n=3. Whiskers: observed min–max.</text>
+<rect x="820" y="145" width="732" height="340" rx="14" fill="white"/>
+<text x="844" y="187" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">B2 · One day, a little girl</text>
+<text x="844" y="250" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">baseline 0.7.0</text>
+<rect x="1050" y="225" width="294.52888170362826" height="30" rx="3" fill="#3378ad"/>
+<path d="M1344.505020570503 240 L1344.642857142857 240" stroke="#193347" stroke-width="3" fill="none"/>
+<text x="1520" y="250" fill="#193347" font-size="24" font-weight="normal" text-anchor="end">55.422 s</text>
+<text x="844" y="338" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">candidate 0.9.0</text>
+<rect x="1050" y="313" width="189.55444114650237" height="30" rx="3" fill="#178476"/>
+<path d="M1239.546108349901 328 L1239.9584064103146 328" stroke="#193347" stroke-width="3" fill="none"/>
+<text x="1520" y="338" fill="#193347" font-size="24" font-weight="normal" text-anchor="end">35.669 s</text>
+<text x="844" y="417" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">Paired time factor: 1.554x</text>
+<text x="844" y="456" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">16 output tokens; n=3. Whiskers: observed min–max.</text>
+<text x="48" y="541" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Separate recorded execution spans on each board (median seconds)</text>
+<text x="48" y="580" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Includes memory stalls, scheduling and explicit pauses; not pure arithmetic time.</text>
+<text x="48" y="630" fill="#193347" font-size="23" font-weight="bold" text-anchor="start">Prefix / firmware</text>
+<text x="670" y="630" fill="#193347" font-size="23" font-weight="bold" text-anchor="start">Coordinator</text>
+<text x="1120" y="630" fill="#193347" font-size="23" font-weight="bold" text-anchor="start">Worker</text>
+<text x="48" y="680" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">B1 / baseline</text>
+<text x="670" y="680" fill="#3378ad" font-size="25" font-weight="bold" text-anchor="start">24.030 s</text>
+<text x="1120" y="680" fill="#3378ad" font-size="25" font-weight="bold" text-anchor="start">26.684 s</text>
+<text x="48" y="733" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">B1 / candidate</text>
+<text x="670" y="733" fill="#178476" font-size="25" font-weight="bold" text-anchor="start">15.411 s</text>
+<text x="1120" y="733" fill="#178476" font-size="25" font-weight="bold" text-anchor="start">17.152 s</text>
+<text x="48" y="786" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">B2 / baseline</text>
+<text x="670" y="786" fill="#3378ad" font-size="25" font-weight="bold" text-anchor="start">25.437 s</text>
+<text x="1120" y="786" fill="#3378ad" font-size="25" font-weight="bold" text-anchor="start">29.502 s</text>
+<text x="48" y="839" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">B2 / candidate</text>
+<text x="670" y="839" fill="#178476" font-size="25" font-weight="bold" text-anchor="start">16.339 s</text>
+<text x="1120" y="839" fill="#178476" font-size="25" font-weight="bold" text-anchor="start">18.984 s</text>
+<rect x="48" y="920" width="1504" height="225" rx="14" fill="#dce9f2"/>
+<text x="72" y="964" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Correctness and deployment decision</text>
+<text x="72" y="1007" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">27 real streams: exact token IDs, decoded bytes/text and EOS versus archived native references.</text>
+<text x="72" y="1045" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">95 tests; 14 complete host reference generations; 8 full-vocabulary scalar/tile4 logit positions match.</text>
+<text x="72" y="1083" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Firmware 0.9.0 retained; genuine TinyBrainBot shards unchanged; both boards ready, queue empty.</text>
+<text x="48" y="1180" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Baseline first / candidate second; no randomization, energy, thermal or general quality improvement claim.</text>
+</svg>

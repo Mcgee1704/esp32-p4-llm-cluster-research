@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1050" viewBox="0 0 1600 1050" role="img">
+<title>One physical P4 pair; explicit evidence reuse</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1050" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">One physical P4 pair; explicit evidence reuse</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Firmware0.9.0 stays installed | model-only private-LAN switches | existing local artifacts, no downloads</text>
+<rect x="48" y="145" width="1504" height="135" rx="14" fill="white"/>
+<text x="800" y="190" fill="#193347" font-size="29" font-weight="bold" text-anchor="middle">Same LAN client → coordinator → worker → coordinator</text>
+<text x="800" y="237" fill="#586c7d" font-size="24" font-weight="normal" text-anchor="middle">One sharded request lane. Both boards participate in every inference.</text>
+<rect x="48" y="320" width="704" height="174" rx="14" fill="white"/>
+<text x="72" y="362" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Coordinator P4</text>
+<text x="72" y="410" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">Layers0–3 + tokenizer + tied embedding/output</text>
+<text x="72" y="452" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">32MiB PSRAM / 32MiB flash</text>
+<rect x="848" y="320" width="704" height="174" rx="14" fill="white"/>
+<text x="872" y="362" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Worker P4</text>
+<text x="872" y="410" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">Layers4–11 + its own FP32 KV state</text>
+<text x="872" y="452" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">32MiB PSRAM / 32MiB flash</text>
+<path d="M752 383 L848 383" stroke="#3378ad" stroke-width="4" fill="none"/>
+<path d="M835 375 L848 383 L835 391" stroke="#3378ad" stroke-width="4" fill="none"/>
+<path d="M848 451 L752 451" stroke="#178476" stroke-width="4" fill="none"/>
+<path d="M765 443 L752 451 L765 459" stroke="#178476" stroke-width="4" fill="none"/>
+<text x="800" y="359" fill="#193347" font-size="20" font-weight="normal" text-anchor="middle">LAN</text>
+<text x="48" y="551" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Fresh measurements</text>
+<rect x="48" y="584" width="484" height="165" rx="14" fill="white"/>
+<text x="70" y="625" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">TinyBrainBot first</text>
+<text x="70" y="674" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Warmup4 + six timing streams</text>
+<text x="70" y="712" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Existing genuine model stays loaded</text>
+<rect x="558" y="584" width="484" height="165" rx="14" fill="white"/>
+<text x="580" y="625" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">Supra2 second</text>
+<text x="580" y="674" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Warmup4 + six timing +12 quality</text>
+<text x="580" y="712" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Load true worker, then coordinator</text>
+<rect x="1068" y="584" width="484" height="165" rx="14" fill="white"/>
+<text x="1090" y="625" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">Restore TinyBrainBot</text>
+<text x="1090" y="674" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Load true roles, reconfigure peer</text>
+<text x="1090" y="712" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">W control4; both ready/idle</text>
+<rect x="48" y="800" width="1504" height="180" rx="14" fill="#dce9f2"/>
+<text x="72" y="844" fill="#193347" font-size="26" font-weight="bold" text-anchor="start">REUSED separately:12 Tiny quality streams from the preceding0.9.0 study</text>
+<text x="72" y="886" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Hashes and native-reference equality checked. Not counted as fresh data or new quality samples.</text>
+<text x="72" y="930" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">27 fresh real streams +12 reused streams. Host:30 generations +8 logit positions/model.</text>
+<text x="48" y="1023" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Fixed model order limits causal/ranking claims. Restoring weights is tested; no firmware or partition change.</text>
+</svg>

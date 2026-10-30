@@ -1,0 +1,118 @@
+{
+  "B1": {
+    "paired_blocks": 3,
+    "matched_capped_outputs": true,
+    "models": {
+      "tinybrainbot": {
+        "prompt_tokens": 4,
+        "output_tokens": [
+          16,
+          16,
+          16
+        ],
+        "eos": [
+          false,
+          false,
+          false
+        ],
+        "total_seconds": [
+          51.206838000000005,
+          51.191699,
+          51.191275000000005
+        ],
+        "total_median_seconds": 51.191699,
+        "total_range_seconds": [
+          51.191275000000005,
+          51.206838000000005
+        ],
+        "ttft_median_seconds": 9.257616,
+        "decode_proxy_median_tokens_per_s": 0.35770787376317437
+      },
+      "supra": {
+        "prompt_tokens": 4,
+        "output_tokens": [
+          16,
+          16,
+          16
+        ],
+        "eos": [
+          false,
+          false,
+          false
+        ],
+        "total_seconds": [
+          51.463065,
+          51.412125,
+          51.186745
+        ],
+        "total_median_seconds": 51.412125,
+        "total_range_seconds": [
+          51.186745,
+          51.463065
+        ],
+        "ttft_median_seconds": 9.237870000000001,
+        "decode_proxy_median_tokens_per_s": 0.35567547562584423
+      }
+    },
+    "supra_over_tiny_total_median": 1.004305893422291,
+    "scope": "Same raw prompt bytes and cap; different vocabularies/output texts and potentially different input-token counts. Deployed-system latency, not isolated arithmetic."
+  },
+  "B2": {
+    "paired_blocks": 3,
+    "matched_capped_outputs": true,
+    "models": {
+      "tinybrainbot": {
+        "prompt_tokens": 6,
+        "output_tokens": [
+          16,
+          16,
+          16
+        ],
+        "eos": [
+          false,
+          false,
+          false
+        ],
+        "total_seconds": [
+          55.439542,
+          55.443253,
+          55.301819
+        ],
+        "total_median_seconds": 55.439542,
+        "total_range_seconds": [
+          55.301819,
+          55.443253
+        ],
+        "ttft_median_seconds": 13.469876000000001,
+        "decode_proxy_median_tokens_per_s": 0.3574009857500415
+      },
+      "supra": {
+        "prompt_tokens": 6,
+        "output_tokens": [
+          16,
+          16,
+          16
+        ],
+        "eos": [
+          false,
+          false,
+          false
+        ],
+        "total_seconds": [
+          55.677356,
+          55.683941,
+          55.412878
+        ],
+        "total_median_seconds": 55.677356,
+        "total_range_seconds": [
+          55.412878,
+          55.683941
+        ],
+        "ttft_median_seconds": 13.466063,
+        "decode_proxy_median_tokens_per_s": 0.3553721140497147
+      }
+    },
+    "supra_over_tiny_total_median": 1.0042896097518266,
+    "scope": "Same raw prompt bytes and cap; different vocabularies/output texts and potentially different input-token counts. Deployed-system latency, not isolated arithmetic."
+  }
+}

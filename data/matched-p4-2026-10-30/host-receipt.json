@@ -1,0 +1,20 @@
+{
+  "protocol_commit": "3bf7eb1fb0db3dfba4d43b0d4a496375cbbfdefe",
+  "protocol_sha256": "5b2649f66f7f14ebfda1eae3c389a497c1c7dee997c0cd113b0cdb8daf17514e",
+  "complete_generations": 30,
+  "references_sha256": "7cc9d0be9071742294b44e2748beec6eea2dc615f46af7d3effdc14663bc2332",
+  "source_sha256": {
+    "tools/compare_p4_models.py": "937e072b7bcc35cde0c711cf9be9e89dff9d05636e9f679cf79f9a91240142b3",
+    "tools/p4_compare_metrics.py": "e4cbec56581221f8abffb1f48e8bc74bbb2987f58c1d2840006f7e8142430235",
+    "tools/check_gptneo_native.py": "b69ad81b00c91c47b1a860be9b448f3a320442ef831e713565e39ac0d1cb13c1",
+    "tools/gptneo_p4_trial.py": "4848d919117b438064e0e828c9b264b73aa0e75cea0da75324d458548d19e5e2",
+    "tools/benchmark_kernel.py": "1472325b9f7a9e8e51b80b58249b31e94cc49ec64adc140016911f699fbe842c",
+    "tools/dispatch_client.py": "b3a8112738989b0ef38ad92c3a14de6da68d4bb47618621ecf0719c2a93f07c5",
+    "tools/lan_client.py": "e8c3916e07981040e9eb83eb326de64bbcffd9cd2c7873653c9026f785c2e0fd",
+    "tools/tinybrainbot_p4_trial.py": "29799037086a0ab00623b3648de2cf8d55b0bf46ba52c8c2ba4480e7c46c5891",
+    "firmware/components/tinyllm/tinyllm.c": "0a7b804db30731128653afd9d920f6db79276e6a4eab7756ee908f5681c3b872",
+    "firmware/components/tinyllm/sp_tokenizer.c": "9e0c1812564a7343a642f1a125032d230c36a6b243bd7fde88459e4dc7e4a86a",
+    "firmware/main/service.c": "e438de2f23161b2a5f70712b306d4a17dba31750d43a33de819e0c9ab2d7b9b5"
+  },
+  "scope": "Native reference only; no answer quality scoring or hardware yet"
+}

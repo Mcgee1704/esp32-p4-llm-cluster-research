@@ -1,0 +1,12 @@
+menu "P4 TinyStories LAN"
+config CLUSTER_KEY
+    string "Shared LAN access key (at least 24 characters)"
+    default ""
+    help
+        Same key on both boards. Empty key disables inference and uploads.
+        Provision once at local build time; never publish this value.
+config CLUSTER_PHY_ADDR
+    int "IP101 PHY address (-1 auto-detect)"
+    range -1 31
+    default -1
+endmenu

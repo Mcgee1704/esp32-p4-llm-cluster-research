@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1110" viewBox="0 0 1600 1110" role="img">
+<title>Where the two-P4 time goes</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1110" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">Where the two-P4 time goes</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Retained 12 capped timing runs | 16 output tokens | Same firmware 0.7.0 | Offline profile analysis</text>
+<text x="48" y="180" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">TinyBrainBot-B1</text>
+<rect x="440" y="154" width="332.4591145" height="36" rx="2" fill="#27799b"/>
+<rect x="772.4591144999999" y="154" width="369.0918976666667" height="36" rx="2" fill="#198577"/>
+<rect x="1141.5510121666666" y="154" width="6.600824000000022" height="36" rx="2" fill="#bd8a3d"/>
+<text x="1490" y="182" fill="#193347" font-size="25" font-weight="normal" text-anchor="end">51.192 s</text>
+<text x="440" y="229" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Local execution 99.068% | Outside spans 0.477 s median</text>
+<text x="48" y="325" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">TinyBrainBot-B2</text>
+<rect x="440" y="299" width="352.02339033333334" height="36" rx="2" fill="#27799b"/>
+<rect x="792.0233903333333" y="299" width="408.11884349999997" height="36" rx="2" fill="#198577"/>
+<rect x="1200.1422338333332" y="299" width="6.771430500000053" height="36" rx="2" fill="#bd8a3d"/>
+<text x="1490" y="327" fill="#193347" font-size="25" font-weight="normal" text-anchor="end">55.440 s</text>
+<text x="440" y="374" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Local execution 99.117% | Outside spans 0.490 s median</text>
+<text x="48" y="470" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">Supra2-B1</text>
+<rect x="440" y="444" width="335.4035395" height="36" rx="2" fill="#27799b"/>
+<rect x="775.4035395000001" y="444" width="368.9390808333333" height="36" rx="2" fill="#198577"/>
+<rect x="1144.3426203333333" y="444" width="6.8584421666666815" height="36" rx="2" fill="#bd8a3d"/>
+<text x="1490" y="472" fill="#193347" font-size="25" font-weight="normal" text-anchor="end">51.412 s</text>
+<text x="440" y="519" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Local execution 99.036% | Outside spans 0.496 s median</text>
+<text x="48" y="615" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">Supra2-B2</text>
+<rect x="440" y="589" width="355.06469016666665" height="36" rx="2" fill="#27799b"/>
+<rect x="795.0646901666667" y="589" width="408.045264" height="36" rx="2" fill="#198577"/>
+<rect x="1203.1099541666667" y="589" width="7.093470499999986" height="36" rx="2" fill="#bd8a3d"/>
+<text x="1490" y="617" fill="#193347" font-size="25" font-weight="normal" text-anchor="end">55.677 s</text>
+<text x="440" y="664" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Local execution 99.079% | Outside spans 0.513 s median</text>
+<rect x="48" y="750" width="24" height="24" rx="3" fill="#27799b"/>
+<text x="86" y="772" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Coordinator execution</text>
+<rect x="558" y="750" width="24" height="24" rx="3" fill="#198577"/>
+<text x="596" y="772" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Worker execution</text>
+<rect x="1068" y="750" width="24" height="24" rx="3" fill="#bd8a3d"/>
+<text x="1106" y="772" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Outside both spans</text>
+<rect x="48" y="815" width="1504" height="150" rx="14" fill="#dce9f2"/>
+<text x="72" y="859" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">RPC waiting is mostly remote execution, not pure network loss.</text>
+<text x="72" y="902" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Execution includes memory access, pauses and synchronization. These profiles do not isolate arithmetic or bandwidth.</text>
+<text x="72" y="943" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Bars use the median-total run; captions use medians across three runs. The residual is not packet-captured LAN time.</text>
+<text x="48" y="1018" fill="#193347" font-size="24" font-weight="bold" text-anchor="start">Next useful experiment: isolate local INT4 matrix execution and memory access before changing LAN transport.</text>
+<text x="48" y="1065" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Removing all residual time would save under 1% here if execution spans stayed fixed. This is not a guaranteed speedup.</text>
+</svg>

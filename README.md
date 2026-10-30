@@ -1,12 +1,41 @@
 # ESP32-P4 LLM Cluster Research
+## Latest evidence: firmware0.9.0 and research snapshot v8
+
+[Start with the organized evidence index](docs/RESEARCH_INDEX.md) or
+[browse reports and all figures](index.html). The latest same-kernel model
+comparison, INT4 production optimization and separated memory measurements are
+included with raw outputs and source hashes. Source now ends at0.9.0; public
+keyless diagnostic binaries still end at0.5.5. Measured private firmware images
+are not distributed. See [v8 release notes](docs/RELEASE_NOTES_V8.md).
+
+The earlier v7 status below is historical context, not the latest device/source
+status. See the indexed per-study dates, firmware versions and evidence scopes.
+
 
 Reproducible experiments with two Waveshare ESP32-P4-WIFI6-POE-ETH boards:
 distributed text inference, Ethernet transport, autonomous job dispatch,
 dual-core matrix computation, memory access, predictive simulation, and text quality.
 
 This is a research prototype. Measurements were made on **two real boards**.
-Three-node results are explicitly labelled simulations. No larger model capacity
-or useful general-purpose assistant is claimed.
+Three-node results are explicitly labelled simulations. Larger two-board model
+capacity is measured in the later sharded studies; no useful general-purpose
+assistant is claimed.
+
+## New local candidate: TinyBrainBot on both P4s
+
+Firmware0.7.0 now runs a real Metaspace/BPE tokenizer and a100M-parameter model
+split across both boards. Compressed artifacts20.61/20.10MB fit the24MiB model
+partitions. Thirteen real TinyBrainBot generations pass runtime reference checks;
+ten retain full raw streams. LAN OTA/cold load and bounded memory tests pass.
+See [the device report](docs/tinybrainbot-p4-2026-10-29.md) and
+[version7 release notes](docs/RELEASE_NOTES_V7.md).
+
+The earlier120-output [local comparison](docs/tinybrainbot-local-2026-10-29.md)
+favours TinyBrainBot on a narrow factual subset; it still gives wrong facts and
+fails exact instructions. Same unblinded reviewer, no general ranking.
+The larger model serves one distributed lane, while earlier small-model tests
+below used two independent lanes. Updated source is0.7.0; public keyless binary
+bundles still end at0.5.5. Version7 is a locally prepared candidate, not uploaded.
 
 ## Main results
 
@@ -23,11 +52,11 @@ Do not chain ratios across firmware versions: their baselines differ.
 The pair experiments use two independent outputs of 24 tokens each; they are
 not speedups of one autoregressive generation across boards.
 
-The table above records the earlier Llama research stages. The current runtime
-is firmware **0.5.5**, with Llama and GPT-Neo, a native GPT-2 byte BPE tokenizer,
+The table above records the earlier Llama research stages. The runtime at the end of that historical study
+was firmware **0.5.5**, with Llama and GPT-Neo, a native GPT-2 byte BPE tokenizer,
 row INT8 weights, FP32 activations/KV and both HP cores per board. The retained
 SFT checkpoint is the same size as the original TinyStories baseline; the
-current restored checkpoint is TinyTalk-2.
+restored checkpoint for that study was TinyTalk-2.
 
 ## Matched story and dialogue models
 

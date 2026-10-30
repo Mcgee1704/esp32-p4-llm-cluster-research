@@ -232,15 +232,28 @@ Raw streams, failed build/environment checks and final device state accompany th
 The cumulative automated suite and publication/privacy checks are reported in
 `validation.json` and the public provenance files, not inferred from this prose.
 
-`matched_models.py prepare` admits/exports and freezes a fresh protocol;
-`matched_models.py host` builds native references and numerical checks;
-`matched_models_p4.py` performs the real local-LAN experiment and restoration.
-The scripts intentionally refuse to overwrite the completed evidence directory.
-Supply the pinned assets locally and use a new output identifier for a repeat;
-never silently amend a completed protocol. `review_matched_models.py` records
-the published manual decisions, not an independent scoring engine.
-`summarize_matched_models.py` and `plot_matched_models.py` regenerate reports,
-the text viewer and SVG/PNG figures from recorded data. Model weights, local
-keys, private deployment binaries and operational history stay outside publication.
-Separately rebuilt keyless diagnostic firmware is documented in the publication's
-firmware-version archive; it is not the binary used in this experiment.
+For a fresh run with pinned assets and a newly built native DLL, use the same
+new identifier at every stage (from the repository root):
+
+```text
+python tools/matched_models.py prepare --run matched-repeat-01
+python tools/matched_models.py host --run matched-repeat-01
+python tools/matched_models_p4.py --run matched-repeat-01
+# After separately creating manual-review.json for this new run:
+python tools/summarize_matched_models.py --run matched-repeat-01 --report
+```
+
+`--output /absolute/path/to/new-study` is the alternative directory argument on
+all four commands. Prepare/host/hardware refuse to overwrite completed records.
+Hardware requires the specified starting firmware/model and explicitly intended
+local targets; these commands are not an offline smoke test. Archived generating
+source hashes still refer to the old experiment, so a repeat freezes a new
+protocol instead of relaxing the old guards. Reports stay inside the selected
+study directory. Manual review is a separate, author-labelled step; it cannot
+be inferred by an automated summary for a new set of outputs.
+
+For the archived data use `python tools/summarize_matched_models.py` or
+`python tools/validate_matched_evidence.py`. They validate public representation
+hashes against historical source digests; neither performs model inference or
+contacts a P4. The standard-library full-snapshot check is described in
+[REPRODUCIBILITY.md](REPRODUCIBILITY.md).

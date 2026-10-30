@@ -1,0 +1,22 @@
+{
+  "unicode_scalars_normalized": 1112063,
+  "input_probes": 5031,
+  "seed": 78123,
+  "vocabulary_decode_cases": 64000,
+  "complete_generations": 30,
+  "all_tokens_text_eos_equal": true,
+  "full_shard_kernel_logits_identical": true,
+  "max_absolute_logit_error": 4.38690185546875e-05,
+  "context_boundary_checked": true,
+  "sequential_KV_positions_per_role": 256,
+  "code_sha256": {
+    "tools/pack_spm.py": "3ade065c43ae0beabbd82c2df5c014ad2317b4a6c735740ca7630f509c984f14",
+    "tools/tinybrainbot_port.py": "cf1519670440caa68d305e6b9b21ed16d0a14334b8955735ff8107aeb548fe83",
+    "tools/data/unicode-grapheme-16.json": "0bc924302d709caf7907002160e62745955b6874e8f6dd9abb7f69a5b49738b5",
+    "firmware/components/tinyllm/sp_tokenizer.c": "9e0c1812564a7343a642f1a125032d230c36a6b243bd7fde88459e4dc7e4a86a",
+    "firmware/components/tinyllm/tinyllm.c": "0a7b804db30731128653afd9d920f6db79276e6a4eab7756ee908f5681c3b872",
+    "firmware/main/service.c": "e438de2f23161b2a5f70712b306d4a17dba31750d43a33de819e0c9ab2d7b9b5"
+  },
+  "native_dll_sha256": "4093a292d68c4bd393b447e75d9984f29a42e471f23c5bb4c69914797aec8efd",
+  "scope": "Real tokenizer and actual weights on host; not a P4 result"
+}

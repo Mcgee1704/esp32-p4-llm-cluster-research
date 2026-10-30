@@ -1,0 +1,46 @@
+# Supra model-parallel experiments — implementation and acceptance plan
+
+Status: accepted, 2026-10-29. Both models tested on the two real P4s.
+61 unit tests, 35 reference-matching device generations and eight LAN rejection
+checks pass. English results and figures are in
+[supra-model-parallel-2026-10-29.md](supra-model-parallel-2026-10-29.md).
+Local work only. No new publication permission.
+
+The requested order is Supra1.5-50M-Instruct-exp, then Supra2-100M-Instruct.
+Neither model has yet been demonstrated on this hardware. A source parameter
+count or a calculated memory budget is not an inference result.
+
+1. **Portable 50M package.** Write area: tinyllm, offline packer and tests.
+   Pin data-only source assets, preserve the complete tokenizer, implement
+   symmetric row INT4 and role-specific tensors/KV storage. Acceptance: legacy
+   regression tests, malformed-artifact rejection, tokenizer equivalence,
+   independent NumPy/source-layout forward checks and full versus sharded C
+   equivalence. Dependencies: the pinned weights and existing native toolchain.
+2. **Two real P4s.** Write area: LAN firmware integration, trial tooling and
+   research evidence. Stage firmware on the worker first, retaining recovery.
+   Acceptance: authenticated status and matching logical identities/ranges,
+   real two-device generations matching the host reference, measured latency
+   and memory. Freeze prompts before observing outputs. No speedup assumption:
+   model parallelism supplies capacity and sequential layers limit latency.
+3. **100M package, after 50M.** Audit Qwen3 head norms and digit splitting,
+   source precision, EOS and per-role memory/flash. Implement and test only
+   with an explicit recoverable storage plan. Never silently truncate vocabulary,
+   context, layers or model weights to fit. Report host and device results
+   separately and document a concrete hardware blocker if one is encountered.
+4. **Research and handoff.** English methods/results and figures, German journal,
+   reproducible checks and local commits. Private LAN keys, weights, backups,
+   handoff material and raw device identifiers remain under ignored .local/.
+
+Proposed artifact P4QS0001 keeps the existing 128-byte SHA/CRC envelope.
+A second 128-byte metadata block binds architecture, role, global layer range,
+quantization, numerical constants and a shared logical model identity. The
+coordinator has embedding/output, tokenizer and early layers; the worker has
+only later layers. Artifact identities differ, logical identities agree.
+Metadata and every tensor are validated before use. Existing formats keep
+their numerical and API behavior. Existing replicated two-lane dispatch is
+retained for those full models; a sharded model has one distributed job lane.
+
+Recovery: existing private 0.5.5 image and complete TinyTalk-2 artifact remain
+available. App OTA does not rewrite the partition table. A physical flash tail
+must not be used without checking partition boundaries, actual flash capacity
+and backing up its original bytes locally. The 50M experiment needs no tail.

@@ -1,19 +1,19 @@
 """Summarize frozen matched outputs without pooling unrelated earlier studies."""
+import argparse
 import json
 from html import escape
+from research_integrity import protocol, recorded_file, data_arguments, study_directory
 from matched_models import DATA, CASES, MODELS, sha, write
 
 
-def main():
+def main(make_report=False):
     # Deriving tables/viewer from recorded evidence needs no model weights.
-    p = json.loads((DATA / 'protocol.json').read_text())
-    if sha(DATA / 'protocol.json') != (DATA / 'protocol.sha256').read_text().strip():
-        raise ValueError('Recorded protocol changed')
+    p = protocol(DATA)
     if p['cases'] != CASES:
         raise ValueError('Analysis case definitions differ from recorded protocol')
     host = json.loads((DATA / 'host.json').read_text())
     review = json.loads((DATA / 'manual-review.json').read_text())
-    assert review['source_sha256'] == sha(DATA / 'host.json')
+    recorded_file(DATA / 'host.json', review['source_sha256'])
     assert len(host) == len(review['rows']) == 64
     counts = {}
     for key in MODELS:
@@ -60,11 +60,11 @@ def main():
     html += ['</html>']
     (DATA / 'comparison.html').write_text('\n'.join(html) + '\n', encoding='utf-8')
     print(json.dumps(counts))
-    if (DATA / 'hardware/summary.json').exists():
-        report(counts)
+    if make_report and (DATA / 'hardware/summary.json').exists():
+        report(counts, DATA / 'report.md')
 
 
-def report(counts):
+def report(counts, destination):
     from matched_models import ROOT
     timing = json.loads((DATA / 'hardware/summary.json').read_text())
     final = json.loads((DATA / 'hardware/final-state.json').read_text())
@@ -316,11 +316,11 @@ firmware-version archive; it is not the binary used in this experiment.
     text = text.replace('{STORY_SLOWER_PERCENT}', f'{100*(timing["story8"]["cluster_package_median_ms"]/timing["sft"]["cluster_package_median_ms"]-1):.1f}')
     text = text.replace('{SMALL_TOKEN_RATIO}', f'{timing["talk1"]["cluster_tokens_per_s_median"]/timing["talk2"]["cluster_tokens_per_s_median"]:.2f}')
     text = text.replace('{SMALL_CHAR_RATIO}', f'{timing["talk1"]["cluster_characters_per_s_median"]/timing["talk2"]["cluster_characters_per_s_median"]:.2f}')
-    (ROOT / 'docs/MATCHED_MODELS.md').write_text(text, encoding='utf-8')
-    editorial = ROOT / 'publication/english/MATCHED_MODELS.md'
-    editorial.parent.mkdir(parents=True, exist_ok=True)
-    editorial.write_text(text.replace('(data/', '(../data/'), encoding='utf-8')
+    destination.write_text(text, encoding='utf-8')
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description=__doc__); data_arguments(parser)
+    parser.add_argument('--report', action='store_true', help='Write report.md inside the selected data directory')
+    args = parser.parse_args(); DATA = study_directory(args, DATA)
+    main(args.report)

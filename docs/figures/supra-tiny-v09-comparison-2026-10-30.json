@@ -1,0 +1,16 @@
+{
+  "title": "supra-tiny-v09-comparison",
+  "date": "2026-10-30",
+  "sources": {
+    "docs/research/data/supra-tiny-v09-2026-10-30/protocol.json": "ff0300a463ea72025947e1a76dfcb83069338943832e187ec65bda21b26abd5d",
+    "docs/research/data/supra-tiny-v09-2026-10-30/host-check.json": "b8b651910f4b6147f43580f2f0073e8e4708d15e2bdc4dbc6bcdd47832cdd840",
+    "docs/research/data/supra-tiny-v09-2026-10-30/summary.json": "83acb633f2612f70706bab758c4cc1cc0cb1a9c737fd633a01716d10ae582bc7",
+    "docs/research/data/supra-tiny-v09-2026-10-30/reused-tiny-quality.json": "9de704eaed46f74f63b130df6a545e70a4b8f75b32fe2c29aba79fa3055e527e",
+    "docs/research/data/supra-tiny-v09-2026-10-30/final.json": "adc1c4723761133dace7216f80f9958b0683a693a532c3aacd94386c5b3ff3e4",
+    "docs/research/data/matched-p4-2026-10-30/manual-review.json": "8f4fdb85b5c7bc8479690dea859a9a177a4fd0dbc669de3b664d84dae5682374",
+    "tools/analyze_supra_tiny_v09.py": "0de246b25a10c5ef29fa8534dc6000d366778acebf6fe8fe7640dd409a8952e7",
+    "tools/p4_compare_metrics.py": "e4cbec56581221f8abffb1f48e8bc74bbb2987f58c1d2840006f7e8142430235",
+    "tools/plot_matched_models.py": "85d38d6fa6581e2715353b783cf3bf44ce309300072cc7ed5c86818935d8561a"
+  },
+  "scope": "Same firmware0.9.0, fresh fixed-order timing;12 fresh Supra quality streams and12 explicitly reused Tiny quality streams. Historical 0.7.0 is not a fresh causal control. Author unblinded review inherited only after output equality."
+}

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1110" viewBox="0 0 1600 1110" role="img">
+<title>One physical pair. Two models, loaded in turn.</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1110" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">One physical pair. Two models, loaded in turn.</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Preregistered protocol 3bf7eb1 | Complete native reference checks for every actual stream | No new firmware build</text>
+<rect x="48" y="140" width="1504" height="128" rx="14" fill="white"/>
+<text x="800" y="185" fill="#193347" font-size="29" font-weight="bold" text-anchor="middle">Same local LAN client → coordinator → worker → coordinator</text>
+<text x="800" y="231" fill="#586c7d" font-size="24" font-weight="normal" text-anchor="middle">One sharded inference lane; both boards are needed for every request.</text>
+<rect x="48" y="310" width="704" height="220" rx="14" fill="white"/>
+<text x="74" y="357" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">P4 coordinator</text>
+<text x="74" y="402" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">Embedding / tokenizer / output head</text>
+<text x="74" y="447" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">Layers 0-3 + own FP32 KV</text>
+<text x="74" y="492" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">32 MiB PSRAM + 32 MiB flash</text>
+<rect x="848" y="310" width="704" height="220" rx="14" fill="white"/>
+<text x="874" y="357" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">P4 worker</text>
+<text x="874" y="402" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">Layers 4-11 + own FP32 KV</text>
+<text x="874" y="447" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">No full embedding table or tokenizer</text>
+<text x="874" y="492" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">32 MiB PSRAM + 32 MiB flash</text>
+<path d="M752 392 L848 392" stroke="#3378ad" stroke-width="4" fill="none"/>
+<path d="M835 384 L848 392 L835 400" stroke="#3378ad" stroke-width="4" fill="none"/>
+<path d="M848 458 L752 458" stroke="#178476" stroke-width="4" fill="none"/>
+<path d="M765 450 L752 458 L765 466" stroke="#178476" stroke-width="4" fill="none"/>
+<text x="800" y="370" fill="#193347" font-size="20" font-weight="normal" text-anchor="middle">LAN</text>
+<text x="48" y="581" fill="#193347" font-size="29" font-weight="bold" text-anchor="start">Timing order across paired blocks: A→B | B→A | A→B</text>
+<rect x="48" y="610" width="364" height="155" rx="14" fill="white"/>
+<text x="66" y="648" fill="#193347" font-size="23" font-weight="bold" text-anchor="start">Phase1 · A Tiny</text>
+<text x="66" y="692" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">12 quality cases + warmup</text>
+<text x="66" y="730" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Timing block1</text>
+<rect x="428" y="610" width="364" height="155" rx="14" fill="white"/>
+<text x="446" y="648" fill="#193347" font-size="23" font-weight="bold" text-anchor="start">Phase2 · B Supra</text>
+<text x="446" y="692" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">12 quality cases + warmup</text>
+<text x="446" y="730" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Timing blocks1 and2</text>
+<rect x="808" y="610" width="364" height="155" rx="14" fill="white"/>
+<text x="826" y="648" fill="#193347" font-size="23" font-weight="bold" text-anchor="start">Phase3 · A Tiny</text>
+<text x="826" y="692" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Warmup</text>
+<text x="826" y="730" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Timing blocks2 and3</text>
+<rect x="1188" y="610" width="364" height="155" rx="14" fill="white"/>
+<text x="1206" y="648" fill="#193347" font-size="23" font-weight="bold" text-anchor="start">Phase4 · B Supra</text>
+<text x="1206" y="692" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Warmup</text>
+<text x="1206" y="730" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Timing block3</text>
+<rect x="48" y="800" width="1504" height="130" rx="14" fill="#dce9f2"/>
+<text x="72" y="844" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Restore A TinyBrainBot → four-token control → both ready / queue empty</text>
+<text x="72" y="888" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">41 actual generations: 24 quality + 12 timing + 4 warmups + 1 restoration control. All raw streams kept.</text>
+<text x="48" y="981" fill="#193347" font-size="22" font-weight="bold" text-anchor="start">Quality: same user tasks with native author wrappers. Speed: identical raw prefixes, four/six input tokens in both.</text>
+<text x="48" y="1024" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">USB-C supplies each board; Ethernet without PoE. No inter-board USB, SD use, partition or clock change.</text>
+<text x="48" y="1067" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Configured CPU 360 MHz / PSRAM 200 MHz from the retained build, not externally measured. No energy/thermal inference.</text>
+</svg>

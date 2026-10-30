@@ -1,0 +1,34 @@
+{
+  "counts": {
+    "f16": {
+      "fact": 4,
+      "exact": 0
+    },
+    "row": {
+      "fact": 9,
+      "exact": 0
+    },
+    "gptq": {
+      "fact": 4,
+      "exact": 0
+    }
+  },
+  "fact_cases": 16,
+  "exact_cases": 4,
+  "winner": "gptq",
+  "quality_admitted": false,
+  "selection_sha256_before_answers": "31a0342f743061078ea246fa32415c0254eeb136d610b9a7713912d8046ee7fc",
+  "answer_sha256": {
+    "f16": "3e10badc232934c81c02b420d8ca97d9df34854e725e20cb4f831c7433fb3b39",
+    "row": "340f1d201a806af56f5b6536e7bf345915dbd85450cecaf9de9fca5778b322db",
+    "gptq": "8245db8d0c6b83467980f1f9bbb51b3844c77794c47eb83e0791edfe58f6ccea"
+  },
+  "rule": "Frozen lexical first-sentence fact screen (16) and case-sensitive stripped exact reply (4). Numeric cases reject other numbers. Not a general factuality metric.",
+  "limits": "Small synthetic English sets, single calibration, greedy cap24, unblinded. New QA unused for tuning, not claimed held out from pretraining.",
+  "code_sha256": {
+    "tools/quantization_v2.py": "65837dc288b25b839a2e4254f7bd97b073940c312bbc59076940c1b41b988295",
+    "tools/supra_quantization_study.py": "926051d20c3264714dd452c19923d26f9e26ce887b8e5bf8a9ba77557d62dd43",
+    "tools/supra_reference.py": "fa0ba665dec3725b779715a83501ed4a047bc07faade2c42c1791c1fde1b25a0",
+    "tools/pack_supra.py": "612d5e74ac401507ea241ec6d33ad9d795e120c57a55e9a40262e1e1668a2680"
+  }
+}

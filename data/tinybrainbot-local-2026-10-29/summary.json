@@ -1,0 +1,286 @@
+{
+  "counts": {
+    "supra-f16": {
+      "facts": {
+        "total": 20,
+        "first_correct": 11,
+        "confirmed_clean": 5,
+        "uncertain_clean": 0,
+        "first_correct_ids": [
+          "T01",
+          "T02",
+          "T03",
+          "T04",
+          "T08",
+          "T13",
+          "T14",
+          "T15",
+          "T16",
+          "T17",
+          "T20"
+        ],
+        "confirmed_clean_ids": [
+          "T01",
+          "T02",
+          "T13",
+          "T15",
+          "T20"
+        ]
+      },
+      "grounded": {
+        "total": 4,
+        "first_correct": 3,
+        "confirmed_clean": 2,
+        "uncertain_clean": 0,
+        "first_correct_ids": [
+          "G01",
+          "G02",
+          "G04"
+        ],
+        "confirmed_clean_ids": [
+          "G02",
+          "G04"
+        ]
+      },
+      "exact_correct": 0,
+      "eos_of_30": 14,
+      "capped_of_30": 16,
+      "supporting_fact_screen": 12
+    },
+    "supra-int4": {
+      "facts": {
+        "total": 20,
+        "first_correct": 7,
+        "confirmed_clean": 2,
+        "uncertain_clean": 2,
+        "first_correct_ids": [
+          "T01",
+          "T04",
+          "T12",
+          "T14",
+          "T16",
+          "T19",
+          "T20"
+        ],
+        "confirmed_clean_ids": [
+          "T12",
+          "T19"
+        ]
+      },
+      "grounded": {
+        "total": 4,
+        "first_correct": 3,
+        "confirmed_clean": 2,
+        "uncertain_clean": 0,
+        "first_correct_ids": [
+          "G01",
+          "G02",
+          "G04"
+        ],
+        "confirmed_clean_ids": [
+          "G02",
+          "G04"
+        ]
+      },
+      "exact_correct": 0,
+      "eos_of_30": 6,
+      "capped_of_30": 24,
+      "supporting_fact_screen": 6
+    },
+    "tinybrainbot-f16": {
+      "facts": {
+        "total": 20,
+        "first_correct": 15,
+        "confirmed_clean": 14,
+        "uncertain_clean": 0,
+        "first_correct_ids": [
+          "T03",
+          "T04",
+          "T05",
+          "T08",
+          "T09",
+          "T10",
+          "T11",
+          "T12",
+          "T13",
+          "T14",
+          "T16",
+          "T17",
+          "T18",
+          "T19",
+          "T20"
+        ],
+        "confirmed_clean_ids": [
+          "T03",
+          "T04",
+          "T05",
+          "T08",
+          "T09",
+          "T10",
+          "T12",
+          "T13",
+          "T14",
+          "T16",
+          "T17",
+          "T18",
+          "T19",
+          "T20"
+        ]
+      },
+      "grounded": {
+        "total": 4,
+        "first_correct": 3,
+        "confirmed_clean": 1,
+        "uncertain_clean": 0,
+        "first_correct_ids": [
+          "G01",
+          "G02",
+          "G04"
+        ],
+        "confirmed_clean_ids": [
+          "G02"
+        ]
+      },
+      "exact_correct": 0,
+      "eos_of_30": 29,
+      "capped_of_30": 1,
+      "supporting_fact_screen": 14
+    },
+    "tinybrainbot-int4": {
+      "facts": {
+        "total": 20,
+        "first_correct": 12,
+        "confirmed_clean": 10,
+        "uncertain_clean": 0,
+        "first_correct_ids": [
+          "T03",
+          "T04",
+          "T08",
+          "T09",
+          "T10",
+          "T11",
+          "T12",
+          "T13",
+          "T14",
+          "T17",
+          "T18",
+          "T19"
+        ],
+        "confirmed_clean_ids": [
+          "T03",
+          "T04",
+          "T08",
+          "T09",
+          "T10",
+          "T12",
+          "T13",
+          "T14",
+          "T17",
+          "T19"
+        ]
+      },
+      "grounded": {
+        "total": 4,
+        "first_correct": 3,
+        "confirmed_clean": 0,
+        "uncertain_clean": 0,
+        "first_correct_ids": [
+          "G01",
+          "G02",
+          "G04"
+        ],
+        "confirmed_clean_ids": []
+      },
+      "exact_correct": 0,
+      "eos_of_30": 27,
+      "capped_of_30": 3,
+      "supporting_fact_screen": 12
+    }
+  },
+  "paired_first_fact_comparison": {
+    "f16": {
+      "tiny_wins_ids": [
+        "T05",
+        "T09",
+        "T10",
+        "T11",
+        "T12",
+        "T18",
+        "T19"
+      ],
+      "supra_wins_ids": [
+        "T01",
+        "T02",
+        "T15"
+      ]
+    },
+    "int4": {
+      "tiny_wins_ids": [
+        "T03",
+        "T08",
+        "T09",
+        "T10",
+        "T11",
+        "T13",
+        "T17",
+        "T18"
+      ],
+      "supra_wins_ids": [
+        "T01",
+        "T16",
+        "T20"
+      ]
+    }
+  },
+  "passes_frozen_promising_rule": true,
+  "p4_adopted": false,
+  "p4_ready": false,
+  "interpretation": "Promising factual-generation candidate on this small fixed local sample. Exact instruction following and grounded subtraction still fail. Real Metaspace tokenizer port, parser/allocation/flash budget and P4 execution remain untested.",
+  "primary_evidence": "Unblinded author review; first responsive core answer and visible clean response separately. Uncertain clean cases excluded from confirmed counts.",
+  "host_math": {
+    "scope": "Host C numerical IDs only, synthetic unsupported-for-real-text tokenizer; no P4 or actual tokenizer test",
+    "kernels": 5,
+    "positions_per_kernel": 3,
+    "logits_per_position": 32000,
+    "max_absolute_logit_error": 4.38690185546875e-05,
+    "all_source_layout_int4_argmax_equal": true,
+    "all_kernel_logits_bit_identical": true,
+    "all_full_shard_logits_bit_identical": true,
+    "source_tensor_inventory_verified": true,
+    "math_only_artifact_sha256": {
+      "full": "8b6d5dcabb179fd06b714cb0b864021c8ad6e1b7de744bbee73d1434246de72a",
+      "coordinator": "8213e255ff5bfa192791102b2a4a11544cb9f7dd93291db80053524c2a1f60e1",
+      "worker": "c55c4fbe0418c8df03c1e67ea051094a16542410e56d6a8c66305d53a69dbc35"
+    },
+    "native_dll_sha256": "b7b80bfc79f9c0e63ac51f44a01182e6f3b2535427fe3ed361268fb94653044e",
+    "script_sha256": "7226e112bb8b02cce699ac8090a220d280e0f21bbd3de3acaea40c1735aa0fb0"
+  },
+  "estimated_memory": {
+    "coordinator": {
+      "weights_header_bytes": 25137408,
+      "tokenizer_allowance": 2097152,
+      "kv_bytes": 2097152,
+      "work_attention_logits_allowance": 197632,
+      "runtime_allowance": 2097152,
+      "estimated_total_psram_bytes": 31626496,
+      "estimated_headroom_bytes": 1927936,
+      "within_physical_psram": true
+    },
+    "worker": {
+      "weights_header_bytes": 25436416,
+      "tokenizer_allowance": 0,
+      "kv_bytes": 4194304,
+      "work_attention_logits_allowance": 69632,
+      "runtime_allowance": 2097152,
+      "estimated_total_psram_bytes": 31797504,
+      "estimated_headroom_bytes": 1756928,
+      "within_physical_psram": true
+    }
+  },
+  "source_sha256": {
+    "docs/research/data/tinybrainbot-local-2026-10-29/protocol.json": "504ffb1e13c148d3960ca95f19a9363e408521ee2c247af6528fa7d7f6541006",
+    "docs/research/data/tinybrainbot-local-2026-10-29/manual-review.json": "cfc9685065da60d5535c7241515d4648d1766ce5253fe32839bfbefa0d0e2e65",
+    "docs/research/data/tinybrainbot-local-2026-10-29/generation-receipt.json": "561a3ed85269ba52e5855f217b3c33e9703069ffd1fce835583da57982c8592b",
+    "tools/tinybrainbot_results.py": "8718004e5c99ee385a005cd024d48a10921a076a16f6e616ddb63c48d5cdcfba"
+  }
+}

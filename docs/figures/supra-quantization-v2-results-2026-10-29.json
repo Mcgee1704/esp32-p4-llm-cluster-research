@@ -1,0 +1,16 @@
+{
+  "title": "supra-quantization-v2-results",
+  "date": "2026-10-29",
+  "width": 1600,
+  "height": 1250,
+  "source_sha256": {
+    "docs/research/data/supra-quantization-v2-2026-10-29/validation-row.json": "eec6e5117ba9bf3628013722c8e028604165610fd91fec3ac2ffa8640d158709",
+    "docs/research/data/supra-quantization-v2-2026-10-29/validation-s32.json": "620635a43d0fc72d055bdebfa6c1b2595eed7a27c4c0dc703fabf90a0e631d02",
+    "docs/research/data/supra-quantization-v2-2026-10-29/validation-a64.json": "ea7ad93e26491cfc0d562b22eb538967a319e7d9762832f5e581b43a33568c30",
+    "docs/research/data/supra-quantization-v2-2026-10-29/validation-gptq.json": "c267aba787c24c12c1c5e93c0c36f4ffab35dc17e95c4e7f7049c02c98fb3682",
+    "docs/research/data/supra-quantization-v2-2026-10-29/quality-summary.json": "948d1cfd9170e63ffabff3401f36a73e3d868291ada97e3dd2f389ecc40aac09",
+    "docs/research/data/supra-quantization-v2-2026-10-29/manual-review.json": "f0508b8acf31f16fa810c40b1175f007b90cd041fa4d1d0f15645791582e632a",
+    "tools/plot_supra_quantization.py": "6e01bb60ff727f8f5b423972557901f358a91e9a3b4a08d8f94a4db6e15c6a86"
+  },
+  "notes": "Single deterministic offline study. KL averaged over 201 full-vocabulary positions. Answer counts are small, unblinded and capped at 24 tokens; no confidence intervals, significance or population accuracy claims. Review is post-hoc. No new device execution."
+}

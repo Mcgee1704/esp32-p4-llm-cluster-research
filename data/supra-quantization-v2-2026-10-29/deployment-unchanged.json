@@ -1,0 +1,40 @@
+{
+  "scope": "Authenticated local-LAN GET status/cluster reads only; full responses retained privately. No inference, configuration, firmware or model POST in V2.",
+  "devices": {
+    "coordinator": {
+      "firmware": "0.6.1",
+      "model_id": "1e84bed3091324dca22294f002d6babbc7ca5db8728dac58a5e241bc4ef5008c",
+      "artifact_id": "d74edf72a36861277c841836c7e97199e7748579a5395a3662f6ef08a186c2a8",
+      "role": 1,
+      "first_layer": 0,
+      "end_layer": 4,
+      "boot_unchanged": true,
+      "identities_unchanged": true,
+      "model_ready": true,
+      "worker_busy": false,
+      "ota_pending": false,
+      "free_psram": 4543516
+    },
+    "worker": {
+      "firmware": "0.6.1",
+      "model_id": "1e84bed3091324dca22294f002d6babbc7ca5db8728dac58a5e241bc4ef5008c",
+      "artifact_id": "746b13e7779d45ec8021bd4a73234323588af02175ba02698a4207fe40545abd",
+      "role": 2,
+      "first_layer": 4,
+      "end_layer": 12,
+      "boot_unchanged": true,
+      "identities_unchanged": true,
+      "model_ready": true,
+      "worker_busy": false,
+      "ota_pending": false,
+      "free_psram": 3626016
+    }
+  },
+  "cluster": {
+    "mode": "sharded",
+    "queued": 0,
+    "running": 0,
+    "saved_configuration_unchanged": true
+  },
+  "new_device_writes": 0
+}

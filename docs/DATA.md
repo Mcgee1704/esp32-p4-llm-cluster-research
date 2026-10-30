@@ -78,3 +78,19 @@ implementation and are not real measurements. Static memory fits do not prove
 runtime admission or useful language quality. Automatic factory onboarding,
 electrical power-sharing safety and durable SD state remain unimplemented or
 unqualified, as recorded in the respective reports.
+
+## Historical freezes and public representations (v7)
+
+`protocol.sha256` preserves the historical/private freeze digest. A translated
+or redacted `protocol.json` has different bytes; its checksum is explicitly
+`protocol.public.sha256`. `provenance/representations.json` binds each original
+source digest to the public representation digest. `SHA256SUMS.json` protects
+the entire package except itself. None is a claim that public translations were
+preregistered. Original frozen data are never re-hashed to conceal that change.
+
+`research_integrity.py` checks both public bytes and their historical relationship
+for archive summaries; fresh inference still requires its own exact source and
+artifact guards. See `RELEASE_NOTES_V7.md` for the derived integer-counter
+correction and `../data/tinybrainbot-local-2026-10-29/record-audit-correction.json`.
+The original erroneous derived receipt remains in the historical research commit;
+answers, protocol, inputs and generation receipt are byte-identical.

@@ -1,0 +1,41 @@
+{
+  "sources": [
+    {
+      "reference": "precompiled.rs",
+      "url": "https://github.com/huggingface/tokenizers/blob/v0.22.1/tokenizers/src/normalizers/precompiled.rs",
+      "downloaded_bytes": 3086,
+      "sha256": "d1c837b9b9e61a3255a54f1e98580e54a96765bcb02711a14aef82a80648c26f"
+    },
+    {
+      "reference": "metaspace.rs",
+      "url": "https://github.com/huggingface/tokenizers/blob/v0.22.1/tokenizers/src/pre_tokenizers/metaspace.rs",
+      "downloaded_bytes": 12665,
+      "sha256": "0048101657d3d0ab8d6280be30c4ac72d0ee1f00eb2a4ddad9ae45c6f424735b"
+    },
+    {
+      "reference": "spm-lib.rs",
+      "url": "https://github.com/huggingface/spm_precompiled/blob/master/src/lib.rs",
+      "downloaded_bytes": 7411,
+      "sha256": "3821816d106d59269e2623826da9129a2b60edb59c528c7686d192fe9d95665b"
+    },
+    {
+      "reference": "grapheme.rs",
+      "url": "https://github.com/unicode-rs/unicode-segmentation/blob/v1.12.0/src/grapheme.rs",
+      "downloaded_bytes": 34372,
+      "sha256": "bdff7b1459f576e7d02f2547781048a25bae370430be2e2fbe96cf604da1293d"
+    },
+    {
+      "reference": "darts.h",
+      "url": "https://github.com/google/sentencepiece/blob/master/third_party/darts_clone/darts.h",
+      "downloaded_bytes": 52992,
+      "sha256": "70d36f904aa40a3d35b8f71f544ff5b177720b3887f2c470fb15477fa84232c5"
+    },
+    {
+      "reference": "tables.rs",
+      "url": "https://github.com/unicode-rs/unicode-segmentation/blob/v1.12.0/src/tables.rs",
+      "downloaded_bytes": 279021,
+      "sha256": "e229fbbc93599c5df42c174bdf77602ced0789e1e1c73f7b979a725a56c92da1"
+    }
+  ],
+  "scope": "Small public algorithm references only; no new weights or executable dependency installed. Mutable master references identified by retained content SHA; pinned tokenizers binary is the behavioral oracle."
+}

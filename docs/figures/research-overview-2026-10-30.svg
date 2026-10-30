@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1710" viewBox="0 0 1600 1710" role="img">
+<title>Two ESP32-P4s: the complete research landscape</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1710" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">Two ESP32-P4s: the complete research landscape</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Recorded experiments through 30 October 2026 | Separate workloads and evidence levels | Offline synthesis</text>
+<rect x="48" y="135" width="1504" height="225" rx="14" fill="white"/>
+<text x="72" y="178" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Model families actually evaluated</text>
+<text x="72" y="220" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">TinyStories baseline / TinyStories-15M SFT: Llama story generation; early kernel and LAN controls</text>
+<text x="72" y="257" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">TinyStories-Instruct-8M / TinyTalk-2: GPT-Neo, 19.70M actual parameters; complete model on each P4</text>
+<text x="72" y="294" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">TinyTalk 1: GPT-Neo, 8.28M actual parameters; complete model on each P4</text>
+<text x="72" y="331" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">Supra1.5: 51.79M Llama | Supra2: 100.68M Qwen3 | TinyBrainBot: 100.09M Llama; real two-P4 shards</text>
+<text x="48" y="411" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">A · Small-model matched trial: replicated models, two independent requests</text>
+<text x="48" y="448" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Same 16 input texts; row INT8. Facts and story criteria are separate, unblinded judgments.</text>
+<text x="48" y="492" fill="#193347" font-size="21" font-weight="bold" text-anchor="start">Model</text>
+<text x="420" y="492" fill="#193347" font-size="21" font-weight="bold" text-anchor="start">First facts /6</text>
+<text x="650" y="492" fill="#193347" font-size="21" font-weight="bold" text-anchor="start">Story topic /4</text>
+<text x="920" y="492" fill="#193347" font-size="21" font-weight="bold" text-anchor="start">Two-request package (s)</text>
+<text x="48" y="535" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">TinyStories SFT</text>
+<text x="460" y="535" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">0/6</text>
+<text x="700" y="535" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">4/4</text>
+<rect x="920" y="513" width="375.65500000000003" height="25" rx="3" fill="#3378ad"/>
+<text x="1360" y="535" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">10.733</text>
+<text x="48" y="589" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Story-Instruct-8M</text>
+<text x="460" y="589" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">0/6</text>
+<text x="700" y="589" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">4/4</text>
+<rect x="920" y="567" width="401.94" height="25" rx="3" fill="#3378ad"/>
+<text x="1360" y="589" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">11.484</text>
+<text x="48" y="643" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">TinyTalk 1</text>
+<text x="460" y="643" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">0/6</text>
+<text x="700" y="643" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">1/4</text>
+<rect x="920" y="621" width="183.12" height="25" rx="3" fill="#3378ad"/>
+<text x="1360" y="643" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">5.232</text>
+<text x="48" y="697" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">TinyTalk-2</text>
+<text x="460" y="697" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">5/6</text>
+<text x="700" y="697" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">3/4</text>
+<rect x="920" y="675" width="401.76499999999993" height="25" rx="3" fill="#3378ad"/>
+<text x="1360" y="697" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">11.479</text>
+<text x="48" y="765" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">B · Larger-model host quality trial: same 20 factual questions, native model framing</text>
+<text x="48" y="803" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">First factual core / confirmed clean full response. Different questions from panels A and C.</text>
+<text x="48" y="851" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Supra2 F16 / FP32</text>
+<rect x="540" y="828" width="324.5" height="12" rx="2" fill="#aabccc"/>
+<rect x="540" y="843" width="147.5" height="12" rx="2" fill="#178476"/>
+<text x="1160" y="851" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">11/20 first; 5/20 clean</text>
+<text x="48" y="901" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">TinyBrainBot F16 / FP32</text>
+<rect x="540" y="878" width="442.5" height="12" rx="2" fill="#aabccc"/>
+<rect x="540" y="893" width="413.0" height="12" rx="2" fill="#178476"/>
+<text x="1160" y="901" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">15/20 first; 14/20 clean</text>
+<text x="48" y="951" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Supra2 row INT4</text>
+<rect x="540" y="928" width="206.5" height="12" rx="2" fill="#aabccc"/>
+<rect x="540" y="943" width="59.0" height="12" rx="2" fill="#178476"/>
+<text x="1160" y="951" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">7/20 first; 2/20 clean</text>
+<text x="48" y="1001" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">TinyBrainBot row INT4</text>
+<rect x="540" y="978" width="354.0" height="12" rx="2" fill="#aabccc"/>
+<rect x="540" y="993" width="295.0" height="12" rx="2" fill="#178476"/>
+<text x="1160" y="1001" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">12/20 first; 10/20 clean</text>
+<text x="48" y="1061" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Supra INT4 also has two uncertain cleanliness judgments. No pooled score across studies.</text>
+<text x="48" y="1120" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">C · Matched real-P4 trial: 100M models, one request uses both boards</text>
+<text x="48" y="1160" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Row INT4 | firmware 0.7.0 | 4+8 layers | context 256 | 16 output tokens | n=3 per prefix/model</text>
+<text x="48" y="1216" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">TinyBrainBot</text>
+<text x="360" y="1216" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Facts: 3/6 first; 3/6 clean</text>
+<text x="940" y="1216" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">B1 51.192 s | B2 55.440 s</text>
+<text x="48" y="1268" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">Supra2</text>
+<text x="360" y="1268" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Facts: 3/6 first; 2/6 clean</text>
+<text x="940" y="1268" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">B1 51.412 s | B2 55.677 s</text>
+<text x="48" y="1340" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Observed latency difference ~0.43%; three repeats do not establish reliable speed superiority.</text>
+<rect x="48" y="1390" width="1504" height="267" rx="14" fill="#dce9f2"/>
+<text x="72" y="1434" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">What the hardware work established</text>
+<text x="72" y="1478" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">Replicated small models: roughly 1.89–2.05x package throughput in the matched trial; no single-answer speedup.</text>
+<text x="72" y="1513" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">V3 kernel trial: ~1.52x direct speedup from dual to tile4 on each P4, within that earlier fixed workload.</text>
+<text x="72" y="1548" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">Supra2 quantization V2: source KL improves 76.84%, but fact screen falls 9/16 to 4/16; candidate rejected.</text>
+<text x="72" y="1583" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">INT4 microbench: streaming matrix ~10–11% slower than internal RAM; synthetic single-core result only.</text>
+<text x="72" y="1618" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">All reports, retained table values, original comparison figures and data-folder links are in the local atlas.</text>
+</svg>

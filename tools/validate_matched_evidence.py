@@ -1,4 +1,5 @@
 """Check stored experiment joins, raw outputs, clocks and restoration offline."""
+import argparse
 import hashlib
 import json
 import pathlib
@@ -7,23 +8,23 @@ import statistics
 
 from matched_models import DATA, MODELS, ROOT, sha, write
 from gptneo_p4_trial import verify
+from research_integrity import protocol, recorded_file, data_arguments, study_directory
 
 
 def main():
-    p = json.loads((DATA / 'protocol.json').read_text())
-    assert sha(DATA / 'protocol.json') == (DATA / 'protocol.sha256').read_text().strip()
+    p = protocol(DATA)
     cases = {r['id']: r for r in p['cases']}
     expected_keys = {(m, c) for m in MODELS for c in cases}
     rows = json.loads((DATA / 'host.json').read_text())
     assert len(rows) == 64 and {(r['model'], r['case']) for r in rows} == expected_keys
     refs = {(r['model'], r['case']): r for r in rows}
     review = json.loads((DATA / 'manual-review.json').read_text())
-    assert review['source_sha256'] == sha(DATA / 'host.json')
+    recorded_file(DATA / 'host.json', review['source_sha256'])
     assert len(review['rows']) == 64 and {(r['model'], r['case']) for r in review['rows']} == expected_keys
     h = DATA / 'hardware'
     hp = json.loads((h / 'protocol.json').read_text())
-    assert hp['parent_protocol_sha256'] == sha(DATA / 'protocol.json')
-    assert hp['host_references_sha256'] == sha(DATA / 'host.json')
+    recorded_file(DATA / 'protocol.json', hp['parent_protocol_sha256'])
+    recorded_file(DATA / 'host.json', hp['host_references_sha256'])
     direct = json.loads((h / 'direct.json').read_text())
     assert len(direct) == 64 and {(r['model'], r['case']) for r in direct} == expected_keys
     for row in direct:
@@ -67,13 +68,21 @@ def main():
     final = json.loads((h / 'final-state.json').read_text())
     assert final['study_completed'] and final['peer_configured'] and final['queued'] == final['running'] == 0
     assert all(r['model_id'] == p['models']['talk2']['model_id'] and r['model_ready'] and not r['worker_busy'] and not r['restart_pending'] and not r['ota_pending'] for r in final['devices'].values())
-    log = (ROOT / '.local/matched-tests-final.log').read_text('utf-8-sig')
-    count = re.search(r'Ran (\d+) tests', log)
-    assert count and re.search(r'^OK\s*$', log, re.M) and 'FAILED' not in log
+    if (ROOT / 'provenance/representations.json').exists():
+        recorded = json.loads((DATA / 'validation.json').read_text())
+        entry = json.loads((ROOT / 'provenance/representations.json').read_text())['files'][(DATA / 'validation.json').relative_to(ROOT).as_posix()]
+        assert sha(DATA / 'validation.json') == entry['published_sha256']
+        test_count = recorded['unit_tests']
+        assert type(test_count) is int and test_count > 0
+    else:
+        log = (ROOT / '.local/matched-tests-final.log').read_text('utf-8-sig')
+        count = re.search(r'Ran (\d+) tests', log)
+        assert count and re.search(r'^OK\s*$', log, re.M) and 'FAILED' not in log
+        test_count = int(count[1])
     checks = json.loads((DATA / 'numerical-checks.json').read_text())
     assert len(checks) == 3 and all(c['maximum_absolute_error'] < .002 and c['argmax_equal'] and c['all_vocab_pieces_equal'] and c['all_16_prompt_encodings_equal'] for c in checks)
     write(DATA / 'validation.json', {
-        'passed': True, 'unit_tests': int(count[1]), 'native_build': 'passed after device study released the DLL',
+        'passed': True, 'unit_tests': test_count, 'native_build': 'passed after device study released the DLL',
         'quality_outputs_checked': 64, 'direct_hardware_generations_checked': 64,
         'dispatched_hardware_jobs_checked': 64, 'initial_hardware_controls_checked': 2,
         'raw_clock_package_recalculations': 32, 'paired_blocks_per_model': 4,
@@ -90,8 +99,10 @@ def main():
         'source_sha256': {n: sha(DATA / n) for n in ['protocol.json', 'host.json', 'manual-review.json', 'quality-summary.json', 'hardware/protocol.json', 'hardware/direct.json', 'hardware/batches.json', 'hardware/summary.json', 'hardware/final-state.json']}})
     manifest = {p.relative_to(DATA).as_posix(): sha(p) for p in sorted(DATA.rglob('*')) if p.is_file() and p.name != 'sha256-manifest.json'}
     write(DATA / 'sha256-manifest.json', manifest)
-    print(json.dumps({'passed': True, 'tests': int(count[1]), 'real_inferences_checked': 130, 'files_hashed': len(manifest)}))
+    print(json.dumps({'passed': True, 'tests': test_count, 'real_inferences_checked': 130, 'files_hashed': len(manifest)}))
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__); data_arguments(parser)
+    args = parser.parse_args(); DATA = study_directory(args, DATA)
     main()

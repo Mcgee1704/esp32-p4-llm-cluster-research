@@ -1,0 +1,284 @@
+# Automatischer Auftragsverteiler auf dem P4-Master
+
+## Umsetzungspaket und vorab festgelegte Prüfung
+
+Ziel: Ein Client sendet seine Aufträge ausschließlich an Board 1. Der Master
+verteilt unabhängige Inferenzanfragen selbstständig auf sich und Board 2.
+Die Firmware-Rechnung und bisherigen APIs auf Port 80 bleiben erhalten.
+Ein getrennter HTTP-Dienst auf Port 8081 übernimmt Annahme, Status und Ergebnis.
+So kann die synchrone Rechen-HTTP-Task weiter allein Modell und KV-Cache besitzen.
+
+Schreibbereich: neuer Firmware-Dispatcher, portable Warteschlange mit Tests,
+Laboroberfläche, Messhelfer und lokale wissenschaftliche Dokumentation.
+Abhängigkeit: beide Boards benötigen dieselbe Modellkennung und den bereits
+vorhandenen LAN-Schlüssel. Die bekannte Worker-IP wird einmal konfiguriert;
+danach gibt es keine Boardauswahl pro Auftrag. Konfiguration bleibt in NVS.
+
+Vorgesehene Grenzen: acht gleichzeitig gespeicherte Aufträge, begrenzte
+Ergebnisse, maximal 180 Sekunden Wartezeit vor Ausführung. Fertige Ergebnisse
+dürfen für neue Aufträge verdrängt werden, aktive nie. Aufträge und Ergebnisse
+liegen im RAM und überstehen keinen Neustart. Wartende Aufträge sind abbrechbar.
+Laufende Berechnungen werden nicht automatisch wiederholt. Das verhindert
+unbemerkte doppelte Ausführung nach einer unklaren Netzwerkantwort.
+
+Der Dispatcher prüft Zielstatus und Modellkennung vor der Vergabe. Der
+Rechen-Endpunkt prüft die erwartete Modellkennung nochmals unmittelbar vor
+dem Lauf. Ein nicht erreichbares Board nimmt keine wartenden Aufträge weg;
+das andere Board kann weiterarbeiten. Dies ist keine automatische Installation
+oder Suche fabrikneuer Boards.
+
+Prüfkriterien: FIFO-Vergabe ohne Doppelzuweisung, keine Verdrängung aktiver
+Aufträge, Überlastantwort und Abbruch, Modellverwechslung abweisen, Konfiguration
+und normaler Betrieb nach Neustart, funktionierende vorhandene Solo-/RPC-Pfade.
+Danach vier Vergleichsblöcke mit A=`Once upon a time`, B=`One day, a little girl`,
+je 24 neue Tokens: automatisch nur lokal gegenüber automatisch auf zwei Boards.
+Reihenfolge lokal/Cluster, Cluster/lokal, Cluster/lokal, lokal/Cluster.
+Alle Anfragen gehen dabei ausschließlich an den Master. Gemessen werden
+Paketdauer, Wartezeit, Zielboard und Tokenidentität. Zusätzlicher Vier-Aufträge-
+Lauf prüft Warteschlange und Nachrücken. Ergebnisse und Grenzen bleiben lokal.
+
+## Realisierte Architektur und Bedienung
+
+Beide Boards laufen mit Firmware **0.2.0**. Der Master ist `node-1`,
+Board 2 `node-2`. Die neue Laborseite ist unter
+`http://node-1:8081/` erreichbar. Der bisherige LAN-Schlüssel gilt weiter.
+Board 2 wurde bereits als Peer konfiguriert; Aufträge enthalten nur Prompt und
+Tokenlimit. Die alte Oberfläche auf Port 80 verlinkt auf den Verteiler und
+bleibt für direkte Experimente und LAN-Updates verfügbar.
+
+```mermaid
+flowchart LR
+    Client[Browser oder Messclient] -->|Auftrag und Status| Queue[Master: Warteschlange auf Port 8081]
+    Queue --> Local[Lokaler Ausführungsplatz]
+    Queue --> Remote[Entfernter Ausführungsplatz]
+    Local -->|HTTP über Loopback| P4A[Master: Rechenkern auf Port 80]
+    Remote -->|HTTP über LAN| P4B[Board 2: Rechenkern auf Port 80]
+    P4A --> Results[Ergebnisspeicher im Master]
+    P4B --> Results
+    Results --> Client
+```
+
+Der Dispatcher greift nicht direkt auf Modell oder KV-Cache zu. Jeder
+Rechen-HTTP-Task bleibt alleiniger Besitzer dieses Zustands. Zwei FreeRTOS-
+Aufgaben im Master prüfen ihre Ziele und entnehmen wartende Aufträge aus
+derselben, durch einen Mutex geschützten FIFO-Warteschlange. Es existiert
+höchstens eine Dispatcher-Berechnung je Zielboard. Die Vergabe ist FIFO;
+die Reihenfolge der Fertigstellung kann wegen unterschiedlicher Laufzeiten
+abweichen. Es gibt keine Garantie, welches freie Board den ersten Auftrag erhält.
+
+Eine Zielprüfung verlangt ein bereites Modell, die passende Modellkennung,
+keinen ausstehenden OTA-Bootcheck und das neue Dispatcher-Protokoll. Jede
+Berechnungsanfrage enthält zusätzlich `expected_model_id`; der Rechenkern
+weist einen inzwischen geänderten Modellzustand mit HTTP 409 zurück.
+Anfragen an öffentliche IP-Adressen und an die eigene Adresse als Peer
+werden bei der Konfiguration abgewiesen. Der Dispatcher folgt keinen Redirects.
+
+Es werden keine IP-Bereiche abgesucht und keine fabrikneuen Boards geflasht.
+Die bekannte Peer-Adresse wird einmal über die authentifizierte API gespeichert.
+DHCP kann diese Adresse künftig ändern; eine automatische Peer-Suche ist noch
+nicht implementiert. Gesundheit wird bei wartender Arbeit geprüft, nicht durch
+einen dauerhaft laufenden PC-Monitor.
+
+## API und Lebenszyklus
+
+Alle API-Aufrufe benötigen `X-Cluster-Key`. Die HTML-Oberfläche enthält keinen
+eingebetteten Schlüssel. Auf Port 8081:
+
+| Methode und Pfad | Verhalten |
+| --- | --- |
+| `GET /api/cluster` | Konfiguration, Warteschlange, Ausführungsplätze und letzter Prüfzustand |
+| `POST /api/cluster` | `{"peer":"node-2"}` speichert den Peer; leerer Wert aktiviert nur lokale Ausführung. Nur ohne aktive Aufträge möglich. |
+| `POST /api/jobs` | `{"prompt":"Once upon a time","tokens":24}` → HTTP 202 mit Auftrags-ID |
+| `GET /api/jobs/<id>` | Zustand, Ziel, Warte-/Start-/Endzeiten und bislang empfangene NDJSON-Ausgabe |
+| `DELETE /api/jobs/<id>` | Bricht einen noch wartenden Auftrag ab; laufende/abgeschlossene Aufträge → HTTP 409 |
+
+Zustände: `queued`, `running`, `done`, `failed`, `cancelled`. Acht Speicherplätze
+umfassen wartende, laufende und abgeschlossene Aufträge. Bei voller aktiver
+Kapazität wird ein neuer Auftrag mit HTTP 429 abgewiesen; es erfolgt keine
+Annahme. Alte abgeschlossene Ergebnisse werden bei Bedarf für neue Aufträge
+verdrängt; aktive Aufträge niemals. Ein Ergebnis kann daher nach Verdrängung
+HTTP 404 liefern. Ergebnisgröße maximal 160 KiB pro Auftrag, Prompt höchstens
+1.024 Bytes und 1–128 neue Tokens, zusätzlich die bisherigen Modell-Kontextgrenzen.
+
+Die Wartefrist von 180 Sekunden gilt bis zur Ausführung. Aufträge und Ergebnisse
+sind RAM-Zustand. Nach Neustart bleiben Konfiguration und Modell erhalten,
+die alten Auftrags-IDs jedoch nicht. Ein Browser muss nach der HTTP-202-Antwort
+nicht offen bleiben, damit der Master weiterrechnet; Ergebnisse müssen später
+mit der Auftrags-ID abgeholt werden. Die Laborseite zeigt die in ihrer aktuellen
+Browsersitzung angenommenen Aufträge; sie ist kein dauerhaftes Auftragsarchiv.
+
+Ist ein Ziel bei der Vorprüfung nicht erreichbar oder beschäftigt, übernimmt
+dieser Ausführungsplatz keinen Auftrag. Der andere kann weiterarbeiten. Nach
+einer fehlgeschlagenen Prüfung wartet der betroffene Platz drei Sekunden vor
+dem nächsten Versuch bei vorhandener Arbeit. Sobald ein Berechnungs-POST
+begonnen wurde, wird er bei einem Fehler nicht automatisch wiederholt: Die
+Antwort könnte verlorengegangen sein, obwohl das Board bereits gerechnet hat.
+Teilantwort und Fehler bleiben dann unter der Auftrags-ID sichtbar.
+
+Modell- und Firmwareupdates am Master erhalten bei aktiven Dispatcher-Aufträgen
+HTTP 409. Eine Wartungssperre verhindert gleichzeitig neue Annahmen während
+eines Updates beziehungsweise einer Konfigurationsänderung. Direkte Zugriffe
+auf Board 2 bleiben möglich; Modellwechsel werden durch die doppelte
+Modellprüfung erkannt. Dies ist keine verteilte Transaktion über beide Boards.
+
+## Funktionale Nachweise
+
+- 15 lokale Tests bestanden, darunter vier Tests des tatsächlich in der
+  Firmware verwendeten portablen FIFO-Kerns. Geprüft werden Doppelzuweisung,
+  Kapazität/Verdrängung, Zustandswechsel, Abbruch und Wartefrist.
+- ESP-IDF-Builds für Revision 1.x und 3.x erfolgreich; Images und Partitionen
+  geprüft. Beide realen Boards sind Revision 1.3; Revision 3.x wurde nicht
+  auf Hardware getestet.
+- Beide Boards über LAN auf 0.2.0 aktualisiert, Modell weiter bereit und
+  OTA-Bootcheck bestätigt. Die ursprünglichen Vollsicherungen bleiben erhalten.
+- Erste zwei Aufträge gingen ausschließlich an den Master; ein Ergebnis kam
+  von `local`, eines von `node-2`.
+- Ungültiger Prompt, öffentlicher Peer und eigener Peer → HTTP 400;
+  falscher Schlüssel → HTTP 401.
+- Acht Aufträge angenommen, neunter abgewiesen mit HTTP 429. Konfigurations-
+  und Modelländerung während aktiver Aufträge → HTTP 409. Laufenden Auftrag
+  abzubrechen → HTTP 409. Sechs wartende Aufträge erfolgreich abgebrochen,
+  zwei laufende regulär fertiggestellt.
+- Falsche `expected_model_id` direkt am Rechenkern → HTTP 409, ohne Inferenz.
+- Master über die Resetleitung neu gestartet: gespeicherte Peer-/Modell-
+  Konfiguration vorhanden, alte RAM-Auftrags-ID wie vorgesehen HTTP 404.
+- Bisheriger Schicht-RPC-Pfad danach weiterhin erfolgreich: vier Tokens,
+  Ausgabe `, there was a`, `boards: 2` und eine wiederverwendete Verbindung.
+
+Browserprüfung: Die neue Seite lädt mit korrektem Titel, sinnvollem DOM und
+bedienbaren Steuerelementen. Status ohne Schlüssel zeigt die erwartete
+Authentifizierungsfehlermeldung; dabei keine gemeldeten JavaScriptfehler.
+Die authentifizierten Abläufe wurden über die echte HTTP-API getestet, nicht
+vollständig im Browser durchgeklickt. Die Screenshot-Erfassung des In-App-
+Browsers lief in ein Timeout; eine bildbasierte Layoutabnahme wird nicht behauptet.
+
+## Kontrollierte Durchsatzmessung
+
+Vier vorab festgelegte Blöcke, insgesamt 16 Aufträge. Der Client sendet auch
+im Clusterfall ausschließlich an `node-1:8081/api/jobs`; es gibt kein
+vom PC gesetztes Zielboard pro Auftrag. Pro Modus werden A und B unmittelbar
+nacheinander angenommen. Im lokalen Modus wartet der zweite Auftrag in der
+Master-Warteschlange, im Clustermodus rechnet das zweite Board parallel.
+
+Hauptmessung: `max(finished_ms) - min(created_ms)` für beide Aufträge auf der
+monotonen Uhr **desselben Masters**. Diese Dauer enthält Wartezeit, Statusprüfung,
+Weiterleitung, Rechnen und Rückübertragung, aber nicht die abschließende
+Abholverzögerung durch das PC-Polling. Zusätzlich wird die vom Client beobachtete
+Zeit bis zum Abholen beider Ergebnisse angegeben. Keine Uhrzeiten verschiedener
+Boards werden voneinander abgezogen. Pollingintervall des Messclients: 150 ms.
+
+| Block | Nur lokal, Masterzeit | Automatisch verteilt, Masterzeit | Faktor |
+| --- | ---: | ---: | ---: |
+| 1 | 38,984 s | 21,236 s | 1,8358× |
+| 2 | 38,977 s | 21,230 s | 1,8359× |
+| 3 | 38,987 s | 21,232 s | 1,8362× |
+| 4 | 38,986 s | 21,229 s | 1,8365× |
+| Median | **38,985 s** | **21,231 s** | **1,8361×** |
+
+Median der Clientzeit: 39,099 s lokal und 21,344 s verteilt. Gesamtdurchsatz,
+einschließlich Promptverarbeitung, bei 48 neuen Tokens pro Paket: **1,231**
+gegenüber **2,261 Tokens/s**. Der Median der blockweise gepaarten Faktoren
+entspricht rund **84 % mehr Durchsatz** beziehungsweise rund **46 % weniger
+Paketzeit**. Es handelt sich weiterhin nicht um eine Beschleunigung einer
+einzelnen abhängigen Textgenerierung.
+
+Alle 16 Tokenfolgen stimmen für den jeweiligen Prompt mit dem vorherigen
+Parallelversuch überein. In jedem Clusterdurchlauf wurden beide Zielboards
+genutzt. Die Intervalle der weitergeleiteten Anfragen überlappen im Median
+19,752 s. Lokal wartete der zweite Auftrag rund 19,45 s, verteilt lagen die
+Wartezeiten beider Aufträge bei rund 0,20–0,23 s.
+
+Die kürzere lokale Vergleichszeit gegenüber dem vorherigen PC-gesteuerten
+Versuch ist sichtbar, aber noch nicht kausal geklärt. Der neue Vergleich nutzt
+Loopback-Anfragen und zusätzliche FreeRTOS-Aufgaben. Auch die im Modellkern
+gemessene Dauer fällt lokal anders aus. Sie enthält Scheduling-/Warteanteile,
+denn `matmul()` gibt nach je 256 Zeilen mittels `vTaskDelay(1)` die CPU ab.
+Ein Einfluss von Scheduling und Tick-Phase ist deshalb eine Hypothese, kein
+nachgewiesener neuer Rechenalgorithmus. Es wurden keine Rechenoperationen oder
+Modellgewichte geändert. Die früheren 42,54/21,59 s werden daher nicht als
+direkte Kontrolle für den heutigen Dispatcher ausgegeben.
+
+## Vier Aufträge und Nachrücken
+
+Vier Aufträge mit je 24 Tokens wurden ohne Zielangabe an den Master gesendet.
+Die ersten beiden begannen nach 169 beziehungsweise 162 ms auf unterschiedlichen
+Boards. Die nächsten beiden rückten nach **20,152 s** und **21,384 s** nach.
+Alle vier Ergebnisse korrekt und je Prompt tokenidentisch; alle 96 Tokens
+waren nach **43,171 s** als vollständige Ergebnisse im Master vorhanden.
+Die späteren Aufträge wurden also nicht abgewiesen und benötigten keinen
+zusätzlichen Startbefehl vom Client.
+
+## Beschäftigter Peer und automatische Wiederaufnahme
+
+Board 2 erhielt separat eine längere direkte 32-Token-Anfrage. Nachdem deren
+Antwort begonnen hatte, wurden zwei neue Vier-Token-Aufträge ausschließlich
+an den Master geschickt. Sein entfernter Ausführungsplatz erhielt während der
+direkten Inferenz keine rechtzeitige Statusantwort und entnahm keinen Auftrag.
+Beide neuen Aufträge wurden korrekt **lokal auf dem Master** abgeschlossen.
+In den ersten sechs Sekunden nach Annahme wurden ihre Ergebnisse nicht gepollt;
+die Ausführung benötigte keinen weiteren Anstoß durch den PC.
+
+Nach Ende der direkten Anfrage wurden erneut zwei Aufträge an den Master
+gesendet. Ohne Reset oder Konfigurationsänderung nutzte er wieder **beide
+Boards**. Der Zustand kehrte anschließend zu leerer Warteschlange und zwei
+erfolgreich geprüften Ausführungsplätzen zurück.
+
+Dies ist ein Test mit vorübergehend belegtem beziehungsweise für Statusfragen
+nicht rechtzeitig antwortendem Peer. **Es wurde kein Kabel gezogen und kein
+Stromausfall während eines Auftrags simuliert.** Er belegt die Verteilung an
+ein verfügbares Ziel vor Ausführungsbeginn, nicht genau-einmal-Ausführung nach
+einem Übertragungsabbruch. Bereits gestartete fehlgeschlagene Jobs werden
+bewusst nicht automatisch auf einem anderen Board wiederholt.
+
+## Grenzen und offene Punkte
+
+- Vier Vergleichsblöcke, zwei Prompts, ein Modell und kurze Ausgaben. Keine
+  statistische Signifikanz-, Energieeffizienz- oder Dauertestbehauptung.
+- Der Master ist weiterhin ein einzelner Ausfallpunkt. Warteschlange und
+  Ergebnisse sind nicht dauerhaft auf SD gespeichert. Auch abgerufene
+  Ergebnisse besitzen keine garantierte Aufbewahrungszeit bei neuen Aufträgen.
+- Zwei feste Ausführungsplätze; keine automatische Suche weiterer Boards,
+  keine dynamische Clustergröße und keine Prioritäts- oder Benutzerkontingente.
+- Die Wartefrist und Zustandsübergänge wurden im portablen Queue-Test geprüft;
+  ein echter 180-Sekunden-Ausfalltest auf den Boards wurde nicht durchgeführt.
+- Die Oberfläche arbeitet per Polling. Die authentifizierte Mehrfachausführung
+  ist durch API-Tests belegt; vollständige visuelle Browserabnahme steht aus.
+- Der normale OTA-Pfad funktioniert. Abgebrochene OTA-Updates und der
+  tatsächliche Rollback unter Fehlerbedingungen bleiben separat zu prüfen.
+- Gleichzeitige PoE-/USB-Versorgung wurde unverändert nicht elektrisch geprüft.
+
+## Daten, Reproduktion und Rückweg
+
+- [Zusammenfassung der vier Vergleiche](data/dispatcher-2026-10-29/summary.json).
+- [Einzelmessungen als CSV](data/dispatcher-2026-10-29/batches.csv).
+- [Aufträge mit Tokenfolgen, Zielen und Zeitwerten](data/dispatcher-2026-10-29/batches.json).
+- [Anfrageplan und Messprogramm-Hash](data/dispatcher-2026-10-29/metadata.json).
+- [Überlast-, Abbruch- und Updateprüfungen](data/dispatcher-2026-10-29/integration-errors.json).
+- [Vier-Aufträge-Nachrücktest](data/dispatcher-2026-10-29/four-jobs.json).
+- [Beschäftigter Peer und Wiederaufnahme](data/dispatcher-2026-10-29/busy-peer-recovery.json).
+- [Konfiguration nach Neustart](data/dispatcher-2026-10-29/config-after-restart.json).
+- [Abschließender Gerätestand](data/dispatcher-2026-10-29/final-deployment.json).
+- [SHA256-Manifest](data/dispatcher-2026-10-29/sha256-manifest.json).
+
+Einzelauftrag über den Master, ohne Zielboardauswahl:
+
+```powershell
+& .local/tooling/idf-tools/python_env/idf5.5_py3.12_env/Scripts/python.exe tools/dispatch_client.py node-1 generate --prompt 'Once upon a time' --tokens 24
+```
+
+Vollständiger erneuter Vergleich in einem neuen Ausgabeverzeichnis:
+
+```powershell
+& .local/tooling/idf-tools/python_env/idf5.5_py3.12_env/Scripts/python.exe tools/benchmark_dispatcher.py node-1 node-2 .local/dispatcher-neuer-vergleich
+```
+
+Der Vergleich schaltet im Leerlauf zwischen lokaler und verteilter Konfiguration
+um und stellt am Ende den Peer wieder ein. Keine parallele Bedienung während
+einer wissenschaftlichen Messreihe. Der Messhelfer verwendet die lokal erhaltenen
+Referenztoken des vorigen Parallelversuchs und überschreibt keinen Ergebnisordner.
+
+App-Image, Build-/Testprotokolle und Rückweg unter `.local/dispatcher-2026-10-29/`.
+`rollback-0.1.3.bin` erhält den vorherigen funktionierenden App-Stand; die
+vollständigen ursprünglichen Flashsicherungen bleiben unter `.local/device-backups/`.
+Ein Rückwechsel würde bei leerer Warteschlange über die bisherige LAN-Update-API
+erfolgen. Er wurde nicht ausgeführt. Es wurden keine Daten veröffentlicht.

@@ -1,0 +1,69 @@
+{
+  "protocol_commit": "0dc060388ba74e17af79f0bf753972b3d5880aec",
+  "checks": {
+    "tinybrainbot": {
+      "complete_reference_generations": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "I01",
+        "I02",
+        "G01",
+        "G02",
+        "S01",
+        "S02",
+        "B1",
+        "B2",
+        "W"
+      ],
+      "full_logit_positions": 8,
+      "vocabulary": 32000,
+      "scalar_tile4_logits_byte_identical": true
+    },
+    "supra": {
+      "complete_reference_generations": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "I01",
+        "I02",
+        "G01",
+        "G02",
+        "S01",
+        "S02",
+        "B1",
+        "B2",
+        "W"
+      ],
+      "full_logit_positions": 8,
+      "vocabulary": 32768,
+      "scalar_tile4_logits_byte_identical": true
+    }
+  },
+  "complete_generations": 30,
+  "all_reference_equal": true,
+  "sources": {
+    "firmware/components/tinyllm/tinyllm.c": "d8136aadd9bb641cc4ff1368875f70290c885210c83db89dacbbde5c4608090e",
+    "firmware/components/tinyllm/int4_dot.h": "ff3d3566f68b4a6b424c149bb1b8ed165a24103e3615a931dbb9f0f29d8ca62b",
+    "firmware/components/tinyllm/sp_tokenizer.c": "9e0c1812564a7343a642f1a125032d230c36a6b243bd7fde88459e4dc7e4a86a",
+    "firmware/components/tinyllm/gpt2_tokenizer.c": "1ae5d2d58cf5c20949b5ce5307f3856be178c7802a950f58d80d7df9a27bddf2",
+    "firmware/main/service.c": "7de21be4c16ba247eb0886d1afb33adb3b38b6d5059648b72971fff52732fa74",
+    "firmware/main/dispatcher.c": "758246a1aa0e063c4686f82aa12161a0d95c6109b061716d3026104df7eeedd8",
+    "firmware/CMakeLists.txt": "bb8fa2f8ee5d10321e99644be01c6087eb02afc3af571848ebf8101f39ffa343",
+    "tools/supra_tiny_v09_trial.py": "63270b5f847692d13eecde312cc3747515e9f18b8d82849219c71a68fb6a6490",
+    "tools/check_gptneo_native.py": "b69ad81b00c91c47b1a860be9b448f3a320442ef831e713565e39ac0d1cb13c1",
+    "tools/gptneo_p4_trial.py": "4848d919117b438064e0e828c9b264b73aa0e75cea0da75324d458548d19e5e2",
+    "tools/benchmark_kernel.py": "1472325b9f7a9e8e51b80b58249b31e94cc49ec64adc140016911f699fbe842c",
+    "tools/tinybrainbot_p4_trial.py": "29799037086a0ab00623b3648de2cf8d55b0bf46ba52c8c2ba4480e7c46c5891",
+    "tools/dispatch_client.py": "b3a8112738989b0ef38ad92c3a14de6da68d4bb47618621ecf0719c2a93f07c5",
+    "tools/lan_client.py": "e8c3916e07981040e9eb83eb326de64bbcffd9cd2c7873653c9026f785c2e0fd"
+  },
+  "candidate_dll_sha256": "6f0aaea96de0d104d6d45f27e010c40ab495f893be39e12103a82ab95b563c86",
+  "archived_dll_preserved": true
+}

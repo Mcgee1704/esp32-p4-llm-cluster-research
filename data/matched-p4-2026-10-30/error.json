@@ -1,0 +1,5 @@
+{
+  "error": "RuntimeError: HTTP 409: b'Coordinator requires its configured layer worker'",
+  "quality_completed": 12,
+  "timing_completed": 2
+}

@@ -1,0 +1,8 @@
+{
+  "reason": "Dispatcher peer is bound to model identity; reboot with Supra invalidated saved Tiny configuration. HTTP409 before generation. Configure cluster after each model switch, keeping automatic peer selection.",
+  "retained_quality": 12,
+  "retained_timing": 2,
+  "retained_warmups": 1,
+  "script_sha256": "b2bf8a744961e0631a6fa32faf595135e8dfba77bd867990239be9815d2c3a58",
+  "scope": "No prompt, weights, firmware, rubric or timing schedule change. Failed attempt retained."
+}

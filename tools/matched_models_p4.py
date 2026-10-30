@@ -1,4 +1,5 @@
 """Frozen four-model study on two local P4s; restore TinyTalk-2 on completion."""
+import argparse
 import json
 import pathlib
 import statistics
@@ -6,6 +7,7 @@ import time
 
 from matched_models import DATA, MODELS, ROOT, Native, frozen, sha, write
 from gptneo_p4_trial import MASTER, PEER, status, upload, ready, idle, verify
+from research_integrity import data_arguments, study_directory
 from benchmark_kernel import request
 from dispatch_client import Dispatcher
 
@@ -30,6 +32,8 @@ def switch(host, key, p):
 
 
 def run():
+    import matched_models
+    matched_models.DATA = DATA
     p = frozen()
     out = DATA / 'hardware'
     out.mkdir(exist_ok=False)
@@ -156,4 +160,6 @@ def run():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__); data_arguments(parser)
+    args = parser.parse_args(); DATA = study_directory(args, DATA)
     run()

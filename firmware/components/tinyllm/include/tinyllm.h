@@ -8,6 +8,11 @@ ts_state *ts_open(const void *blob, size_t bytes);
 void ts_close(ts_state *s);
 const ts_config *ts_config_get(const ts_state *s);
 const uint8_t *ts_model_id(const ts_state *s);
+const uint8_t *ts_artifact_id(const ts_state *s);
+unsigned ts_role(const ts_state *s);
+unsigned ts_first_layer(const ts_state *s);
+unsigned ts_end_layer(const ts_state *s);
+unsigned ts_quant_bits(const ts_state *s);
 const char *ts_architecture(const ts_state *s);
 int ts_is_eos(const ts_state *s,int token);
 void ts_reset(ts_state *s);
@@ -20,6 +25,9 @@ int ts_encode(ts_state *s, const char *text, int *tokens, int capacity);
 const char *ts_decode(ts_state *s, int previous, int token);
 /* GPT-2 pieces are binary: use this length rather than strlen. */
 size_t ts_decode_length(ts_state *s,int previous,int token);
+/* Stateless output index: Metaspace removes all markers in output token0. */
+const char *ts_decode_output(ts_state *s,int previous,int token,unsigned output_index,size_t *length);
+const char *ts_tokenizer_kind(const ts_state *s);
 uint32_t ts_crc32(const void *data, size_t bytes);
 
 /* Kernel choice is per state, changed only by its single inference owner. */

@@ -1,0 +1,55 @@
+# Local preparation review: research snapshot v7
+
+30 October2026. No upload, release or DOI. Final candidate directory is
+`.local/publication/esp32-p4-llm-cluster-research-v7.3` (internal preparation
+revision3); the historicalv6 snapshot is preserved,883 checksums verified and
+its Git worktree remains clean. This review is local operational evidence.
+
+The [typed receipt](data/publication-local-review-v7-2026-10-30.json) records a
+fresh local Git clone:1,177 package checksums,1,162 original/public representation
+relationships, five historical/public protocol pairs,164 report links,48 figure
+source relationships and1,178 Git blob/worktree byte comparisons passed.
+All11 admitted PNGs have restrictive metadata checks; the eight later figures
+were visually reviewed in this task, with the three earlier matched figures
+retaining their prior review. A historical contextual report cited by one figure
+is now retained as attributed text, distinct from its consolidated editorial.
+
+The standard-library checker reproduces the64-output matched quality table,
+32 paired timing packages,120-output TinyBrainBot quality totals and three
+TinyBrainBot P4 latency observations without weights, credentials or devices.
+The matched summary/validation CLI also passed on a fresh public clone with
+cached NumPy; four derived files changed as expected, numerical counts stayed
+identical and the prepared snapshot stayed clean. Common --run/--output options
+were checked on all four stages; only offline archive stages were executed.
+No fresh model experiment is claimed from argument parsing alone.
+
+Private suite:86 tests pass. Public native C libraries compile with warnings as
+errors;80 public tests pass, one fixture class skipped because its six tokenizer
+reference tests require the intentionally excluded asset. Those six pass in
+the private suite. The final candidate's61 firmware/test/CLI files are byte-
+identical to that accepted public compile/suite gate; only evidence tooling and
+contextual provenance changed afterward. Public0.7.0 ESP image/build/physical
+validation remains absent. Complete source-only0.6.0/0.6.1/0.7.0 snapshots are
+included; five old keyless bundles/20 components still end at0.5.5.
+
+Builder admission retains396 JSON numeric sequences unchanged, rejects the
+private key/known host/device identifiers, admits only whitelisted keyless
+binaries and reviewed generated plots. Model weights, authenticated deployment
+images, SDKs, private Git history, journals and handoffs are excluded. Source
+notices, UnicodeMIT/Apache references, model licence/revision/hash attribution,
+release notes, CITATION without DOI and a dependency-version manifest are
+included. Prior failed preparation candidates remain local; their small coverage,
+link-checker and figure-lineage corrections are recorded without altering
+historical protocols or answers.
+
+Corrected TinyBrainBot derived audit counter is integer120; all120 answers,
+protocol, inputs and generation receipt remain byte-identical to4fc84b1.
+Historical/private protocol hashes are preserved and public hashes are separate.
+Quality limitations remain small fixed sets, same unblinded reviewer, no
+independent semantic assessment, no global ranking or energy claim.
+
+At final read-only device check both P4s report0.7.0, the genuine shared
+TinyBrainBot identity, correct distinct roles, ready/idle and zero queued/running
+jobs. No further hardware generation, update or model download occurred during
+this publication preparation. Online publication requires a separate exact-target
+approval under the current global rule; this preparation is not that approval.

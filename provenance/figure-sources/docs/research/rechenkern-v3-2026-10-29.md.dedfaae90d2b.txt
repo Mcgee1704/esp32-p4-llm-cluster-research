@@ -1,0 +1,269 @@
+# Rechenkern V3 – Matrixberechnung und Speicherzugriffe
+
+## Vorab festgelegter Versuch
+
+Ausgangspunkt: Commit `5783bb1`, Firmware 0.3.0, zwei reale P4 Revision 1.3.
+TinyStories-15M, Quantisierung, Takt, Kontext und Pausenstrategie bleiben gleich.
+Firmware 0.3.0 wird vor Updates als lokaler Rückweg aufbewahrt.
+
+Paket A: Drei Modi innerhalb derselben Testfirmware vergleichen: `dual`
+(V2-Rechenweg), `sram` (gleiche Rechnung, sechs kleine Arbeitsvektoren im
+internen RAM), `tile4` (zusätzlich vier Zeilen gemeinsam berechnen und den
+jeweiligen Eingabewert wiederverwenden). Alle Modi verwenden beide CPU-Kerne.
+Die Summationsreihenfolge je Zeile bleibt erhalten; keine neue Quantisierung,
+kein Fast-Math und keine geänderten Modellgewichte. Ausgabematrix und KV-Cache
+bleiben im PSRAM. Speicherknappheit darf nicht still auf einen anderen Modus
+zurückfallen; Fehler muss sichtbar sein.
+
+Paket B: Dieselben drei Modi auf beiden Boards mit zwei bekannten Prompts,
+24 neuen Tokens, drei zyklisch verschobenen Modusreihenfolgen und separatem
+Vier-Token-Warmlauf vergleichen. Exakte Tokenidentität zur bisherigen Referenz.
+Danach vier Clusterblöcke mit dual/Cluster, sram/Cluster, tile4/Cluster und
+dem gewählten Standard/nur Master. Jeder Fall einmal an jeder Blockposition.
+Auswahl des Standards erst nach den Direktmessungen. Auch ein negatives
+Ergebnis wird dokumentiert und nicht zum Standard gemacht.
+
+Paket C: Reale Auftragsdaten für eine spätere Drei-Knoten-Simulation sammeln.
+Zwei vorher festgelegte, gemischte Sechs-Auftrags-Bursts werden als Kalibrierung
+bzw. spätere Validierung getrennt gespeichert. Enthalten sind Prompt-/Token-
+Merkmale, Zielboard, Annahme-/Start-/Endzeiten auf der Masteruhr, Wartezeit,
+Weiterleitungsdauer und Backend-Rechenprofil. Keine Zeitstempel verschiedener
+Geräte voneinander abziehen. Der dritte Knoten wird in diesem Paket weder
+emuliert noch als gemessene Hardwareleistung ausgegeben.
+
+Schreibbereich: tinyllm-Rechenkern und Speicherverwaltung, Modus-/Profilfelder
+der APIs, Mess-/Exportwerkzeuge, Tests, Forschungsbericht und Journal.
+Abhängigkeiten: erreichbare, unbeschäftigte Boards mit gleichem Modell;
+bestätigter OTA-Start; keine fremden Aufträge während der Messung.
+
+Abnahme: exakte numerische Referenz einschließlich Restzeilen, Wechsel der
+Speicherbank ohne Verlust des aktiven Zustands, reale Tokenvergleiche,
+interner RAM-Nachweis, beide CPU-Kerne, LAN-Kontrolldienst unter Last,
+bestätigte Neustarts nach Updates und leerer Dispatcher am Ende.
+Builds für Revision 1.x und 3.x, reale Tests ausschließlich Revision 1.3.
+Rohdaten/Hashes, Grenzen, Journal und ausschließlich lokaler Commit.
+
+## Umsetzung und Kontrollbedingungen
+
+Firmware 0.4.0 ergänzt die Modi `sram` und `tile4`; `dual` bleibt als
+V2-Vergleichsweg erhalten. `tile4` wurde nach beiden Direktmessreihen zum
+Standard gewählt. Die optionale Modusauswahl funktioniert direkt über
+`/api/generate` und über den Dispatcher auf Port 8081. Ohne Auswahl wird
+automatisch der Standard verwendet, auch beim Beginn einer Schicht-RPC-Sitzung.
+
+Sechs kleine Vektoren (`x`, `xb`, `xb2`, `q`, `hb`, `hb2`) erhalten eine
+zusammenhängende zweite Speicherbank mit ausdrücklich interner 8-Bit-fähiger
+RAM-Allokation. Größe: `(4 × dim + 2 × hidden) × sizeof(float)`, hier
+**10.752 Bytes = 10,5 KiB**. Modellgewichte, Tokenizer, Attention-Puffer,
+Logits und KV-Cache bleiben unverändert im PSRAM. Die ursprüngliche kleine
+PSRAM-Bank bleibt für die kontrollierten Vergleichsmodi erhalten. Ein Wechsel
+kopiert die aktuellen Vektoren; er darf den aktiven Modellzustand nicht verlieren.
+Bei fehlendem internem RAM gibt es einen Fehler statt eines stillen Rückfalls.
+
+`work_internal` in jeder Abschlussantwort prüft auf ESP32 die tatsächlichen
+Adressen aller sechs Vektoren mit `esp_ptr_internal`, nicht nur den Modusnamen.
+`internal_work_allocated` meldet die zusätzlich reservierten Nutzbytes. Nach
+einmaliger Allokation bleiben diese auch bei einem `dual`-Kontrolllauf reserviert.
+Alle gemessenen Direktläufe folgen Warmläufen sämtlicher Modi; damit wird die
+erstmalige Allokation nicht einem einzelnen gemessenen Modus zugerechnet.
+
+`tile4` lädt je Spaltenposition einen Eingabewert und verwendet ihn für vier
+unabhängige Ergebniszeilen. Die vier Akkumulatoren werden jeweils in genau
+derselben Spaltenreihenfolge wie bisher aktualisiert. Restzeilen werden mit
+der skalaren Schleife bearbeitet. Kein Fast-Math, `-ffp-contract=off`, keine
+neue Quantisierung und keine eigens geschriebene SIMD-Routine. Die Aufteilung
+auf beide CPU-Kerne und die zeitgesteuerten Pausen aus V2 bleiben erhalten.
+
+Die Antwort enthält nun außerdem `prompt_tokens`, einschließlich des vom
+Tokenizer erzeugten Anfangstokens. Statusdaten ergänzen freien internen RAM,
+den seit Boot gemessenen Minimalwert und den größten freien internen Block.
+Der Minimalwert ist kein isolierter Inferenz-Speicherhöchststand: Er enthält
+auch Start-, Netzwerk- und andere Aktivitäten seit dem Boot.
+
+## Direktvergleich auf beiden Boards
+
+Testfirmware `0.4.0-test`, gleiche Binärdatei auf beiden Boards. Board 2 zuerst,
+danach Board 1, keine gleichzeitigen Direktreihen. Je Board drei Warmläufe mit
+vier Tokens und 18 gemessene Aufträge: beide bekannten Prompts, 24 Tokens,
+drei Modi, drei Wiederholungen. Modusreihenfolge dual/sram/tile4,
+sram/tile4/dual, tile4/dual/sram; innerhalb jedes Modus Prompt A vor B.
+
+| Modus | Board 1, Median | Board 2, Median | Änderung |
+| --- | ---: | ---: | --- |
+| dual | 10,751 s | 10,744 s | V2-Rechenweg, kleine Vektoren im PSRAM |
+| sram | 10,569 s | 10,566 s | Nur kleine Vektoren intern |
+| tile4 | **7,058 s** | **7,052 s** | Zusätzlich gemeinsame Vier-Zeilen-Schleife |
+
+Median der sechs nach Block und Prompt gepaarten Quotienten je Board:
+
+| Vergleich | Board 1 | Board 2 |
+| --- | ---: | ---: |
+| dual / sram | 1,0165 | 1,0170 |
+| sram / tile4 | 1,4980 | 1,4982 |
+| dual / tile4 | **1,5221** | **1,5238** |
+
+Die interne Speicherbank allein spart in dieser Konfiguration nur etwa
+1,7 % Laufzeit. Der große Effekt liegt beim Schleifenumbau. Insgesamt etwa
+**34,4 % weniger Antwortzeit**, bei weiterhin identischer Mathematik.
+Die Mediane bündeln zwei unterschiedlich lange Prompts; gepaarte Quotienten
+vergleichen jeweils denselben Prompt im selben Block. Rohwerte und Spannweiten
+bleiben in den Datensätzen enthalten.
+
+Die Matrixzeit auf Board 2 sinkt von 10,158 s über 9,992 s auf 6,507 s,
+die Ausgabeschicht von 5,489 s über 5,424 s auf 3,477 s. Die Ausgabeschicht
+ist in der Gesamt-/Matrixzeit bereits enthalten und darf nicht addiert werden.
+Die Veränderungen passen zum gezielt geänderten Rechenpfad. Wie viel des
+Gewinns aus weniger Eingabeladevorgängen, Instruktionsparallelität oder
+Cacheeffekten stammt, wurde nicht durch Hardwarezähler getrennt gemessen.
+Die kleinen Arbeitsvektoren waren daher nicht als dominanter Speicherengpass
+nachgewiesen; große Behauptungen über PSRAM-Bandbreite wären nicht gerechtfertigt.
+
+Alle **36 gemessenen Vergleichsausgaben** stimmen exakt mit der bisherigen
+Tokenreferenz überein. Beide CPU-Kernmasken korrekt; `work_internal` nur in
+sram/tile4 wahr. Keine geänderte Boot-ID innerhalb einer Reihe. Auf Board 2
+betrug der freie interne RAM vor der Reihe 465.439 Bytes, danach 454.287 Bytes;
+dieser Unterschied enthält außer Nutzspeicher auch Allokations-/Systemeffekte.
+Der größte freie interne Block blieb 368.640 Bytes.
+
+Die originale Firmware 0.3.0 wurde davor auf Board 2 nochmals mit beiden
+Prompts geprüft: 10,565 und 10,922 s. Diese zwei Läufe sind eine Kontrolle
+des Ausgangszustands, keine weitere Wiederholungsreihe. Für die Wirkungsbewertung
+gelten die drei Modi innerhalb derselben Testfirmware.
+
+## Clustervergleich und Daten für die Simulation
+
+Der Vergleich verwendet die
+finale Firmware 0.4.0 auf beiden Boards und vier zyklisch verschobene Fälle:
+dual/Cluster, sram/Cluster, tile4/Cluster, tile4/nur Master. Zwei Aufträge mit
+je 24 Tokens pro Fall, insgesamt 32 Aufträge. Die Paketzeit wird ausschließlich
+auf der monotonen Uhr des Masters bestimmt. Kein zusätzlicher Warmlauf in
+dieser Reihe; zuvor wurde die normale Generierung nach dem Update geprüft.
+
+Die separaten Auftragsserien und das Datenformat sind vor der Erfassung in
+[Simulation: Datenbasis und Grenzen](simulation-datenbasis.md) festgelegt.
+
+| Fall | Median Paketzeit | Spannweite | Gesamtdurchsatz |
+| --- | ---: | ---: | ---: |
+| dual, beide Boards | 11,239 s | 11,230–11,497 s | 4,271 Tokens/s |
+| sram, beide Boards | 10,998 s | 10,981–11,227 s | 4,364 Tokens/s |
+| tile4, beide Boards | **7,495 s** | 7,482–7,506 s | **6,405 Tokens/s** |
+| tile4, nur Master | 15,235 s | 15,223–15,246 s | 3,151 Tokens/s |
+
+Alle 32 Aufträge vollständig tokenidentisch zur bisherigen Referenz; die
+Clusterfälle nutzten jeweils beide Boards. Zusammen mit den Direktreihen
+**68 kontrollierte Vergleichsaufträge**. Keine Boot-ID änderte sich während
+einer Reihe. Die langsameren Kontrollwerte (11,497 bzw. 11,227 s) wurden
+nicht entfernt. Vier Blöcke rechtfertigen keine Signifikanzbehauptung.
+
+Gegenüber dem V2-Rechenweg in derselben Firmware benötigt der Cluster etwa
+**ein Drittel weniger Paketzeit** bzw. liefert rund **1,50-fachen Durchsatz**.
+Die vier gepaarten Quotienten stehen unverändert in der Auswertung.
+Der historische V2-Clusterwert von 11,737 s ergibt gegenüber jetzt 7,495 s
+etwa 1,57-fachen Durchsatz. Das ist ein historischer Vergleich; die neue
+dual-Kontrolle liegt bei 11,239 s und ist die passendere Kontrollbedingung.
+Die Änderung der Speicher-/Codeanordnung zwischen Firmwareständen wurde
+nicht separat als Ursache dieser Baselineverschiebung isoliert.
+
+### Warum der Vergleich gegen einen Master leicht über Faktor zwei liegt
+
+Das konkrete Paket liefert verteilt etwa 2,03-fachen Durchsatz gegenüber
+seiner seriellen Ausführung auf dem Master. Das ist keine allgemeine
+überlineare Skalierung gleicher Rechenkerne. Im ersten Block sind die
+gemessenen Bestandteile auf der Masteruhr:
+
+- Lokal: 220 ms erste Wartezeit + 7.256 ms erster Service + **244 ms Lücke**
+  bis zum zweiten Start + 7.504 ms zweiter Service = **15.224 ms**.
+- Verteilt: 224 ms bis zum gemeinsamen Start + 7.259 ms bis zum letzten
+  Ergebnis = **7.483 ms**.
+
+Der zweite Auftrag läuft verteilt auf dem Worker mit einer anderen
+Servicezeit als auf dem Master; außerdem entfällt die zusätzliche serielle
+Lücke. Service umfasst HTTP-Verarbeitung und Transport, nicht nur Mathematik.
+Die Messung belegt diese Zeitanteile, isoliert aber nicht alle Scheduling-/
+Netzwerkursachen. Genau deshalb erhält der spätere Simulator getrennte
+Messwerte für die Zielrollen und die Warteschlange statt pauschal „2,03×“.
+
+
+## Datensatz für die spätere Simulation
+
+Zwölf reale Aufträge, keine simulierten Geräte. Kalibrierung: sechs Aufträge,
+128 Ausgabetokens, Paketdauer 37,757 s; vier Aufträge auf dem Master, zwei auf
+Board 2. Reservierte Validierung: sechs Aufträge, 160 Ausgabetokens, 42,545 s;
+drei Aufträge je Board. Unterschiedliche Auftragszahlen bedeuten bei gemischten
+Längen keine automatisch schlechte Lastverteilung.
+
+Die Prompts enthalten 5, 7 oder 70 Tokens einschließlich BOS. Wartezeiten:
+Kalibrierung 241–21.448 ms, Validierung 44–24.021 ms. In allen zwölf Fällen
+wurde das angeforderte Ausgabelimit erreicht. Insgesamt 224 Referenz-Präfixtokens
+geprüft; für die restlichen Tokens dieser längeren Ausgaben wird keine vollständige
+Gleichheitsprüfung zur alten Referenz behauptet. Weiterleitungsresiduen lagen
+bei 18,916–300,319 ms; sie sind ausdrücklich keine isolierte Netzwerklatenz.
+Die Rohantworten, Merkmale, Uhrdomänen und Datenteilung bleiben erhalten.
+Keine Parameteranpassung, Drei-Knoten-Vorhersage oder Validierung einer
+Simulation wurde durchgeführt.
+
+## Abnahme, Grenzen und Reproduktion
+
+19 lokale Tests bestanden, darunter exakte Logits aller fünf Modi, 275
+Ausgabezeilen mit Restverarbeitung, Speicherbankwechsel mitten im aktiven
+Modellzustand, Profilreset und RPC-Standardmodus. Die portablen Tests führen
+die beiden Zeilenhälften seriell aus; echte Nebenläufigkeit und interne
+RAM-Adressen sind zusätzlich durch die Hardwareläufe belegt. Die zwei Tests
+des Simulationsexports wurden nach dessen abschließenden Ergänzungen erneut
+gezielt ausgeführt: Uhrdomänen getrennt, fehlerhafte Zeitfolgen abgewiesen.
+
+Builds für Revision 1.x und 3.x erfolgreich, Images/Partitionen/Modell geprüft.
+Reale Hardware ausschließlich zwei Revision-1.3-Boards. Das Flag
+`hardware_tested: false` im Artefaktprüfer betrifft dessen Offlineprüfung.
+Beide Boards per LAN aktualisiert, Modell erhalten, OTA bestätigt, Master-Peer
+weiter gespeichert. Standard ohne Modusangabe: tile4 auf beiden Boards.
+
+Zusätzliche Hardwareprüfung: sechs ungültige Modusangaben abgewiesen, normale
+Aufträge auf beiden Boards korrekt, 64-Token-Generierung und bisheriger
+Schicht-RPC erfolgreich. Während der Generierung antwortete der Kontrollserver
+bei 36 Abfragen mit Median 16,34 ms, Maximum 34,36 ms. Langer Prompt mit je
+24 neuen Tokens: legacy 42,446 s, tile4 15,763 s, vollständige Tokenidentität;
+ein zusätzlicher Regressionstest, keine eigene statistische Vergleichsreihe.
+Boot-IDs während der abschließenden Versuche unverändert. Minimal freier
+interner RAM seit dem letzten Boot: Master 425.363 Bytes, Worker 436.999 Bytes.
+Abschlusszustand: Modelle bereit, OTA bestätigt, keine aktiven Worker und
+keine wartenden/laufenden Dispatcher-Aufträge.
+
+Grenzen: ein Modell, kleine Stichproben, kurze Leistungstests, keine
+Energie-/Temperaturmessung, kein Langzeitnachweis. Anteil von Cache und
+Instruktionsparallelität nicht separat isoliert; keine allgemeine Aussage
+über andere Modelle. Erzwungene Speicherknappheit, echte Modellneuladung und
+OTA-Fehlerrollback wurden nicht zusätzlich auf Hardware ausgelöst.
+USB-/PoE-Elektrik, SD und automatische Neuaufnahme bleiben getrennte Aufgaben.
+
+Daten und Nachweise:
+
+- [Direktvergleich Board 1](data/kernel-v3-2026-10-29/direct-board1/summary.json),
+  [Board 2](data/kernel-v3-2026-10-29/direct-board2/summary.json),
+  [gepaarte Direktanalyse](data/kernel-v3-2026-10-29/direct-analysis.json).
+- [Clustervergleich](data/kernel-v3-2026-10-29/cluster-comparison/summary.json)
+  und [gepaarte Clusteranalyse](data/kernel-v3-2026-10-29/cluster-analysis.json).
+- [Simulationsdaten als JSON](data/kernel-v3-2026-10-29/simulation-data/records.json),
+  [CSV](data/kernel-v3-2026-10-29/simulation-data/records.csv),
+  [Metadaten und vorab gewählte Aufträge](data/kernel-v3-2026-10-29/simulation-data/metadata.json).
+- [Hardwareabnahme](data/kernel-v3-2026-10-29/integration/report.json),
+  [finaler Gerätestand](data/kernel-v3-2026-10-29/final-deployment.json),
+  [Artefaktprüfung](data/kernel-v3-2026-10-29/verify-final.json),
+  [SHA-256-Manifest](data/kernel-v3-2026-10-29/sha256-manifest.json).
+
+Wiederholung mit frischen Ausgabeverzeichnissen und ohne weitere Aufträge:
+
+```powershell
+& .local/tooling/idf-tools/python_env/idf5.5_py3.12_env/Scripts/python.exe tools/benchmark_kernel.py node-2 .local/v3-repeat-direct --kernels dual sram tile4 --repeats 3 --rotate
+& .local/tooling/idf-tools/python_env/idf5.5_py3.12_env/Scripts/python.exe tools/benchmark_cluster_kernels.py node-1 node-2 .local/v3-repeat-cluster --v3
+& .local/tooling/idf-tools/python_env/idf5.5_py3.12_env/Scripts/python.exe tools/capture_queue_workload.py node-1 node-2 .local/v3-repeat-workload
+& .local/tooling/idf-tools/python_env/idf5.5_py3.12_env/Scripts/python.exe tools/check_kernel_hardware.py node-1 node-2 .local/v3-repeat-checks --expected-default tile4
+```
+
+Firmwareimage: 784.416 Bytes, SHA-256
+`d8a80c8b53e230904b79a56d0c7618f5ffd70287e881aadf4af341bb6e8dcf5f`.
+Build-/Testprotokolle, Testquellen und Images bleiben unter
+`.local/kernel-v3-2026-10-29/`. Rückweg: `rollback-0.3.0.bin`, bei leerer
+Warteschlange über die vorhandene LAN-Firmware-API. Kein Rückwechsel ausgeführt.
+Geräte-Vollsicherungen und Schlüssel bleiben außerhalb von Git. Nichts
+extern übertragen. Journal und Abschlusscommit lokal; Rechner bleibt an.

@@ -1,0 +1,177 @@
+{
+  "source": "SupraLabs/Supra2-100M-Instruct",
+  "context": 256,
+  "generation": "greedy, no sampling, full vocabulary, EOS from metadata",
+  "prompt_policy": "Raw shared prefixes plus separately labelled exact author ChatML template, no implicit BOS",
+  "cases": [
+    {
+      "id": "S1",
+      "category": "story",
+      "prompt": "Once upon a time, a rabbit named Pip had a carrot. His friend Fox was hungry. Pip decided to share",
+      "limit": 16
+    },
+    {
+      "id": "S2",
+      "category": "story",
+      "prompt": "Mia had a broken kite. She wanted to fly it again. She took some string and",
+      "limit": 16
+    },
+    {
+      "id": "S3",
+      "category": "story",
+      "prompt": "Lily could not find her cat, Luna. She looked in the garden. Then she heard",
+      "limit": 16
+    },
+    {
+      "id": "S4",
+      "category": "story",
+      "prompt": "Ben built a sandcastle by the sea. A big wave came and washed it away. Ben felt",
+      "limit": 16
+    },
+    {
+      "id": "Q1",
+      "category": "question",
+      "prompt": "User: What sound does a cow make? Answer in one short sentence.\nBot:",
+      "limit": 16
+    },
+    {
+      "id": "Q2",
+      "category": "question",
+      "prompt": "User: What color is a ripe banana? Answer in one short sentence.\nBot:",
+      "limit": 16
+    },
+    {
+      "id": "Q3",
+      "category": "question",
+      "prompt": "User: How many wheels does a bicycle usually have? Answer in one short sentence.\nBot:",
+      "limit": 16
+    },
+    {
+      "id": "Q4",
+      "category": "question",
+      "prompt": "User: What is a baby dog called?\nBot:",
+      "limit": 16
+    },
+    {
+      "id": "Q5",
+      "category": "question",
+      "prompt": "User: What is the opposite of hot?\nBot:",
+      "limit": 16
+    },
+    {
+      "id": "Q6",
+      "category": "question",
+      "prompt": "User: How many legs does a cat have?\nBot:",
+      "limit": 16
+    },
+    {
+      "id": "I1",
+      "category": "instruction",
+      "prompt": "User: Reply with exactly this word: blue\nBot:",
+      "limit": 16
+    },
+    {
+      "id": "I2",
+      "category": "instruction",
+      "prompt": "User: Write exactly three words: red green blue\nBot:",
+      "limit": 16
+    },
+    {
+      "id": "I3",
+      "category": "instruction",
+      "prompt": "User: Write one short sentence about rain. Do not mention animals.\nBot:",
+      "limit": 16
+    },
+    {
+      "id": "C2",
+      "category": "memory",
+      "prompt": "User: My cat is called Luna.\nBot: Luna is a nice name.<|endoftext|>\nUser: What is my cat's name?\nBot:",
+      "limit": 16
+    },
+    {
+      "id": "U1",
+      "category": "unknown",
+      "prompt": "User: What is the serial number of the board on my desk?\nBot:",
+      "limit": 16
+    },
+    {
+      "id": "D1",
+      "category": "language-boundary",
+      "prompt": "User: Welche Farbe hat eine reife Banane?\nBot:",
+      "limit": 16
+    },
+    {
+      "id": "N1",
+      "category": "native-chat",
+      "prompt": "<|im_start|>user\nWhat color is a ripe banana?<|im_end|>\n<|im_start|>assistant\n",
+      "limit": 16
+    },
+    {
+      "id": "N2",
+      "category": "native-chat",
+      "prompt": "<|im_start|>user\nHow many wheels does a standard bicycle have?<|im_end|>\n<|im_start|>assistant\n",
+      "limit": 16
+    },
+    {
+      "id": "N3",
+      "category": "native-chat",
+      "prompt": "<|im_start|>user\nWhat is a baby dog called?<|im_end|>\n<|im_start|>assistant\n",
+      "limit": 16
+    },
+    {
+      "id": "N4",
+      "category": "native-chat",
+      "prompt": "<|im_start|>user\nWhat is the opposite of hot?<|im_end|>\n<|im_start|>assistant\n",
+      "limit": 16
+    },
+    {
+      "id": "N5",
+      "category": "native-chat",
+      "prompt": "<|im_start|>user\nHow many legs does a typical cat have?<|im_end|>\n<|im_start|>assistant\n",
+      "limit": 16
+    },
+    {
+      "id": "N6",
+      "category": "native-chat",
+      "prompt": "<|im_start|>user\nReply with exactly one word: blue.<|im_end|>\n<|im_start|>assistant\n",
+      "limit": 16
+    },
+    {
+      "id": "N7",
+      "category": "native-chat",
+      "prompt": "<|im_start|>user\nWrite one short story about a rabbit sharing a carrot.<|im_end|>\n<|im_start|>assistant\n",
+      "limit": 16
+    }
+  ],
+  "quantization": "symmetric row INT4, ties-to-even, -7..7, float32 scales",
+  "logit_tolerance": 0.003,
+  "numerical_tokens": [
+    0,
+    300,
+    42,
+    17,
+    1000,
+    2,
+    7,
+    9
+  ],
+  "timing_case": "S2",
+  "timing_limit": 16,
+  "timing_repeats": 3,
+  "hardware_cases": [
+    "S2",
+    "Q2",
+    "Q3",
+    "I1",
+    "N1",
+    "N2",
+    "N6",
+    "N7"
+  ],
+  "dispatch_cases": [
+    "S2",
+    "N7"
+  ],
+  "source_precision": "Author F16 GGUF; FP32 compute; not original-F32 parity",
+  "native_template_sha256": "9a6ac2cf411f21cf1fa155617d146256deee33e64c43eace6c36fd9eb3dd5a2a"
+}

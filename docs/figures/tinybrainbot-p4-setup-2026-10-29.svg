@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1050" viewBox="0 0 1600 1050" role="img">
+<title>TinyBrainBot-100M: one model across two P4s</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1050" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">TinyBrainBot-100M: one model across two P4s</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Real devices | Firmware 0.7.0 | row INT4 + FP32 scales/KV | Context 256 | 29 October 2026</text>
+<rect x="48" y="135" width="1504" height="110" rx="14" fill="white"/>
+<text x="800" y="178" fill="#193347" font-size="28" font-weight="bold" text-anchor="middle">Local LAN client / master dispatcher</text>
+<text x="800" y="216" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="middle">Two submitted requests queue for ONE distributed inference lane</text>
+<path d="M480 245 L480 305" stroke="#3378ad" stroke-width="4" fill="none"/>
+<path d="M472 292 L480 305 L488 292" stroke="#3378ad" stroke-width="4" fill="none"/>
+<rect x="48" y="310" width="704" height="355" rx="14" fill="white"/>
+<text x="74" y="358" fill="#286b9b" font-size="30" font-weight="bold" text-anchor="start">P4 coordinator</text>
+<text x="74" y="407" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Embedding + layers 0-3 + output head</text>
+<text x="74" y="450" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Real SPBP Metaspace/BPE tokenizer</text>
+<text x="74" y="493" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">32 MiB PSRAM + 32 MiB flash per board</text>
+<text x="74" y="536" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Stored model: 20.61 MB / 24 MiB partition</text>
+<text x="74" y="579" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Final free PSRAM: 4.02 MB</text>
+<text x="74" y="627" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">tile4 matrix path uses both CPU cores</text>
+<rect x="848" y="310" width="704" height="355" rx="14" fill="white"/>
+<text x="874" y="358" fill="#168476" font-size="30" font-weight="bold" text-anchor="start">P4 worker</text>
+<text x="874" y="407" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Layers 4-11 + local KV cache</text>
+<text x="874" y="450" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">No embedding table or tokenizer</text>
+<text x="874" y="493" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">32 MiB PSRAM + 32 MiB flash per board</text>
+<text x="874" y="536" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Stored model: 20.10 MB / 24 MiB partition</text>
+<text x="874" y="579" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Final free PSRAM: 3.63 MB</text>
+<text x="874" y="627" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">tile4 matrix path uses both CPU cores</text>
+<path d="M752 410 L848 410" stroke="#3378ad" stroke-width="4" fill="none"/>
+<path d="M835 402 L848 410 L835 418" stroke="#3378ad" stroke-width="4" fill="none"/>
+<path d="M848 565 L752 565" stroke="#168476" stroke-width="4" fill="none"/>
+<path d="M765 557 L752 565 L765 573" stroke="#168476" stroke-width="4" fill="none"/>
+<text x="800" y="386" fill="#286b9b" font-size="20" font-weight="bold" text-anchor="middle">LAN</text>
+<text x="800" y="600" fill="#168476" font-size="18" font-weight="normal" text-anchor="middle">return</text>
+<rect x="48" y="697" width="1504" height="147" rx="14" fill="#dce9f2"/>
+<text x="73" y="738" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">768 FP32 hidden values per direction: 3,072 payload bytes / forward RPC</text>
+<text x="73" y="781" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">Layer phases are sequential; this split expands model capacity. It does not double request throughput.</text>
+<text x="73" y="819" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">TCP framing, profiling and prefill/control calls add traffic. No packet-capture or energy measurement.</text>
+<text x="48" y="904" fill="#193347" font-size="23" font-weight="bold" text-anchor="start">Actual wiring: LAN without PoE; each board powered by USB-C from the computer. No inter-board USB.</text>
+<text x="48" y="949" fill="#586c7d" font-size="23" font-weight="normal" text-anchor="start">No SD used. No partition changes. Configured clocks unchanged: CPU 360 MHz, PSRAM 200 MHz.</text>
+<text x="48" y="1002" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Source, original model weights, private authenticated firmware images and rollback packages remain local.</text>
+</svg>

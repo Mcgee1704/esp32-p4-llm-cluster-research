@@ -1,0 +1,272 @@
+{
+  "calibration": [
+    {
+      "id": "C01",
+      "text": "The workshop opened early. Nora sorted the tools, wiped the bench, and checked the plan for the morning. A neighbor arrived with a wooden box. Together they measured the lid and selected a narrow piece of cloth to protect its edge."
+    },
+    {
+      "id": "C02",
+      "text": "A small boat waited beside the harbor wall. The crew checked the ropes before leaving. Clouds covered the hills, but the wind remained gentle. After lunch they returned and wrote a short note about the journey in a worn notebook."
+    },
+    {
+      "id": "C03",
+      "text": "At the library, visitors placed returned books on a cart. The librarian examined each cover and arranged the shelves. A child searched for an adventure while an older visitor read quietly near the window. Outside, leaves moved across the path."
+    },
+    {
+      "id": "C04",
+      "text": "The old clock stopped during the night. Mina opened its case and found a loose part. She asked a friend to hold the lamp while she worked. When the mechanism moved again, they closed the case and carried it into the hall."
+    },
+    {
+      "id": "C05",
+      "text": "Rain reached the village before dawn. Workers covered the materials in the yard and moved the smaller packages inside. Later the weather cleared. A driver checked the delivery list, loaded the van, and followed the road toward the next town."
+    },
+    {
+      "id": "C06",
+      "text": "The actor waited behind the curtain. Music drifted across the room and the audience became quiet. When the scene began, she stepped onto the stage with a folded letter. Her partner listened carefully before replying in a low voice."
+    },
+    {
+      "id": "C07",
+      "text": "On the hillside, a narrow trail passed an abandoned cabin. Walkers paused at the gate to study their map. They planned to reach the valley before evening. After a short rest they packed their coats and continued along the ridge."
+    },
+    {
+      "id": "C08",
+      "text": "A package arrived at the studio. Inside were brushes, paper, and a note from an old teacher. The artist placed everything beside the easel. She looked at the empty page for a moment, then began sketching the view from her window."
+    },
+    {
+      "id": "C09",
+      "text": "The machine made an unusual sound. Its operator stopped the belt and called a colleague. They inspected the rollers and removed a strip of wrapping. After checking the guard, they restarted the motor and watched the next package pass through."
+    },
+    {
+      "id": "C10",
+      "text": "A visitor entered the museum carrying a notebook. The guide pointed toward a display of woven baskets. Each object had a label describing its origin. The visitor copied a detail, asked about the materials, and moved on to the next room."
+    },
+    {
+      "id": "C11",
+      "text": "The gardener moved a tray of seedlings into the shelter. The ground outside was still wet. She loosened the soil in a pot and pressed it gently around the roots. Before leaving, she checked that the door would stay closed overnight."
+    },
+    {
+      "id": "C12",
+      "text": "The station was busy when the evening train arrived. A traveler lifted a bag from the rack and checked the platform sign. Beyond the barrier, a friend was waiting beside a pillar. They greeted each other and walked toward the exit."
+    },
+    {
+      "id": "C13",
+      "text": "<|im_start|>user\nDescribe a quiet room briefly.<|im_end|>\n<|im_start|>assistant\nA curtain hangs beside the window. There is a desk against the wall and a lamp above a closed book. The room is still.<|im_end|>"
+    },
+    {
+      "id": "C14",
+      "text": "<|im_start|>user\nSuggest a title for a painting of a distant valley.<|im_end|>\n<|im_start|>assistant\nA possible title is Beyond the Ridge. It draws attention to the landscape and leaves room for the viewer's imagination.<|im_end|>"
+    },
+    {
+      "id": "C15",
+      "text": "<|im_start|>user\nWrite a brief invitation to a neighborhood meeting.<|im_end|>\n<|im_start|>assistant\nPlease join us in the hall tomorrow evening. We will discuss the garden and hear suggestions for the coming season. Everyone is welcome.<|im_end|>"
+    },
+    {
+      "id": "C16",
+      "text": "<|im_start|>user\nContinue this scene: The door opened slowly.<|im_end|>\n<|im_start|>assistant\nA familiar voice called from the hallway. Mara put down her letter and turned toward the sound. Her visitor was holding a parcel wrapped in plain paper.<|im_end|>"
+    }
+  ],
+  "validation": [
+    {
+      "id": "V01",
+      "text": "The potter studied the bowl before placing it on a shelf. Its surface was smooth except for a narrow mark near the rim. She decided to leave the mark visible. It reminded her of the first attempt she had made that morning."
+    },
+    {
+      "id": "V02",
+      "text": "A messenger reached the camp as the lamps were being lit. The captain read the note carefully and asked everyone to gather near the tent. They would wait for the weather to improve before crossing the pass. Until then, the supplies needed protection."
+    },
+    {
+      "id": "V03",
+      "text": "The composer played a passage again and listened to the final chord. Something in the melody felt unfinished. He made a small change in the margin, returned to the beginning, and tried a slower pace. This time he let the last sound fade naturally."
+    },
+    {
+      "id": "V04",
+      "text": "The market stalls were closing when I found the missing scarf. It had slipped behind a basket near the entrance. I brushed away the dust, thanked the seller, and hurried toward the square. My sister was waiting under the arch beside a tall lantern."
+    }
+  ],
+  "quality": [
+    {
+      "id": "F01",
+      "category": "fact",
+      "user": "What is frozen water called? Answer briefly.",
+      "rule": {
+        "pattern": "\\bice\\b",
+        "forbidden": "\\b(steam|fire)\\b"
+      }
+    },
+    {
+      "id": "F02",
+      "category": "fact",
+      "user": "What covers most of a bird's body? Answer briefly.",
+      "rule": {
+        "pattern": "\\bfeathers?\\b",
+        "forbidden": "\\b(fur|scales)\\b"
+      }
+    },
+    {
+      "id": "F03",
+      "category": "fact",
+      "user": "What is a baby cat called? Answer briefly.",
+      "rule": {
+        "pattern": "\\bkitten\\b",
+        "forbidden": "\\b(puppy|calf)\\b"
+      }
+    },
+    {
+      "id": "F04",
+      "category": "fact",
+      "user": "What is the opposite of up? Answer briefly.",
+      "rule": {
+        "pattern": "\\bdown\\b"
+      }
+    },
+    {
+      "id": "F05",
+      "category": "fact",
+      "user": "What is the first month of the year? Answer briefly.",
+      "rule": {
+        "pattern": "\\bjanuary\\b",
+        "forbidden": "\\b(february|march|april|may|june|july|august|september|october|november|december)\\b"
+      }
+    },
+    {
+      "id": "F06",
+      "category": "fact",
+      "user": "How many sides does a triangle have? Answer briefly.",
+      "rule": {
+        "pattern": "\\b(three|3)\\b",
+        "numbers": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "F07",
+      "category": "fact",
+      "user": "How many hands does a typical human have? Answer briefly.",
+      "rule": {
+        "pattern": "\\b(two|2)\\b",
+        "numbers": [
+          2
+        ]
+      }
+    },
+    {
+      "id": "F08",
+      "category": "fact",
+      "user": "How many days are in a week? Answer briefly.",
+      "rule": {
+        "pattern": "\\b(seven|7)\\b",
+        "numbers": [
+          7
+        ]
+      }
+    },
+    {
+      "id": "F09",
+      "category": "fact",
+      "user": "Is the Sun a star or a planet? Answer briefly.",
+      "rule": {
+        "pattern": "\\bstar\\b",
+        "forbidden": "\\b(is|a) planet\\b"
+      }
+    },
+    {
+      "id": "F10",
+      "category": "fact",
+      "user": "At standard pressure, at what temperature does water freeze in degrees Celsius? Answer briefly.",
+      "rule": {
+        "pattern": "\\b(zero|0)\\b",
+        "numbers": [
+          0
+        ]
+      }
+    },
+    {
+      "id": "F11",
+      "category": "fact",
+      "user": "What is the capital of France? Answer briefly.",
+      "rule": {
+        "pattern": "\\bparis\\b",
+        "forbidden": "\\b(london|berlin|rome)\\b"
+      }
+    },
+    {
+      "id": "F12",
+      "category": "fact",
+      "user": "What is the first letter of the English alphabet? Answer briefly.",
+      "rule": {
+        "pattern": "\\ba\\b",
+        "forbidden": "\\b(b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z)\\b"
+      }
+    },
+    {
+      "id": "F13",
+      "category": "fact",
+      "user": "What is the chemical formula for water? Answer briefly.",
+      "rule": {
+        "pattern": "\\bh2o\\b"
+      }
+    },
+    {
+      "id": "F14",
+      "category": "fact",
+      "user": "What is two plus two? Answer briefly.",
+      "rule": {
+        "pattern": "\\b(four|4)\\b",
+        "numbers": [
+          4
+        ]
+      }
+    },
+    {
+      "id": "F15",
+      "category": "fact",
+      "user": "What color is made by mixing red and white paint? Answer briefly.",
+      "rule": {
+        "pattern": "\\bpink\\b",
+        "forbidden": "\\b(purple|green|orange)\\b"
+      }
+    },
+    {
+      "id": "F16",
+      "category": "fact",
+      "user": "What sound does a dog usually make? Answer briefly.",
+      "rule": {
+        "pattern": "\\b(barks?|barking|woof)\\b",
+        "forbidden": "\\b(meow|moo)\\b"
+      }
+    },
+    {
+      "id": "E01",
+      "category": "exact",
+      "user": "Reply with exactly this word: silver",
+      "rule": {
+        "exact": "silver"
+      }
+    },
+    {
+      "id": "E02",
+      "category": "exact",
+      "user": "Reply with exactly these two words: quiet river",
+      "rule": {
+        "exact": "quiet river"
+      }
+    },
+    {
+      "id": "E03",
+      "category": "exact",
+      "user": "Reply with exactly this word in lowercase: lantern",
+      "rule": {
+        "exact": "lantern"
+      }
+    },
+    {
+      "id": "E04",
+      "category": "exact",
+      "user": "Reply with exactly these three words: paper stone cloud",
+      "rule": {
+        "exact": "paper stone cloud"
+      }
+    }
+  ]
+}

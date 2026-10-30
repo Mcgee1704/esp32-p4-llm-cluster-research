@@ -1,0 +1,237 @@
+# Zwei P4 parallel: Durchsatzversuch
+
+Nachfolgender Stand: Der hier noch PC-gesteuerte Versuchsaufbau wurde um einen
+[automatischen Verteiler auf dem Master](dispatcher-2026-10-29.md) ergänzt und
+mit eigener Kontrollreihe geprüft. Die folgenden Messwerte bleiben historisch.
+
+## Vorab festgelegter Versuchsplan
+
+Fragestellung: Erledigen zwei P4 zwei unabhängige Textanfragen gleichzeitig
+schneller als ein P4 dieselben Anfragen nacheinander?
+
+Ansatz: Anfrageparallelität mit vollständiger Modellkopie je Board. Es werden
+keine abhängigen Schichten derselben Anfrage parallelisiert. Die vorhandene
+Firmware 0.1.3 bleibt unverändert. Der PC sendet und protokolliert; alle
+Modellrechnungen erfolgen auf den Boards. Eine automatische Verteilung durch
+den Master oder die Weboberfläche wird damit noch nicht implementiert.
+
+Ein zusammengehöriges Arbeitspaket besteht aus:
+
+- Prompt A: `Once upon a time`
+- Prompt B: `One day, a little girl`
+- Jeweils 24 neue Tokens, Greedy-Auswahl, dasselbe TinyStories-15M-INT8-Modell.
+
+Verglichen werden vier Blöcke mit jeweils zwei Betriebsarten:
+
+| Block | Reihenfolge | Einzelboard für seriellen Lauf | Parallel: A / B |
+| --- | --- | --- | --- |
+| 1 | seriell, parallel | Board 1 | Board 1 / Board 2 |
+| 2 | parallel, seriell | Board 2 | Board 2 / Board 1 |
+| 3 | parallel, seriell | Board 1 | Board 1 / Board 2 |
+| 4 | seriell, parallel | Board 2 | Board 2 / Board 1 |
+
+Pro Betriebsart müssen dieselben beiden Aufgaben vollständig beendet werden.
+Die Hauptmessgröße ist die Dauer des gesamten Pakets auf der monotonen Uhr
+des PCs, einschließlich Anfrage-/Antwortverkehr. Aus 48 erzeugten Tokens
+geteilt durch diese Dauer ergibt sich der Gesamtdurchsatz einschließlich
+Promptverarbeitung; dies ist kein isolierter Decode-Durchsatz.
+
+Zusätzlich werden Startabstand, überlappende Anfrageintervalle, Ankunft jedes
+Tokens, Zeit bis zum ersten Token und Zeit bis zum Ende je Anfrage gemessen.
+Gleichzeitige Starts nutzen eine Thread-Barriere, keine Hintergrundautomation.
+Die PC-Threads führen keine Modellrechnung aus.
+
+Prüfkriterien vor dem Versuch: gleiche Tokenfolge je Prompt über alle Boards
+und Betriebsarten, je 24 Tokens, keine Firmwarefehler, unveränderte Modellkennung,
+freie Worker vor/nach dem Versuch. Parallel müssen Anfragen zeitlich überlappen
+und ihre Starts weniger als 500 ms auseinanderliegen. Als praktisch relevanter
+Durchsatzgewinn wird für diese kleine Untersuchung vorab ein Faktor über 1,5
+festgelegt. Vorzeitiges EOS oder Fehler werden gespeichert und als Abbruch
+ausgewiesen; keine stille Wiederholung oder nachträgliche Promptauswahl.
+
+Schreibbereich: lokaler Messhelfer, dessen Auswertetest, Rohdaten unter
+`.local/parallel-2026-10-29/` und dieses Forschungsprotokoll. Kein Firmwareupdate,
+keine Änderung der Stromversorgung und keine externe Übertragung erforderlich.
+
+## Messverfahren und Bedeutung der Kennzahlen
+
+Beide Boards wurden vor dem Versuch per Status-API geprüft: Firmware 0.1.3,
+identische Modellkennung, kein ausstehender OTA-Bootcheck und keine belegte
+Worker-Sitzung. Beide sind ESP32-P4 Revision 1.3 mit 360 MHz, 32 MiB Flash
+und 32 MiB PSRAM. Versorgung unverändert über USB-C, Netzwerk über LAN ohne PoE.
+
+Der serielle Modus sendet A und nach vollständiger Antwort B an ein Board.
+Der parallele Modus gibt zwei PC-Threads über eine gemeinsame Barriere frei;
+jeder Thread sendet genau einen Auftrag an ein eigenes Board. Beide Aufträge
+enthalten ein leeres `peer`-Feld. Die Firmware bestätigt pro Auftrag `boards: 1`
+und null RPC-Aufrufe: Jede vollständige Inferenz bleibt auf ihrem Zielboard.
+
+`elapsed_ms` bezeichnet die Dauer des ganzen Pakets bis zum vollständigen
+Empfang beider Antworten. Die HTTP-Verbindungen werden geschlossen, Rohdaten
+lokal geschrieben und beide Jobs eingesammelt; die Paketzeit enthält diese
+kleinen Verwaltungsanteile. Statusprüfungen zwischen den Paketen werden nicht
+in die Paketzeit eingerechnet.
+
+- **Beschleunigungsfaktor pro Block:** serielle Paketzeit / parallele Paketzeit.
+- **Gesamtdurchsatz:** 48 neue Tokens / Paketzeit in Sekunden.
+- **Effizienz bezogen auf zwei Boards:** Beschleunigungsfaktor / 2. Das ist
+  keine Energieeffizienz und keine Messung der CPU-Auslastung.
+- **Mittlere Fertigstellungszeit:** Mittel der beiden Antwort-Endzeiten ab
+  Paketbeginn, also einschließlich des Wartens von B im seriellen Modus.
+- **Mittlere Anfragedauer:** Mittel von Antwortende minus tatsächlichem
+  Anfragestart; die vorherige Wartezeit von B wird hier nicht mitgezählt.
+- **Überlappung:** Schnittmenge der beiden Anfrageintervalle auf derselben
+  monotonen PC-Uhr. Sie enthält LAN-Zeit und ist kein CPU-Zyklusprofil.
+- **Tokenstromwechsel:** Wechsel zwischen A und B in der zeitlich sortierten
+  Liste der 48 am PC empfangenen Tokens. Ein vollständig serieller Lauf hat
+  einen Wechsel; mehrfache Wechsel belegen überlappenden Ausgabefortschritt.
+
+Unterschiedliche Board-Uhren werden nicht voneinander abgezogen. Die eigene
+Firmwarezeit dient nur als ergänzende Kontrolle. Für den Haupteffekt wird der
+Median der vier **blockweise gepaarten Quotienten** verwendet, nicht der Quotient
+zweier unabhängig gebildeter Mediane.
+
+## Prüfung der Auswertung
+
+Zwei Tests prüfen die Zeitrechnung anhand von von Hand berechneten seriellen
+und überlappenden Intervallen. Insbesondere darf die Paketzeit nicht durch die
+Summe der parallel gemessenen Gerätezeiten ersetzt werden. Ungültige Intervalle
+werden abgewiesen. Vor Implementierung fehlte der Messhelfer erwartungsgemäß;
+nach Implementierung bestehen beide Tests. Die gesamte lokale Testsuite besteht
+aus **elf erfolgreichen Tests**. An der Firmware wurde nichts geändert.
+
+## Ergebnisse
+
+Vier vollständige Vergleichsblöcke, insgesamt acht Pakete mit **16 Anfragen**
+und 384 erzeugten Tokens. Kein Lauf wurde wiederholt oder ausgeschlossen.
+
+| Block | Zwei Anfragen seriell | Zwei Anfragen parallel | Beschleunigung |
+| --- | ---: | ---: | ---: |
+| 1 | 42,535 s | 21,590 s | 1,9701× |
+| 2 | 42,535 s | 21,597 s | 1,9695× |
+| 3 | 42,555 s | 21,588 s | 1,9712× |
+| 4 | 42,534 s | 21,605 s | 1,9687× |
+| Median | **42,535 s** | **21,593 s** | **1,9698×** |
+
+| Kennzahl, Median | Seriell | Parallel |
+| --- | ---: | ---: |
+| Gesamtdurchsatz für beide Antworten, einschließlich Promptverarbeitung | 1,128 Tokens/s | 2,223 Tokens/s |
+| Mittlere Fertigstellungszeit ab Paketbeginn | 31,739 s | 21,274 s |
+| Mittlere Dauer ab tatsächlichem Start der jeweiligen Anfrage | 21,267 s | 21,273 s |
+| Überlappung der Anfrageintervalle | 0 s | 20,950 s |
+| Startabstand der beiden Anfragen | 20,944 s | 0,208 ms |
+
+Die parallelen Paketzeiten liegen zwischen 21,588 und 21,605 s, die seriellen
+zwischen 42,534 und 42,555 s. Der Startabstand beträgt parallel in allen vier
+Blöcken weniger als 0,5 ms und erfüllt damit deutlich das vorab gesetzte
+500-ms-Kriterium. In jedem parallelen Paket werden **47 Tokenstromwechsel**
+beobachtet; bei 48 empfangenen Tokens entspricht das einem durchgehend
+abwechselnden Ausgabefortschritt. Seriell gibt es jeweils genau einen Wechsel.
+
+Der Median der blockweisen Beschleunigung liegt bei **1,9698×**, entsprechend
+etwa **97 % mehr Gesamtdurchsatz** und rund **49 % weniger Zeit bis zur
+Fertigstellung beider Aufgaben**. Alle vier Faktoren liegen über dem vorab
+gesetzten praktischen Ziel von 1,5×. Bezogen auf eine ideale Verdopplung werden
+98,49 % erreicht; das ist ausdrücklich keine Aussage zur Energieeffizienz.
+
+## Korrektheit und beobachtete Ausgaben
+
+Für jeden Prompt sind die 24 erzeugten Token-IDs in allen acht zugehörigen
+Anfragen identisch: seriell wie parallel und unabhängig davon, welches Board
+die Aufgabe übernimmt. Prompt A stimmt außerdem mit dem ursprünglichen
+0.1.0-Referenzlauf überein. Es gab keine Fehler- oder vorzeitigen EOS-Antworten.
+
+Fortsetzung von A, `Once upon a time`:
+
+> , there was a little girl named Lily. She loved to play outside in the sunshine. One day,
+
+Fortsetzung von B, `One day, a little girl`:
+
+>  named Lily went to the park with her mom. They saw a big tree with a lot of leaves. Lily
+
+Alle 16 Firmware-Abschlussmeldungen bestätigen eine lokale Inferenz auf genau
+einem Board und null Schicht-RPCs. Nach jedem Paket melden beide Boards weiterhin
+Firmware 0.1.3, dieselbe Modellkennung, ein bereites Modell und freie Worker.
+
+## Wissenschaftliche Einordnung: welcher Vorteil tatsächlich entsteht
+
+**Nachgewiesen ist Anfrageparallelität mit nahezu verdoppeltem Durchsatz.**
+Die zweite Modellkopie und der zweite Prozessor übernehmen eine zweite,
+unabhängige Aufgabe. Beide KV-Zustände liegen auf getrennten Boards. Es gibt
+keine Abhängigkeit, die B auf ein Zwischenergebnis von A warten lässt.
+
+Die aufgezeichneten Anfrageintervalle überlappen, die ausgegebenen Tokens
+kommen fortlaufend von beiden Geräten, und der PC führt keine Modellrechnung
+aus. Zusammen mit den Geräteantworten stützt das den parallelen Fortschritt
+auf zwei echten P4. Eine zyklusgenaue Messung der CPU-Auslastung wurde nicht
+durchgeführt und ist mit der gemessenen Intervallüberlappung nicht gleichzusetzen.
+
+**Eine einzelne Antwort wird dabei nicht schneller.** Für Prompt A beträgt
+der Median der Einzelanfragedauer über die vier Läufe seriell
+20,944 s und parallel 20,950 s. Für B sind es jeweils rund 21,592 s. Auch die
+Firmware-Rechenläufe bleiben praktisch gleich lang: A rund 20,895 s, B rund
+21,532 s. Der große Nutzen liegt im Wegfall der Wartezeit vor der zweiten
+Anfrage, nicht in einer beschleunigten Tokenberechnung innerhalb einer Anfrage.
+
+Dass der Faktor etwas unter 2 liegt, ist für dieses Aufgabenpaar plausibel:
+B dauert etwas länger als A. Im Parallelbetrieb bestimmt B die Paketdauer;
+A ist etwas früher fertig. Die ideale Paketdauer bei unabhängigen Aufgaben
+ist die längere der beiden Anfragedauern, nicht die Hälfte ihrer Summe.
+Zusätzlich bleiben geringe Dispatch-, LAN- und Protokollierungsanteile.
+
+Der zuvor gemessene Schichtmodus bleibt ein anderer Versuch: Dort teilen sich
+zwei Boards **eine** abhängige Schichtkette. Hier arbeiten zwei vollständige
+Modellkopien an **zwei** unabhängigen Aufträgen. Der Befund zeigt daher keinen
+Gewinn an maximaler Modellgröße und keine Beschleunigung eines einzelnen
+Gedankengangs oder einer einzelnen Textantwort.
+
+## Grenzen des Versuchs
+
+Vier Blöcke, zwei Prompts, kurze feste Ausgaben und ein Modell. Die Reihenfolge
+ist vorab ausgeglichen, aber nicht randomisiert; keine statistische
+Signifikanzbehauptung, Konfidenzintervalle oder belastbaren p95-Latenzen aus
+dieser kleinen Stichprobe. Netzwerkhintergrund, Temperatur und Energieverbrauch
+wurden nicht kontrolliert beziehungsweise gemessen. Die konstante Tokenfolge
+belegt für diese Fälle Korrektheit, keine allgemeine Modellqualität.
+
+Jede Anfrage passte bereits auf ein einzelnes Board. Die Parallelisierung
+benötigt zwei vollständige Modellkopien und nutzt mehr Hardware. Eine Aussage
+über Energie pro Token, Skalierung auf vier Boards, Dauerlast oder Ausfälle
+wäre ein neues Experiment. Der kleine Abstand zwischen idealem und gemessenem
+Faktor ist wegen dieser Grenzen nicht als genau vermessener Netzwerkanteil
+zu interpretieren.
+
+## Nutzbarer Stand und nächster Schritt
+
+Beide Boards können schon jetzt gleichzeitig eigene LAN-Anfragen bearbeiten.
+Der Messhelfer verteilt sie vom PC aus. Die vorhandene Weboberfläche kann pro
+Board separat verwendet werden, jeweils mit leerem Worker-Feld für lokale
+Inferenz. **Ein gemeinsamer automatischer Auftragsverteiler auf dem Master
+ist noch nicht eingebaut.** Auch automatische Aufnahme weiterer Boards und
+Pipeline-/Tensorparallelität sind damit nicht umgesetzt.
+
+Ein nächster sinnvoller Ausbau wäre eine gemeinsame Warteschlange mit
+Verteilung unabhängiger Anfragen auf freie Boards. Als Forschung sollten
+danach mehr unterschiedliche Prompts, längere Ausgaben und mehr als zwei
+wartende Aufträge untersucht werden. Das ist eine Empfehlung aus dem Ergebnis,
+keine in diesem Versuch bereits implementierte Funktion.
+
+## Reproduktion und lokale Daten
+
+```powershell
+& .local/tooling/idf-tools/python_env/idf5.5_py3.12_env/Scripts/python.exe tools/benchmark_parallel.py node-1 node-2 .local/parallel-neuer-lauf
+```
+
+Der Ausgabepfad muss neu sein; der Messhelfer überschreibt keinen vorhandenen
+Lauf. Der komplette Vergleich dauert bei diesem Modell rund 4,3 Minuten.
+
+- [Zusammenfassung](data/parallel-2026-10-29/summary.json).
+- [Acht Paketmessungen als CSV](data/parallel-2026-10-29/batches.csv).
+- [16 Einzelanfragen als CSV](data/parallel-2026-10-29/jobs.csv).
+- [Vollständige Tokenfolgen und Ankunftszeiten](data/parallel-2026-10-29/batches.json).
+- [Versuchsmetadaten und Geräteprüfungen](data/parallel-2026-10-29/metadata.json).
+- [SHA256-Manifest für Rohantworten und Code](data/parallel-2026-10-29/sha256-manifest.json).
+
+Die ursprünglichen 16 NDJSON-Antworten und Testprotokolle liegen unter
+`.local/parallel-2026-10-29/`. Messcode: `tools/benchmark_parallel.py`.
+Auswertetests: `tests/test_parallel_benchmark.py`. Alle Daten bleiben lokal.

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1160" viewBox="0 0 1600 1160" role="img">
+<title>Quantization V2: selection and confirmation stay separate</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1160" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">Quantization V2: selection and confirmation stay separate</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Frozen English inputs | Existing local weights only | No training, downloads, new dependencies or device writes</text>
+<rect x="48" y="140" width="1504" height="105" rx="14" fill="white"/>
+<text x="72" y="182" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Pinned Supra2-100M author F16 GGUF → independent NumPy / FP32 source oracle</text>
+<text x="72" y="221" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">100.68M parameters · tied embedding/output · Qwen3 · full 32,768-token vocabulary · context 256</text>
+<path d="M288 245 L288 290" stroke="#168476" stroke-width="4" fill="none"/>
+<path d="M280 277 L288 290 L296 277" stroke="#168476" stroke-width="4" fill="none"/>
+<rect x="48" y="290" width="484" height="160" rx="14" fill="white"/>
+<text x="70" y="332" fill="#168476" font-size="24" font-weight="bold" text-anchor="start">CALIBRATION</text>
+<text x="70" y="378" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">16 documents · 749 tokens</text>
+<text x="70" y="418" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Source activations; no QA</text>
+<path d="M798 245 L798 290" stroke="#7653a8" stroke-width="4" fill="none"/>
+<path d="M790 277 L798 290 L806 277" stroke="#7653a8" stroke-width="4" fill="none"/>
+<rect x="558" y="290" width="484" height="160" rx="14" fill="white"/>
+<text x="580" y="332" fill="#7653a8" font-size="24" font-weight="bold" text-anchor="start">VALIDATION</text>
+<text x="580" y="378" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">4 disjoint texts · 201 positions</text>
+<text x="580" y="418" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Full-vocabulary KL / top-1</text>
+<path d="M1308 245 L1308 290" stroke="#bd6725" stroke-width="4" fill="none"/>
+<path d="M1300 277 L1308 290 L1316 277" stroke="#bd6725" stroke-width="4" fill="none"/>
+<rect x="1068" y="290" width="484" height="160" rx="14" fill="white"/>
+<text x="1090" y="332" fill="#bd6725" font-size="24" font-weight="bold" text-anchor="start">CONFIRMATION</text>
+<text x="1090" y="378" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">16 facts + 4 exact replies</text>
+<text x="1090" y="418" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Only after winner is frozen</text>
+<rect x="48" y="490" width="994" height="192" rx="14" fill="white"/>
+<text x="72" y="532" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">Three fixed 4-bit candidates</text>
+<text x="72" y="574" fill="#168476" font-size="23" font-weight="normal" text-anchor="start">S32: symmetric group32 / F16 scales on every matrix</text>
+<text x="72" y="613" fill="#7653a8" font-size="22" font-weight="normal" text-anchor="start">A64: tied table S32 + transformer affine group64 / F16 scales / u8 zeros</text>
+<text x="72" y="652" fill="#bd6725" font-size="23" font-weight="normal" text-anchor="start">GPTQ-inspired: A64 grids + source-activation error compensation</text>
+<path d="M290 450 L290 490" stroke="#168476" stroke-width="4" fill="none"/>
+<path d="M282 477 L290 490 L298 477" stroke="#168476" stroke-width="4" fill="none"/>
+<path d="M800 450 L800 490" stroke="#7653a8" stroke-width="4" fill="none"/>
+<path d="M792 477 L800 490 L808 477" stroke="#7653a8" stroke-width="4" fill="none"/>
+<rect x="1068" y="490" width="484" height="192" rx="14" fill="white"/>
+<text x="1090" y="532" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">Compare F16, row, winner</text>
+<text x="1090" y="577" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">24-token greedy cap; 72 outputs</text>
+<text x="1090" y="617" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">4 old regressions labelled apart</text>
+<text x="1090" y="655" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">No candidate reselection on QA</text>
+<path d="M1310 450 L1310 490" stroke="#bd6725" stroke-width="4" fill="none"/>
+<path d="M1302 477 L1310 490 L1318 477" stroke="#bd6725" stroke-width="4" fill="none"/>
+<rect x="48" y="730" width="1504" height="150" rx="14" fill="#f4e0d4"/>
+<text x="72" y="774" fill="#193347" font-size="26" font-weight="bold" text-anchor="start">Frozen rule: &gt;=10% lower KL + bounded top-1 loss → select → fact screen must not decline</text>
+<text x="72" y="820" fill="#903e25" font-size="25" font-weight="bold" text-anchor="start">GPTQ wins validation but scores 4/16 versus row 9/16; admission fails.</text>
+<text x="72" y="857" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">No post-hoc testing of A64/S32 answers to find a more favorable winner.</text>
+<path d="M548 682 L548 730" stroke="#7653a8" stroke-width="4" fill="none"/>
+<path d="M540 717 L548 730 L556 717" stroke="#7653a8" stroke-width="4" fill="none"/>
+<path d="M1310 682 L1310 730" stroke="#bd6725" stroke-width="4" fill="none"/>
+<path d="M1302 717 L1310 730 L1318 717" stroke="#bd6725" stroke-width="4" fill="none"/>
+<rect x="48" y="930" width="1504" height="130" rx="14" fill="white"/>
+<text x="72" y="974" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Existing two-P4 deployment remains unchanged</text>
+<text x="72" y="1013" fill="#193347" font-size="22" font-weight="normal" text-anchor="start">Coordinator layers 0–3 ↔ LAN ↔ worker layers 4–11 · firmware 0.6.1 · row-INT4 · status reads only</text>
+<text x="48" y="1110" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Evidence boundary: host fidelity and answer confirmation completed; grouped C format, P4 allocation and timing not attempted.</text>
+</svg>

@@ -1,0 +1,96 @@
+[
+  {
+    "model": "tinybrainbot",
+    "case": "B1",
+    "file": "tinybrainbot-warmup.ndjson",
+    "done": {
+      "done": true,
+      "eos": false,
+      "output_tokens": 4,
+      "elapsed_ms": 11470.433,
+      "ttft_ms": 6047.974,
+      "boards": 2,
+      "profile": {
+        "master_compute_ms": 4845.573,
+        "stream_ms": 3.868,
+        "rpc_total_ms": 6618.844,
+        "rpc_open_ms": 10.722,
+        "rpc_write_ms": 3.965,
+        "rpc_wait_headers_ms": 6304.232,
+        "rpc_read_ms": 299.544,
+        "worker_compute_ms": 6277.835,
+        "rpc_calls": 9,
+        "connections": 1,
+        "worker_reports": 9
+      },
+      "kernel": {
+        "mode": "tile4",
+        "work_internal": true,
+        "internal_work_allocated": 28672,
+        "matmul_ms": 4734.612,
+        "finish_ms": 1695.11,
+        "pause_ms": 407.389,
+        "pause_calls": 431,
+        "rows": 321536,
+        "owner_core_mask": 2,
+        "helper_core_mask": 1,
+        "helper_ms": 4632.778,
+        "helper_pause_ms": 321.06,
+        "helper_pause_calls": 439,
+        "helper_rows": 160768,
+        "parallel_calls": 200,
+        "barrier_ms": 19.859,
+        "overlap_ms": 4613.695
+      },
+      "prompt_tokens": 4
+    },
+    "tokens_text_eos_equal": true
+  },
+  {
+    "model": "supra",
+    "case": "B1",
+    "file": "supra-warmup.ndjson",
+    "done": {
+      "done": true,
+      "eos": false,
+      "output_tokens": 4,
+      "elapsed_ms": 11468.373,
+      "ttft_ms": 6081.499,
+      "boards": 2,
+      "profile": {
+        "master_compute_ms": 4887.756,
+        "stream_ms": 3.866,
+        "rpc_total_ms": 6574.71,
+        "rpc_open_ms": 10.642,
+        "rpc_write_ms": 3.972,
+        "rpc_wait_headers_ms": 6315.562,
+        "rpc_read_ms": 244.151,
+        "worker_compute_ms": 6288.351,
+        "rpc_calls": 9,
+        "connections": 1,
+        "worker_reports": 9
+      },
+      "kernel": {
+        "mode": "tile4",
+        "work_internal": true,
+        "internal_work_allocated": 28672,
+        "matmul_ms": 4774.366,
+        "finish_ms": 1736.525,
+        "pause_ms": 413.057,
+        "pause_calls": 437,
+        "rows": 324608,
+        "owner_core_mask": 2,
+        "helper_core_mask": 1,
+        "helper_ms": 4668.388,
+        "helper_pause_ms": 320.569,
+        "helper_pause_calls": 443,
+        "helper_rows": 162304,
+        "parallel_calls": 200,
+        "barrier_ms": 17.172,
+        "overlap_ms": 4652.023
+      },
+      "prompt_tokens": 4
+    },
+    "tokens_text_eos_equal": true
+  }
+]

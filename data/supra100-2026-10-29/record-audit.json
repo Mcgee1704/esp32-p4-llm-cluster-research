@@ -1,0 +1,31 @@
+{
+  "direct_verified": 8,
+  "dispatched_verified": 2,
+  "timing_repetitions": 3,
+  "single_lane_nonoverlap": true,
+  "token_bytes_eos_equal": true,
+  "persistent_RPC_connection": true,
+  "source_files_sha256": {
+    "device-memory.json": "a5de6c02bf59d038686b55558bdc79fe22c04093ffcf4d9c218e80935124a5f0",
+    "dispatcher-pair.json": "3d05bd3e1dbb18b11f842d7b575470f28c9f3070fc27ae3b5db94e97cc564903",
+    "host-generations.json": "00ff386f0daf17e7786b0873a35d447bb2ba4eb7610ea2ce865e2de5ebdddbe9",
+    "host-report.json": "7154243961341cb219328ee4f9d683a26d0f87058704a668460d3542dfb999e3",
+    "I1-p4.ndjson": "0ea80147289501e7575fd5c9895b056eec7f7b05bd049494b7ac9f128e7ede20",
+    "installation.json": "6e712b243270ec36fbc2059df7abc516346bbfecec4278b0e13e42670f7be20c",
+    "lan-rejection-checks.json": "72381548c72393a8b0cd83e90a689e73ebf76ec79c2c5920b5f2018ab750e59d",
+    "model-artifacts.json": "62fc47c164585c6b49d5a0366c60f9779568d146a2a5f3e838993cfcb23ac0ca",
+    "N1-p4.ndjson": "21c64694fb0e3dd8a6058beaac87b402aa4189ecdbbbc3cc0b7e426bc9a95ef4",
+    "N2-p4.ndjson": "aa82dc6c5b96fab25f54863a740e55fea30074620292330837ce6352622c9b49",
+    "N6-p4.ndjson": "ebd0a53de8bbd562e9db558f830da32b3b0e07d0bbe83975690106ca8ab1db49",
+    "N7-p4.ndjson": "8134bbd337fd4f6ee8059964f8f9d3fe949541b31ae0f3b83ce480b3e98d1722",
+    "p4-runs.json": "541b963137870779992412ca0cd49782a3f326f7d9a0b5c5655a3794a3aadd99",
+    "protocol.json": "90458e77ead8e25ddee3b25a6e5daca3246946476c5da66d63edfe418e36887a",
+    "Q2-p4.ndjson": "231b378eee542bc1b00f7acc8b4495b1fb8777d1fefdb6f8ca6c5cc9417688f0",
+    "Q3-p4.ndjson": "816f636c18ecd1b90c513c4f7fcd58e07973b17af6e1d306b94523be6c912d93",
+    "S2-p4.ndjson": "9738acb0d71ecd57daa572a708879800002d08d3f38e041cd6d42a8e77b617d1",
+    "source-controls.json": "8755c06272e3b01cbc8018429dc12eae1b06168262d009aa8eb558062b9545f8",
+    "source-layout-audit.json": "4a24380018a21d8aa551d3db946c06c78e9b83a3e369ad554b06f64948cd8fb2",
+    "sources.json": "56d1394a6023ade86f33a94aff82feaa3737b6b467190c8138d0d7de4fc7785f",
+    "timing.json": "821b304cb21955dc79332ad9785b8a18007ebaf8291b5e944fef12c2a6b5f027"
+  }
+}

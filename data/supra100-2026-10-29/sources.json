@@ -1,0 +1,70 @@
+{
+  "repository": "SupraLabs/Supra2-100M-Instruct",
+  "revision": "2c90ade6ab47b910f48d0157a3e4c421d6311ed5",
+  "files": [
+    {
+      "file": "README.md",
+      "url": "https://huggingface.co/SupraLabs/Supra2-100M-Instruct/resolve/2c90ade6ab47b910f48d0157a3e4c421d6311ed5/README.md",
+      "sha256": "478c26dab98f5a87752b543db88e7481ebd7d078a25469d048a25e00945f072e",
+      "bytes": 22430,
+      "git_blob": "a5a835d103837127f7c5861dd60a6732b2292ebd"
+    },
+    {
+      "file": "chat_template.jinja",
+      "url": "https://huggingface.co/SupraLabs/Supra2-100M-Instruct/resolve/2c90ade6ab47b910f48d0157a3e4c421d6311ed5/chat_template.jinja",
+      "sha256": "9a6ac2cf411f21cf1fa155617d146256deee33e64c43eace6c36fd9eb3dd5a2a",
+      "bytes": 155,
+      "git_blob": "524a0643979a51098c1ddb6990252403dad25fac"
+    },
+    {
+      "file": "config.json",
+      "url": "https://huggingface.co/SupraLabs/Supra2-100M-Instruct/resolve/2c90ade6ab47b910f48d0157a3e4c421d6311ed5/config.json",
+      "sha256": "13b33baefc83a287beac1716cae69822c9b41f58ebd8eb57e3e1812c93550498",
+      "bytes": 1044,
+      "git_blob": "6cdd30f91c5467333e1cb2954bcbe33346dde886"
+    },
+    {
+      "file": "generation_config.json",
+      "url": "https://huggingface.co/SupraLabs/Supra2-100M-Instruct/resolve/2c90ade6ab47b910f48d0157a3e4c421d6311ed5/generation_config.json",
+      "sha256": "db507239aea70dcd3f97b98a5bf9b0d12527cea771a30e8c11c4bdad320805d2",
+      "bytes": 215,
+      "git_blob": "eb1a724c41de9628f9986eae46262ee179f73602"
+    },
+    {
+      "file": "tokenizer.json",
+      "url": "https://huggingface.co/SupraLabs/Supra2-100M-Instruct/resolve/2c90ade6ab47b910f48d0157a3e4c421d6311ed5/tokenizer.json",
+      "sha256": "2136750ea890e546750346edf09f2d295dde19796631852f4b596c3597ec7573",
+      "bytes": 2327627,
+      "git_blob": "dae0f265773c7d17a544a1e5aa430dbba006ea2d"
+    },
+    {
+      "file": "tokenizer_config.json",
+      "url": "https://huggingface.co/SupraLabs/Supra2-100M-Instruct/resolve/2c90ade6ab47b910f48d0157a3e4c421d6311ed5/tokenizer_config.json",
+      "sha256": "ba53e7823d929c638b54e4a02f56782c5e939f587f8372f2d91c4033d03ad8ee",
+      "bytes": 791,
+      "git_blob": "eaf0aa16c1e95d59eddc986a54bbf8201017e795"
+    }
+  ],
+  "weights": [
+    {
+      "rfilename": "Supra2-100M-SFT-F16.gguf",
+      "blobId": "25a80e42db07fa210d09387536d59f13a3bb755f",
+      "size": 202580384,
+      "lfs": {
+        "sha256": "f88228c3dcc13b5ee2333cbb6fc2416de908e5b8adabd39bf9ee4378f28451eb",
+        "size": 202580384,
+        "pointerSize": 134
+      }
+    },
+    {
+      "rfilename": "model.safetensors",
+      "blobId": "c0598e6a23175efd592d28908245d2b339b12f0b",
+      "size": 402750928,
+      "lfs": {
+        "sha256": "a13180cc056c58e037cf0e22092751cac1c5704d246cd60ac981a1544a005999",
+        "size": 402750928,
+        "pointerSize": 134
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "full": {
+    "bytes": 27154596,
+    "sha256": "bfb71c4bbd5d19a1626b347fadd75a25da6a551ae8b983bcf3e48dd4f64680dd",
+    "artifact_id": "cef7f0e81b906f2952881ff105c3e96414681ada4e4699de6c16547cc29a66c4",
+    "model_id": "ae984137cf48bfbe65353518687fd628b32d1268136520493b8b903b5631fb71",
+    "weights_bytes": 26299520,
+    "tokenizer_bytes": 854948
+  },
+  "coordinator": {
+    "bytes": 15169700,
+    "sha256": "21a16d59c51b559e139675e345058759d115e3710acb2519c6929bc1db53c6c0",
+    "artifact_id": "24f12592289d0c20ba7635fe832269b3c98226d6f14035e4a9ef37508d0dff57",
+    "model_id": "ae984137cf48bfbe65353518687fd628b32d1268136520493b8b903b5631fb71",
+    "weights_bytes": 14314624,
+    "tokenizer_bytes": 854948
+  },
+  "worker": {
+    "bytes": 11985152,
+    "sha256": "f939e7ab8e05a64acfb801180cd9ce281a44173c33cfb1fb5979ab8eb29b979d",
+    "artifact_id": "cdcbc3978c7cb2a768c4a50f6a80754d7e9b049a8ab1a38d55e2109352164a93",
+    "model_id": "ae984137cf48bfbe65353518687fd628b32d1268136520493b8b903b5631fb71",
+    "weights_bytes": 11985024,
+    "tokenizer_bytes": 0
+  }
+}

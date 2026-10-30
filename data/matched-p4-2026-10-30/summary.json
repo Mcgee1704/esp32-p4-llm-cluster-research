@@ -1,0 +1,226 @@
+{
+  "counts": {
+    "tinybrainbot": {
+      "facts": {
+        "n": 6,
+        "first_correct": 3,
+        "confirmed_clean": 3,
+        "uncertain_clean": 0
+      },
+      "grounded": {
+        "n": 2,
+        "first_correct": 2,
+        "confirmed_clean": 2,
+        "uncertain_clean": 0
+      },
+      "exact": {
+        "n": 2,
+        "correct": 0
+      },
+      "story": {
+        "n": 2,
+        "topic": 0,
+        "coherent": 2,
+        "resolution": 0
+      }
+    },
+    "supra": {
+      "facts": {
+        "n": 6,
+        "first_correct": 3,
+        "confirmed_clean": 2,
+        "uncertain_clean": 0
+      },
+      "grounded": {
+        "n": 2,
+        "first_correct": 1,
+        "confirmed_clean": 0,
+        "uncertain_clean": 1
+      },
+      "exact": {
+        "n": 2,
+        "correct": 0
+      },
+      "story": {
+        "n": 2,
+        "topic": 0,
+        "coherent": 2,
+        "resolution": 0
+      }
+    }
+  },
+  "paired_quality": {
+    "facts": {
+      "first": {
+        "both": 2,
+        "tiny_only": 1,
+        "supra_only": 1,
+        "neither": 2,
+        "uncertain_pair": 0
+      },
+      "clean": {
+        "both": 1,
+        "tiny_only": 2,
+        "supra_only": 1,
+        "neither": 2,
+        "uncertain_pair": 0
+      }
+    },
+    "grounded": {
+      "first": {
+        "both": 1,
+        "tiny_only": 1,
+        "supra_only": 0,
+        "neither": 0,
+        "uncertain_pair": 0
+      },
+      "clean": {
+        "both": 0,
+        "tiny_only": 1,
+        "supra_only": 0,
+        "neither": 0,
+        "uncertain_pair": 1
+      }
+    }
+  },
+  "quality_lengths": {
+    "tinybrainbot": {
+      "output_tokens": 204,
+      "unicode_characters": 759,
+      "eos": 9,
+      "total_quality_seconds": 1107.918223
+    },
+    "supra": {
+      "output_tokens": 320,
+      "unicode_characters": 1308,
+      "eos": 1,
+      "total_quality_seconds": 1494.932463
+    }
+  },
+  "timing": {
+    "B1": {
+      "paired_blocks": 3,
+      "matched_capped_outputs": true,
+      "models": {
+        "tinybrainbot": {
+          "prompt_tokens": 4,
+          "output_tokens": [
+            16,
+            16,
+            16
+          ],
+          "eos": [
+            false,
+            false,
+            false
+          ],
+          "total_seconds": [
+            51.206838000000005,
+            51.191699,
+            51.191275000000005
+          ],
+          "total_median_seconds": 51.191699,
+          "total_range_seconds": [
+            51.191275000000005,
+            51.206838000000005
+          ],
+          "ttft_median_seconds": 9.257616,
+          "decode_proxy_median_tokens_per_s": 0.35770787376317437
+        },
+        "supra": {
+          "prompt_tokens": 4,
+          "output_tokens": [
+            16,
+            16,
+            16
+          ],
+          "eos": [
+            false,
+            false,
+            false
+          ],
+          "total_seconds": [
+            51.463065,
+            51.412125,
+            51.186745
+          ],
+          "total_median_seconds": 51.412125,
+          "total_range_seconds": [
+            51.186745,
+            51.463065
+          ],
+          "ttft_median_seconds": 9.237870000000001,
+          "decode_proxy_median_tokens_per_s": 0.35567547562584423
+        }
+      },
+      "supra_over_tiny_total_median": 1.004305893422291,
+      "scope": "Same raw prompt bytes and cap; different vocabularies/output texts and potentially different input-token counts. Deployed-system latency, not isolated arithmetic."
+    },
+    "B2": {
+      "paired_blocks": 3,
+      "matched_capped_outputs": true,
+      "models": {
+        "tinybrainbot": {
+          "prompt_tokens": 6,
+          "output_tokens": [
+            16,
+            16,
+            16
+          ],
+          "eos": [
+            false,
+            false,
+            false
+          ],
+          "total_seconds": [
+            55.439542,
+            55.443253,
+            55.301819
+          ],
+          "total_median_seconds": 55.439542,
+          "total_range_seconds": [
+            55.301819,
+            55.443253
+          ],
+          "ttft_median_seconds": 13.469876000000001,
+          "decode_proxy_median_tokens_per_s": 0.3574009857500415
+        },
+        "supra": {
+          "prompt_tokens": 6,
+          "output_tokens": [
+            16,
+            16,
+            16
+          ],
+          "eos": [
+            false,
+            false,
+            false
+          ],
+          "total_seconds": [
+            55.677356,
+            55.683941,
+            55.412878
+          ],
+          "total_median_seconds": 55.677356,
+          "total_range_seconds": [
+            55.412878,
+            55.683941
+          ],
+          "ttft_median_seconds": 13.466063,
+          "decode_proxy_median_tokens_per_s": 0.3553721140497147
+        }
+      },
+      "supra_over_tiny_total_median": 1.0042896097518266,
+      "scope": "Same raw prompt bytes and cap; different vocabularies/output texts and potentially different input-token counts. Deployed-system latency, not isolated arithmetic."
+    }
+  },
+  "scope": "Same physical pair/firmware/quantization/kernel; small author-reviewed task set. No independent semantic evaluator, global ranking, energy or isolated arithmetic claim.",
+  "source_sha256": {
+    "protocol.json": "5b2649f66f7f14ebfda1eae3c389a497c1c7dee997c0cd113b0cdb8daf17514e",
+    "host-references.json": "7cc9d0be9071742294b44e2748beec6eea2dc615f46af7d3effdc14663bc2332",
+    "quality-runs.json": "d2a33b45edd51e75e73d27ca448a1823eddf86343e59a95704cea7fb5562b182",
+    "timing-runs.json": "2597b778207698ce2e4ba2c4ba360307a9f465c687fd76ad4e06c86cf298b089",
+    "manual-review.json": "8f4fdb85b5c7bc8479690dea859a9a177a4fd0dbc669de3b664d84dae5682374"
+  }
+}

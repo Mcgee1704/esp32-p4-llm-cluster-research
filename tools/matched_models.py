@@ -13,6 +13,7 @@ from tinytalk_reference import (ROOT, np, audited_config, tensor_shapes,
                                unique_object, Reference, row_int8)
 from pack_gptneo import pack, real_tokenizer
 from check_gptneo_native import Native
+from research_integrity import data_arguments, study_directory
 
 DATA = ROOT / 'data/matched-models-2026-10-29'
 MODELS = {
@@ -159,6 +160,7 @@ def load_candidate(key):
 def prepare():
     if (DATA / 'protocol.json').exists():
         raise ValueError('Protocol already frozen')
+    DATA.mkdir(parents=True, exist_ok=True)
     exports = {}
     for key in MODELS:
         m = MODELS[key]
@@ -277,5 +279,7 @@ def host():
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('stage', choices=['prepare', 'host'])
+    data_arguments(parser)
     args = parser.parse_args()
+    DATA = study_directory(args, DATA)
     {'prepare': prepare, 'host': host}[args.stage]()

@@ -1,0 +1,76 @@
+# Datenbasis für einen späteren dritten P4
+
+Dieser Stand sammelt reale Messungen von **zwei** Boards. Er enthält weder
+einen simulierten dritten Worker noch eine Geschwindigkeitsprognose für drei.
+Die Daten entstehen nach Rechenkern V3 und werden getrennt von dessen
+kontrollierten 24-Token-Vergleichen ausgewertet.
+
+## Festgelegte Arbeitslast
+
+Zwei Bursts mit je sechs sofort nacheinander eingereichten Aufträgen.
+Prompt A: `Once upon a time`, B: `One day, a little girl`, C: vier Wiederholungen
+von `Once upon a time, there was a little girl. She lived near a forest. `.
+
+| Datenteil | Reihenfolge: Prompt und maximale neue Tokens |
+| --- | --- |
+| Kalibrierung | A8, B24, C16, A48, B8, C24 |
+| Reservierte Validierung | B16, A32, C8, B48, A24, C32 |
+
+Die Trennung wird vor der Messung festgelegt. Es wurde noch kein Modell an
+diese Daten angepasst. Die Validierungsfälle sind bis zur späteren Prüfung
+einer Simulation von deren Parameteranpassung auszuschließen. Zwölf Aufträge
+sind eine erste Datenbasis, kein hinreichender Nachweis für Vorhersagegüte.
+
+## Schema und Uhrdomänen
+
+`records.json` und `records.csv` enthalten eine Zeile pro abgeschlossenem
+Auftrag. Metadaten und vollständige ursprüngliche Jobantworten bleiben daneben.
+
+| Feld | Bedeutung |
+| --- | --- |
+| `dataset`, `case_index`, `prompt_index` | Vorab festgelegter Datenteil und Fall |
+| `master_boot_id`, `target` | Uhrdomäne des Masters und tatsächlich gewähltes Board |
+| `prompt_tokens`, `requested_tokens`, `output_tokens` | Tokenisierter Kontext einschließlich BOS, angefordertes Limit und tatsächliche Ausgabe |
+| `accepted_master_ms`, `started_master_ms`, `finished_master_ms` | Zeitstempel derselben monotonen Masteruhr |
+| `queue_ms` | Annahme bis Vergabe an einen Ausführungsplatz |
+| `service_ms` | Vergabe bis vollständigem Ergebnis beim Master; enthält Weiterleitung und Antworttransport |
+| `total_ms` | Annahme bis Fertigstellung, ohne abschließende PC-Abholverzögerung |
+| `backend_elapsed_ms`, `backend_ttft_ms` | Dauer und Zeit bis zum ersten Token laut Zielboard, keine absoluten Zeitstempel |
+| `forwarding_residual_ms` | `service_ms - backend_elapsed_ms`; umfasst mehr als Netzwerkzeit, nominale Geräteuhrunterschiede und ms-Rundung beachten |
+| `matmul_ms`, `finish_ms`, `matrix_owner_pause_ms`, `barrier_ms` | Überlappende/verschachtelte Teile des Rechenprofils; nicht alle addieren |
+| `client_submit_start_ms`, `client_accept_ms` | PC-Zeit relativ zum Anfang des jeweiligen Bursts; niemals von Board-Zeitstempeln abziehen |
+| `active_jobs_at_start` | Zahl aktiver Serviceintervalle zum Start, einschließlich des betrachteten Auftrags |
+| `jobs_with_overlapping_service_intervals` | Zahl aller anderen Aufträge mit irgendeiner Intervallüberschneidung; kein Maß der maximalen Gleichzeitigkeit |
+| `verified_reference_prefix_tokens` | Länge des mit vorhandenen Referenztokens verglichenen Präfixes |
+
+Ein frühes EOS wird mit tatsächlicher Tokenzahl erfasst und nicht auf das
+angeforderte Limit aufgefüllt. Bisherige Referenzen reichen bei längeren
+Ausgaben nur für ein Präfix; dessen Länge wird explizit dokumentiert.
+Fehlgeschlagene Aufträge oder inkonsistente Zeiten werden nicht als gültige
+Bearbeitungszeitstichproben exportiert. Negative kleine Residuen würden nicht
+auf null gerundet; sie müssten im Kontext der Messauflösung geprüft werden.
+
+## Späteres Vorgehen
+
+1. Aus Direktmessungen und Kalibrierungsfällen ein einfaches Modell von
+   Bearbeitungszeiten nach Zielrolle, Promptlänge und Ausgabelänge ableiten.
+   Den Master nicht ungeprüft als identisch mit einem reinen Worker behandeln.
+2. Zunächst ein und zwei Knoten nachbilden und gegen bisher nicht zum Anpassen
+   verwendete reale Fälle prüfen. Weitere Lastmuster und Wiederholungen ergänzen.
+3. Erst danach eine versionierte Vorhersage für drei Knoten einfrieren:
+   Annahmen, Parameter, Modell-/Firmwareversion und Fehlerband festhalten.
+4. Wenn Board 3 vorhanden ist, denselben Auftragssatz real messen und die
+   unveränderte Vorhersage mit den Ergebnissen vergleichen.
+
+Der aktuelle Dispatcher hat zwei feste Ausführungsplätze. Eine reale dritte
+Rechenlane müsste vor diesem Vergleich implementiert und geprüft werden.
+Das simulierte dritte Board wäre zunächst eine angenommene Kopie eines Workers;
+zusätzliche Konkurrenz um Netzwerk, Master und Speicher ist damit nicht gemessen.
+Diese Untersuchung gilt für unabhängige Anfragen mit vollständiger Modellkopie
+pro Board, nicht automatisch für ein größeres, auf Boards verteiltes Modell.
+
+[V3-Versuchsbericht und Datenpfade](rechenkern-v3-2026-10-29.md).
+
+
+Fortsetzung: [Explorative Simulationsstudie V1](simulation-v1-2026-10-29.md).
+Parametersatz und Drei-Knoten-Szenario lokal eingefroren; reale Abnahme offen.

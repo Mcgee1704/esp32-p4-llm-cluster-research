@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1130" viewBox="0 0 1600 1130" role="img">
+<title>Two P4s, one larger language model</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1130" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">Two P4s, one larger language model</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Real model shards | 32 MiB PSRAM per board | Layer split 4 + 8 | Context 256</text>
+<rect x="48" y="135" width="1504" height="100" rx="14" fill="white"/>
+<text x="72" y="173" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">Browser / local client → master queue → one distributed request at a time</text>
+<text x="72" y="211" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Ethernet carries inference; USB-C supplies power. No board-to-board USB link is used.</text>
+<rect x="48" y="270" width="660" height="430" rx="14" fill="white"/>
+<rect x="892" y="270" width="660" height="430" rx="14" fill="white"/>
+<text x="76" y="314" fill="#247ca3" font-size="28" font-weight="bold" text-anchor="start">P4 COORDINATOR</text>
+<text x="920" y="314" fill="#278375" font-size="28" font-weight="bold" text-anchor="start">P4 LAYER WORKER</text>
+<text x="76" y="363" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">Full byte-BPE tokenizer + tied embedding</text>
+<text x="76" y="406" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">Early transformer layers 0–3</text>
+<text x="76" y="578" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">Final norm + full-vocabulary output</text>
+<text x="76" y="627" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">Greedy next token / stop at EOS</text>
+<text x="920" y="363" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">Later transformer layers 4–11</text>
+<text x="920" y="406" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">Own weights + own layer KV caches</text>
+<text x="920" y="578" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">Returns the updated activation</text>
+<text x="920" y="627" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">No tokenizer, embedding or output table</text>
+<path d="M708 451 L892 451" stroke="#247ca3" stroke-width="4" fill="none"/>
+<path d="M879 443 L892 451 L879 459" stroke="#247ca3" stroke-width="4" fill="none"/>
+<path d="M892 528 L708 528" stroke="#278375" stroke-width="4" fill="none"/>
+<path d="M721 520 L708 528 L721 536" stroke="#278375" stroke-width="4" fill="none"/>
+<text x="800" y="434" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="middle">activation</text>
+<text x="800" y="563" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="middle">FP32 vector</text>
+<text x="800" y="476" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="middle">512 / 768</text>
+<text x="800" y="504" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="middle">values</text>
+<text x="76" y="674" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Embedding/output stays on the coordinator.</text>
+<text x="920" y="674" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Sequential dependency for every prompt/output token.</text>
+<rect x="48" y="730" width="1504" height="294" rx="14" fill="white"/>
+<text x="72" y="772" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Resident and flash capacity</text>
+<text x="72" y="810" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Model</text>
+<text x="455" y="810" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Coordinator expanded</text>
+<text x="835" y="810" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Worker expanded</text>
+<text x="1190" y="810" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Flash files</text>
+<text x="72" y="855" fill="#247ca3" font-size="25" font-weight="bold" text-anchor="start">Supra 51.79M</text>
+<text x="455" y="855" fill="#193347" font-size="25" font-weight="normal" text-anchor="start">15.17 MB</text>
+<text x="835" y="855" fill="#193347" font-size="25" font-weight="normal" text-anchor="start">11.99 MB</text>
+<text x="1190" y="855" fill="#247ca3" font-size="22" font-weight="normal" text-anchor="start">15.17 / 11.99 MB raw</text>
+<text x="72" y="909" fill="#8557a6" font-size="25" font-weight="bold" text-anchor="start">Supra 100.68M</text>
+<text x="455" y="909" fill="#193347" font-size="25" font-weight="normal" text-anchor="start">26.31 MB</text>
+<text x="835" y="909" fill="#193347" font-size="25" font-weight="normal" text-anchor="start">25.44 MB</text>
+<text x="1190" y="909" fill="#8557a6" font-size="22" font-weight="normal" text-anchor="start">19.76 / 20.07 MB zlib</text>
+<text x="72" y="964" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">FP32 KV at context 256: 2.10 MB coordinator + 4.19 MB worker; runtime allocations are additional.</text>
+<text x="48" y="1071" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Lossless zlib changes stored size only. Model identity and INT4 values are unchanged after cold-load.</text>
+<text x="48" y="1104" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">This increases model capacity. A second board does not remove the sequential token/layer dependency.</text>
+</svg>

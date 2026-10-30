@@ -1,0 +1,266 @@
+# Rechenkern V2 – Versuchsplan vom 29.10.2026
+
+## Vorab festgelegtes Vorgehen
+
+Ausgangspunkt ist der lokale Commit `d552fec`, Firmware 0.2.0 auf beiden
+P4-Boards Revision 1.3. Modell, Quantisierung, Takt, Netzwerk und Prompts
+bleiben unverändert. Keine Änderung der PSRAM-Platzierung in diesem Versuch.
+
+Paket 1: Rechenpausen und Matrixzeiten instrumentieren, bisherige Strategie
+(`legacy`, Pause nach 256 Zeilen) gegen zeitgesteuerte Pausen (`paced`, nach
+mindestens 10 ms verstrichener Zeit, Prüfung alle 32 Zeilen) auf Board 2 vergleichen.
+CRC-/Ladepausen bleiben unverändert. Die gemessene Pausenzeit enthält auch
+Scheduling bis zur Wiederaufnahme und ist keine reine CPU-Leerlaufmessung.
+
+Paket 2: Unabhängige Matrixzeilen auf zwei CPU-Kerne desselben P4 verteilen.
+Reihenfolge der Summanden innerhalb jeder Zeile bleibt erhalten. Gemeinsame
+Eingaben werden nur gelesen; Ergebnisbereiche überlappen nicht. Ein Besitzer
+verwaltet Modell und KV-Cache, ein Helfer bearbeitet nur den vereinbarten
+Zeilenbereich; Abschlussbarriere vor weiterer Modellberechnung. Die
+zeitgesteuerte Pausenstrategie bleibt gleich. Erst nach Paket 1 messen.
+
+Paket 3: Gewählte Variante auf beiden Boards prüfen und identischen
+Dispatcher-Vergleich wie bisher ausführen. Ausgangsfirmware bleibt lokal
+als Rückweg erhalten. Kein Löschen von Modell, NVS oder Gerätesicherungen.
+
+Schreibbereich: tinyllm-Rechenkern, Profil-/Modusangaben der Inferenz-API,
+notwendige Build-Abhängigkeiten, Tests, Messhelfer, Bericht und Journal.
+Abhängigkeiten: beide Boards erreichbar, passende Modellkennung, OTA bestätigt,
+leere Warteschlangen, keine nebenläufigen manuellen Aufträge während der Messung.
+
+Direkte Vergleiche: zwei feste Prompts (`Once upon a time`, `One day, a little girl`),
+24 neue Tokens; drei Wiederholungen mit alternierender Variantenreihenfolge,
+kurzer separater Warmlauf je Variante. Exakte Tokenidentität zur gespeicherten
+Referenz erforderlich. Berichtet werden Einzelwerte, Median, Spannweite,
+Zeit bis erstes Token, Matrix-/Ausgabeschichtzeit und Pausenanteile. Keine
+Behauptung statistischer Signifikanz aus dieser kleinen Stichprobe.
+
+Abnahme: lokale numerische Referenztests, echte Hardware-Tokenvergleiche,
+LAN-Bedienung und bestätigter OTA-Start; keine Watchdog-Neustarts während
+der dokumentierten Läufe. Dual-Core-Nutzung muss durch Arbeits-/Kernzähler
+belegt werden. Ein langsamerer Dual-Core-Versuch wird ebenfalls berichtet;
+der dauerhafte Standard folgt dem gemessenen Ergebnis. Abschließend Journal
+und ausschließlich lokaler Commit.
+
+## Umsetzung und Messbedeutung
+
+Firmware 0.3.0 enthält drei explizite Modi: `legacy`, `paced`, `dual`.
+`dual` ist der Standard für normale Inferenz und den bisherigen Schicht-RPC.
+`POST /api/generate` und `POST :8081/api/jobs` akzeptieren optional `kernel`.
+Die Laboroberfläche benötigt keine neue Einstellung. Ungültige Modusnamen
+werden abgewiesen. Bei explizitem Modus prüft der Master auch den vom Backend
+gemeldeten Modus, statt einen stillen Rückfall auf eine alte Firmware zu akzeptieren.
+
+In `paced` bleibt eine Pause von einem FreeRTOS-Tick (konfiguriert: 1 ms),
+aber die nächste Pause wird erst nach Ablauf einer 10-ms-Frist fällig.
+Geprüft wird alle 32 Matrixzeilen. Diese Frist misst verstrichene Zeit,
+keine CPU-Ausführungszeit. Die vorhandenen Pausen nach jeder Transformer-
+Schicht und während des Modellladens bleiben unverändert.
+
+In `dual` bearbeitet der bisherige Inferenzbesitzer auf CPU 1 einen Teil
+der Matrixzeilen; eine langlebige Helfer-Task auf CPU 0 den anderen Teil.
+Aufteilung erst ab 128 Zeilen, Trennstelle auf ein Vielfaches von 32 Zeilen
+abgerundet. Das kann kleine Ungleichgewichte erzeugen. Ein Startsemaphor
+übergibt unveränderliche Eingaben, ein Abschlusssemaphor schützt ihre
+weitere Verwendung. Der Helfer verändert weder Modellkonfiguration noch
+KV-Positionen. Er wird vor Freigabe des Modellzustands beendet. Die Reihenfolge
+der Summanden innerhalb einer Zeile und `-ffp-contract=off` bleiben erhalten.
+
+Die explizite Bindung der Inferenz-HTTP-Task an CPU 1 gilt ab der zweiten
+Testfirmware auch für `paced` und `legacy`. Deshalb werden die Modi innerhalb
+derselben Firmware verglichen. In der ersten Reihe meldeten die Matrixläufe
+bereits CPU 1, damals ohne die neue ausdrückliche HTTP-Konfiguration.
+
+Zeitfelder in der Abschlussantwort:
+
+- `matmul_ms`: Wandzeit aller Matrixaufrufe einschließlich Pausen und
+  Abschlussbarriere; beide Teilrechnungen sind darin bereits enthalten.
+- `finish_ms`: Zeit der abschließenden Normalisierung/Ausgabematrix, eine
+  Teilmenge der gesamten Inferenzzeit; nicht zusätzlich zur Matrixzeit addieren.
+- `pause_ms`: gemessene Matrixpausen des Besitzers einschließlich Scheduling
+  bis zur Wiederaufnahme. Die unveränderten Schichtpausen sind nicht enthalten.
+- `helper_ms`, `helper_pause_ms`: überlappende Helferzeiten; nicht zur
+  Wandzeit addieren. `barrier_ms` enthält die Wartezeit des Besitzers auf den Helfer.
+- `overlap_ms`: Überschneidung beider Zeilenarbeitsintervalle auf derselben
+  monotonen Geräteuhr. Enthält auch Unterbrechungen/Pausen und ist kein
+  Hardwarezähler für gleichzeitig ausgeführte Instruktionen.
+- Kernmasken und Zeilenzähler belegen die Arbeit beider Tasks; Maske 2
+  bezeichnet CPU 1, Maske 1 CPU 0.
+
+## Paket 1 – Pausen auf Board 2
+
+Ausgangsfirmware 0.2.0 nochmals direkt geprüft: Prompt A 20,890 s und
+Prompt B 21,526 s. Das sind nur zwei Kontrollläufe, keine neue statistische
+Baseline. Danach Firmware `0.3.0-pause`, je Modus ein Vier-Token-Warmlauf
+und drei Wiederholungen beider 24-Token-Prompts. Reihenfolge der Modi
+legacy/paced, paced/legacy, legacy/paced; Prompt A jeweils vor B.
+
+| Messgröße, Median über sechs Aufträge je Modus | legacy | paced |
+| --- | ---: | ---: |
+| Gesamtzeit | 21,210 s | 18,015 s |
+| Matrixzeit | 20,674 s | 17,478 s |
+| Matrixpausen des Besitzers | 4,672 s | 1,422 s |
+| Ausgabeschicht | 12,000 s | 9,780 s |
+| Zeit bis erstes Token | 2,375 s | 2,072 s |
+
+Median der sechs nach Block und Prompt gepaarten Beschleunigungsfaktoren:
+**1,1774**. Etwa 15,1 % weniger Gesamtzeit. Alle zwölf Vergleichsausgaben
+sind zur bisherigen Referenz tokenidentisch. Boot-ID vor/nach der Reihe
+identisch; kein Neustart in diesem Zeitraum.
+
+Der Rückgang der Matrixpausen um etwa 3,25 s erklärt weitgehend die etwa
+3,20 s kürzere Gesamtzeit. Matrixzeit abzüglich gemessener Matrixpausen bleibt
+nahe beieinander (Differenz der jeweiligen Mediane: etwa 16,00 versus 16,06 s).
+Das stützt eingesparte Wartezeit als Ursache; es ist kein Nachweis höherer
+Rechenleistung pro CPU-Takt. Differenzen von Medianen sind beschreibende
+Zusammenfassungen, keine Zerlegung eines bestimmten einzelnen Laufs.
+
+## Paket 2 – Zwei CPU-Kerne auf Board 2
+
+Firmware `0.3.0-dual-test`, wiederum sechs Aufträge je Modus nach Warmläufen.
+Modusreihenfolge paced/dual, dual/paced, paced/dual. Beide Modi verwenden
+dieselbe feste Bindung des Inferenzbesitzers an CPU 1.
+
+| Messgröße, Median | paced | dual |
+| --- | ---: | ---: |
+| Gesamtzeit | 18,021 s | 10,700 s |
+| Matrixzeit | 17,479 s | 10,115 s |
+| Ausgabeschicht | 9,781 s | 5,479 s |
+| Zeit bis erstes Token | 2,072 s | 1,264 s |
+
+Median der sechs gepaarten Beschleunigungsfaktoren: **1,6844**.
+Etwa 40,6 % weniger Gesamtzeit. Alle zwölf Vergleichsausgaben tokenidentisch,
+Boot-ID unverändert. Helfer-Kernmaske 1, Besitzer-Kernmaske 2; der Helfer
+berechnet im Prompt-A-Lauf 647.424 von insgesamt 1.267.968 Matrixzeilen.
+Die zwölfhundert geteilten Matrixaufrufe dieses Laufs zeigen rund 9,24 s
+überlappende Arbeitsintervalle. Der Zählervergleich ergänzt den Zeitgewinn
+als Nachweis tatsächlicher Arbeit auf beiden CPU-Kernen.
+
+## Paket 3 – Vergleich auf beiden Boards
+
+Beide Geräte auf Firmware 0.3.0, Standard `dual`, Modell unverändert und
+OTA-Bootcheck bestätigt. Peer-Konfiguration des Masters überstand das Update.
+Vier Fälle werden in vier zyklisch verschobenen Reihenfolgen geprüft:
+legacy/Cluster, paced/Cluster, dual/Cluster und dual/nur Master. Jeder Fall
+enthält beide Prompts mit je 24 Tokens. Alle 32 Aufträge gehen ausschließlich
+an den Master. Jeder Fall steht einmal an jeder Position im Block. Kein
+zusätzlicher Warmlauf innerhalb dieser Reihe; die Boards wurden zuvor benutzt.
+
+Die Paketzeit stammt von Annahme des ersten bis Fertigstellung des letzten
+Auftrags auf der monotonen Uhr desselben Masters. Pollingabholung des PCs
+wird zusätzlich erfasst.
+
+| Fall | Median Paketzeit | Spannweite | Gesamtdurchsatz |
+| --- | ---: | ---: | ---: |
+| legacy, beide Boards | 22,479 s | 22,475–22,482 s | 2,135 Tokens/s |
+| paced, beide Boards | 19,493 s | 19,480–19,498 s | 2,462 Tokens/s |
+| dual, beide Boards | **11,737 s** | 11,733–11,738 s | **4,090 Tokens/s** |
+| dual, nur Master | 22,733 s | 22,729–22,747 s | 2,111 Tokens/s |
+
+Gepaarte Faktoren, jeweils Median der vier blockweisen Quotienten:
+
+- dual/Cluster gegenüber legacy/Cluster: **1,9152× Durchsatz**, rund
+  **47,8 % weniger Paketzeit**.
+- dual/Cluster gegenüber paced/Cluster: **1,6608× Durchsatz**.
+- Zwei optimierte Boards gegenüber nur dem optimierten Master: **1,9371×**.
+
+Alle 32 Aufträge tokenidentisch zur bisherigen Referenz. In jedem Clusterfall
+rechneten tatsächlich beide Zielboards. Jeder dual-Auftrag meldete Besitzer-
+Kernmaske 2, Helfer-Kernmaske 1, bearbeitete Helferzeilen und überlappende
+Arbeitsintervalle. Beide Boot-IDs blieben während der gesamten Reihe gleich.
+Die ursprüngliche Peer-Konfiguration wurde nach der Messung wiederhergestellt.
+
+Der frühere Dispatcher-Versuch mit Firmware 0.2.0 benötigte 21,231 s pro
+Paket. 11,737 s sind dagegen etwa 44,7 % weniger Zeit bzw. 1,81-facher
+Durchsatz. Das ist ein **historischer Vergleich**, keine identische Kontrolle:
+die neue Firmware enthält zusätzliche Messinstrumentierung und eine explizite
+CPU-Bindung. Schon ihre legacy-Kontrolle benötigt 22,479 s. Die Ursache dieses
+Unterschieds wurde nicht isoliert; er darf nicht dem Rechenalgorithmus
+zugeschrieben werden. Für die kausale Modusbewertung gilt die obige Tabelle
+mit identischer Firmware und rotierender Reihenfolge.
+
+## Ergänzende Abnahme und Grenzen
+
+- 16 lokale Tests bestanden. Die drei Modi liefern bei einem unabhängigen
+  kleinen Referenzmodell exakt gleiche Logits über mehrere Positionen.
+  Die portable Dual-Variante prüft dieselben Zeilenbereiche seriell, also
+  **keine** echte FreeRTOS-Nebenläufigkeit. Diese wurde auf den Boards geprüft.
+- Die Tests erfassen auch eine ungleich große Aufteilung (272 Ausgabezeilen,
+  Trennung 128/144), Zeilenzähler, Profilreset, ungültige Modusnummern und
+  das Zurücksetzen auf den Standardmodus beim Schicht-RPC-Start.
+- ESP-IDF 5.5.4: Builds für Revision 1.x und 3.x erfolgreich; Image-Digests,
+  Partitionsgrößen und Modellintegrität geprüft. Hardware weiterhin nur
+  zwei P4 Revision 1.3. `hardware_tested: false` im Artefaktprüfer bezeichnet
+  dessen reine Offlineprüfung, nicht die gesamte Versuchsreihe.
+- Beide Boards über LAN auf 0.3.0 aktualisiert, bestehendes Modell unverändert,
+  OTA-Bootcheck bestätigt. Master-Konfiguration über Neustart erhalten.
+- Zwei normale Acht-Token-Aufträge **ohne** Modusangabe über den Master:
+  beide Boards genutzt, automatisch dual und erwartete Tokenfolgen.
+- Unbekannter, nullwertiger und numerischer Modus jeweils an direkter
+  Inferenz-API und Dispatcher abgewiesen: sechs HTTP-400-Antworten.
+- Während einer 64-Token-Generierung auf dem Master blieb dessen separater
+  Kontrollserver auf Port 8081 erreichbar: 53 Abfragen, Median **24,82 ms**,
+  Maximum **35,61 ms**. Gesamtdauer dieser zusätzlichen Generierung 27,651 s.
+  Diese Pollingprüfung ist separat und geht nicht in die Leistungsmediane ein.
+  Port 80 behält die bekannte synchrone Bearbeitung durch einen Besitzer.
+- Längerer Prompt (vier Wiederholungen eines Satzpaars), je 24 neue Tokens
+  auf Board 2: legacy **42,449 s**, dual **23,317 s**, exakt gleiche Tokens.
+  Nur ein Lauf je Modus; ein zusätzlicher Regressionstest, keine statistische
+  Aussage über längere Kontexte.
+- Alter Schicht-RPC-Pfad: vier Tokens, beide Boards, eine wiederverwendete
+  Verbindung und korrekte Ausgabe. Dies ist keine neue Schicht-RPC-Leistungsreihe.
+- Boot-IDs blieben auch während der ergänzenden Abnahme unverändert;
+  abschließend beide Modelle bereit, keine aktiven Worker, OTA bestätigt und
+  keine wartenden/laufenden Dispatcher-Aufträge.
+
+Die Ausgabematrix bleibt ein großer Anteil der Laufzeit: in der zweiten
+Direktreihe etwa 5,48 s von 10,70 s. Zwei Kerne halbieren die Zeit nicht
+vollständig. Serielle Modellschritte, Synchronisation, ungleiche Zeilenhälften
+und gemeinsame Speicherzugriffe sind mögliche Grenzen; ihre Einzelbeiträge
+wurden außer den gemeldeten Warteintervallen nicht experimentell isoliert.
+Keine SIMD- oder neue Quantisierungsoptimierung, keine Änderung von Takt,
+Modell oder Speicherplatzierung wurde in diesen Versuch aufgenommen.
+
+Weitere Grenzen: ein Modell, zwei kurze Referenzprompts, drei bzw. vier
+Wiederholungen; keine Signifikanzbehauptung, Energie-/Temperaturmessung,
+Langzeitbelastung oder größere Modellkapazität. Reale Modellneuladung mit
+Abbau der Helfer-Task und OTA-Fehlerrollback wurden in dieser Reihe nicht
+zusätzlich durch absichtliche Fehler ausgelöst. USB-/PoE-Elektrik, SD-Nutzung
+und automatische Aufnahme fabrikneuer Boards bleiben unverändert offen.
+
+## Daten, Wiederholung und Rückweg
+
+- [Pausenvergleich: Einzelantworten und Zusammenfassung](data/kernel-v2-2026-10-29/pause-comparison/summary.json).
+- [CPU-Kernvergleich](data/kernel-v2-2026-10-29/dual-comparison/summary.json).
+- [Clustervergleich](data/kernel-v2-2026-10-29/cluster-comparison/summary.json)
+  und [alle Aufträge samt Ziel, Zeiten und Profilen](data/kernel-v2-2026-10-29/cluster-comparison/batches.json).
+- [Gepaarte Auswertung](data/kernel-v2-2026-10-29/paired-analysis.json),
+  [ergänzende Abnahme](data/kernel-v2-2026-10-29/integration/report.json),
+  [finaler Gerätestand](data/kernel-v2-2026-10-29/final-deployment.json).
+- [Buildkonfiguration und Firmware-Hashes](data/kernel-v2-2026-10-29/hardware-build.json),
+  [SHA-256-Manifest](data/kernel-v2-2026-10-29/sha256-manifest.json).
+
+Die Verzeichnisse enthalten auch die ursprünglichen NDJSON-Antworten bzw.
+deren vollständigen Inhalt in den Jobantworten, Metadaten und Skripthashes.
+Prompt-/Tokenreferenzen werden aus den eingecheckten Daten des vorherigen
+Parallelversuchs geladen. Ein frisches Ausgabeverzeichnis ist jeweils Pflicht.
+
+```powershell
+& .local/tooling/idf-tools/python_env/idf5.5_py3.12_env/Scripts/python.exe tools/benchmark_kernel.py node-2 .local/kernel-repeat-direct --kernels legacy paced dual --repeats 3
+& .local/tooling/idf-tools/python_env/idf5.5_py3.12_env/Scripts/python.exe tools/benchmark_cluster_kernels.py node-1 node-2 .local/kernel-repeat-cluster
+& .local/tooling/idf-tools/python_env/idf5.5_py3.12_env/Scripts/python.exe tools/check_kernel_hardware.py node-1 node-2 .local/kernel-repeat-checks
+```
+
+Während einer Messreihe keine weiteren Aufträge eingeben. Der Clusterhelfer
+stellt bei leerer Warteschlange die vorherige Peer-Konfiguration wieder her;
+bei einem Abbruch mit aktiven Aufträgen verändert er sie nicht unbemerkt.
+
+Unter `.local/kernel-v2-2026-10-29/` bleiben zusätzlich Build-/Testprotokolle,
+Quellkopien der Zwischenstände sowie die drei App-Images erhalten.
+`final-0.3.0.bin`: 783.168 Bytes, SHA-256
+`4a3af338b11c073d19e7b8a8266b6e3d8130349ca99c1d5afaa70cb943833635`.
+`rollback-0.2.0.bin` ist der vorherige funktionierende Stand; Rückwechsel
+bei leeren Warteschlangen über die vorhandene LAN-Firmware-API. Er wurde
+nicht ausgeführt. Originale vollständige Gerätesicherungen bleiben erhalten.
+Keine Veröffentlichung oder externe Übertragung. Journal und Commit lokal;
+der Rechner bleibt entsprechend der Benutzerkorrektur eingeschaltet.
