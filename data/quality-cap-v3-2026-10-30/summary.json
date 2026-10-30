@@ -1,0 +1,428 @@
+{
+  "categories": {
+    "tinybrainbot": {
+      "facts": {
+        "baseline": {
+          "n": 4,
+          "core": 1,
+          "confirmed_clean": 0,
+          "uncertain_clean": 1
+        },
+        "higher": {
+          "n": 4,
+          "core": 1,
+          "confirmed_clean": 0,
+          "uncertain_clean": 0
+        },
+        "transitions": {
+          "success_to_success": 0,
+          "success_to_failure": 0,
+          "success_to_uncertain": 0,
+          "failure_to_success": 0,
+          "failure_to_failure": 3,
+          "failure_to_uncertain": 0,
+          "uncertain_to_success": 0,
+          "uncertain_to_failure": 1,
+          "uncertain_to_uncertain": 0
+        },
+        "newly_confirmed": 0,
+        "lost_confirmed": 0
+      },
+      "reasoning": {
+        "baseline": {
+          "n": 4,
+          "core": 2,
+          "confirmed_clean": 1,
+          "uncertain_clean": 0
+        },
+        "higher": {
+          "n": 4,
+          "core": 2,
+          "confirmed_clean": 1,
+          "uncertain_clean": 0
+        },
+        "transitions": {
+          "success_to_success": 1,
+          "success_to_failure": 0,
+          "success_to_uncertain": 0,
+          "failure_to_success": 0,
+          "failure_to_failure": 3,
+          "failure_to_uncertain": 0,
+          "uncertain_to_success": 0,
+          "uncertain_to_failure": 0,
+          "uncertain_to_uncertain": 0
+        },
+        "newly_confirmed": 0,
+        "lost_confirmed": 0
+      },
+      "exact": {
+        "baseline": {
+          "n": 4,
+          "exact": 0
+        },
+        "higher": {
+          "n": 4,
+          "exact": 0
+        },
+        "transitions": {
+          "success_to_success": 0,
+          "success_to_failure": 0,
+          "success_to_uncertain": 0,
+          "failure_to_success": 0,
+          "failure_to_failure": 4,
+          "failure_to_uncertain": 0,
+          "uncertain_to_success": 0,
+          "uncertain_to_failure": 0,
+          "uncertain_to_uncertain": 0
+        },
+        "newly_confirmed": 0,
+        "lost_confirmed": 0
+      },
+      "grounded": {
+        "baseline": {
+          "n": 4,
+          "core": 2,
+          "confirmed_clean": 2,
+          "uncertain_clean": 0
+        },
+        "higher": {
+          "n": 4,
+          "core": 2,
+          "confirmed_clean": 2,
+          "uncertain_clean": 0
+        },
+        "transitions": {
+          "success_to_success": 2,
+          "success_to_failure": 0,
+          "success_to_uncertain": 0,
+          "failure_to_success": 0,
+          "failure_to_failure": 2,
+          "failure_to_uncertain": 0,
+          "uncertain_to_success": 0,
+          "uncertain_to_failure": 0,
+          "uncertain_to_uncertain": 0
+        },
+        "newly_confirmed": 0,
+        "lost_confirmed": 0
+      },
+      "uncertainty": {
+        "baseline": {
+          "n": 4,
+          "core": 4,
+          "confirmed_clean": 2,
+          "uncertain_clean": 1,
+          "subgroups": {
+            "unanswerable": {
+              "n": 2,
+              "core": 2,
+              "confirmed_clean": 1,
+              "uncertain_clean": 1
+            },
+            "answerable": {
+              "n": 2,
+              "core": 2,
+              "confirmed_clean": 1,
+              "uncertain_clean": 0
+            }
+          }
+        },
+        "higher": {
+          "n": 4,
+          "core": 4,
+          "confirmed_clean": 3,
+          "uncertain_clean": 0,
+          "subgroups": {
+            "unanswerable": {
+              "n": 2,
+              "core": 2,
+              "confirmed_clean": 2,
+              "uncertain_clean": 0
+            },
+            "answerable": {
+              "n": 2,
+              "core": 2,
+              "confirmed_clean": 1,
+              "uncertain_clean": 0
+            }
+          }
+        },
+        "transitions": {
+          "success_to_success": 2,
+          "success_to_failure": 0,
+          "success_to_uncertain": 0,
+          "failure_to_success": 0,
+          "failure_to_failure": 1,
+          "failure_to_uncertain": 0,
+          "uncertain_to_success": 1,
+          "uncertain_to_failure": 0,
+          "uncertain_to_uncertain": 0
+        },
+        "newly_confirmed": 1,
+        "lost_confirmed": 0
+      },
+      "story": {
+        "baseline": {
+          "n": 4,
+          "topic": 1,
+          "coherent": 2,
+          "resolution": 2,
+          "two_sentences": 1,
+          "strict_completion": 0
+        },
+        "higher": {
+          "n": 4,
+          "topic": 1,
+          "coherent": 2,
+          "resolution": 2,
+          "two_sentences": 1,
+          "strict_completion": 0
+        },
+        "transitions": {
+          "success_to_success": 0,
+          "success_to_failure": 0,
+          "success_to_uncertain": 0,
+          "failure_to_success": 0,
+          "failure_to_failure": 4,
+          "failure_to_uncertain": 0,
+          "uncertain_to_success": 0,
+          "uncertain_to_failure": 0,
+          "uncertain_to_uncertain": 0
+        },
+        "newly_confirmed": 0,
+        "lost_confirmed": 0
+      }
+    },
+    "supra": {
+      "facts": {
+        "baseline": {
+          "n": 4,
+          "core": 0,
+          "confirmed_clean": 0,
+          "uncertain_clean": 0
+        },
+        "higher": {
+          "n": 4,
+          "core": 0,
+          "confirmed_clean": 0,
+          "uncertain_clean": 0
+        },
+        "transitions": {
+          "success_to_success": 0,
+          "success_to_failure": 0,
+          "success_to_uncertain": 0,
+          "failure_to_success": 0,
+          "failure_to_failure": 4,
+          "failure_to_uncertain": 0,
+          "uncertain_to_success": 0,
+          "uncertain_to_failure": 0,
+          "uncertain_to_uncertain": 0
+        },
+        "newly_confirmed": 0,
+        "lost_confirmed": 0
+      },
+      "reasoning": {
+        "baseline": {
+          "n": 4,
+          "core": 0,
+          "confirmed_clean": 0,
+          "uncertain_clean": 0
+        },
+        "higher": {
+          "n": 4,
+          "core": 0,
+          "confirmed_clean": 0,
+          "uncertain_clean": 0
+        },
+        "transitions": {
+          "success_to_success": 0,
+          "success_to_failure": 0,
+          "success_to_uncertain": 0,
+          "failure_to_success": 0,
+          "failure_to_failure": 4,
+          "failure_to_uncertain": 0,
+          "uncertain_to_success": 0,
+          "uncertain_to_failure": 0,
+          "uncertain_to_uncertain": 0
+        },
+        "newly_confirmed": 0,
+        "lost_confirmed": 0
+      },
+      "exact": {
+        "baseline": {
+          "n": 4,
+          "exact": 0
+        },
+        "higher": {
+          "n": 4,
+          "exact": 0
+        },
+        "transitions": {
+          "success_to_success": 0,
+          "success_to_failure": 0,
+          "success_to_uncertain": 0,
+          "failure_to_success": 0,
+          "failure_to_failure": 4,
+          "failure_to_uncertain": 0,
+          "uncertain_to_success": 0,
+          "uncertain_to_failure": 0,
+          "uncertain_to_uncertain": 0
+        },
+        "newly_confirmed": 0,
+        "lost_confirmed": 0
+      },
+      "grounded": {
+        "baseline": {
+          "n": 4,
+          "core": 0,
+          "confirmed_clean": 0,
+          "uncertain_clean": 1
+        },
+        "higher": {
+          "n": 4,
+          "core": 0,
+          "confirmed_clean": 0,
+          "uncertain_clean": 0
+        },
+        "transitions": {
+          "success_to_success": 0,
+          "success_to_failure": 0,
+          "success_to_uncertain": 0,
+          "failure_to_success": 0,
+          "failure_to_failure": 3,
+          "failure_to_uncertain": 0,
+          "uncertain_to_success": 0,
+          "uncertain_to_failure": 1,
+          "uncertain_to_uncertain": 0
+        },
+        "newly_confirmed": 0,
+        "lost_confirmed": 0
+      },
+      "uncertainty": {
+        "baseline": {
+          "n": 4,
+          "core": 1,
+          "confirmed_clean": 0,
+          "uncertain_clean": 1,
+          "subgroups": {
+            "unanswerable": {
+              "n": 2,
+              "core": 0,
+              "confirmed_clean": 0,
+              "uncertain_clean": 0
+            },
+            "answerable": {
+              "n": 2,
+              "core": 1,
+              "confirmed_clean": 0,
+              "uncertain_clean": 1
+            }
+          }
+        },
+        "higher": {
+          "n": 4,
+          "core": 1,
+          "confirmed_clean": 0,
+          "uncertain_clean": 0,
+          "subgroups": {
+            "unanswerable": {
+              "n": 2,
+              "core": 0,
+              "confirmed_clean": 0,
+              "uncertain_clean": 0
+            },
+            "answerable": {
+              "n": 2,
+              "core": 1,
+              "confirmed_clean": 0,
+              "uncertain_clean": 0
+            }
+          }
+        },
+        "transitions": {
+          "success_to_success": 0,
+          "success_to_failure": 0,
+          "success_to_uncertain": 0,
+          "failure_to_success": 0,
+          "failure_to_failure": 3,
+          "failure_to_uncertain": 0,
+          "uncertain_to_success": 0,
+          "uncertain_to_failure": 1,
+          "uncertain_to_uncertain": 0
+        },
+        "newly_confirmed": 0,
+        "lost_confirmed": 0
+      },
+      "story": {
+        "baseline": {
+          "n": 4,
+          "topic": 0,
+          "coherent": 3,
+          "resolution": 0,
+          "two_sentences": 0,
+          "strict_completion": 0
+        },
+        "higher": {
+          "n": 4,
+          "topic": 0,
+          "coherent": 3,
+          "resolution": 0,
+          "two_sentences": 0,
+          "strict_completion": 0
+        },
+        "transitions": {
+          "success_to_success": 0,
+          "success_to_failure": 0,
+          "success_to_uncertain": 0,
+          "failure_to_success": 0,
+          "failure_to_failure": 4,
+          "failure_to_uncertain": 0,
+          "uncertain_to_success": 0,
+          "uncertain_to_failure": 0,
+          "uncertain_to_uncertain": 0
+        },
+        "newly_confirmed": 0,
+        "lost_confirmed": 0
+      }
+    }
+  },
+  "fresh_quality_outputs": 43,
+  "reused_eos_outputs": 5,
+  "new_physical_streams": 46,
+  "quality_evaluations": 48,
+  "old_prefixes_equal": 48,
+  "ratings_commit": "37bdb1cdb1dad6b12300ad736ddb3f8d1d22f2f7",
+  "restored_tinybrainbot": true,
+  "tokens": {
+    "tinybrainbot": {
+      "baseline": 489,
+      "higher": 824,
+      "cap_reached": 11,
+      "eos": 13
+    },
+    "supra": {
+      "baseline": 512,
+      "higher": 1024,
+      "cap_reached": 24,
+      "eos": 0
+    }
+  },
+  "scope": "Paired descriptive cap sensitivity on known questions and greedy prefixes; no pooled ranking, independent review, significance or equal-work speed claim.",
+  "fresh_subset_cost": {
+    "tinybrainbot": {
+      "n": 19,
+      "historical_baseline_seconds": 1461.2364539999999,
+      "fresh_higher_seconds": 2108.051949,
+      "baseline_output_tokens": 432,
+      "higher_output_tokens": 767,
+      "scope": "Same formerly capped cases; historical baseline versus fresh higher-cap elapsed sums, unequal output work, fixed model order. Reused EOS timings excluded. Not a kernel-speed or randomized timing study."
+    },
+    "supra": {
+      "n": 24,
+      "historical_baseline_seconds": 1911.792332,
+      "fresh_higher_seconds": 2883.2442889999998,
+      "baseline_output_tokens": 512,
+      "higher_output_tokens": 1024,
+      "scope": "Same formerly capped cases; historical baseline versus fresh higher-cap elapsed sums, unequal output work, fixed model order. Reused EOS timings excluded. Not a kernel-speed or randomized timing study."
+    }
+  }
+}

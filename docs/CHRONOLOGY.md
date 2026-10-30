@@ -27,6 +27,13 @@ Original records use their own dates, prompts, versions and denominators.
 | Production INT4 byte-pair kernel | Fresh within-Tiny before/after timing; exact output preservation; firmware0.9.0 retained after recorded gates. | [Report](int4-pair-2026-10-30.md) · [data](../data/int4-pair-2026-10-30/) |
 | Same new kernel, Supra versus Tiny | Fresh timing for both models,12 fresh Supra quality cases and12 explicitly reused Tiny cases; genuine Tiny roles restored. | [Report](supra-tiny-v09-2026-10-30.md) · [data](../data/supra-tiny-v09-2026-10-30/) |
 | Broader qualityV2 | Prospective24-task English set,48 new answers, committed model-label-masked ratings before unblinding. Different questions/caps mean earlier quality scores are not directly pooled. | [Report](quality-v2-2026-10-30.md) · [protocol/data](../data/quality-v2-2026-10-30/) |
+| Doubled output-cap V3 | Same24 known questions and inputs;43 fresh quality streams, five explicit old EOS reuses and three fresh controls. One uncertain-to-clean Tiny judgment, no confirmed failure-to-success; more output and generation cost. | [Report](quality-cap-v3-2026-10-30.md) · [paired data](../data/quality-cap-v3-2026-10-30/) |
+
+Revision wording: historical references to revision1.3 identify the P4 silicon,
+not a measured PCB revision. A separate published visual record identifies
+[Board1 PCB Rev2.0](https://github.com/Mcgee1704/waveshare-esp32-p4-wifi6-poe-eth/blob/4912e345487cf12f354f4469e0417a9324b9271d/docs/08-board1-visual-record.md).
+It applies to Board1 only; no new hardware measurement or Board2 photo review
+was performed for this archive. Frozen old records retain their original wording.
 
 ## Firmware and evidence availability
 

@@ -1,6 +1,6 @@
 # Research log and coverage
 
-The source research checkpoint is `0420de041addbe6abfefa7306d6fe26684b8422e`. Original private Git history
+The source research checkpoint is `39869e16ab21275e86a805948b53fa9509cc5e31`. Original private Git history
 and personal commit metadata are not published. Original report filenames below
 are identifiers of local records, not additional public files. The English reports
 consolidate their scientific content; this is not a word-for-word translation.
@@ -16,6 +16,7 @@ consolidate their scientific content; this is not a word-for-word translation.
 | `docs/gptneo-format.md` | [GPTNEO_FORMAT.md](GPTNEO_FORMAT.md) |
 | `docs/poe-usb-pruefung.md` | [HARDWARE.md](HARDWARE.md) |
 | `docs/research/dispatcher-2026-10-29.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
+| `docs/research/firmware-influence-2026-10-30.md` | [firmware-influence-2026-10-30.md](firmware-influence-2026-10-30.md) |
 | `docs/research/firmware-publication-2026-10-29.md` | [FIRMWARE_VERSIONS.md](FIRMWARE_VERSIONS.md) |
 | `docs/research/firmware-umsetzung.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
 | `docs/research/forschungsplan.md` | [PRIOR_WORK_AND_PLANS.md](PRIOR_WORK_AND_PLANS.md) |
@@ -30,6 +31,8 @@ consolidate their scientific content; this is not a word-for-word translation.
 | `docs/research/prospektive-pruefung-2026-10-29.md` | [SIMULATION.md](SIMULATION.md) |
 | `docs/research/publication-local-review-2026-10-30.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
 | `docs/research/publication-local-review-v8-2026-10-30.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |
+| `docs/research/quality-cap-v3-2026-10-30.md` | [quality-cap-v3-2026-10-30.md](quality-cap-v3-2026-10-30.md) |
+| `docs/research/quality-cap-v3-plan-2026-10-30.md` | [quality-cap-v3-plan-2026-10-30.md](quality-cap-v3-plan-2026-10-30.md) |
 | `docs/research/quality-v2-2026-10-30.md` | [quality-v2-2026-10-30.md](quality-v2-2026-10-30.md) |
 | `docs/research/quality-v2-plan-2026-10-30.md` | [quality-v2-plan-2026-10-30.md](quality-v2-plan-2026-10-30.md) |
 | `docs/research/rechenkern-v2-2026-10-29.md` | [RESEARCH_REPORT.md](RESEARCH_REPORT.md) |

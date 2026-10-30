@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1150" viewBox="0 0 1600 1150" role="img">
+<title>Output-cap V3: controlled intervention and physical setup</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1150" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">Output-cap V3: controlled intervention and physical setup</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">One independent variable: stopping budget · context 256 unchanged · full vocabulary / INT4 /4+8 layers</text>
+<rect x="48" y="150" width="484" height="160" rx="14" fill="white"/>
+<text x="71" y="193" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">Immutable baseline</text>
+<text x="71" y="241" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">Same 24 questions / native input IDs</text>
+<text x="71" y="281" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Saved 16/48-token outputs and ratings</text>
+<rect x="558" y="150" width="484" height="160" rx="14" fill="white"/>
+<text x="581" y="193" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">Doubled output limits</text>
+<text x="581" y="241" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">Short tasks 32, stories 96 tokens</text>
+<text x="581" y="281" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">No model/kernel/firmware change</text>
+<rect x="1068" y="150" width="484" height="160" rx="14" fill="white"/>
+<text x="1091" y="193" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">Deterministic comparison</text>
+<text x="1091" y="241" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">Check all old token prefixes</text>
+<text x="1091" y="281" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Five EOS outputs explicitly reused</text>
+<rect x="48" y="380" width="704" height="165" rx="14" fill="white"/>
+<text x="72" y="424" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Coordinator P4</text>
+<text x="72" y="472" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Tokenization, embedding/output, layers 0–3</text>
+<text x="72" y="516" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">32 MiB PSRAM /32 MiB flash</text>
+<rect x="848" y="380" width="704" height="165" rx="14" fill="white"/>
+<text x="872" y="424" fill="#193347" font-size="28" font-weight="bold" text-anchor="start">Worker P4</text>
+<text x="872" y="472" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Layers 4–11, own FP32 KV</text>
+<text x="872" y="516" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">32 MiB PSRAM /32 MiB flash</text>
+<path d="M752 430 L848 430" stroke="#3378ad" stroke-width="4" fill="none"/>
+<path d="M835 422 L848 430 L835 438" stroke="#3378ad" stroke-width="4" fill="none"/>
+<path d="M848 500 L752 500" stroke="#178476" stroke-width="4" fill="none"/>
+<path d="M765 492 L752 500 L765 508" stroke="#178476" stroke-width="4" fill="none"/>
+<text x="800" y="407" fill="#193347" font-size="20" font-weight="normal" text-anchor="middle">LAN</text>
+<text x="48" y="610" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">Tiny first → Supra second → restore genuine Tiny roles and verify W.</text>
+<rect x="48" y="658" width="1504" height="154" rx="14" fill="white"/>
+<text x="72" y="702" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">43 new answers +2 warmups +1 restoration control =46 new physical streams.</text>
+<text x="72" y="748" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Five old EOS streams supply the remaining higher-cap evaluations; no redundant hardware generation.</text>
+<text x="72" y="787" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Maximum new output budget 1900 tokens. Greedy, one trajectory, no inference retry or selective rerun.</text>
+<rect x="48" y="862" width="1504" height="174" rx="14" fill="#dce9f2"/>
+<text x="72" y="908" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">Rate all 48 higher-cap texts with masked model labels; commit, then unseal.</text>
+<text x="72" y="953" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Keep old ratings; compare paired improvements, regressions and uncertainty by model/category.</text>
+<text x="72" y="999" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">Recorded final state: true TinyBrainBot on both 0.9.0 nodes, ready/idle, queue empty.</text>
+<text x="48" y="1090" fill="#586c7d" font-size="22" font-weight="normal" text-anchor="start">Old outputs are known. Same-author label masking is not independent, complete or cap-blinded review.</text>
+</svg>

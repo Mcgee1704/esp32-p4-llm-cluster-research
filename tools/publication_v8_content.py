@@ -7,7 +7,8 @@ from html import escape
 
 REPORTS=['matched-p4-2026-10-30.md','int4-memory-2026-10-30.md',
          'int4-pair-2026-10-30.md','supra-tiny-v09-2026-10-30.md',
-         'quality-v2-2026-10-30.md']
+         'quality-v2-2026-10-30.md','quality-cap-v3-2026-10-30.md',
+         'firmware-influence-2026-10-30.md']
 
 
 def english_early_figure(b):
@@ -208,6 +209,71 @@ those guards to make archived output appear to be a fresh model/device run.
         name=fig.name;page.append('<figure><a href="docs/figures/'+name+'"><img loading="lazy" src="docs/figures/'+name+'" alt="'+escape(fig.stem)+'"></a><figcaption>'+escape(fig.stem)+'</figcaption></figure>')
     page.append('</div></html>');b.put('index.html','\n'.join(page),'English-v8-editorial/figure-browser')
     enrich_quality_v2(b)
+    enrich_cap_v3(b)
+
+
+def enrich_cap_v3(b):
+    s=json.loads((b.output/'data/quality-cap-v3-2026-10-30/summary.json').read_text(encoding='utf-8'))
+    assert s['new_physical_streams']==46 and s['fresh_quality_outputs']==43 and s['reused_eos_outputs']==5
+    intro='''
+## Doubled output caps: the new controlled comparison
+
+[Firmware influence](docs/firmware-influence-2026-10-30.md) and chapter8 of the
+[central report](docs/RESEARCH_REPORT.md) distinguish execution speed, bounded
+numerical equality, deployable model capacity and the visible output boundary.
+Faster inference preserved the tested answers, including their errors.
+
+[Output-cap V3](docs/quality-cap-v3-2026-10-30.md) keeps the same 24 questions,
+artifacts, inputs and firmware, changing caps from16/48 to32/96. It adds43 fresh
+quality streams and three controls; five old early-EOS streams are explicitly
+reused. Tiny has one uncertain-to-clean judgment; no confirmed failure becomes
+a confirmed success. Supra gains none. Exact-format and strict-story scores stay
+0/4 for both. More generated text costs more recorded generation time.
+
+[Full paired texts](data/quality-cap-v3-2026-10-30/comparison.html) retain failures,
+old ratings, new pre-unblinding ratings and all notes. This is same-author review
+of known questions, not an independent or fully blind benchmark.
+'''
+    p=b.output/'README.md';text=p.read_text(encoding='utf-8').replace('snapshot v9','snapshot v10').replace('RELEASE_NOTES_V9.md','RELEASE_NOTES_V10.md');head,tail=text.split('\n',1)
+    b.put('README.md',head+'\n'+intro+tail,'English-v10-editorial/README')
+    p=b.output/'docs/RESEARCH_INDEX.md';text=p.read_text(encoding='utf-8').replace('snapshot v9','snapshot v10').replace('RELEASE_NOTES_V9.md','RELEASE_NOTES_V10.md');head,tail=text.split('\n',1)
+    b.put('docs/RESEARCH_INDEX.md',head+'\n'+intro.replace('(docs/','(').replace('(data/','(../data/')+tail,'English-v10-editorial/index')
+    b.put('docs/RELEASE_NOTES_V10.md','''# Research snapshot v10
+
+Adds the controlled output-cap V3 comparison to the preserved v9 archive.
+Includes a scientific firmware-influence synthesis in the central report and
+a separate linked report; no new measurement or quality re-rating is implied.
+Same24 known questions; caps16→32 and48→96;43 fresh quality streams,
+five explicit early-EOS reuses and three new controls. All old token prefixes
+are preserved. Full paired outputs, unchanged historical ratings, committed
+higher-cap ratings before unblinding, two new diagrams and offline arithmetic
+checks are included. No previously confirmed failure becomes a confirmed success;
+Tiny has one uncertain-to-clean case. No general quality improvement is claimed.
+
+Sources still end at firmware0.9.0, existing keyless diagnostic binaries at0.5.5.
+No new board/model run or firmware build was performed to assemble this archive.
+No private keys, device identities, photos, model weights, personal journals,
+private Git history or unrelated plans are included. No DOI assigned.
+
+The separate Wiki update preserves existing research and Board1 pages. New
+commits use GitHub noreply. Both public repositories already contain historical
+author email metadata; this update does not rewrite that pre-existing history
+or import private source-repository history. Existing public AGENTS.md and the
+read-only archive-check workflow are retained unchanged from public1f999f3.
+
+[Report](quality-cap-v3-2026-10-30.md) · [chronology](CHRONOLOGY.md) ·
+[reproduction](REPRODUCIBILITY.md).
+''','English-v10-editorial/release-notes')
+    p=b.output/'docs/REPRODUCIBILITY.md';text=p.read_text(encoding='utf-8')+'''
+## Doubled-cap V3 recorded-data checks
+
+The same standard-library checker additionally verifies46 new physical streams,
+five old EOS reuses, all48 old token prefixes, mapping commitment, committed
+review representations, paired transitions, category counts and fresh-subset
+recorded costs. It performs no device/model run and no independent semantic review.
+''';b.put('docs/REPRODUCIBILITY.md',text,'English-v10-editorial/reproduction')
+    p=b.output/'CITATION.cff';text=p.read_text(encoding='utf-8').replace('research-v9','research-v10').replace('Version9','Version10');b.put('CITATION.cff',text,'English-v10-editorial/citation')
+    p=b.output/'index.html';text=p.read_text(encoding='utf-8').replace('Version9 release notes','Version10 release notes').replace('RELEASE_NOTES_V9.md','RELEASE_NOTES_V10.md');b.put('index.html',text,'English-v10-editorial/browser')
 
 
 def enrich_quality_v2(b):

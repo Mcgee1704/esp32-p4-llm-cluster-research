@@ -169,3 +169,10 @@ streams,48 paired review rows, the model-label mapping commitment and category
 counts. It reproduces recorded review arithmetic, not an independent semantic
 rating or proof that the author could not infer identities. No device, model
 weights, private authentication or review nonce file is needed.
+
+## Doubled-cap V3 recorded-data checks
+
+The same standard-library checker additionally verifies46 new physical streams,
+five old EOS reuses, all48 old token prefixes, mapping commitment, committed
+review representations, paired transitions, category counts and fresh-subset
+recorded costs. It performs no device/model run and no independent semantic review.

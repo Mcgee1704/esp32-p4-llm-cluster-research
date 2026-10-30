@@ -5,7 +5,7 @@ from PIL import Image
 
 PREFIXES=('docs/figures/matched-model-', 'docs/figures/matched-p4-',
           'docs/figures/supra-', 'docs/figures/tinybrainbot-', 'docs/figures/int4-',
-          'docs/figures/quality-v2-')
+          'docs/figures/quality-v2-', 'docs/figures/quality-cap-v3-')
 SPECIAL={'docs/figures/research-overview-2026-10-30.png':(1600,1710),
          'docs/figures/llm-erkenntnisse-2026-10-29.png':(1520,1400)}
 

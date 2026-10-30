@@ -48,6 +48,12 @@
     "legacy_marker_present": true
   },
   {
+    "path": "data/quality-cap-v3-2026-10-30/protocol.json",
+    "historical_sha256": "06749e1c9d97b4393613a99106d2787b984d6997d7168603ef7ce3bb68661221",
+    "public_sha256": "06749e1c9d97b4393613a99106d2787b984d6997d7168603ef7ce3bb68661221",
+    "legacy_marker_present": true
+  },
+  {
     "path": "data/quality-v1-2026-10-29/protocol.json",
     "historical_sha256": "46d7e80750ba200c8f1c23bc7dcdc434e1b95b660f466b02736b5b36c1206346",
     "public_sha256": "46d7e80750ba200c8f1c23bc7dcdc434e1b95b660f466b02736b5b36c1206346",

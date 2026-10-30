@@ -1,4 +1,22 @@
 # ESP32-P4 LLM Cluster Research
+
+## Doubled output caps: the new controlled comparison
+
+[Firmware influence](docs/firmware-influence-2026-10-30.md) and chapter8 of the
+[central report](docs/RESEARCH_REPORT.md) distinguish execution speed, bounded
+numerical equality, deployable model capacity and the visible output boundary.
+Faster inference preserved the tested answers, including their errors.
+
+[Output-cap V3](docs/quality-cap-v3-2026-10-30.md) keeps the same 24 questions,
+artifacts, inputs and firmware, changing caps from16/48 to32/96. It adds43 fresh
+quality streams and three controls; five old early-EOS streams are explicitly
+reused. Tiny has one uncertain-to-clean judgment; no confirmed failure becomes
+a confirmed success. Supra gains none. Exact-format and strict-story scores stay
+0/4 for both. More generated text costs more recorded generation time.
+
+[Full paired texts](data/quality-cap-v3-2026-10-30/comparison.html) retain failures,
+old ratings, new pre-unblinding ratings and all notes. This is same-author review
+of known questions, not an independent or fully blind benchmark.
 ## From the beginning, including the new broader quality study
 
 [Complete project chronology](docs/CHRONOLOGY.md) ·
@@ -7,14 +25,14 @@
 Original numerical results and negative findings are retained; private data
 and private Git history are excluded. Review is model-label-masked by the same
 author, not independent or completely blind. See individual task/cap limits.
-## Latest evidence: firmware0.9.0 and research snapshot v9
+## Latest evidence: firmware0.9.0 and research snapshot v10
 
 [Start with the organized evidence index](docs/RESEARCH_INDEX.md) or
 [browse reports and all figures](index.html). The latest same-kernel model
 comparison, INT4 production optimization and separated memory measurements are
 included with raw outputs and source hashes. Source now ends at0.9.0; public
 keyless diagnostic binaries still end at0.5.5. Measured private firmware images
-are not distributed. See [v8 release notes](docs/RELEASE_NOTES_V9.md).
+are not distributed. See [v8 release notes](docs/RELEASE_NOTES_V10.md).
 
 The earlier v7 status below is historical context, not the latest device/source
 status. See the indexed per-study dates, firmware versions and evidence scopes.

@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "protocol_commit": "9fb72c6b991bbb5ed460058f80c23c3d2d980d15",
+  "ratings_commit": "37bdb1cdb1dad6b12300ad736ddb3f8d1d22f2f7",
+  "fresh_quality_streams": 43,
+  "explicit_reused_eos_streams": 5,
+  "new_control_streams": 3,
+  "new_physical_streams": 46,
+  "evidence_streams_checked": 51,
+  "higher_cap_evaluations": 48,
+  "old_token_prefixes_equal": 48,
+  "actual_new_hardware_output_tokens": 1803,
+  "max_new_hardware_output_tokens": 1900,
+  "manifest_relationships_checked": {
+    "record-audit.json": 62,
+    "artifact-audit.json": 76
+  },
+  "report_local_links_checked": 12,
+  "paired_transition_and_cost_arithmetic_checked": true,
+  "two_figures_visually_reviewed": true,
+  "png_dimensions_and_metadata_checked": true,
+  "pinned_old_sources_artifacts_and_archived_dll_preserved": true,
+  "genuine_tinybrainbot_restored_and_fresh_read_only_closure_checked": true,
+  "both_firmware": "0.9.0",
+  "queue": 0,
+  "running": 0,
+  "private_lan_key_absent_from_recorded_dataset": true,
+  "new_downloads": 0,
+  "new_firmware_builds_or_writes": 0,
+  "online_transfer_performed": false,
+  "existing_kernel_suite": "Not rerun: core sources and accepted DLL/artifacts are unchanged and hash-guarded against the verified baseline. Fresh checks target recording, prefixes, review arithmetic and restoration.",
+  "limitations": "Known constructed questions; same-author label-masked higher review with old answers known; no independent blinding, significance, equal-work speed or energy result.",
+  "source_sha256": {
+    "protocol.json": "06749e1c9d97b4393613a99106d2787b984d6997d7168603ef7ce3bb68661221",
+    "host-receipt.json": "2a5b279c110e3c1357b5a1559696f53672e59e9a057cf0d2177ecf20bf14555e",
+    "masked-ratings.json": "957b79e1ad2ec047f6c64e4f7cffe5d41e3a44e1e9cf668ffa183227238702cd",
+    "unblinding.json": "9d84b2961c54b233cd72d58a2112c9f10563b4d1430ba65ba200a1fbc6062f75",
+    "summary.json": "a89568d9f2732257652bdfcde2f9b7a6e47b07110d80bda2bfdf47b460fadfc2",
+    "record-audit.json": "64a2f303d4a251b26ddc5a93b090d7cff7e27d1d073e365a61c8df58744cdc9e",
+    "artifact-audit.json": "1dfbee78a7868a15ed860b4800b657fc1232c88f5d1ea5526f84b1dc44321bc0",
+    "closure-states.json": "91f08ab553d4e9d23d3101003a1868e64d17ea1d252650d75ddd94f9b55fafa3"
+  }
+}

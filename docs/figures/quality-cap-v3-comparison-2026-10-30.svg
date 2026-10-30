@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1450" viewBox="0 0 1600 1450" role="img">
+<title>Does more output budget improve the answers?</title>
+<style>text{font-family:"Segoe UI",Arial,sans-serif}line{stroke:#d8e2e9;stroke-width:2}</style>
+<rect x="0" y="0" width="1600" height="1450" rx="14" fill="#eff4f8"/>
+<text x="48" y="62" fill="#193347" font-size="36" font-weight="bold" text-anchor="start">Does more output budget improve the answers?</text>
+<text x="48" y="101" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Same 24 English questions and two P4s · firmware 0.9.0 · greedy · only the stopping cap changes</text>
+<text x="48" y="152" fill="#193347" font-size="27" font-weight="bold" text-anchor="start">Confirmed success within each criterion; four tasks per category</text>
+<text x="500" y="201" fill="#178476" font-size="27" font-weight="bold" text-anchor="start">TinyBrainBot</text>
+<text x="1040" y="201" fill="#7953a6" font-size="27" font-weight="bold" text-anchor="start">Supra2-100M</text>
+<text x="48" y="250" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">Basic facts</text>
+<text x="48" y="283" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Whole response clean</text>
+<text x="500" y="251" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">16 tok</text>
+<rect x="582" y="231" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="582" y="231" width="0.0" height="25" rx="3" fill="#b7cbd4"/>
+<text x="845" y="252" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">0/4; 1 ?</text>
+<text x="500" y="298" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">32 tok</text>
+<rect x="582" y="278" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="582" y="278" width="0.0" height="25" rx="3" fill="#178476"/>
+<text x="845" y="299" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">0/4</text>
+<text x="1040" y="251" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">16 tok</text>
+<rect x="1122" y="231" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="1122" y="231" width="0.0" height="25" rx="3" fill="#b7cbd4"/>
+<text x="1385" y="252" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">0/4</text>
+<text x="1040" y="298" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">32 tok</text>
+<rect x="1122" y="278" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="1122" y="278" width="0.0" height="25" rx="3" fill="#7953a6"/>
+<text x="1385" y="299" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">0/4</text>
+<text x="48" y="395" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">Arithmetic / reasoning</text>
+<text x="48" y="428" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Whole response clean</text>
+<text x="500" y="396" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">16 tok</text>
+<rect x="582" y="376" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="582" y="376" width="61.0" height="25" rx="3" fill="#b7cbd4"/>
+<text x="845" y="397" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">1/4</text>
+<text x="500" y="443" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">32 tok</text>
+<rect x="582" y="423" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="582" y="423" width="61.0" height="25" rx="3" fill="#178476"/>
+<text x="845" y="444" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">1/4</text>
+<text x="1040" y="396" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">16 tok</text>
+<rect x="1122" y="376" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="1122" y="376" width="0.0" height="25" rx="3" fill="#b7cbd4"/>
+<text x="1385" y="397" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">0/4</text>
+<text x="1040" y="443" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">32 tok</text>
+<rect x="1122" y="423" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="1122" y="423" width="0.0" height="25" rx="3" fill="#7953a6"/>
+<text x="1385" y="444" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">0/4</text>
+<text x="48" y="540" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">Literal output format</text>
+<text x="48" y="573" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Exact literal match</text>
+<text x="500" y="541" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">16 tok</text>
+<rect x="582" y="521" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="582" y="521" width="0.0" height="25" rx="3" fill="#b7cbd4"/>
+<text x="845" y="542" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">0/4</text>
+<text x="500" y="588" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">32 tok</text>
+<rect x="582" y="568" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="582" y="568" width="0.0" height="25" rx="3" fill="#178476"/>
+<text x="845" y="589" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">0/4</text>
+<text x="1040" y="541" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">16 tok</text>
+<rect x="1122" y="521" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="1122" y="521" width="0.0" height="25" rx="3" fill="#b7cbd4"/>
+<text x="1385" y="542" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">0/4</text>
+<text x="1040" y="588" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">32 tok</text>
+<rect x="1122" y="568" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="1122" y="568" width="0.0" height="25" rx="3" fill="#7953a6"/>
+<text x="1385" y="589" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">0/4</text>
+<text x="48" y="685" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">Context / dialogue</text>
+<text x="48" y="718" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Whole response clean</text>
+<text x="500" y="686" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">16 tok</text>
+<rect x="582" y="666" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="582" y="666" width="122.0" height="25" rx="3" fill="#b7cbd4"/>
+<text x="845" y="687" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">2/4</text>
+<text x="500" y="733" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">32 tok</text>
+<rect x="582" y="713" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="582" y="713" width="122.0" height="25" rx="3" fill="#178476"/>
+<text x="845" y="734" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">2/4</text>
+<text x="1040" y="686" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">16 tok</text>
+<rect x="1122" y="666" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="1122" y="666" width="0.0" height="25" rx="3" fill="#b7cbd4"/>
+<text x="1385" y="687" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">0/4; 1 ?</text>
+<text x="1040" y="733" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">32 tok</text>
+<rect x="1122" y="713" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="1122" y="713" width="0.0" height="25" rx="3" fill="#7953a6"/>
+<text x="1385" y="734" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">0/4</text>
+<text x="48" y="830" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">Missing information</text>
+<text x="48" y="863" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">Whole response clean</text>
+<text x="500" y="831" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">16 tok</text>
+<rect x="582" y="811" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="582" y="811" width="122.0" height="25" rx="3" fill="#b7cbd4"/>
+<text x="845" y="832" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">2/4; 1 ?</text>
+<text x="500" y="878" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">32 tok</text>
+<rect x="582" y="858" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="582" y="858" width="183.0" height="25" rx="3" fill="#178476"/>
+<text x="845" y="879" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">3/4</text>
+<text x="1040" y="831" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">16 tok</text>
+<rect x="1122" y="811" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="1122" y="811" width="0.0" height="25" rx="3" fill="#b7cbd4"/>
+<text x="1385" y="832" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">0/4; 1 ?</text>
+<text x="1040" y="878" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">32 tok</text>
+<rect x="1122" y="858" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="1122" y="858" width="0.0" height="25" rx="3" fill="#7953a6"/>
+<text x="1385" y="879" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">0/4</text>
+<text x="48" y="975" fill="#193347" font-size="25" font-weight="bold" text-anchor="start">Short narratives</text>
+<text x="48" y="1008" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">All four story criteria</text>
+<text x="500" y="976" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">48 tok</text>
+<rect x="582" y="956" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="582" y="956" width="0.0" height="25" rx="3" fill="#b7cbd4"/>
+<text x="845" y="977" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">0/4</text>
+<text x="500" y="1023" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">96 tok</text>
+<rect x="582" y="1003" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="582" y="1003" width="0.0" height="25" rx="3" fill="#178476"/>
+<text x="845" y="1024" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">0/4</text>
+<text x="1040" y="976" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">48 tok</text>
+<rect x="1122" y="956" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="1122" y="956" width="0.0" height="25" rx="3" fill="#b7cbd4"/>
+<text x="1385" y="977" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">0/4</text>
+<text x="1040" y="1023" fill="#586c7d" font-size="20" font-weight="normal" text-anchor="start">96 tok</text>
+<rect x="1122" y="1003" width="244" height="25" rx="3" fill="#dfe8ed"/>
+<rect x="1122" y="1003" width="0.0" height="25" rx="3" fill="#7953a6"/>
+<text x="1385" y="1024" fill="#193347" font-size="21" font-weight="normal" text-anchor="start">0/4</text>
+<rect x="48" y="1150" width="1504" height="170" rx="14" fill="white"/>
+<text x="72" y="1192" fill="#193347" font-size="26" font-weight="bold" text-anchor="start">43 new quality runs +5 reused early-EOS answers; both boards in every new run.</text>
+<text x="72" y="1235" fill="#193347" font-size="24" font-weight="normal" text-anchor="start">All 48 higher references preserve the old token prefix. Old EOS answers stay exactly identical.</text>
+<text x="72" y="1278" fill="#193347" font-size="23" font-weight="normal" text-anchor="start">? = uncertain whole-response judgment, never counted as confirmed success. No pooled total.</text>
+<text x="48" y="1368" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Same author knows the old outputs; higher labels were masked until ratings were committed. Not independent or fully blind.</text>
+<text x="48" y="1411" fill="#586c7d" font-size="21" font-weight="normal" text-anchor="start">Known constructed tasks, n=4/category. More generated tokens are extra work, not a faster-kernel result.</text>
+</svg>

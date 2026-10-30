@@ -1,0 +1,351 @@
+{
+  "protocol_sha256": "06749e1c9d97b4393613a99106d2787b984d6997d7168603ef7ce3bb68661221",
+  "masked_responses_sha256": "cd52ec8a2a693040634069d865e24b4cb2382ec355052e173be09fe28ca07f19",
+  "reviewer": "Same author, higher-cap model-label-masked; previous questions/answers/ratings known; not independent, fully blind or cap-blinded.",
+  "rows": [
+    {
+      "case": "F01",
+      "label": "A",
+      "core": false,
+      "clean": false,
+      "note": "Names xylem rather than roots as the requested soil-water uptake organ and adds an unsupported structural-role claim."
+    },
+    {
+      "case": "F01",
+      "label": "B",
+      "core": true,
+      "clean": false,
+      "note": "Correctly identifies roots first, but then extends the soil-water absorption claim to leaves without qualification; the complete response is not clean."
+    },
+    {
+      "case": "F02",
+      "label": "A",
+      "core": false,
+      "clean": false,
+      "note": "Does not select thermometer over ruler and invents an ungrounded thin/flexible construction description."
+    },
+    {
+      "case": "F02",
+      "label": "B",
+      "core": false,
+      "clean": false,
+      "note": "Does not select the thermometer and falsely describes temperature as a logarithmic scale."
+    },
+    {
+      "case": "F03",
+      "label": "A",
+      "core": false,
+      "clean": false,
+      "note": "Names vapor rather than evaporation and describes cooling vapor to liquid, the reverse phase change."
+    },
+    {
+      "case": "F03",
+      "label": "B",
+      "core": false,
+      "clean": false,
+      "note": "Names water vapor, the product, without supplying the requested process; qualifying its name later does not supply evaporation."
+    },
+    {
+      "case": "F04",
+      "label": "A",
+      "core": false,
+      "clean": false,
+      "note": "Repeats the question and mentions an axis relation without identifying east."
+    },
+    {
+      "case": "F04",
+      "label": "B",
+      "core": false,
+      "clean": false,
+      "note": "Describes left/right and the North Pole without answering east."
+    },
+    {
+      "case": "R01",
+      "label": "A",
+      "core": false,
+      "clean": false,
+      "note": "Repeats four and three without the correct new total and initially gives four as the current possession."
+    },
+    {
+      "case": "R01",
+      "label": "B",
+      "core": true,
+      "clean": true,
+      "note": "The complete visible calculation gives 4 + 3 = 7 buttons and introduces no alternative transaction or false claim."
+    },
+    {
+      "case": "R02",
+      "label": "A",
+      "core": false,
+      "clean": false,
+      "note": "Repeats the eaten quantity without supplying five remaining."
+    },
+    {
+      "case": "R02",
+      "label": "B",
+      "core": false,
+      "clean": false,
+      "note": "Initially gives nine remaining and repeats irrelevant division; the first answer is wrong."
+    },
+    {
+      "case": "R03",
+      "label": "A",
+      "core": false,
+      "clean": false,
+      "note": "Repeats a supplied comparison without identifying the shortest item."
+    },
+    {
+      "case": "R03",
+      "label": "B",
+      "core": false,
+      "clean": false,
+      "note": "Incorrectly says the ribbon is shorter than the thread; no correct shortest answer is supplied."
+    },
+    {
+      "case": "R04",
+      "label": "A",
+      "core": true,
+      "clean": false,
+      "note": "The initial No is correct, but the unsupported claim that the bag does not show every blue bead persists as its explanation."
+    },
+    {
+      "case": "R04",
+      "label": "B",
+      "core": false,
+      "clean": false,
+      "note": "Initially confirms all blue beads are round and then contradicts that justification; the first wrong response is not erased."
+    },
+    {
+      "case": "I01",
+      "label": "A",
+      "exact": false,
+      "note": "The full visible response differs from the required literal after outer whitespace stripping; added or unrelated text fails exact compliance."
+    },
+    {
+      "case": "I01",
+      "label": "B",
+      "exact": false,
+      "note": "The full visible response differs from the required literal after outer whitespace stripping; added or unrelated text fails exact compliance."
+    },
+    {
+      "case": "I02",
+      "label": "A",
+      "exact": false,
+      "note": "The full visible response differs from the required literal after outer whitespace stripping; added or unrelated text fails exact compliance."
+    },
+    {
+      "case": "I02",
+      "label": "B",
+      "exact": false,
+      "note": "The full visible response differs from the required literal after outer whitespace stripping; added or unrelated text fails exact compliance."
+    },
+    {
+      "case": "I03",
+      "label": "A",
+      "exact": false,
+      "note": "The full visible response differs from the required literal after outer whitespace stripping; added or unrelated text fails exact compliance."
+    },
+    {
+      "case": "I03",
+      "label": "B",
+      "exact": false,
+      "note": "The full visible response differs from the required literal after outer whitespace stripping; added or unrelated text fails exact compliance."
+    },
+    {
+      "case": "I04",
+      "label": "A",
+      "exact": false,
+      "note": "The full visible response differs from the required literal after outer whitespace stripping; added or unrelated text fails exact compliance."
+    },
+    {
+      "case": "I04",
+      "label": "B",
+      "exact": false,
+      "note": "The full visible response differs from the required literal after outer whitespace stripping; added or unrelated text fails exact compliance."
+    },
+    {
+      "case": "G01",
+      "label": "A",
+      "core": false,
+      "clean": false,
+      "note": "Only repeats not under the table; does not supply behind the sofa."
+    },
+    {
+      "case": "G01",
+      "label": "B",
+      "core": true,
+      "clean": true,
+      "note": "Correctly states behind the sofa and preserves the supplied exclusion of under the table."
+    },
+    {
+      "case": "G02",
+      "label": "A",
+      "core": true,
+      "clean": true,
+      "note": "Correctly identifies Ben as the owner of the turtle."
+    },
+    {
+      "case": "G02",
+      "label": "B",
+      "core": false,
+      "clean": false,
+      "note": "Only repeats the question; no turtle answer is visible."
+    },
+    {
+      "case": "G03",
+      "label": "A",
+      "core": false,
+      "clean": false,
+      "note": "Alternates past coat/basket/coat locations without establishing the current basket location; the continuation repeats the obsolete coat location rather than resolving it."
+    },
+    {
+      "case": "G03",
+      "label": "B",
+      "core": false,
+      "clean": false,
+      "note": "Initially states the current location is the coat, which conflicts with the supplied move; later restating the basket move does not erase that first wrong answer."
+    },
+    {
+      "case": "G04",
+      "label": "A",
+      "core": false,
+      "clean": false,
+      "note": "Asserts dark brown and an invented brown/teal explanation despite the supplied yellow cup."
+    },
+    {
+      "case": "G04",
+      "label": "B",
+      "core": false,
+      "clean": false,
+      "note": "Invents unrelated surname/geographic claims and does not answer yellow."
+    },
+    {
+      "case": "U01",
+      "label": "A",
+      "core": false,
+      "clean": false,
+      "note": "Asserts the shop name as its street address and repeats it instead of acknowledging the missing address."
+    },
+    {
+      "case": "U01",
+      "label": "B",
+      "core": true,
+      "clean": true,
+      "note": "Explicitly says the address is unspecified and invents no street, town or number. The completed generic name/place clause adds no material address claim; this is a narrow pass of the frozen missing-information criterion, not a style endorsement."
+    },
+    {
+      "case": "U02",
+      "label": "A",
+      "core": true,
+      "clean": true,
+      "note": "Explicitly states that the card count is unknown and supplies no invented count."
+    },
+    {
+      "case": "U02",
+      "label": "B",
+      "core": false,
+      "clean": false,
+      "note": "Proposes operations and a count concept without explicitly acknowledging that the missing count cannot be determined."
+    },
+    {
+      "case": "U03",
+      "label": "A",
+      "core": false,
+      "clean": false,
+      "note": "Repeats empty fenced blocks without supplying the provided code731."
+    },
+    {
+      "case": "U03",
+      "label": "B",
+      "core": true,
+      "clean": false,
+      "note": "Initially supplies731 correctly but introduces732 as an unsupported alternative code."
+    },
+    {
+      "case": "U04",
+      "label": "A",
+      "core": true,
+      "clean": true,
+      "note": "Correctly supplies Maple Road; repeating the related question adds no false alternative or material task drift."
+    },
+    {
+      "case": "U04",
+      "label": "B",
+      "core": true,
+      "clean": false,
+      "note": "Initially supplies Maple Road correctly, then invents visible landscape and dense forests that were not provided."
+    },
+    {
+      "case": "S01",
+      "label": "A",
+      "topic": false,
+      "coherent": false,
+      "resolution": true,
+      "two_sentences": false,
+      "note": "Repeated found-hat claims retain a visible found state, but the snail loss and helpful robin action are absent. The hat inside itself and inconsistent locations remain incoherent; there are more than two sentences plus a fragment."
+    },
+    {
+      "case": "S01",
+      "label": "B",
+      "topic": false,
+      "coherent": true,
+      "resolution": false,
+      "two_sentences": false,
+      "note": "The farmer/snail/ghost narrative omits hat loss and robin assistance and has no required resolution. No definite material contradiction is established merely by fantastical content; several sentences and a fragment violate the format."
+    },
+    {
+      "case": "S02",
+      "label": "A",
+      "topic": false,
+      "coherent": true,
+      "resolution": false,
+      "two_sentences": false,
+      "note": "Only repeats the repair claim; the train never visibly runs again. No definite internal contradiction, but many sentences and a fragment violate the format."
+    },
+    {
+      "case": "S02",
+      "label": "B",
+      "topic": false,
+      "coherent": true,
+      "resolution": false,
+      "two_sentences": false,
+      "note": "The boy remains uncertain about a replacement and play; no finished repair or running train is narrated. His uncertain thoughts do not establish a definite contradictory event. More than two sentences and a final fragment."
+    },
+    {
+      "case": "S03",
+      "label": "A",
+      "topic": true,
+      "coherent": false,
+      "resolution": true,
+      "two_sentences": false,
+      "note": "The fox returns the borrowed lantern to the owl before dark, satisfying topic/action and visible resolution, but immediate alternating asleep/not-asleep claims are materially inconsistent and the output exceeds two sentences."
+    },
+    {
+      "case": "S03",
+      "label": "B",
+      "topic": false,
+      "coherent": false,
+      "resolution": false,
+      "two_sentences": false,
+      "note": "Repeatedly substitutes an owl for the required fox as returning actor; the required fox-return resolution remains absent. Several sentences plus an unfinished fragment."
+    },
+    {
+      "case": "S04",
+      "label": "A",
+      "topic": false,
+      "coherent": true,
+      "resolution": false,
+      "two_sentences": true,
+      "note": "Two complete sentences consistently describe the friends sharing the final pear. Neither friend is stated to feel happy, so full topic and requested happy resolution remain unmet despite the completed two-sentence format."
+    },
+    {
+      "case": "S04",
+      "label": "B",
+      "topic": false,
+      "coherent": true,
+      "resolution": false,
+      "two_sentences": false,
+      "note": "A boy, playground and landscape replace the two friends and shared pear. No definite internal contradiction is required to reject the absent topic/resolution; many sentences and an unfinished fragment violate the format."
+    }
+  ]
+}

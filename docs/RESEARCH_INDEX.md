@@ -1,4 +1,22 @@
-# Research snapshot v9: evidence index
+# Research snapshot v10: evidence index
+
+## Doubled output caps: the new controlled comparison
+
+[Firmware influence](firmware-influence-2026-10-30.md) and chapter8 of the
+[central report](RESEARCH_REPORT.md) distinguish execution speed, bounded
+numerical equality, deployable model capacity and the visible output boundary.
+Faster inference preserved the tested answers, including their errors.
+
+[Output-cap V3](quality-cap-v3-2026-10-30.md) keeps the same 24 questions,
+artifacts, inputs and firmware, changing caps from16/48 to32/96. It adds43 fresh
+quality streams and three controls; five old early-EOS streams are explicitly
+reused. Tiny has one uncertain-to-clean judgment; no confirmed failure becomes
+a confirmed success. Supra gains none. Exact-format and strict-story scores stay
+0/4 for both. More generated text costs more recorded generation time.
+
+[Full paired texts](../data/quality-cap-v3-2026-10-30/comparison.html) retain failures,
+old ratings, new pre-unblinding ratings and all notes. This is same-author review
+of known questions, not an independent or fully blind benchmark.
 ## Complete history and new prospective qualityV2 study
 
 [Read the project from its first experiments onward](CHRONOLOGY.md).
@@ -42,7 +60,7 @@ exact output equality, small-sample, unblinded and not independent.
   rebuilt public keyless diagnostic BINs still stop at0.5.5. Private measured
   images carry authentication and are excluded. Redacted0.8.0/0.9.0 public bytes
   have no ESP build or physical-device acceptance claim.
-- [Release notes](RELEASE_NOTES_V9.md), [coverage](COVERAGE.md),
+- [Release notes](RELEASE_NOTES_V10.md), [coverage](COVERAGE.md),
   [browse all figures](../index.html).
 
 ## Evidence boundaries

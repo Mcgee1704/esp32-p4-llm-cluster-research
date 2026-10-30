@@ -1,0 +1,108 @@
+{
+  "mapping": {
+    "nonce": "1b62137f31d4db4046de427ebd8d024e23945463a026e50641183ffe033b95d1",
+    "labels": {
+      "F01": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "F02": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "F03": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "F04": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "R01": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "R02": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "R03": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "R04": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "I01": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "I02": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "I03": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "I04": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "G01": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "G02": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "G03": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "G04": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "U01": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "U02": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "U03": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "U04": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "S01": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "S02": {
+        "A": "supra",
+        "B": "tinybrainbot"
+      },
+      "S03": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      },
+      "S04": {
+        "A": "tinybrainbot",
+        "B": "supra"
+      }
+    }
+  },
+  "mapping_sha256": "f186ad2ff24949ffbb5fdb818f29a8955f0aea8a4e6db38fcfcfb9bde1458d11",
+  "ratings_commit": "37bdb1cdb1dad6b12300ad736ddb3f8d1d22f2f7",
+  "ratings_sha256": "957b79e1ad2ec047f6c64e4f7cffe5d41e3a44e1e9cf668ffa183227238702cd",
+  "masked_responses_sha256": "cd52ec8a2a693040634069d865e24b4cb2382ec355052e173be09fe28ca07f19",
+  "scope": "Higher-cap ratings committed before new mapping disclosure. Same author knows prior answers/ratings; not independent or fully blind."
+}

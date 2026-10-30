@@ -1,0 +1,29 @@
+{
+  "protocol_commit": "9fb72c6b991bbb5ed460058f80c23c3d2d980d15",
+  "protocol_sha256": "06749e1c9d97b4393613a99106d2787b984d6997d7168603ef7ce3bb68661221",
+  "references_sha256": "41573749da3febb6198e3938931491562dd312cb2ea8bce0230265fe04120283",
+  "new_references": 48,
+  "old_prefixes_equal": 48,
+  "old_eos_answers_fully_equal": 5,
+  "known_controls_equal": 2,
+  "sources": {
+    "firmware/components/tinyllm/tinyllm.c": "d8136aadd9bb641cc4ff1368875f70290c885210c83db89dacbbde5c4608090e",
+    "firmware/components/tinyllm/int4_dot.h": "ff3d3566f68b4a6b424c149bb1b8ed165a24103e3615a931dbb9f0f29d8ca62b",
+    "firmware/components/tinyllm/sp_tokenizer.c": "9e0c1812564a7343a642f1a125032d230c36a6b243bd7fde88459e4dc7e4a86a",
+    "firmware/components/tinyllm/gpt2_tokenizer.c": "1ae5d2d58cf5c20949b5ce5307f3856be178c7802a950f58d80d7df9a27bddf2",
+    "firmware/main/service.c": "7de21be4c16ba247eb0886d1afb33adb3b38b6d5059648b72971fff52732fa74",
+    "firmware/main/dispatcher.c": "758246a1aa0e063c4686f82aa12161a0d95c6109b061716d3026104df7eeedd8",
+    "firmware/CMakeLists.txt": "bb8fa2f8ee5d10321e99644be01c6087eb02afc3af571848ebf8101f39ffa343",
+    "tools/supra_tiny_v09_trial.py": "63270b5f847692d13eecde312cc3747515e9f18b8d82849219c71a68fb6a6490",
+    "tools/check_gptneo_native.py": "b69ad81b00c91c47b1a860be9b448f3a320442ef831e713565e39ac0d1cb13c1",
+    "tools/gptneo_p4_trial.py": "4848d919117b438064e0e828c9b264b73aa0e75cea0da75324d458548d19e5e2",
+    "tools/benchmark_kernel.py": "1472325b9f7a9e8e51b80b58249b31e94cc49ec64adc140016911f699fbe842c",
+    "tools/tinybrainbot_p4_trial.py": "29799037086a0ab00623b3648de2cf8d55b0bf46ba52c8c2ba4480e7c46c5891",
+    "tools/dispatch_client.py": "b3a8112738989b0ef38ad92c3a14de6da68d4bb47618621ecf0719c2a93f07c5",
+    "tools/lan_client.py": "e8c3916e07981040e9eb83eb326de64bbcffd9cd2c7873653c9026f785c2e0fd",
+    "tools/quality_v2_trial.py": "380a4afeeb06f951bcacbce387f54f8716bdfea0a3b47cfdaa29cdec034b3302",
+    "tools/quality_v2_results.py": "4af214a23a26dd289db8ac737c3d671f832948a3db5545b50e75d04fdbfe51cb",
+    "tools/quality_cap_v3_trial.py": "89b6b2ad0648378f5ef6a1765a2e2aeb05503a863cc6020e741a6b8ca6b699fb"
+  },
+  "archived_dll_preserved": true
+}

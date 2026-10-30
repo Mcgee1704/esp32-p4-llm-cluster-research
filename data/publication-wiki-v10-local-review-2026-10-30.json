@@ -1,0 +1,42 @@
+{
+  "prepared_locally": true,
+  "online_upload_performed": false,
+  "research": {
+    "target": "https://github.com/Mcgee1704/esp32-p4-llm-cluster-research",
+    "branch": "main",
+    "commit": "41a73596045ae1587c5494acf76201b39d03d589",
+    "parent": "1f999f3ef43b5d56f965f35cf60a521319cfd663",
+    "files": 1716,
+    "figures": 24,
+    "existing_keyless_binary_components": 20,
+    "files_hashed": 1715,
+    "representation_relationships": 1664,
+    "relative_markdown_links": 322,
+    "figure_source_relationships": 226,
+    "protected_old_data_and_maintenance_files_byte_preserved": 943,
+    "fresh_clone_checked": true,
+    "historical_120_output_counter_regression_checked": true
+  },
+  "wiki": {
+    "target": "https://github.com/Mcgee1704/esp32-p4-llm-cluster-research/wiki",
+    "git_target": "https://github.com/Mcgee1704/esp32-p4-llm-cluster-research.wiki.git",
+    "branch": "master",
+    "commit": "0973789b14ed8846140b61f756e1a465586efea3",
+    "parent": "dc7bb78329043e97c7b991c906b3a2fb7233058c",
+    "markdown_files": 13,
+    "changed_or_new_files": 9,
+    "internal_links_checked": 30,
+    "pinned_archive_targets_checked": 46,
+    "untouched_topic_pages_byte_preserved": 4,
+    "fresh_clone_checked": true,
+    "depends_on_approved_research_commit": true
+  },
+  "new_commits_use_noreply": true,
+  "private_key_host_device_markers_and_email_strings_absent_from_payload_files": true,
+  "private_source_history_imported": false,
+  "existing_public_author_email_history_not_rewritten": true,
+  "new_model_or_device_runs": 0,
+  "existing_figure_tests_passed": 4,
+  "two_separate_target_specific_confirmations_required": true,
+  "existing_main_archive_workflow_preserved": true
+}

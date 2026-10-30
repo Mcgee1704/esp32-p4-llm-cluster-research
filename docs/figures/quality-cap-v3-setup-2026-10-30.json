@@ -1,0 +1,19 @@
+{
+  "title": "quality-cap-v3-setup",
+  "date": "2026-10-30",
+  "source_sha256": {
+    "docs/research/data/quality-cap-v3-2026-10-30/protocol.json": "06749e1c9d97b4393613a99106d2787b984d6997d7168603ef7ce3bb68661221",
+    "docs/research/data/quality-cap-v3-2026-10-30/summary.json": "a89568d9f2732257652bdfcde2f9b7a6e47b07110d80bda2bfdf47b460fadfc2",
+    "docs/research/data/quality-cap-v3-2026-10-30/paired-results.json": "6a00e9b7f2cf92c76c7fbe1c5f1d2ab80c528234f19aaa0896cd157e86f80133",
+    "docs/research/data/quality-cap-v3-2026-10-30/masked-ratings.json": "957b79e1ad2ec047f6c64e4f7cffe5d41e3a44e1e9cf668ffa183227238702cd",
+    "docs/research/data/quality-cap-v3-2026-10-30/unblinding.json": "9d84b2961c54b233cd72d58a2112c9f10563b4d1430ba65ba200a1fbc6062f75",
+    "docs/research/data/quality-cap-v3-2026-10-30/record-audit.json": "64a2f303d4a251b26ddc5a93b090d7cff7e27d1d073e365a61c8df58744cdc9e",
+    "docs/research/data/quality-cap-v3-2026-10-30/final.json": "ba5ac05253273bd1e35ca85e68f31fbe379c659837f956a016e2b3852b4dec9a",
+    "docs/research/data/quality-v2-2026-10-30/summary.json": "b1004a86009114c647e7b5a90d0eb118e0475551f800e8c9e73ced8b36644898",
+    "docs/research/data/quality-v2-2026-10-30/masked-ratings.json": "b904f0cce399b7f422bb99cc9015dff27b1d4bbaf03949d55607c2d357e9e0a5",
+    "tools/quality_cap_v3_results.py": "7820fe837f796efe7165a41380538634fe96e15daf02921222208a8bc4334450",
+    "tools/plot_matched_models.py": "85d38d6fa6581e2715353b783cf3bf44ce309300072cc7ed5c86818935d8561a",
+    "tools/plot_quality_cap_v3.py": "19b1e20a3a145eafb3844685de67271eb6117a913f104973b4e0fe1e0b1079c6"
+  },
+  "scope": "Same 24 known English tasks, doubled caps32/96 versus16/48;43 fresh quality streams,5 explicit EOS reuses,3 fresh controls. Same-author model-label-masked higher-cap ratings, not independent or fully blind. No pooled model score or equal-work speed claim."
+}
